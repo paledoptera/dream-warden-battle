@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://cmoaj8ubaywoh"]
+
+[ext_resource type="Script" uid="uid://cbblukcc412w3" path="res://entities/effects/floating_text/floating_text.gd" id="1_1frxc"]
+
+[sub_resource type="Animation" id="Animation_1frxc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Container:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Container:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Container:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_wbmcv"]
+resource_name = "floating_text"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Container:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.4, 0.43333334, 0.46666667, 0.5, 0.53333336, 0.56666666, 0.6, 0.6333333, 1.2666665, 1.3, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(41, 0), Vector2(45, -2), Vector2(49, -4), Vector2(52, -5), Vector2(53, -5), Vector2(54, -5), Vector2(55, -4), Vector2(56, -2), Vector2(57, 0), Vector2(57, 2), Vector2(57, 5), Vector2(57, 1), Vector2(57, 0), Vector2(57, -1), Vector2(57, -1), Vector2(57, 0), Vector2(57, 2), Vector2(57, 5), Vector2(57, 3), Vector2(57, 3), Vector2(57, 2), Vector2(57, -12)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Container:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 1.3, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1.5, 0.2), Vector2(1, 1), Vector2(1, 1), Vector2(1, 1.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Container:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Container:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.3, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1frxc"]
+_data = {
+&"RESET": SubResource("Animation_1frxc"),
+&"floating_text": SubResource("Animation_wbmcv")
+}
+
+[node name="FloatingText" type="Node2D" unique_id=1603175697]
+script = ExtResource("1_1frxc")
+
+[node name="Container" type="Node2D" parent="." unique_id=1294977984]
+
+[node name="Sprite2D" type="Sprite2D" parent="Container" unique_id=593545790]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Container" unique_id=1944854665]
+offset_right = 40.0
+offset_bottom = 25.0
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(-0.5, -0.5)
+text = "100"
+horizontal_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2056631819]
+libraries/ = SubResource("AnimationLibrary_1frxc")
+autoplay = &"floating_text"

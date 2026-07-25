@@ -1,0 +1,7 @@
+[gd_resource type="FontVariation" format=3 uid="uid://72sk30ahlloh"]
+
+[ext_resource type="FontFile" uid="uid://uxn5h14rnymm" path="res://shared/theme/fonts/default.ttf" id="1_tjpnq"]
+
+[resource]
+base_font = ExtResource("1_tjpnq")
+spacing_glyph = 2

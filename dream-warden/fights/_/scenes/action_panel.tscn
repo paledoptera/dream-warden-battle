@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://c0oopy8rd7aua"]
+
+[ext_resource type="PackedScene" uid="uid://ca3d2dgphgx5j" path="res://dialogue/box/dialogue_box.tscn" id="1_68wrf"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_68wrf"]
+content_margin_left = 32.0
+content_margin_top = 9.0
+
+[node name="ActionPanel" type="Node2D" unique_id=1178111876]
+
+[node name="Background" type="ColorRect" parent="." unique_id=315189480]
+offset_top = -37.0
+offset_right = 1000.0
+offset_bottom = 480.0
+color = Color(0, 0, 0, 1)
+
+[node name="DialogueBox" parent="." unique_id=933132283 instance=ExtResource("1_68wrf")]
+offset_right = 640.0
+offset_bottom = 115.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_68wrf")
+bbcode_enabled = true
+text = "* This is a sample text"

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://d4km1k6q6wbdd"]
+
+[ext_resource type="Script" uid="uid://wtrxgrkpxs6" path="res://fights/_/fight.gd" id="1_7nq4e"]
+[ext_resource type="PackedScene" uid="uid://c0oopy8rd7aua" path="res://fights/_/scenes/action_panel.tscn" id="2_xfwpu"]
+
+[node name="Fight" type="Node2D" unique_id=2124086931]
+script = ExtResource("1_7nq4e")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=540027549]
+offset = Vector2(320, 240)
+
+[node name="ActionPanel" parent="Camera2D" unique_id=1178111876 instance=ExtResource("2_xfwpu")]
+position = Vector2(0, 365)
+
+[node name="Heroes" type="Node2D" parent="." unique_id=203608346]
+
+[node name="Enemies" type="Node2D" parent="." unique_id=520631560]
