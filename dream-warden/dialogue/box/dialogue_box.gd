@@ -1,5 +1,6 @@
 extends RichTextLabel
 
+@export var effect_offset := Vector2.ZERO
 var queue: Array[DialogueString]
 var current: DialogueString
 
@@ -58,7 +59,7 @@ func refresh() -> void:
 		for marker in current.markers:
 			add_marker(marker)
 	Dialogue.displaying_text = true
-	visible_characters = 0
+	visible_characters = 1
 
 
 func check_if_text_finished(hide: bool = true) -> void:
@@ -82,7 +83,7 @@ func add_marker(marker: DialogueMarker) -> void:
 		gradient_eff.start_char = marker.start_char
 		gradient_eff.end_char = marker.end_char
 		add_child(gradient_eff)
-		gradient_eff.position = Vector2(32.0,9.0)
+		gradient_eff.position = effect_offset
 		
 	if marker is SpriteMarker:
 		var sprite_eff = RichTextSpriteEffect.new()
@@ -92,7 +93,7 @@ func add_marker(marker: DialogueMarker) -> void:
 		sprite_eff.sprite_scale = marker.sprite_scale
 		sprite_eff.offset = marker.offset
 		add_child(sprite_eff)
-		sprite_eff.position.y = 9.0
+		sprite_eff.position = effect_offset
 
 
 static func is_letter_or_number(p_char: int) -> bool:

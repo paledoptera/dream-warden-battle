@@ -1,0 +1,25 @@
+[remap]
+
+importer="font_data_image"
+type="FontFile"
+uid="uid://q7kjkfbse6t8"
+path="res://.godot/imported/character_names.png-59046ef59ab80a2bf7382775d81328b5.fontdata"
+
+[deps]
+
+source_file="res://shared/theme/fonts/character_names/character_names.png"
+dest_files=["res://.godot/imported/character_names.png-59046ef59ab80a2bf7382775d81328b5.fontdata"]
+
+[params]
+
+character_ranges=PackedStringArray("\'A\'-\'Z\'")
+kerning_pairs=PackedStringArray("ABCDEFGHIJLOPRSTUVY ABCDEFGHIJKLMNOPQRSTUVWXYZ -1")
+columns=26
+rows=1
+image_margin=Rect2i(0, 0, 0, 0)
+character_margin=Rect2i(0, 0, 0, 0)
+ascent=0
+descent=0
+fallbacks=[]
+compress=true
+scaling_mode=1

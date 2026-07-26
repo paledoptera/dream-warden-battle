@@ -10,5 +10,14 @@ bgm = ExtResource("2_vbur6")
 
 [node name="Background" parent="." index="0" unique_id=554147509 instance=ExtResource("3_ffynk")]
 
-[node name="DreamWarden" parent="Enemies" parent_id_path=PackedInt32Array(520631560) index="0" unique_id=968285758 instance=ExtResource("4_aclcl")]
+[node name="Enemies" parent="." index="3" unique_id=520631560]
+visible = true
+
+[node name="DreamWarden" parent="Enemies" index="0" unique_id=968285758 instance=ExtResource("4_aclcl")]
 position = Vector2(442, 177)
+
+[node name="Sprite2D3" parent="." index="5" unique_id=649400639]
+modulate = Color(1, 1, 1, 0.49411765)
+
+[editable path="Camera2D/ActionPanel"]
+[editable path="Camera2D/TPBar"]

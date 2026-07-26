@@ -15,5 +15,11 @@ func _ready() -> void:
 	
 
 func _process(delta: float) -> void:
+	
+	if Input.is_action_just_pressed("up"):
+		Battle.tp += 20
+	if Input.is_action_just_pressed("down"):
+		Battle.tp -= 20
+	
 	if Input.is_action_just_pressed("confirm"):
 		Sound.play(preload("uid://ddhxsdl3aap7i"))

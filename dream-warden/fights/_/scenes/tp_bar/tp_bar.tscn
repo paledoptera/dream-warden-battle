@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://jhaejpx46ycp"]
+
+[ext_resource type="Script" uid="uid://c42owbfh25py5" path="res://fights/_/scenes/tp_bar/tp_bar.gd" id="1_1qr6m"]
+[ext_resource type="Texture2D" uid="uid://d2pl8lxclxond" path="res://fights/_/scenes/tp_bar/res/tp_bar.png" id="2_ditgr"]
+[ext_resource type="Texture2D" uid="uid://bxjwuxoxdnx2a" path="res://fights/_/scenes/tp_bar/res/tp_percent.png" id="3_13yvf"]
+[ext_resource type="Texture2D" uid="uid://br8oyhtxlsw6g" path="res://fights/_/scenes/tp_bar/res/tp_text.png" id="4_c0xj3"]
+[ext_resource type="Texture2D" uid="uid://bivdiuyw1iqsi" path="res://fights/_/scenes/tp_bar/res/tp_max.png" id="5_gf534"]
+[ext_resource type="Texture2D" uid="uid://boq3fmmfpn84k" path="res://fights/_/scenes/tp_bar/res/tp_bar_progress.png" id="5_m0drx"]
+[ext_resource type="Texture2D" uid="uid://coalpkjadmxxt" path="res://fights/_/scenes/tp_bar/res/tp_bar_progress_white.png" id="5_munie"]
+[ext_resource type="Texture2D" uid="uid://eppakrra8st8" path="res://fights/_/scenes/tp_bar/res/tp_bar_full.png" id="6_risqd"]
+
+[node name="TPBar" type="Node2D" unique_id=1921588265]
+script = ExtResource("1_1qr6m")
+
+[node name="Text" type="Sprite2D" parent="." unique_id=357834085]
+position = Vector2(-31, -45)
+texture = ExtResource("4_c0xj3")
+
+[node name="Normal" type="Node2D" parent="." unique_id=840135610]
+
+[node name="Bar" type="Sprite2D" parent="Normal" unique_id=38333860]
+texture = ExtResource("2_ditgr")
+offset = Vector2(0.5, 0)
+
+[node name="Percent" type="Sprite2D" parent="Normal" unique_id=399255076]
+position = Vector2(-30, 15)
+texture = ExtResource("3_13yvf")
+
+[node name="Label" type="RichTextLabel" parent="Normal" unique_id=249345363]
+offset_left = -42.0
+offset_top = -27.0
+offset_right = -2.0
+offset_bottom = 13.0
+theme_override_font_sizes/normal_font_size = 32
+text = "0"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ProgressWhite" type="TextureProgressBar" parent="Normal" unique_id=745372090]
+offset_left = -12.0
+offset_top = -98.0
+offset_right = 28.0
+offset_bottom = 98.0
+offset_transform_enabled = true
+fill_mode = 3
+texture_progress = ExtResource("5_munie")
+
+[node name="ProgressWhiteTopper" type="TextureProgressBar" parent="Normal" unique_id=2091217474]
+offset_left = -12.0
+offset_top = -98.0
+offset_right = 28.0
+offset_bottom = 98.0
+offset_transform_enabled = true
+fill_mode = 3
+texture_progress = ExtResource("5_munie")
+
+[node name="Progress" type="TextureProgressBar" parent="Normal" unique_id=754681068]
+offset_left = -12.0
+offset_top = -98.0
+offset_right = 28.0
+offset_bottom = 98.0
+offset_transform_enabled = true
+fill_mode = 3
+texture_progress = ExtResource("5_m0drx")
+
+[node name="Max" type="Node2D" parent="." unique_id=1700609921]
+visible = false
+
+[node name="MaxText" type="Sprite2D" parent="Max" unique_id=963052891]
+position = Vector2(-30, 10)
+texture = ExtResource("5_gf534")
+
+[node name="MaxBar" type="Sprite2D" parent="Max" unique_id=1515877083]
+texture = ExtResource("6_risqd")
+offset = Vector2(0.5, 0)
