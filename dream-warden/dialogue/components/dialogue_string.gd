@@ -1,6 +1,6 @@
 class_name DialogueString
 extends Resource
 
-@export_multiline var text : String = "  * Nothing happened."
+@export_multiline var text : String = "* Nothing happened."
 @export var require_input: bool = true
 @export var markers: Array[DialogueMarker]

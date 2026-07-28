@@ -16,7 +16,7 @@ visible = true
 [node name="DreamWarden" parent="Enemies" index="0" unique_id=968285758 instance=ExtResource("4_aclcl")]
 position = Vector2(442, 177)
 
-[node name="Sprite2D3" parent="." index="5" unique_id=649400639]
+[node name="Sprite2D3" parent="." index="6" unique_id=649400639]
 modulate = Color(1, 1, 1, 0.49411765)
 
 [editable path="Camera2D/ActionPanel"]

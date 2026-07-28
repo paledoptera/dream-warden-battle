@@ -35,7 +35,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_bm74x"]
 resource_name = "start"
-length = 0.39999999999999997
+length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -83,6 +83,9 @@ position = Vector2(50, 137)
 
 [node name="Enemies" type="Node2D" parent="." unique_id=520631560]
 visible = false
+
+[node name="Attacks" type="Node2D" parent="." unique_id=903101921]
+position = Vector2(320, 170)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2017475177]
 visible = false

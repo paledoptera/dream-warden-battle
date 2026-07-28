@@ -7,7 +7,7 @@ var current: DialogueString
 
 func _ready() -> void:
 	Dialogue.display_text.connect(display_text)
-
+	Dialogue.clear_text.connect(hide_text)
 
 func _physics_process(_delta: float) -> void:
 	if Dialogue.displaying_text and visible_ratio < 1.0:

@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://uec82rpcc8iu"]
+
+[ext_resource type="Script" uid="uid://bamtf78ip1uth" path="res://entities/characters/enemies/dream_warden/attacks/0_wings/soul.gd" id="1_cmvqp"]
+[ext_resource type="Texture2D" uid="uid://wy7dhu8gvr8c" path="res://soul/res/soul.png" id="2_ci5fb"]
+
+[node name="Soul" type="CharacterBody2D" unique_id=443094051]
+script = ExtResource("1_cmvqp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=135992417]
+texture = ExtResource("2_ci5fb")
