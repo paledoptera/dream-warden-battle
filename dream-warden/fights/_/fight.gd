@@ -1,14 +1,17 @@
-extends Node2D
+class_name FightScene extends Node2D
 
 @export var bgm: AudioStream
+@export_group("Node Paths")
+@export var action_panel: Node2D
 
 func _ready() -> void:
+	Battle.fight_scene = self
+	
 	Battle.reset.emit()
 	Battle.heroes_updated.emit($Heroes)
 	Battle.enemies_updated.emit($Enemies)
 	
 	Battle.state_changed.connect(_on_battle_state_changed)
-	
 	Battle.attack_start.connect(_on_attack_started)
 	
 	if bgm:
@@ -17,13 +20,7 @@ func _ready() -> void:
 	Dialogue.display_text.emit(Battle.get_opening_line())
 
 
-func _process(delta: float) -> void:
-	
-	if Input.is_action_just_pressed("up"):
-		Battle.tp += 20
-	if Input.is_action_just_pressed("down"):
-		Battle.tp -= 20
-	
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("confirm"):
 		Battle.enemy_attacking = true
 

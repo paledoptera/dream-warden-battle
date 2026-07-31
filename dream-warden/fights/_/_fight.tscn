@@ -67,17 +67,9 @@ _data = {
 &"start": SubResource("Animation_bm74x")
 }
 
-[node name="Fight" type="Node2D" unique_id=2124086931]
+[node name="FightScene" type="Node2D" unique_id=2124086931 node_paths=PackedStringArray("action_panel")]
 script = ExtResource("1_7nq4e")
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=540027549]
-offset = Vector2(320, 240)
-
-[node name="ActionPanel" parent="Camera2D" unique_id=1178111876 instance=ExtResource("2_xfwpu")]
-position = Vector2(0, 365)
-
-[node name="TPBar" parent="Camera2D" unique_id=1921588265 instance=ExtResource("3_4uv82")]
-position = Vector2(50, 137)
+action_panel = NodePath("Camera2D/ActionPanel")
 
 [node name="Heroes" type="Node2D" parent="." unique_id=203608346]
 
@@ -86,6 +78,17 @@ visible = false
 
 [node name="Attacks" type="Node2D" parent="." unique_id=903101921]
 position = Vector2(320, 170)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=540027549]
+offset = Vector2(320, 240)
+
+[node name="ActionPanel" parent="Camera2D" unique_id=1178111876 instance=ExtResource("2_xfwpu")]
+z_index = 10
+z_as_relative = false
+position = Vector2(0, 365)
+
+[node name="TPBar" parent="Camera2D" unique_id=1921588265 instance=ExtResource("3_4uv82")]
+position = Vector2(50, 137)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2017475177]
 visible = false

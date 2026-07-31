@@ -9,10 +9,12 @@ var state := State.CHOOSE_ACTION:
 
 var heroes: Array
 var enemies: Array
+var fight_scene: FightScene
 
 var turn: int = 0
 
 var soul: Soul
+
 
 var enemy_attacking: bool = false:
 	set(value):
@@ -52,6 +54,14 @@ func _ready() -> void:
 func update_heroes(parent_node: Node):
 	heroes.clear()
 	heroes = parent_node.get_children()
+	
+	for i in fight_scene.action_panel.actions.get_children():
+		if i is not ActionMenu:
+			continue
+		i.hero = Battle.heroes[0]
+		i.update_hp_values()
+		i.hero.hp_changed.connect(i._on_hp_changed)
+	print(heroes)
 
 func update_enemies(parent_node: Node):
 	enemies.clear()
@@ -95,3 +105,23 @@ func get_opening_line() -> DialogueString:
 func get_flavor_text() -> DialogueString:
 	var dialogue = enemies[0].get_flavor_text()
 	return dialogue
+
+func damage_hero(value: float):
+	Sound.play(preload("uid://cd65urqn1o8fi")) # snd_hurt1.wav
+	
+	if not heroes:
+		return
+	
+	var hero: Hero = heroes.pick_random()
+	var damage: int = (value * 5) - (hero.defense * 3)
+	
+	if Global.hard_mode:
+		damage *= 2
+	
+	if hero.is_defending:
+		damage *= 0.666
+	
+	hero.hp  -= damage
+	print(damage)
+	
+	hero.create_floating_text_string(str(damage))

@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://uec82rpcc8iu"]
+
+[ext_resource type="Script" uid="uid://bamtf78ip1uth" path="res://entities/attacks/components/soul.gd" id="1_cmvqp"]
+[ext_resource type="Texture2D" uid="uid://wy7dhu8gvr8c" path="res://entities/attacks/components/soul/res/soul.png" id="2_ci5fb"]
+
+[node name="Soul" type="CharacterBody2D" unique_id=443094051]
+self_modulate = Color(1, 1, 1, 0.4509804)
+motion_mode = 1
+script = ExtResource("1_cmvqp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=135992417]
+texture = ExtResource("2_ci5fb")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1893006654]
+polygon = PackedVector2Array(-1, -4, 1, -4, 1, -6, 2, -6, 2, -7, 3, -7, 3, -8, 6, -8, 6, -7, 7, -7, 7, -6, 8, -6, 8, 2, 6, 2, 6, 4, 4, 4, 4, 6, 2, 6, 2, 8, -2, 8, -2, 6, -4, 6, -4, 4, -6, 4, -6, 2, -8, 2, -8, -6, -7, -6, -7, -7, -6, -7, -6, -8, -3, -8, -3, -7, -2, -7, -2, -6, -1, -6)

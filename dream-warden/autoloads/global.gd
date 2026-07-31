@@ -1,3 +1,3 @@
 extends Node
 
-var battle
+var hard_mode: bool = false

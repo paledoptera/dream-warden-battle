@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b0to15au3bd1k" path="res://fights/01_warden/res/back_buldings_032021.png" id="1_e0do7"]
 [ext_resource type="Texture2D" uid="uid://c4wgmproivg7r" path="res://fights/01_warden/res/background seamless.png" id="2_m0py3"]
 [ext_resource type="Texture2D" uid="uid://caini7ywdi8h7" path="res://fights/01_warden/res/background seamless test2.png" id="3_xwjks"]
+[ext_resource type="PackedScene" uid="uid://ch6nqfnn4lcxk" path="res://fights/01_warden/res/clock.tscn" id="4_b26wc"]
 
 [sub_resource type="Shader" id="Shader_agsc7"]
 code = "shader_type canvas_item;
@@ -171,3 +172,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_xwjks")
 expand_mode = 1
+
+[node name="Clock" parent="SubViewport" unique_id=913049443 instance=ExtResource("4_b26wc")]
+position = Vector2(0, 227)
+scale = Vector2(0.5, 0.5)

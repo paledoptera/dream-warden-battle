@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cmoaj8ubaywoh"]
 
 [ext_resource type="Script" uid="uid://cbblukcc412w3" path="res://entities/effects/floating_text/floating_text.gd" id="1_1frxc"]
+[ext_resource type="FontFile" uid="uid://tlnjcxhh8t5" path="res://shared/theme/fonts/damage/greater-determination-dr-damage.otf" id="2_2r1al"]
 
 [sub_resource type="Animation" id="Animation_1frxc"]
 length = 0.001
@@ -44,6 +45,7 @@ tracks/2/keys = {
 [sub_resource type="Animation" id="Animation_wbmcv"]
 resource_name = "floating_text"
 length = 2.0
+step = 0.033
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -54,7 +56,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.16666667, 0.2, 0.23333333, 0.26666668, 0.3, 0.33333334, 0.36666667, 0.4, 0.43333334, 0.46666667, 0.5, 0.53333336, 0.56666666, 0.6, 0.6333333, 1.2666665, 1.3, 2),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(41, 0), Vector2(45, -2), Vector2(49, -4), Vector2(52, -5), Vector2(53, -5), Vector2(54, -5), Vector2(55, -4), Vector2(56, -2), Vector2(57, 0), Vector2(57, 2), Vector2(57, 5), Vector2(57, 1), Vector2(57, 0), Vector2(57, -1), Vector2(57, -1), Vector2(57, 0), Vector2(57, 2), Vector2(57, 5), Vector2(57, 3), Vector2(57, 3), Vector2(57, 2), Vector2(57, -12)]
+"values": [Vector2(0, 0), Vector2(4, 0), Vector2(8, -2), Vector2(12, -4), Vector2(15, -5), Vector2(16, -5), Vector2(17, -5), Vector2(18, -4), Vector2(19, -2), Vector2(20, 0), Vector2(20, 2), Vector2(20, 5), Vector2(20, 1), Vector2(20, 0), Vector2(20, -1), Vector2(20, -1), Vector2(20, 0), Vector2(20, 2), Vector2(20, 5), Vector2(20, 3), Vector2(20, 3), Vector2(20, 2), Vector2(20, -12)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -63,10 +65,10 @@ tracks/1/path = NodePath("Container:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.033333335, 1.3, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 1.3, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(1.5, 0.2), Vector2(1, 1), Vector2(1, 1), Vector2(1, 1.5)]
+"values": [Vector2(1.5, 0.2), Vector2(1.25, 0.6), Vector2(1, 1), Vector2(1, 1), Vector2(1, 1.5)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -107,11 +109,16 @@ script = ExtResource("1_1frxc")
 [node name="Sprite2D" type="Sprite2D" parent="Container" unique_id=593545790]
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Container" unique_id=1944854665]
-offset_right = 40.0
+offset_right = 100.0
 offset_bottom = 25.0
 offset_transform_enabled = true
 offset_transform_position_ratio = Vector2(-0.5, -0.5)
-text = "100"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/normal_font = ExtResource("2_2r1al")
+theme_override_font_sizes/normal_font_size = 14
+text = "999"
+scroll_active = false
 horizontal_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2056631819]

@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://3nx65dm5fref"]
+
+[ext_resource type="Script" uid="uid://bisu8d38by8b5" path="res://entities/bullets/bullet.gd" id="1_6uqmw"]
+[ext_resource type="Texture2D" uid="uid://hfvhoxn0qkpu" path="res://entities/bullets/generic/res/diamond.png" id="2_4x1di"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_34f7c"]
+radius = 11.011357
+
+[node name="UltraDiamondBullet" type="Area2D" unique_id=194047947]
+scale = Vector2(2, 2)
+script = ExtResource("1_6uqmw")
+damage = 13
+graze_points = 0
+destructible = true
+velocity = Vector2(0, -300)
+life_time = 4.0
+metadata/_custom_type_script = "uid://bisu8d38by8b5"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=419109947]
+rotation = 1.5707964
+scale = Vector2(4, 4)
+texture = ExtResource("2_4x1di")
+offset = Vector2(0, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1331419005]
+shape = SubResource("CircleShape2D_34f7c")

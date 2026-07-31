@@ -24,6 +24,7 @@ func play(p_music: AudioStream, p_volume := 1.0, p_loop := true, pitch:= 1.0):
 	
 	audio_player = music[p_music.resource_path]
 	audio_player.stream = p_music
+	audio_player.bus = "Music"
 	audio_player.volume_linear = p_volume
 	audio_player.pitch_scale = pitch
 	audio_player.play()

@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://c0oopy8rd7aua"]
 
+[ext_resource type="Script" uid="uid://bc605h3x6ov6y" path="res://fights/_/scenes/action_panel/action_panel.gd" id="1_6w33t"]
 [ext_resource type="PackedScene" uid="uid://ca3d2dgphgx5j" path="res://dialogue/box/dialogue_box.tscn" id="1_yn2l1"]
 [ext_resource type="PackedScene" uid="uid://jeonilaut88t" path="res://fights/_/scenes/action_panel/action_menu/action_menu.tscn" id="2_6w33t"]
 
@@ -10,7 +11,9 @@ content_margin_top = 15.0
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
 bg_color = Color(0.2, 0.1254902, 0.2, 1)
 
-[node name="ActionPanel" type="Node2D" unique_id=1178111876]
+[node name="ActionPanel" type="Node2D" unique_id=1178111876 node_paths=PackedStringArray("actions")]
+script = ExtResource("1_6w33t")
+actions = NodePath("Actions")
 
 [node name="Background" type="ColorRect" parent="." unique_id=315189480]
 offset_top = -39.0

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dtmcj4jahjy3x"]
 
-[ext_resource type="Texture2D" uid="uid://by8kdq2k1sqxq" path="res://fighters/monsters/dream_warden/attacks/phase0_red/0_wings/_res/wings_particle.png" id="1_2m0dq"]
+[ext_resource type="Texture2D" uid="uid://by8kdq2k1sqxq" path="res://entities/characters/enemies/dream_warden/attacks/0_wings/bullets/res/wings_particle.png" id="1_2m0dq"]
 
 [sub_resource type="Curve" id="Curve_704u2"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.095833346, 0.7250001), 7.090908, 7.090908, 0, 0, Vector2(0.53333336, 0.5500001), 0.0, 0.0, 0, 0, Vector2(1, 0), -0.1188119, 0.0, 0, 0]
@@ -15,7 +15,6 @@ point_count = 3
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 
 [node name="CPUParticles2D" type="CPUParticles2D" unique_id=832654261]
-z_index = 1
 scale = Vector2(0.5, 1)
 emitting = false
 amount = 2

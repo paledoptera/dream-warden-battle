@@ -1,0 +1,69 @@
+class_name Bullet extends Area2D
+
+@export_group("Stats")
+@export var damage := 1
+## The amount of TP gained by grazing
+@export var graze_points := 5
+## How much the turn timer is reduced when grazing (in seconds)
+@export var time_points := 5.0 / 30.0
+##Whether the pellet gets destroyed if it collides
+@export var destructible: bool = false
+##If the pellet can hit you even if you have i-frames
+@export var ignore_iframes: bool = false
+
+@export_group("Movement")
+@export var velocity := Vector2.ZERO
+@export var speed_multiplier := 1.0
+@export var life_time := 2.0
+@export var linear_acceleration := 0.0
+@export var angular_velocity := 0.0
+@export var rotate_sprite := false:
+	set(p_rotate_sprite):
+		rotate_sprite = p_rotate_sprite
+		if !rotate_sprite and $Sprite:
+			$Sprite.rotation = 0.0
+
+var grazed := false
+var time := 0.0
+
+func _ready() -> void:
+	body_entered.connect(_on_body_entered)
+
+func _physics_process(delta: float) -> void:
+	if Engine.is_editor_hint():
+		return
+	time += delta
+	velocity += velocity * linear_acceleration * delta * speed_multiplier
+	velocity = velocity.rotated(deg_to_rad(angular_velocity) * delta)
+	
+	if time >= life_time:
+		if life_time != -1.0:
+			queue_free()
+	if rotate_sprite:
+		$Sprite.rotation = velocity.angle()
+	global_position += velocity * delta
+
+func _on_body_entered(body: Node2D) -> void:
+	if body is Soul:
+		
+		body.hurt(damage,ignore_iframes)
+		
+		if destructible:
+			destroy()
+
+func destroy() -> void:
+	queue_free()
+
+#func check_dash() -> bool:
+	#var soulmode = Global.soul.behaviors[0]
+	#if soulmode.dashstate == soulmode.DashState.DASHING:
+		#soulmode.cam_scroll_speed = 540
+		#soulmode.dash_timer = 20.0
+		#soulmode.dash_timer_max_visual = 20.0
+		#soulmode.dash_flash = 16.0
+		#soulmode.dash_flash_max = 16.0
+		#return true
+	#else: return false
+
+#func dash_destroy() -> void:
+	#queue_free()

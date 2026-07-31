@@ -10,5 +10,4 @@ enum Category {
 }
 
 @export var category : Category
-@export var fighter_stat_modifiers : Dictionary[AbstractFighter.Stats, int]
 @export var attributes : Dictionary[EquippableAttribute, int]
