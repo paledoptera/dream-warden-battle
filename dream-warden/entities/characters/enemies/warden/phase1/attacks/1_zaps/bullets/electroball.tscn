@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://c4k3g23df5p70"]
+
+[ext_resource type="Texture2D" uid="uid://ffua0i5vrfin" path="res://entities/characters/enemies/warden/phase1/attacks/1_zaps/bullets/res/electroball.png" id="1_4f00f"]
+[ext_resource type="Script" uid="uid://bisu8d38by8b5" path="res://entities/bullets/bullet.gd" id="1_s6um0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i8qg6"]
+atlas = ExtResource("1_4f00f")
+region = Rect2(0, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_12nm1"]
+atlas = ExtResource("1_4f00f")
+region = Rect2(20, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8gma"]
+atlas = ExtResource("1_4f00f")
+region = Rect2(40, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_srciq"]
+atlas = ExtResource("1_4f00f")
+region = Rect2(60, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rivnn"]
+atlas = ExtResource("1_4f00f")
+region = Rect2(80, 0, 20, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i8qg6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_12nm1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d8gma")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_srciq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rivnn")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 15.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_d8eeu"]
+resource_name = "Electroball"
+script/source = "extends AnimatedSprite2D
+
+func _process(delta: float) -> void:
+	global_scale = Vector2.ONE * 2
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 13.0
+
+[node name="ElectroBall" type="Area2D" unique_id=1015344353]
+z_index = 1
+script = ExtResource("1_s6um0")
+life_time = -1.0
+metadata/_custom_type_script = "uid://bisu8d38by8b5"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=660043348]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+autoplay = "default"
+frame_progress = 0.9997107
+script = SubResource("GDScript_d8eeu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1316751100]
+shape = SubResource("CircleShape2D_g4v7s")

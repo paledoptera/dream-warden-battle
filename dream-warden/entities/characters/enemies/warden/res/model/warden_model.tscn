@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://daeern1c5gfgq"]
+
+[ext_resource type="Script" uid="uid://3ho6jsrangrv" path="res://entities/characters/enemies/warden/res/model/warden_model.gd" id="1_30ukv"]
+[ext_resource type="PackedScene" uid="uid://ccv8tkih26loe" path="res://entities/characters/enemies/warden/res/model/assets/warden.glb" id="2_30ukv"]
+[ext_resource type="Material" uid="uid://bx564va2cpvrk" path="res://entities/characters/enemies/warden/res/model/shaders/warden.tres" id="3_cujqf"]
+[ext_resource type="Shader" uid="uid://b1k2fsc6b0xsi" path="res://entities/characters/enemies/warden/res/model/shaders/warden.gdshader" id="3_yy83i"]
+[ext_resource type="Texture2D" uid="uid://bhqfkyyjdhfip" path="res://entities/characters/enemies/warden/res/model/assets/IMAGE_DEPTHS.png" id="4_p5nla"]
+[ext_resource type="Texture2D" uid="uid://clvcdx5vu1arc" path="res://entities/characters/enemies/warden/res/model/assets/warden_warden_color_1.png" id="4_yy83i"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_22l4l"]
+render_priority = 0
+shader = ExtResource("3_yy83i")
+shader_parameter/depths = ExtResource("4_p5nla")
+shader_parameter/warden_color = ExtResource("4_yy83i")
+shader_parameter/scroll_speed = 0.1
+
+[node name="warden" type="Node3D" unique_id=1864175887]
+script = ExtResource("1_30ukv")
+
+[node name="warden" parent="." unique_id=760203765 instance=ExtResource("2_30ukv")]
+
+[node name="Core" parent="warden/rig/Skeleton3D" parent_id_path=PackedInt32Array(760203765, 1294022880) index="0" unique_id=869459470]
+material_override = ExtResource("3_cujqf")
+
+[node name="DeltaRune" parent="warden/rig/Skeleton3D" parent_id_path=PackedInt32Array(760203765, 1294022880) index="1" unique_id=1287142248]
+material_override = ExtResource("3_cujqf")
+
+[node name="Face_Bottom" parent="warden/rig/Skeleton3D" parent_id_path=PackedInt32Array(760203765, 1294022880) index="2" unique_id=1787294338]
+material_override = ExtResource("3_cujqf")
+
+[node name="Face_Top" parent="warden/rig/Skeleton3D" parent_id_path=PackedInt32Array(760203765, 1294022880) index="3" unique_id=1945976657]
+material_override = ExtResource("3_cujqf")
+
+[node name="LesserWing" parent="warden/rig/Skeleton3D" parent_id_path=PackedInt32Array(760203765, 1294022880) index="4" unique_id=149431035]
+material_override = ExtResource("3_cujqf")
+
+[node name="MainDeltaRune" parent="warden/rig/Skeleton3D" parent_id_path=PackedInt32Array(760203765, 1294022880) index="5" unique_id=206130294]
+material_override = ExtResource("3_cujqf")
+
+[node name="PrimaryWing" parent="warden/rig/Skeleton3D" parent_id_path=PackedInt32Array(760203765, 1294022880) index="6" unique_id=1951683161]
+material_override = ExtResource("3_cujqf")
+material_overlay = ExtResource("3_cujqf")
+
+[node name="PrimaryWing_001" parent="warden/rig/Skeleton3D" parent_id_path=PackedInt32Array(760203765, 1294022880) index="7" unique_id=2039347815]
+material_override = ExtResource("3_cujqf")
+
+[node name="PrimaryWing_002" parent="warden/rig/Skeleton3D" parent_id_path=PackedInt32Array(760203765, 1294022880) index="8" unique_id=1469257253]
+material_override = SubResource("ShaderMaterial_22l4l")
+
+[node name="UpperArm" parent="warden/rig/Skeleton3D" parent_id_path=PackedInt32Array(760203765, 1294022880) index="9" unique_id=593369244]
+material_override = ExtResource("3_cujqf")
+
+[node name="AnimationPlayer" parent="warden" index="2" unique_id=1696508570]
+autoplay = &"warden_idle"
+playback_auto_capture_ease_type = 2
+playback_default_blend_time = 0.3
+
+[editable path="warden"]

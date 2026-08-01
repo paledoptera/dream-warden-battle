@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://c0xwsompqseq2"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yf5fn"]
+shading_mode = 0
+albedo_color = Color(0, 1, 1, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_g4v7s"]
+material = SubResource("StandardMaterial3D_yf5fn")
+top_radius = 0.0
+bottom_radius = 0.05
+height = 1.0
+radial_segments = 4
+
+[sub_resource type="Curve" id="Curve_57qmd"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.24705881, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="StrikeParticle" type="CPUParticles3D" unique_id=1858280625]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+emitting = false
+amount = 15
+lifetime = 0.7
+one_shot = true
+speed_scale = 3.0
+explosiveness = 1.0
+local_coords = true
+mesh = SubResource("CylinderMesh_g4v7s")
+particle_flag_align_y = true
+spread = 180.0
+gravity = Vector3(0, 0, 0)
+initial_velocity_min = 5.0
+initial_velocity_max = 5.0
+damping_min = 5.0
+damping_max = 5.0
+scale_amount_curve = SubResource("Curve_57qmd")

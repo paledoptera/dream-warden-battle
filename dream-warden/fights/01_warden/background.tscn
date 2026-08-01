@@ -111,6 +111,21 @@ shader_parameter/noise_scale = 1.0
 shader_parameter/swirl_strength = 0.1000000997499999
 shader_parameter/hue_shift_speed = 0.658000031255
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_b26wc"]
+blend_mode = 2
+
+[sub_resource type="Gradient" id="Gradient_b26wc"]
+offsets = PackedFloat32Array(0.31225297, 1)
+colors = PackedColorArray(0.60784316, 0, 0.37254903, 1, 0, 0.62352943, 0.9607843, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g4v7s"]
+gradient = SubResource("Gradient_b26wc")
+fill_from = Vector2(0, 1)
+fill_to = Vector2(0, 0)
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_s54gy"]
+blend_mode = 4
+
 [node name="Background" type="SubViewportContainer" unique_id=554147509]
 modulate = Color(2.0696762, 2.0696762, 2.0696762, 1)
 offset_top = 51.0
@@ -145,6 +160,7 @@ autoscroll = Vector2(10, 0)
 repeat_times = 3
 
 [node name="Sky" type="TextureRect" parent="SubViewport/Parallax2D" unique_id=1952652937]
+visible = false
 material = SubResource("ShaderMaterial_t1kk3")
 custom_minimum_size = Vector2(640, 360)
 anchors_preset = 15
@@ -159,7 +175,6 @@ texture = ExtResource("2_m0py3")
 expand_mode = 1
 
 [node name="Sky2" type="TextureRect" parent="SubViewport/Parallax2D" unique_id=1014030545]
-visible = false
 material = SubResource("ShaderMaterial_t1kk3")
 custom_minimum_size = Vector2(640, 200)
 anchors_preset = 15
@@ -173,6 +188,38 @@ grow_vertical = 2
 texture = ExtResource("3_xwjks")
 expand_mode = 1
 
+[node name="TextureRect" type="TextureRect" parent="SubViewport/Parallax2D" unique_id=1951917509]
+modulate = Color(0.310617, 0.31061715, 0.31061706, 0.56078434)
+material = SubResource("CanvasItemMaterial_b26wc")
+custom_minimum_size = Vector2(640, 300)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = 152.0
+offset_right = 320.0
+offset_bottom = 452.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_g4v7s")
+
+[node name="TextureRect2" type="TextureRect" parent="SubViewport/Parallax2D" unique_id=606633617]
+visible = false
+modulate = Color(0.310617, 0.31061715, 0.31061706, 0.56078434)
+material = SubResource("CanvasItemMaterial_b26wc")
+custom_minimum_size = Vector2(640, 300)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = 152.0
+offset_right = 320.0
+offset_bottom = 452.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_g4v7s")
+
 [node name="Clock" parent="SubViewport" unique_id=913049443 instance=ExtResource("4_b26wc")]
+material = SubResource("CanvasItemMaterial_s54gy")
 position = Vector2(0, 227)
 scale = Vector2(0.5, 0.5)
