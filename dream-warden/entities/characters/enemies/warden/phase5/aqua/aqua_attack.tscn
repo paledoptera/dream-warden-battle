@@ -20,7 +20,9 @@
 [ext_resource type="Texture2D" uid="uid://b5ndeb6c8tki5" path="res://entities/characters/enemies/warden/phase5/aqua/res/background_clouds/clouds4.png" id="18_1s4dt"]
 [ext_resource type="PackedScene" uid="uid://drgm3hctjo7lt" path="res://entities/characters/enemies/warden/phase5/aqua/scenes/player.tscn" id="19_opt1l"]
 [ext_resource type="Texture2D" uid="uid://bewosnoey0s6n" path="res://entities/characters/enemies/warden/phase5/aqua/res/background_clouds/clouds5.png" id="19_pifvd"]
+[ext_resource type="PackedScene" uid="uid://cwty8nuggskw3" path="res://entities/characters/enemies/warden/phase5/aqua/scenes/healthbar.tscn" id="20_bopvf"]
 [ext_resource type="Texture2D" uid="uid://dji1g0x3pwfmb" path="res://entities/characters/enemies/warden/phase5/aqua/res/background_clouds/clouds6.png" id="20_mlat7"]
+[ext_resource type="Script" uid="uid://bsfkfphvdwhhn" path="res://entities/characters/enemies/warden/phase5/aqua/remote_transform_3d_2d.gd" id="20_ol237"]
 [ext_resource type="Script" uid="uid://16h0y50oyjvy" path="res://entities/bullets/bullet_spawner_3d.gd" id="21_3gev8"]
 [ext_resource type="Texture2D" uid="uid://i3geq4mc5ofx" path="res://entities/characters/enemies/warden/phase5/aqua/res/background_clouds/clouds7.png" id="21_c06ra"]
 [ext_resource type="Texture2D" uid="uid://dpbax22x8x8ck" path="res://entities/characters/enemies/warden/phase5/aqua/res/background_clouds/clouds8.png" id="22_2ijya"]
@@ -102,6 +104,14 @@ bottom_radius = 0.9
 height = 0.015
 cap_top = false
 cap_bottom = false
+
+[sub_resource type="GDScript" id="GDScript_ol237"]
+resource_name = "HeroTransform"
+script/source = "extends RemoteTransform3D2D
+
+func _ready() -> void:
+	node = Battle.heroes[0]
+"
 
 [sub_resource type="Animation" id="Animation_yptke"]
 length = 0.001
@@ -398,6 +408,19 @@ stage = NodePath("..")
 current_circle = NodePath("../../Floor/Circles/Circle")
 bkg = NodePath("../../Background")
 
+[node name="RemoteTransform3D2D" type="Node3D" parent="SubViewport/Stage/AquaPlayer/Pivot/Susie" parent_id_path=PackedInt32Array(1795950396, 1134979943) index="4" unique_id=444533056 node_paths=PackedStringArray("node")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04, 0.258, 0)
+script = ExtResource("20_ol237")
+node = NodePath("../../../../../../Healthbar")
+x_enabled = false
+res_scale = 2.0
+
+[node name="HeroTransform" type="Node3D" parent="SubViewport/Stage/AquaPlayer/Pivot/Susie" parent_id_path=PackedInt32Array(1795950396, 1134979943) index="5" unique_id=1095486130]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04, 0.258, 0)
+script = SubResource("GDScript_ol237")
+offset = Vector2(16, 64)
+res_scale = 2.0
+
 [node name="Boss" type="Node3D" parent="SubViewport" unique_id=758955739 node_paths=PackedStringArray("player", "player_sprite", "model")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16403198, 0)
 script = ExtResource("2_mw6fy")
@@ -458,6 +481,11 @@ libraries/ = SubResource("AnimationLibrary_85sci")
 [node name="AquaUI" parent="." unique_id=1682812931 instance=ExtResource("26_opt1l")]
 position = Vector2(320, 461)
 
+[node name="Healthbar" parent="." unique_id=1233966322 instance=ExtResource("20_bopvf")]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(169, 254)
+
+[connection signal="rolling_changed" from="SubViewport/Stage/AquaPlayer" to="Healthbar" method="_on_rolling_changed"]
 [connection signal="timeout" from="SubViewport/Boss/AttackTimer" to="SubViewport/Boss" method="_on_attack_timer_timeout"]
 
 [editable path="SubViewport/Stage/AquaPlayer"]

@@ -7,6 +7,7 @@ class_name AquaPlayer
 @export var action_anim: AnimationPlayer
 @export var current_circle: AquaCircle
 
+signal rolling_changed(new_val: bool)
 
 var attacking: bool = false
 var jumping: bool = false
@@ -26,7 +27,10 @@ var afterimage_anim = 0
 
 var grounded: bool = false
 
-var is_rolling: bool = false
+var is_rolling: bool = false:
+	set(value):
+		is_rolling = value
+		rolling_changed.emit(value)
 var is_jumping: bool = false
 var is_attacking: bool = false
 

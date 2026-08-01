@@ -4,13 +4,28 @@
 [ext_resource type="Script" uid="uid://v2tjha7iag5" path="res://entities/characters/enemies/warden/phase5/aqua/scenes/ui.gd" id="2_gsile"]
 [ext_resource type="Texture2D" uid="uid://b3ef36otbj3b8" path="res://entities/characters/enemies/warden/phase5/aqua/res/tp_icon_full_white.png" id="3_gsile"]
 [ext_resource type="Texture2D" uid="uid://ytb4quo443b" path="res://entities/characters/enemies/warden/phase5/aqua/res/tp_icon_full.png" id="4_gsile"]
+[ext_resource type="Texture2D" uid="uid://pijix411knhk" path="res://entities/characters/enemies/warden/phase5/aqua/res/tp_icon_triggered.png" id="5_f1rbd"]
+[ext_resource type="FontFile" uid="uid://tlnjcxhh8t5" path="res://shared/theme/fonts/damage/greater-determination-dr-damage.otf" id="6_5t0qo"]
 
-[node name="AquaUI" type="Sprite2D" unique_id=1682812931]
-scale = Vector2(2, 2)
-texture = ExtResource("1_cmydt")
+[sub_resource type="Gradient" id="Gradient_5t0qo"]
+offsets = PackedFloat32Array(0.32244897, 0.43265307, 0.46530613, 0.53061223, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 1, 0, 0.071053095, 0.5012965, 0.5446729, 0.09411765, 0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5t0qo"]
+gradient = SubResource("Gradient_5t0qo")
+width = 100
+height = 100
+fill_to = Vector2(0, 1)
+
+[node name="AquaUI" type="Node2D" unique_id=1986677491]
+process_mode = 3
 script = ExtResource("2_gsile")
 
 [node name="Normal" type="Node2D" parent="." unique_id=2041616073]
+scale = Vector2(2, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Normal" unique_id=1682812931]
+texture = ExtResource("1_cmydt")
 
 [node name="ProgressWhite" type="TextureProgressBar" parent="Normal" unique_id=662918798]
 offset_left = -68.0
@@ -41,3 +56,75 @@ offset_transform_enabled = true
 fill_mode = 3
 texture_progress = ExtResource("4_gsile")
 metadata/_edit_use_anchors_ = true
+
+[node name="Active" type="Node2D" parent="." unique_id=257315730]
+visible = false
+scale = Vector2(2, 2)
+
+[node name="TextureRect" type="TextureRect" parent="Active" unique_id=1491970419]
+top_level = true
+custom_minimum_size = Vector2(640, 640)
+offset_top = 393.0
+offset_right = 640.0
+offset_bottom = 1584.5
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(-0.5, -0.5)
+offset_transform_scale = Vector2(2, 2)
+texture = SubResource("GradientTexture2D_5t0qo")
+
+[node name="Sprite2D" type="Sprite2D" parent="Active" unique_id=652068798]
+z_index = 1
+texture = ExtResource("5_f1rbd")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Active" unique_id=1022781647]
+modulate = Color(0.40392157, 1, 0, 1)
+z_index = 1
+offset_left = 38.0
+offset_top = -28.0
+offset_right = 78.0
+offset_bottom = 12.0
+scale = Vector2(1.4, 1)
+theme_override_fonts/normal_font = ExtResource("6_5t0qo")
+theme_override_font_sizes/normal_font_size = 6
+text = "TP"
+scroll_active = false
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="Active" unique_id=1333239242]
+modulate = Color(0.1808519, 0.4871921, 0, 1)
+z_index = 1
+offset_left = 41.0
+offset_top = -16.0
+offset_right = 81.0
+offset_bottom = 24.0
+theme_override_fonts/normal_font = ExtResource("6_5t0qo")
+theme_override_font_sizes/normal_font_size = 6
+text = "99"
+scroll_active = false
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="Active" unique_id=350602927]
+modulate = Color(0.40392157, 1, 0, 1)
+z_index = 1
+offset_top = 13.5
+offset_right = 46.5
+offset_bottom = 53.5
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(-0.5, 0)
+offset_transform_scale = Vector2(0.8, 1)
+theme_override_fonts/normal_font = ExtResource("6_5t0qo")
+theme_override_font_sizes/normal_font_size = 6
+text = "FIGHT"
+scroll_active = false
+horizontal_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="Active" unique_id=563814100]
+modulate = Color(0.40392157, 1, 0, 1)
+z_index = 1
+offset_left = -58.5
+offset_top = -28.0
+offset_right = -6.8606606
+offset_bottom = 12.0
+scale = Vector2(0.4, 1)
+theme_override_fonts/normal_font = ExtResource("6_5t0qo")
+theme_override_font_sizes/normal_font_size = 6
+text = "ACTION"
+scroll_active = false

@@ -102,6 +102,8 @@ _data = {
 }
 
 [node name="FloatingText" type="Node2D" unique_id=1603175697]
+z_index = 4096
+z_as_relative = false
 script = ExtResource("1_1frxc")
 
 [node name="Container" type="Node2D" parent="." unique_id=1294977984]

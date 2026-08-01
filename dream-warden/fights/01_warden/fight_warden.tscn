@@ -17,7 +17,7 @@ position = Vector2(150, 206)
 [node name="Enemies" parent="." index="2" unique_id=520631560]
 visible = true
 
-[node name="DreamWarden5" parent="Enemies" index="0" unique_id=1272596260 instance=ExtResource("6_ofxsl")]
+[node name="DreamWardenPhase5" parent="Enemies" index="0" unique_id=968285758 instance=ExtResource("6_ofxsl")]
 position = Vector2(442, 177)
 
 [node name="Sprite2D3" parent="." index="6" unique_id=649400639]

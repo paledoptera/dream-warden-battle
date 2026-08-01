@@ -12,6 +12,7 @@ func _ready() -> void:
 	Battle.fight_scene.action_panel.hide_health()
 	return
 	#bottom_panel.hide_health()
+
 	Global.battle.tp_bar.slide_left()
 	await get_tree().create_timer(0.2).timeout
 	Global.battle.aqua_hud.slide_up()
@@ -57,7 +58,6 @@ func shift_horizontal(input: float = 0.0) -> void:
 	player.current_circle.sprite.modulate = AquaCircle.selected_color
 	player.current_circle.left.sprite.modulate = AquaCircle.unselected_color
 	player.current_circle.right.sprite.modulate = AquaCircle.unselected_color
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

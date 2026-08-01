@@ -19,8 +19,8 @@ func _process(delta: float) -> void:
 
 func _on_attack_timer_timeout() -> void:
 	var attack = attack_pool.pick_random()
-	var time: float = 0.5
 	attack = 1
+	var time: float = 0.5
 	match attack:
 		0: # lasers
 			var target = player.current_circle.sprite
