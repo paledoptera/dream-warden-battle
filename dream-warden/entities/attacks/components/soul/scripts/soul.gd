@@ -6,6 +6,7 @@ const SPEED = 120.0
 @export var vertical: bool = true
 var i_frames = 0.0
 var last_position: Vector2
+var current_speed: float
 
 func _enter_tree() -> void:
 	Battle.soul = self
@@ -18,11 +19,15 @@ func _physics_process(delta: float) -> void:
 	# Get input
 	var direction_x := Input.get_axis("left", "right")
 	var direction_y := Input.get_axis("up", "down")
-	var current_speed := SPEED
+	current_speed = SPEED
 	
 	# "focus mode"
 	if Input.is_action_pressed("cancel"):
 		current_speed /= 2
+	
+	## add custom movement or soul mode stuff here
+	custom_soul_movement(direction_x, direction_y)
+	
 	
 	# Movement
 	if direction_x and horizontal:
@@ -36,9 +41,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = 0.0
 		
 
-	## add custom movement or soul mode stuff here
-	custom_soul_movement(direction_x, direction_y)
-	
+
 	# animation stuff
 	process_i_frames(delta)
 

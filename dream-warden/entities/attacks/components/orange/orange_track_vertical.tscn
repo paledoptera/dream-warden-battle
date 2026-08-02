@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b0w27gyj83vuv"]
+
+[ext_resource type="Texture2D" uid="uid://cmibvk3t8d20r" path="res://entities/characters/enemies/warden/phase3/attacks/bkg.png" id="1_r3ww6"]
+
+[node name="OrangeTrack" type="Parallax2D" unique_id=1183339624]
+repeat_size = Vector2(0, 140)
+repeat_times = 14
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=598831827]
+scale = Vector2(99, 2)
+texture = ExtResource("1_r3ww6")

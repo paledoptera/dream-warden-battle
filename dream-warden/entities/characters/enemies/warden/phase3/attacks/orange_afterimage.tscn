@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://cwnac2qb2d3sg"]
+
+[ext_resource type="Texture2D" uid="uid://c3e2s410krvah" path="res://entities/attacks/components/soul/res/soul_nooutline.png" id="1_0di3y"]
+
+[sub_resource type="GDScript" id="GDScript_2uwm3"]
+resource_name = "Afterimage"
+script/source = "extends Sprite2D
+
+var time = 0.4
+
+var soul: SoulOrange
+
+func _process(delta: float) -> void:
+	
+	var mult = soul.afterimage_offset
+	global_rotation = soul.global_rotation
+	global_position += (soul.orange_velocity * mult) * delta
+	time -= delta
+	
+	if mult < 0.5:
+		self_modulate = lerp(Color(\"fca60000\"),Color(\"fca600\"),mult  )
+		if self_modulate == Color(\"fca60000\"):
+			queue_free()
+			return
+	else:
+		self_modulate = Color(\"fca600\")
+	
+	var mod = time / 0.4
+	
+	modulate = lerp(Color(\"ffffff00\"),Color(\"ffffff41\"),mod)
+	if time <= 0.0:
+		queue_free()
+"
+
+[node name="OrangeAfterimage" type="Sprite2D" unique_id=2123815707]
+self_modulate = Color(0.9882353, 0.6509804, 0, 1)
+top_level = true
+rotation = 3.1415927
+texture = ExtResource("1_0di3y")
+script = SubResource("GDScript_2uwm3")

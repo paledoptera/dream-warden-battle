@@ -2,10 +2,10 @@ extends Area3D
 class_name AquaPlayer
 
 @export var attack_owner: Node3D
-@export var stage: Node3D
 @export var anim: AnimationPlayer
 @export var action_anim: AnimationPlayer
 @export var current_circle: AquaCircle
+@export var boss: Node3D
 
 signal rolling_changed(new_val: bool)
 
@@ -20,6 +20,7 @@ var state = State.GROUND
 var airborne: bool = false
 var move_speed: float = 2
 var roll_direction = 0.0
+var active: bool = true
 @export var bkg: Node3D
 
 var invulnerable := false
@@ -47,16 +48,22 @@ var jump_held
 var jump_release
 var crouch
 
+func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_ALWAYS
+
 func _process(delta: float) -> void:
-	get_input()
-	get_last()
-	
-	handle_roll()
 	handle_gravity(delta)
-	handle_jump()
-	handle_attack()
 	
-	animate_soul_afterimage()
+	if active:
+		get_input()
+		get_last()
+		
+		handle_roll()
+		handle_jump()
+		handle_attack()
+	
+		animate_soul_afterimage()
+	
 	animate_actions()
 	
 	
@@ -210,6 +217,14 @@ func animate_actions() -> void:
 			animate("fall")
 #endregion
 
+func animate_rudebuster() -> void:
+	
+	$Pivot/Susie/RudeBuster.position = Vector3.ZERO
+	$Pivot/Susie/RudeBuster.visible = true
+	var tween = create_tween()
+	tween.tween_property($Pivot/Susie/RudeBuster,"global_position",boss.global_position,0.3)
+	await tween.finished
+	$Pivot/Susie/RudeBuster.visible = false
 
 
 func playing_current_anims(arr: Array):
@@ -265,3 +280,19 @@ func _on_attack_area_entered(area: Area3D) -> void:
 			Sound.play(area.parry_break_sfx)
 		Battle.tp += area.parry_points
 		area.destroy()
+
+
+func _on_aqua_ui_active_changed(value: bool) -> void:
+	active = not value
+
+
+func _on_aqua_ui_action_done(value: int) -> void:
+	match value:
+		0:
+			pass
+		1:
+			animate_rudebuster()
+			
+		2:
+			pass
+	pass # Replace with function body.

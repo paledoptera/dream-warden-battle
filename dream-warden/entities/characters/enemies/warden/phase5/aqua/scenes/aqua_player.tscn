@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://wy7dhu8gvr8c" path="res://entities/attacks/components/soul/res/soul.png" id="11_4ximx"]
 [ext_resource type="Script" uid="uid://pavqft048bhw" path="res://entities/characters/enemies/warden/phase5/aqua/debug_var_list.gd" id="12_fbwh4"]
 [ext_resource type="Texture2D" uid="uid://btwlxu6pvi12o" path="res://entities/attacks/components/soul/res/graze.png" id="12_jvsfl"]
+[ext_resource type="ArrayMesh" uid="uid://ddcpe8eo1o3we" path="res://entities/characters/enemies/warden/phase5/aqua/scenes/rude_buster.obj" id="13_7opux"]
+[ext_resource type="ArrayMesh" uid="uid://bo0mmxgxiq047" path="res://entities/characters/enemies/warden/phase5/aqua/scenes/defend.obj" id="14_yju4x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c06ra"]
 atlas = ExtResource("4_yju4x")
@@ -339,6 +341,10 @@ animations = [{
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
 size = Vector3(0.5, 0.3, 0.5024873)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g4v7s"]
+shading_mode = 0
+albedo_color = Color(0, 1, 1, 1)
 
 [sub_resource type="Animation" id="Animation_o0dci"]
 length = 0.001
@@ -973,6 +979,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03842163, 0.6404221)
 shape = SubResource("BoxShape3D_g4v7s")
 disabled = true
 debug_color = Color(0.7882353, 0.43137255, 0.06666667, 1)
+
+[node name="RudeBuster" type="MeshInstance3D" parent="Pivot/Susie" unique_id=1020119888]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+visible = false
+mesh = ExtResource("13_7opux")
+surface_material_override/0 = SubResource("StandardMaterial3D_g4v7s")
+
+[node name="Shield" type="MeshInstance3D" parent="Pivot/Susie" unique_id=1437673262]
+transform = Transform3D(0.058, 0, 0, 0, 0.058, 0, 0, 0, 0.058, 0, 0.08483574, -0.174824)
+visible = false
+mesh = ExtResource("14_yju4x")
+surface_material_override/0 = SubResource("StandardMaterial3D_g4v7s")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=931561375]
 libraries/ = SubResource("AnimationLibrary_o0dci")

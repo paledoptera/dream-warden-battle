@@ -2,33 +2,25 @@
 
 [ext_resource type="Texture2D" uid="uid://kim3uos6xorm" path="res://fights/01_warden/res/clock.png" id="1_1s4dt"]
 [ext_resource type="Script" uid="uid://dgbt3pi3vyfcc" path="res://entities/characters/enemies/warden/phase5/aqua/aqua_attack.gd" id="1_2ijya"]
-[ext_resource type="Script" uid="uid://csgvuo8wv34sh" path="res://entities/characters/enemies/warden/phase5/aqua/boss.gd" id="2_mw6fy"]
 [ext_resource type="Texture2D" uid="uid://bk7dgtgpwuwxv" path="res://entities/characters/enemies/warden/phase5/aqua/res/circle_outline.png" id="2_pifvd"]
 [ext_resource type="PackedScene" uid="uid://dxrrej4kwvhng" path="res://entities/characters/enemies/warden/phase5/aqua/circle.tscn" id="3_mlat7"]
-[ext_resource type="Script" uid="uid://r0mflit5bp4c" path="res://entities/characters/enemies/warden/phase5/aqua/face.gd" id="7_wtg4j"]
-[ext_resource type="AudioStream" uid="uid://blgycniv76tk8" path="res://shared/sound_effects/snd_ward_charge.wav" id="8_rgjhh"]
-[ext_resource type="AudioStream" uid="uid://cr54v0qolt555" path="res://shared/sound_effects/snd_ward_whisp1.wav" id="9_h8jhr"]
 [ext_resource type="Texture2D" uid="uid://ckbcskxqr2kn5" path="res://entities/characters/enemies/warden/phase5/aqua/res/background_clouds/clouds1.png" id="11_r2muu"]
-[ext_resource type="AudioStream" uid="uid://dxnnang4d7yqo" path="res://shared/sound_effects/snd_ward_hit.wav" id="11_sa2hs"]
 [ext_resource type="Texture2D" uid="uid://83voviduke7x" path="res://entities/characters/enemies/warden/phase5/aqua/res/background_clouds/clouds2.png" id="12_pgut6"]
 [ext_resource type="Texture2D" uid="uid://dtuq56o77spqu" path="res://entities/characters/enemies/warden/phase5/aqua/res/background_clouds/clouds11.png" id="13_5kdis"]
 [ext_resource type="Texture2D" uid="uid://dpg2evgv6coae" path="res://entities/characters/enemies/warden/phase5/aqua/res/background_clouds/clouds12.png" id="14_cobll"]
 [ext_resource type="Texture2D" uid="uid://d1j03cw5qr2jn" path="res://entities/characters/enemies/warden/phase5/aqua/res/background_clouds/clouds13.png" id="15_lw8m3"]
-[ext_resource type="PackedScene" uid="uid://daeern1c5gfgq" path="res://entities/characters/enemies/warden/res/model/warden_model.tscn" id="16_c06ra"]
 [ext_resource type="Texture2D" uid="uid://if6pcq7yxcqt" path="res://entities/characters/enemies/warden/phase5/aqua/res/background_clouds/clouds14.png" id="16_dl2jl"]
 [ext_resource type="Texture2D" uid="uid://0kh2pcqnpdrn" path="res://entities/characters/enemies/warden/phase5/aqua/res/background_clouds/clouds3.png" id="17_jqut0"]
 [ext_resource type="Texture2D" uid="uid://b5ndeb6c8tki5" path="res://entities/characters/enemies/warden/phase5/aqua/res/background_clouds/clouds4.png" id="18_1s4dt"]
-[ext_resource type="PackedScene" uid="uid://drgm3hctjo7lt" path="res://entities/characters/enemies/warden/phase5/aqua/scenes/player.tscn" id="19_opt1l"]
+[ext_resource type="PackedScene" uid="uid://drgm3hctjo7lt" path="res://entities/characters/enemies/warden/phase5/aqua/scenes/aqua_player.tscn" id="19_opt1l"]
 [ext_resource type="Texture2D" uid="uid://bewosnoey0s6n" path="res://entities/characters/enemies/warden/phase5/aqua/res/background_clouds/clouds5.png" id="19_pifvd"]
 [ext_resource type="PackedScene" uid="uid://cwty8nuggskw3" path="res://entities/characters/enemies/warden/phase5/aqua/scenes/healthbar.tscn" id="20_bopvf"]
 [ext_resource type="Texture2D" uid="uid://dji1g0x3pwfmb" path="res://entities/characters/enemies/warden/phase5/aqua/res/background_clouds/clouds6.png" id="20_mlat7"]
 [ext_resource type="Script" uid="uid://bsfkfphvdwhhn" path="res://entities/characters/enemies/warden/phase5/aqua/remote_transform_3d_2d.gd" id="20_ol237"]
-[ext_resource type="Script" uid="uid://16h0y50oyjvy" path="res://entities/bullets/bullet_spawner_3d.gd" id="21_3gev8"]
 [ext_resource type="Texture2D" uid="uid://i3geq4mc5ofx" path="res://entities/characters/enemies/warden/phase5/aqua/res/background_clouds/clouds7.png" id="21_c06ra"]
+[ext_resource type="PackedScene" uid="uid://b7gbyko8v8bql" path="res://entities/characters/enemies/warden/phase5/aqua/aqua_boss.tscn" id="21_su1ak"]
 [ext_resource type="Texture2D" uid="uid://dpbax22x8x8ck" path="res://entities/characters/enemies/warden/phase5/aqua/res/background_clouds/clouds8.png" id="22_2ijya"]
-[ext_resource type="PackedScene" uid="uid://ds4vcmkvdeqkj" path="res://entities/characters/enemies/warden/phase5/aqua/bullets/diamond_bullet_3d.tscn" id="22_a3mvp"]
 [ext_resource type="Texture2D" uid="uid://dxgit2nv00dnn" path="res://entities/characters/enemies/warden/phase5/aqua/res/background_clouds/clouds9.png" id="23_ukb1h"]
-[ext_resource type="PackedScene" uid="uid://ckvgqgq0rec3h" path="res://entities/characters/enemies/warden/phase5/aqua/bullets/diamond_bullet_parryable_3d.tscn" id="24_a3mvp"]
 [ext_resource type="Texture2D" uid="uid://4hmkngah6p22" path="res://entities/characters/enemies/warden/phase5/aqua/res/background_clouds/clouds10.png" id="24_rfx7g"]
 [ext_resource type="PackedScene" uid="uid://ux4ri7rax77c" path="res://entities/characters/enemies/warden/phase5/aqua/scenes/ui.tscn" id="26_opt1l"]
 
@@ -110,235 +102,20 @@ resource_name = "HeroTransform"
 script/source = "extends RemoteTransform3D2D
 
 func _ready() -> void:
-	node = Battle.heroes[0]
+	if Battle.heroes:
+		node = Battle.heroes[0]
 "
-
-[sub_resource type="Animation" id="Animation_yptke"]
-length = 0.001
-
-[sub_resource type="Animation" id="Animation_8yviw"]
-resource_name = "new_animation"
-length = 3.0
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_xpa20"]
-_data = {
-&"RESET": SubResource("Animation_yptke"),
-&"hover": SubResource("Animation_8yviw")
-}
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_s74s4"]
-top_radius = 0.1
-bottom_radius = 0.1
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s74s4"]
-depth_draw_mode = 1
-no_depth_test = true
-shading_mode = 0
-albedo_color = Color(1, 0.3254902, 1, 1)
-
-[sub_resource type="Animation" id="Animation_85sci"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Marker3D/MeshInstance3D:scale")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Marker3D/Sprite3D:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../Boss:rot_speed")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [7.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Marker3D/MeshInstance3D:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0.862, -0.164)]
-}
-
-[sub_resource type="Animation" id="Animation_qfi1l"]
-resource_name = "laser"
-length = 5.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Marker3D/MeshInstance3D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(1.12),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0.862, -0.164)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Marker3D/MeshInstance3D:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(2.0333333, 2.2, 2.854386),
-"transitions": PackedFloat32Array(2.3784142, 0.34151012, 1),
-"update": 0,
-"values": [Vector3(0, 1, 0), Vector3(1, 1, 1), Vector3(0, 1, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Marker3D/Sprite3D:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(1.1333333, 1.4179027, 1.8517545),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(1.1333333, 1.1577847, 1.1944616, 1.2413267, 1.2841165, 1.3248688, 1.3619219, 1.4145236, 1.4613887, 1.5143666, 1.5531899, 1.5877206, 1.6447737),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"values": [{
-"args": [],
-"method": &"set_rot"
-}, {
-"args": [],
-"method": &"set_rot"
-}, {
-"args": [],
-"method": &"set_rot"
-}, {
-"args": [],
-"method": &"set_rot"
-}, {
-"args": [],
-"method": &"set_rot"
-}, {
-"args": [],
-"method": &"set_rot"
-}, {
-"args": [],
-"method": &"set_rot"
-}, {
-"args": [],
-"method": &"set_rot"
-}, {
-"args": [],
-"method": &"set_rot"
-}, {
-"args": [],
-"method": &"set_rot"
-}, {
-"args": [],
-"method": &"set_rot"
-}, {
-"args": [],
-"method": &"set_rot"
-}, {
-"args": [],
-"method": &"set_rot"
-}]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("../Boss:rot_speed")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(1.1333333, 1.6333333, 1.8666667, 3.1333334),
-"transitions": PackedFloat32Array(1, 0.24999996, 6.964404, 1),
-"update": 0,
-"values": [7.0, 7.0, 0.0, 7.0]
-}
-tracks/5/type = "audio"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("AudioStreamPlayer")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("8_rgjhh")
-}],
-"times": PackedFloat32Array(0.03333336)
-}
-tracks/5/use_blend = true
-tracks/6/type = "audio"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("AudioStreamPlayer2")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("9_h8jhr")
-}, {
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("11_sa2hs")
-}],
-"times": PackedFloat32Array(0, 2.0666666)
-}
-tracks/6/use_blend = true
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_85sci"]
-_data = {
-&"RESET": SubResource("Animation_85sci"),
-&"laser": SubResource("Animation_qfi1l")
-}
 
 [node name="AquaAttack" type="SubViewportContainer" unique_id=1205939739 node_paths=PackedStringArray("player", "stage", "background")]
 top_level = true
 custom_minimum_size = Vector2(640, 480)
 offset_right = 40.0
 offset_bottom = 40.0
+mouse_filter = 2
 stretch = true
 stretch_shrink = 2
 script = ExtResource("1_2ijya")
-player = NodePath("SubViewport/Stage/AquaPlayer")
+player = NodePath("SubViewport/Stage/Player")
 stage = NodePath("SubViewport/Stage")
 background = NodePath("SubViewport/Background")
 
@@ -356,45 +133,45 @@ surface_material_override/0 = SubResource("StandardMaterial3D_wtg4j")
 mesh = SubResource("CylinderMesh_mxk0a")
 surface_material_override/0 = SubResource("StandardMaterial3D_mxk0a")
 
-[node name="Circles" type="Node3D" parent="SubViewport/Floor" unique_id=1541130391]
+[node name="CirclesMain" type="Node3D" parent="SubViewport/Floor" unique_id=1541130391]
 
-[node name="Circle" parent="SubViewport/Floor/Circles" unique_id=1125195471 node_paths=PackedStringArray("right", "left") instance=ExtResource("3_mlat7")]
+[node name="Circle" parent="SubViewport/Floor/CirclesMain" unique_id=1125195471 node_paths=PackedStringArray("right", "left") instance=ExtResource("3_mlat7")]
 right = NodePath("../Circle2")
 left = NodePath("../Circle6")
 
-[node name="Circle2" parent="SubViewport/Floor/Circles" unique_id=1232351831 node_paths=PackedStringArray("right", "left") instance=ExtResource("3_mlat7")]
+[node name="Circle2" parent="SubViewport/Floor/CirclesMain" unique_id=1232351831 node_paths=PackedStringArray("right", "left") instance=ExtResource("3_mlat7")]
 transform = Transform3D(0.49999997, 0, 0.86602545, 0, 1, 0, -0.86602545, 0, 0.49999997, 0, 0, 0)
 right = NodePath("../Circle3")
 left = NodePath("../Circle")
 
-[node name="Circle3" parent="SubViewport/Floor/Circles" unique_id=478740247 node_paths=PackedStringArray("right", "left") instance=ExtResource("3_mlat7")]
+[node name="Circle3" parent="SubViewport/Floor/CirclesMain" unique_id=478740247 node_paths=PackedStringArray("right", "left") instance=ExtResource("3_mlat7")]
 transform = Transform3D(-0.5, 0, 0.8660253, 0, 1, 0, -0.8660253, 0, -0.5, 0, 0, 0)
 right = NodePath("../Circle4")
 left = NodePath("../Circle2")
 
-[node name="Circle4" parent="SubViewport/Floor/Circles" unique_id=317180885 node_paths=PackedStringArray("right", "left") instance=ExtResource("3_mlat7")]
+[node name="Circle4" parent="SubViewport/Floor/CirclesMain" unique_id=317180885 node_paths=PackedStringArray("right", "left") instance=ExtResource("3_mlat7")]
 transform = Transform3D(-0.99999994, 0, -8.742277e-08, 0, 1, 0, 8.742277e-08, 0, -0.99999994, 0, 0, 0)
 right = NodePath("../Circle5")
 left = NodePath("../Circle3")
 
-[node name="Circle5" parent="SubViewport/Floor/Circles" unique_id=142102737 node_paths=PackedStringArray("right", "left") instance=ExtResource("3_mlat7")]
+[node name="Circle5" parent="SubViewport/Floor/CirclesMain" unique_id=142102737 node_paths=PackedStringArray("right", "left") instance=ExtResource("3_mlat7")]
 transform = Transform3D(-0.49999982, 0, -0.86602527, 0, 1, 0, 0.86602527, 0, -0.49999982, 0, 0, 0)
 right = NodePath("../Circle6")
 left = NodePath("../Circle4")
 
-[node name="Circle6" parent="SubViewport/Floor/Circles" unique_id=1628270738 node_paths=PackedStringArray("right", "left") instance=ExtResource("3_mlat7")]
+[node name="Circle6" parent="SubViewport/Floor/CirclesMain" unique_id=1628270738 node_paths=PackedStringArray("right", "left") instance=ExtResource("3_mlat7")]
 transform = Transform3D(0.49999985, 0, -0.8660253, 0, 1, 0, 0.8660253, 0, 0.49999985, 0, 0, 0)
 right = NodePath("../Circle")
 left = NodePath("../Circle5")
 
-[node name="MiddleCircle" type="Sprite3D" parent="SubViewport/Floor/Circles" unique_id=492013632]
+[node name="MiddleCircle" type="Sprite3D" parent="SubViewport/Floor/CirclesMain" unique_id=492013632]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0011071116, 0)
 modulate = Color(0.21960784, 0.32156864, 0.32156864, 1)
 axis = 1
 texture_filter = 0
 texture = ExtResource("2_pifvd")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/Floor" unique_id=1825226455]
+[node name="Outline" type="MeshInstance3D" parent="SubViewport/Floor" unique_id=1825226455]
 mesh = SubResource("CylinderMesh_y04b2")
 
 [node name="Stage" type="Node3D" parent="SubViewport" unique_id=1341929695]
@@ -403,80 +180,30 @@ mesh = SubResource("CylinderMesh_y04b2")
 transform = Transform3D(0.70710677, -0.24184474, 0.664463, 0, 0.9396926, 0.34202012, -0.70710677, -0.24184474, 0.664463, 1.8, 1.055, 2)
 projection = 1
 
-[node name="AquaPlayer" parent="SubViewport/Stage" unique_id=1795950396 node_paths=PackedStringArray("stage", "current_circle", "bkg") instance=ExtResource("19_opt1l")]
-stage = NodePath("..")
-current_circle = NodePath("../../Floor/Circles/Circle")
+[node name="Player" parent="SubViewport/Stage" unique_id=1795950396 node_paths=PackedStringArray("current_circle", "boss", "bkg") instance=ExtResource("19_opt1l")]
+current_circle = NodePath("../../Floor/CirclesMain/Circle")
+boss = NodePath("../../Boss")
 bkg = NodePath("../../Background")
 
-[node name="RemoteTransform3D2D" type="Node3D" parent="SubViewport/Stage/AquaPlayer/Pivot/Susie" parent_id_path=PackedInt32Array(1795950396, 1134979943) index="4" unique_id=444533056 node_paths=PackedStringArray("node")]
+[node name="RemoteTransform3D2D" type="Node3D" parent="SubViewport/Stage/Player/Pivot/Susie" parent_id_path=PackedInt32Array(1795950396, 1134979943) index="4" unique_id=444533056 node_paths=PackedStringArray("node")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04, 0.258, 0)
 script = ExtResource("20_ol237")
 node = NodePath("../../../../../../Healthbar")
 x_enabled = false
 res_scale = 2.0
 
-[node name="HeroTransform" type="Node3D" parent="SubViewport/Stage/AquaPlayer/Pivot/Susie" parent_id_path=PackedInt32Array(1795950396, 1134979943) index="5" unique_id=1095486130]
+[node name="HeroTransform" type="Node3D" parent="SubViewport/Stage/Player/Pivot/Susie" parent_id_path=PackedInt32Array(1795950396, 1134979943) index="5" unique_id=1095486130]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04, 0.258, 0)
 script = SubResource("GDScript_ol237")
 offset = Vector2(16, 64)
 res_scale = 2.0
 
-[node name="Boss" type="Node3D" parent="SubViewport" unique_id=758955739 node_paths=PackedStringArray("player", "player_sprite", "model")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.16403198, 0)
-script = ExtResource("2_mw6fy")
-player = NodePath("../Stage/AquaPlayer")
-player_sprite = NodePath("../Stage/AquaPlayer/Pivot/Susie/Soul")
-model = NodePath("warden")
+[node name="Boss" parent="SubViewport" unique_id=1593148642 node_paths=PackedStringArray("player", "player_sprite", "attacks_parent") instance=ExtResource("21_su1ak")]
+player = NodePath("../Stage/Player")
+player_sprite = NodePath("../Stage/Player/Pivot/Susie/Soul")
+attacks_parent = NodePath("../Attacks")
 
-[node name="LookatBase" type="Node3D" parent="SubViewport/Boss" unique_id=582374401]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.11935425, 0)
-
-[node name="Targeter" type="Node3D" parent="SubViewport/Boss" unique_id=1344206910]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.11935425, 0)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="SubViewport/Boss" unique_id=160214300]
-libraries/ = SubResource("AnimationLibrary_xpa20")
-autoplay = &"hover"
-
-[node name="warden" parent="SubViewport/Boss" unique_id=1864175887 instance=ExtResource("16_c06ra")]
-transform = Transform3D(0.124764584, -0.0019599588, -0.007413297, 0.0019634147, 0.12498458, 0, 0.0074123824, -0.000116443014, 0.12477998, 0, 0, 0)
-
-[node name="AttackTimer" type="Timer" parent="SubViewport/Boss" unique_id=973145387]
-one_shot = true
-autostart = true
-
-[node name="BulletSpawner3D" type="Node3D" parent="SubViewport/Boss" unique_id=1011187092]
-transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, -0.070979714, 7.275958e-12)
-script = ExtResource("21_3gev8")
-bullet = Array[PackedScene]([ExtResource("22_a3mvp"), ExtResource("24_a3mvp")])
-metadata/_custom_type_script = "uid://16h0y50oyjvy"
-
-[node name="Attack" type="Node3D" parent="SubViewport" unique_id=1449890568]
-visible = false
-script = ExtResource("7_wtg4j")
-
-[node name="Marker3D" type="Marker3D" parent="SubViewport/Attack" unique_id=1189439]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.565)
-
-[node name="Sprite3D" type="Sprite3D" parent="SubViewport/Attack/Marker3D" unique_id=100651632]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.122, -0.164)
-visible = false
-modulate = Color(1, 1, 1, 0)
-axis = 1
-no_depth_test = true
-texture_filter = 0
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="SubViewport/Attack/Marker3D" unique_id=363474000]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.862, -0.164)
-mesh = SubResource("CylinderMesh_s74s4")
-surface_material_override/0 = SubResource("StandardMaterial3D_s74s4")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="SubViewport/Attack" unique_id=2123561458]
-libraries/ = SubResource("AnimationLibrary_85sci")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SubViewport/Attack" unique_id=80067718]
-
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="SubViewport/Attack" unique_id=1796566026]
+[node name="Attacks" type="Node3D" parent="SubViewport" unique_id=1449890568]
 
 [node name="AquaUI" parent="." unique_id=1682812931 instance=ExtResource("26_opt1l")]
 position = Vector2(320, 461)
@@ -485,7 +212,8 @@ position = Vector2(320, 461)
 modulate = Color(1, 1, 1, 0)
 position = Vector2(169, 254)
 
-[connection signal="rolling_changed" from="SubViewport/Stage/AquaPlayer" to="Healthbar" method="_on_rolling_changed"]
-[connection signal="timeout" from="SubViewport/Boss/AttackTimer" to="SubViewport/Boss" method="_on_attack_timer_timeout"]
+[connection signal="rolling_changed" from="SubViewport/Stage/Player" to="Healthbar" method="_on_rolling_changed"]
+[connection signal="action_done" from="AquaUI" to="SubViewport/Stage/Player" method="_on_aqua_ui_action_done"]
+[connection signal="active_changed" from="AquaUI" to="SubViewport/Stage/Player" method="_on_aqua_ui_active_changed"]
 
-[editable path="SubViewport/Stage/AquaPlayer"]
+[editable path="SubViewport/Stage/Player"]

@@ -37,6 +37,7 @@ func deactivate() -> void:
 	if not active:
 		return
 	
+	set_process_unhandled_input(false)
 	$AnimationPlayer.play("close")
 	for i in actions:
 		i.selected = false
@@ -46,6 +47,8 @@ func deactivate() -> void:
 func activate() -> void:
 	if active:
 		return
+	
+	set_process_unhandled_input(true)
 	
 	$AnimationPlayer.play("open")
 	actions[0].selected = true
@@ -70,6 +73,7 @@ func _on_battle_state_changed(new_state: Battle.State, last_state: Battle.State)
 			deactivate()
 
 func _unhandled_input(event: InputEvent) -> void:
+	
 	if not active and not frozen:
 		return
 	

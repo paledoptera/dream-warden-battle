@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://bo0mmxgxiq047"
+path="res://.godot/imported/defend.obj-9ca3894735157aee9a0e93fa3c5e04fa.mesh"
+
+[deps]
+
+files=["res://.godot/imported/defend.obj-9ca3894735157aee9a0e93fa3c5e04fa.mesh"]
+
+source_file="res://entities/characters/enemies/warden/phase5/aqua/scenes/defend.obj"
+dest_files=["res://.godot/imported/defend.obj-9ca3894735157aee9a0e93fa3c5e04fa.mesh", "res://.godot/imported/defend.obj-9ca3894735157aee9a0e93fa3c5e04fa.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

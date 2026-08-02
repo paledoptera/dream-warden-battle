@@ -125,3 +125,30 @@ func damage_hero(value: float):
 	print(damage)
 	
 	hero.create_floating_text_string(str(damage))
+
+func damage_enemy(value: float, id: int = 0):
+	if not enemies:
+		return
+	
+	id = clampi(id,0,enemies.size()-1)
+	var enemy: Enemy = enemies[id]
+	var damage: int = value - (enemy.defense * 3)
+	
+	enemy.hp  -= damage
+	print(damage)
+	
+	enemy.create_floating_text_string(str(damage))
+
+func heal_hero(value: float, id: int = 0):
+	Sound.play(preload("uid://dn6sygxxt1y8u")) # snd_heal_c.wav
+	
+	if not heroes:
+		return
+	
+	id = clampi(id,0,heroes.size()-1)
+	var hero: Hero = heroes[id]
+	
+	hero.hp += value
+	hero.create_floating_text_string(str(int(value)),Color.GREEN)
+	
+	

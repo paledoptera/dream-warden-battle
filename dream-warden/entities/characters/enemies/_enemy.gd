@@ -10,6 +10,8 @@ enum Order { RANDOM, SEQUENTIAL }
 @export var opening_line_plural := DialogueString.new()
 @export var flavor_text_order := Order.RANDOM
 @export var flavor_text : Array[DialogueString]
+@export_group("Data")
+@export var soundbank: Dictionary[StringName, AudioStream]
 var turn = 0
 var repetitions = 0
 

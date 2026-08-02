@@ -5,6 +5,7 @@ extends Node3D
 @export var model: Node3D
 var target_position: Vector3 = Vector3.ZERO
 @export var rot_speed: float = 7.0
+@export var attacks_parent: Node3D
 
 var attacks: Array = []
 var attack_pool: Array = [0, 1]
@@ -18,6 +19,9 @@ func _process(delta: float) -> void:
 
 
 func _on_attack_timer_timeout() -> void:
+	pass
+
+func _on_bullet_timer_timeout() -> void:
 	var attack = attack_pool.pick_random()
 	attack = 1
 	var time: float = 0.5
@@ -34,13 +38,13 @@ func _on_attack_timer_timeout() -> void:
 			bullet.rotation.y = $Targeter.global_rotation.y
 			bullet.velocity = bullet.velocity.rotated(Vector3.UP,$Targeter.global_rotation.y)
 	
-	$AttackTimer.start(time)
+	$BulletTimer.start(time)
 
 
 func instantiate_attack(scene: PackedScene, attack_position := Vector3.ZERO) -> void:
 	var attack := scene.instantiate()
 	
-	get_parent().add_child(attack)
+	attacks_parent.add_child(attack)
 	attack.global_position = attack_position
 	
 	attacks.append(attack)
