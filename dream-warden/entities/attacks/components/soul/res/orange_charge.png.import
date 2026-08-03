@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c23y1f0vpogfg"
-path="res://.godot/imported/orange_dots.png-dbe1dbef6fb58d4ae8a951634fc3bcbc.ctex"
+uid="uid://djls6luanvyxd"
+path="res://.godot/imported/orange_charge.png-68f38bf43e3c0c1c4689c201b87dd730.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/characters/enemies/warden/phase3/attacks/orange_dots.png"
-dest_files=["res://.godot/imported/orange_dots.png-dbe1dbef6fb58d4ae8a951634fc3bcbc.ctex"]
+source_file="res://entities/attacks/components/soul/res/orange_charge.png"
+dest_files=["res://.godot/imported/orange_charge.png-68f38bf43e3c0c1c4689c201b87dd730.ctex"]
 
 [params]
 

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://xps5yka4dnhp" path="res://entities/characters/enemies/warden/phase1/attacks/0_wings/wings_attack.gd" id="1_el6or"]
 [ext_resource type="PackedScene" uid="uid://c3baha85ndj6f" path="res://entities/attacks/components/battlebox.tscn" id="2_dnviu"]
 [ext_resource type="Script" uid="uid://dm837u7nkploy" path="res://entities/bullets/bullet_spawner.gd" id="2_p7u1s"]
-[ext_resource type="PackedScene" uid="uid://bu7c1cxo0oco8" path="res://entities/characters/enemies/warden/phase1/attacks/0_wings/bullets/wings.tscn" id="3_vnxca"]
+[ext_resource type="PackedScene" uid="uid://bu7c1cxo0oco8" path="res://entities/characters/enemies/warden/phase1/attacks/0_wings/bullets/wings_bullet.tscn" id="3_vnxca"]
 [ext_resource type="PackedScene" uid="uid://cr5wivx86lx7o" path="res://entities/attacks/components/soul/soul_red.tscn" id="5_dnviu"]
 
 [node name="WingsAttack" type="Node2D" unique_id=1614279879 node_paths=PackedStringArray("spawnpoints")]

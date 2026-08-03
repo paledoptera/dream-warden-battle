@@ -35,6 +35,10 @@ window/size/viewport_height=480
 window/stretch/mode="viewport"
 window/vsync/vsync_mode=0
 
+[global_group]
+
+orange_track=""
+
 [gui]
 
 theme/custom_font="uid://uxn5h14rnymm"

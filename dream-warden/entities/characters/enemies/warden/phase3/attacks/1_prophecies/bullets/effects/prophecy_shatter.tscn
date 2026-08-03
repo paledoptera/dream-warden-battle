@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cdqwhvvaey7b"]
 
-[ext_resource type="Texture2D" uid="uid://71vin3tg3c6r" path="res://fighters/monsters/dream_warden/attacks/phase2_orange/orange_prophecies/prophecy.png" id="1_aq7bv"]
+[ext_resource type="Texture2D" uid="uid://d0pls2dg8v7re" path="res://entities/characters/enemies/warden/phase3/attacks/1_prophecies/bullets/res/prophecy.png" id="1_o636x"]
 
 [sub_resource type="Gradient" id="Gradient_y04b2"]
 offsets = PackedFloat32Array(0, 0.10333333, 0.33333334, 0.64666665, 1)
@@ -8,7 +8,7 @@ colors = PackedColorArray(3.2944162, 3.2944162, 3.2944162, 1, 1.6852883, 1.68528
 
 [node name="CPUParticles2D" type="CPUParticles2D" unique_id=518114905]
 emitting = false
-texture = ExtResource("1_aq7bv")
+texture = ExtResource("1_o636x")
 lifetime = 0.5
 one_shot = true
 explosiveness = 1.0

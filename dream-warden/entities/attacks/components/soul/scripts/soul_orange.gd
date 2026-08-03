@@ -16,6 +16,8 @@ var dash_timer_target: float = 0.0
 var dash_timer_max_visual: float = 0.0
 var dash_flash: float = 0.0
 var dash_flash_max: float = 0.0
+var buffer: float = 0.33
+var distance: float = 0.0
 
 func _ready() -> void:
 	direction = direction.normalized()
@@ -26,22 +28,37 @@ func _ready() -> void:
 		horizontal = false
 	elif direction.y != 0.0:
 		vertical = false
+	
+	global_position -= direction * 66.0
 
 func custom_soul_movement(direction_x: float, direction_y: float) -> void:
 	current_speed *= 2
 	orange_velocity = direction * -orange_speed
+	distance += orange_speed * get_physics_process_delta_time()
+	print("DISTANCE: ", distance)
 	if dash_state == DashState.CHARGING:
 		orange_velocity *= 0.83333333
 		current_speed *= 0.83333333
 
+
 func _physics_process(delta: float) -> void:
+	spawn_afterimages()
+	
+	if buffer > 0.0:
+		buffer = move_toward(buffer,0.0,delta)
+	else:
+		handle_dash(delta)
+	
+	super(delta)
+
+func spawn_afterimages() -> void:
 	
 	var afterimage = preload("uid://cwnac2qb2d3sg").instantiate()
 	add_child(afterimage)
 	afterimage.soul = self
 	afterimage.global_position = global_position
-	
-	
+
+func handle_dash(delta: float) -> void:
 	if dash_state == DashState.IDLE:
 		afterimage_offset = 0.5
 		orange_speed = orange_speed_base
@@ -50,8 +67,6 @@ func _physics_process(delta: float) -> void:
 	elif dash_state == DashState.CHARGING:
 		charge_timer = move_toward(charge_timer, 16.0, 0.5);
 		afterimage_offset = lerp(0.5,0.0,charge_timer/16.0)
-		
-		#orange_speed = orange_speed_base - ((min(charge_timer,8) * 0.5)*30.0)
 		
 		if Input.is_action_just_released("confirm"):
 			var boost = (5+(charge_timer*0.5))
@@ -80,5 +95,3 @@ func _physics_process(delta: float) -> void:
 		
 		if (dash_timer <= 0.0):
 			dash_state = DashState.IDLE
-	
-	super(delta)

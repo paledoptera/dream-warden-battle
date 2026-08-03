@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cmibvk3t8d20r"
-path="res://.godot/imported/bkg.png-50f248d0437cd582d07876401d04a787.ctex"
+uid="uid://d0pls2dg8v7re"
+path="res://.godot/imported/prophecy.png-a37fe072efef98c45e66fc2b601897e1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/characters/enemies/warden/phase3/attacks/bkg.png"
-dest_files=["res://.godot/imported/bkg.png-50f248d0437cd582d07876401d04a787.ctex"]
+source_file="res://entities/characters/enemies/warden/phase3/attacks/1_prophecies/bullets/res/prophecy.png"
+dest_files=["res://.godot/imported/prophecy.png-a37fe072efef98c45e66fc2b601897e1.ctex"]
 
 [params]
 

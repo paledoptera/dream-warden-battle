@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djls6luanvyxd"
-path="res://.godot/imported/orange_charge.png-490b55922245a77f099396c5cb53febb.ctex"
+uid="uid://cmibvk3t8d20r"
+path="res://.godot/imported/bkg.png-0977bd38b083b68a493e3676b8005927.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/characters/enemies/warden/phase3/attacks/orange_charge.png"
-dest_files=["res://.godot/imported/orange_charge.png-490b55922245a77f099396c5cb53febb.ctex"]
+source_file="res://entities/attacks/components/orange/res/bkg.png"
+dest_files=["res://.godot/imported/bkg.png-0977bd38b083b68a493e3676b8005927.ctex"]
 
 [params]
 

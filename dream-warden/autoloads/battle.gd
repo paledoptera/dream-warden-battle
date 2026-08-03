@@ -43,8 +43,10 @@ signal heroes_updated(parent_node: Node)
 signal enemies_updated(parent_node: Node)
 signal tp_changed(tp: float)
 signal attack_start
+signal attack_area_end
 signal attack_end
 signal state_changed(new_state: State, last_state: State)
+
 
 func _ready() -> void:
 	heroes_updated.connect(update_heroes)
@@ -74,9 +76,12 @@ func do_attack(parent_node: Node) -> void:
 		var attack_scene = attack.scene.instantiate()
 		parent_node.add_child(attack_scene)
 	
-		await get_tree().create_timer(attack.length).timeout
+		if attack.length:
+			await get_tree().create_timer(attack.length).timeout
+		else:
+			await attack_area_end
+		
 		attack_scene.queue_free()
-	
 	enemy_attacking = false
 	return
 	
