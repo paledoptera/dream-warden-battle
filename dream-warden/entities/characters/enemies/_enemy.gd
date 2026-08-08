@@ -12,6 +12,8 @@ enum Order { RANDOM, SEQUENTIAL }
 @export var flavor_text : Array[DialogueString]
 @export_group("Data")
 @export var soundbank: Dictionary[StringName, AudioStream]
+@export var next_phase: PackedScene
+
 var turn = 0
 var repetitions = 0
 
@@ -21,6 +23,7 @@ func _ready() -> void:
 
 func progress_turn() -> void:
 	turn += 1
+	check_phase()
 
 func get_opening_line() -> DialogueString:
 	for enemy: Enemy in Battle.enemies:
@@ -63,3 +66,18 @@ func get_flavor_text() -> DialogueString:
 		return flavor_text[dialogue_turn]
 	else:
 		return DialogueString.new()
+
+func check_phase() -> void:
+	## put a conditional to goto_next_phase here if you want a multi-phase enemy/boss
+	pass
+
+func goto_next_phase() -> void:
+	var new_phase = next_phase.instantiate()
+	new_phase.hp = hp
+	get_parent().add_child(new_phase)
+	new_phase.global_position = global_position
+	var enemies_root = get_parent()
+	reparent(get_tree().root)
+	Battle.update_enemies(enemies_root)
+	queue_free()
+	

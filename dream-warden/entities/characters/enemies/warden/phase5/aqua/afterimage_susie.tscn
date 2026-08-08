@@ -1,14 +1,48 @@
 [gd_scene format=3 uid="uid://c17qdpeqluwmg"]
 
-[ext_resource type="Texture2D" uid="uid://drk600o8fm5h4" path="res://specialattacks/aqua/res/susie_fall.png" id="1_ipj15"]
-[ext_resource type="Texture2D" uid="uid://ujiov6tf756j" path="res://specialattacks/aqua/res/susie_land.png" id="2_3x540"]
-[ext_resource type="Texture2D" uid="uid://drwsm37ur7773" path="res://specialattacks/aqua/res/susie_midair.png" id="3_t2s21"]
-[ext_resource type="Texture2D" uid="uid://c0204022lsbyj" path="res://specialattacks/aqua/res/susie_idle.png" id="4_hk8gq"]
-[ext_resource type="Texture2D" uid="uid://7qx2ahjdgafl" path="res://specialattacks/aqua/res/susie_jump_fall_sheet.png" id="5_wjjcv"]
-[ext_resource type="Texture2D" uid="uid://crmgkpqp16t5r" path="res://specialattacks/aqua/res/susie_jump_trans.png" id="6_4f3xf"]
-[ext_resource type="Texture2D" uid="uid://knqjv6ci5coo" path="res://specialattacks/aqua/res/susie_roll.png" id="7_f0lfo"]
-[ext_resource type="Texture2D" uid="uid://dq7mm2ur4814s" path="res://specialattacks/aqua/res/susie_roll_start.png" id="8_sce6o"]
-[ext_resource type="Texture2D" uid="uid://b0unswiu2g8bk" path="res://specialattacks/aqua/res/susie_slash_sheet.png" id="9_g4stv"]
+[ext_resource type="Texture2D" uid="uid://drk600o8fm5h4" path="res://entities/characters/enemies/warden/phase5/aqua/res/susie_fall.png" id="1_ipj15"]
+[ext_resource type="Texture2D" uid="uid://bf0jt0ganh8t" path="res://entities/characters/enemies/warden/phase5/aqua/res/susie_attack_ground_1stvariation-sheet.png" id="1_qupyj"]
+[ext_resource type="Texture2D" uid="uid://ujiov6tf756j" path="res://entities/characters/enemies/warden/phase5/aqua/res/susie_land.png" id="2_3x540"]
+[ext_resource type="Texture2D" uid="uid://1ka235fkqow5" path="res://entities/characters/enemies/warden/phase5/aqua/res/susie_attack_ground_2ndvariation.png" id="2_iri8y"]
+[ext_resource type="Texture2D" uid="uid://drwsm37ur7773" path="res://entities/characters/enemies/warden/phase5/aqua/res/susie_midair.png" id="3_t2s21"]
+[ext_resource type="Texture2D" uid="uid://c0204022lsbyj" path="res://entities/characters/enemies/warden/phase5/aqua/res/susie_idle.png" id="4_hk8gq"]
+[ext_resource type="Texture2D" uid="uid://7qx2ahjdgafl" path="res://entities/characters/enemies/warden/phase5/aqua/res/susie_jump_fall_sheet.png" id="5_wjjcv"]
+[ext_resource type="Texture2D" uid="uid://crmgkpqp16t5r" path="res://entities/characters/enemies/warden/phase5/aqua/res/susie_jump_trans.png" id="6_4f3xf"]
+[ext_resource type="Texture2D" uid="uid://knqjv6ci5coo" path="res://entities/characters/enemies/warden/phase5/aqua/res/susie_roll.png" id="7_f0lfo"]
+[ext_resource type="Texture2D" uid="uid://dq7mm2ur4814s" path="res://entities/characters/enemies/warden/phase5/aqua/res/susie_roll_start.png" id="8_sce6o"]
+[ext_resource type="Texture2D" uid="uid://b0unswiu2g8bk" path="res://entities/characters/enemies/warden/phase5/aqua/res/susie_slash_sheet.png" id="9_g4stv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xt0p"]
+atlas = ExtResource("1_qupyj")
+region = Rect2(106, 0, 106, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4ji1"]
+atlas = ExtResource("1_qupyj")
+region = Rect2(212, 0, 106, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_regyw"]
+atlas = ExtResource("1_qupyj")
+region = Rect2(318, 0, 106, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hcriq"]
+atlas = ExtResource("1_qupyj")
+region = Rect2(424, 0, 106, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1erqo"]
+atlas = ExtResource("1_qupyj")
+region = Rect2(530, 0, 106, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8slt1"]
+atlas = ExtResource("2_iri8y")
+region = Rect2(0, 0, 107, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvl7a"]
+atlas = ExtResource("2_iri8y")
+region = Rect2(107, 0, 107, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbqlf"]
+atlas = ExtResource("2_iri8y")
+region = Rect2(214, 0, 107, 51)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c06ra"]
 atlas = ExtResource("3_t2s21")
@@ -102,18 +136,6 @@ region = Rect2(128, 0, 64, 48)
 atlas = ExtResource("7_f0lfo")
 region = Rect2(192, 0, 64, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qkxeb"]
-atlas = ExtResource("7_f0lfo")
-region = Rect2(256, 0, 64, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o8kcn"]
-atlas = ExtResource("7_f0lfo")
-region = Rect2(320, 0, 64, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rrydd"]
-atlas = ExtResource("7_f0lfo")
-region = Rect2(384, 0, 64, 48)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_8n8n6"]
 atlas = ExtResource("7_f0lfo")
 region = Rect2(448, 0, 64, 48)
@@ -121,10 +143,6 @@ region = Rect2(448, 0, 64, 48)
 [sub_resource type="AtlasTexture" id="AtlasTexture_n30k0"]
 atlas = ExtResource("7_f0lfo")
 region = Rect2(512, 0, 64, 48)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vv5g3"]
-atlas = ExtResource("7_f0lfo")
-region = Rect2(576, 0, 64, 48)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6wyw3"]
 atlas = ExtResource("8_sce6o")
@@ -178,8 +196,42 @@ region = Rect2(966, 0, 138, 71)
 atlas = ExtResource("9_g4stv")
 region = Rect2(1104, 0, 138, 71)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_0k60x"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_iym48"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xt0p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o4ji1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_regyw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hcriq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1erqo")
+}],
+"loop": 1,
+"name": &"attack_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8slt1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jvl7a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qbqlf")
+}],
+"loop": 1,
+"name": &"attack_2",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_ipj15")
@@ -290,22 +342,10 @@ animations = [{
 "texture": SubResource("AtlasTexture_mb1hm")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qkxeb")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_o8kcn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rrydd")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_8n8n6")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_n30k0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vv5g3")
 }],
 "loop": 1,
 "name": &"roll",
@@ -379,7 +419,7 @@ modulate = Color(0, 9.061582, 9.061582, 0.23921569)
 pixel_size = 0.00416
 billboard = 1
 texture_filter = 0
-sprite_frames = SubResource("SpriteFrames_0k60x")
+sprite_frames = SubResource("SpriteFrames_iym48")
 animation = &"idle"
 autoplay = "idle"
 speed_scale = 0.0

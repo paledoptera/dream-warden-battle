@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dxp2dj0rfpq0l"]
+
+[ext_resource type="PackedScene" uid="uid://uec82rpcc8iu" path="res://entities/attacks/components/soul/_soul.tscn" id="1_3kod4"]
+[ext_resource type="Script" uid="uid://cngwm3pbik63y" path="res://entities/attacks/components/soul/scripts/soul_parry.gd" id="2_gfqr5"]
+[ext_resource type="Texture2D" uid="uid://6co33efw5t8w" path="res://entities/attacks/components/soul/res/parry_axe.png" id="2_xwfwv"]
+
+[node name="SoulParry" unique_id=443094051 instance=ExtResource("1_3kod4")]
+script = ExtResource("2_gfqr5")
+
+[node name="Sprite2D" parent="." index="0" unique_id=135992417]
+modulate = Color(0, 0.63529414, 0, 1)
+
+[node name="CollisionPolygon2D" parent="." index="1" unique_id=1893006654]
+visible = false
+
+[node name="Shield" type="Node2D" parent="." index="2" unique_id=812591564]
+
+[node name="Sprite2D3" type="Sprite2D" parent="Shield" index="0" unique_id=1824802375]
+modulate = Color(1, 1, 1, 0.41960785)
+texture = ExtResource("2_xwfwv")
+hframes = 2
+vframes = 2
+frame = 2
+
+[node name="Sprite2D2" type="Sprite2D" parent="Shield" index="1" unique_id=567519443]
+texture = ExtResource("2_xwfwv")
+hframes = 2
+vframes = 2
+
+[node name="Area2D" type="Area2D" parent="Shield" index="2" unique_id=428463851]

@@ -27,7 +27,7 @@ var enemy_attacking: bool = false:
 			else:
 				state = State.ATTACK_END
 				attack_end.emit()
-				await get_tree().create_timer(0.1).timeout
+				await get_tree().create_timer(0.2).timeout
 				turn += 1
 				state = State.CHOOSE_ACTION
 				
@@ -82,6 +82,7 @@ func do_attack(parent_node: Node) -> void:
 			await attack_area_end
 		
 		attack_scene.queue_free()
+	
 	enemy_attacking = false
 	return
 	

@@ -4,7 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://ctfepif50wand" path="res://shared/music/mus_warden_ex.ogg" id="2_vbur6"]
 [ext_resource type="PackedScene" uid="uid://dvutowjuoe1v3" path="res://fights/01_warden/background.tscn" id="3_ffynk"]
 [ext_resource type="PackedScene" uid="uid://dqlcm46i6llth" path="res://entities/characters/heroes/susie/susie.tscn" id="4_reyo4"]
-[ext_resource type="PackedScene" uid="uid://bjl8x6l6ntsnd" path="res://entities/characters/enemies/warden/phase3/enemy_warden_phase3.tscn" id="5_reyo4"]
+[ext_resource type="PackedScene" uid="uid://cs6cms21rjeis" path="res://entities/characters/enemies/warden/phase1/enemy_warden_phase1.tscn" id="5_reyo4"]
 
 [node name="FightWarden" unique_id=2124086931 instance=ExtResource("1_dmy65")]
 bgm = ExtResource("2_vbur6")
@@ -17,7 +17,7 @@ position = Vector2(150, 206)
 [node name="Enemies" parent="." index="2" unique_id=520631560]
 visible = true
 
-[node name="DreamWardenPhase3" parent="Enemies" index="0" unique_id=1949145884 instance=ExtResource("5_reyo4")]
+[node name="DreamWardenPhase1" parent="Enemies" index="0" unique_id=968285758 instance=ExtResource("5_reyo4")]
 position = Vector2(442, 177)
 
 [node name="Sprite2D3" parent="." index="6" unique_id=649400639]

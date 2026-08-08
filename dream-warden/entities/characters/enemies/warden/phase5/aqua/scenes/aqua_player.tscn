@@ -2,7 +2,9 @@
 
 [ext_resource type="Script" uid="uid://cmsn5e7jc21u8" path="res://entities/characters/enemies/warden/phase5/aqua/aqua_player.gd" id="1_i1d1r"]
 [ext_resource type="Texture2D" uid="uid://drk600o8fm5h4" path="res://entities/characters/enemies/warden/phase5/aqua/res/susie_fall.png" id="2_jvsfl"]
+[ext_resource type="Texture2D" uid="uid://bf0jt0ganh8t" path="res://entities/characters/enemies/warden/phase5/aqua/res/susie_attack_ground_1stvariation-sheet.png" id="2_rtioi"]
 [ext_resource type="Texture2D" uid="uid://ujiov6tf756j" path="res://entities/characters/enemies/warden/phase5/aqua/res/susie_land.png" id="3_7opux"]
+[ext_resource type="Texture2D" uid="uid://1ka235fkqow5" path="res://entities/characters/enemies/warden/phase5/aqua/res/susie_attack_ground_2ndvariation.png" id="3_pnpct"]
 [ext_resource type="Texture2D" uid="uid://drwsm37ur7773" path="res://entities/characters/enemies/warden/phase5/aqua/res/susie_midair.png" id="4_yju4x"]
 [ext_resource type="Texture2D" uid="uid://c0204022lsbyj" path="res://entities/characters/enemies/warden/phase5/aqua/res/susie_idle.png" id="5_o60pk"]
 [ext_resource type="Texture2D" uid="uid://7qx2ahjdgafl" path="res://entities/characters/enemies/warden/phase5/aqua/res/susie_jump_fall_sheet.png" id="6_y271g"]
@@ -15,6 +17,39 @@
 [ext_resource type="Texture2D" uid="uid://btwlxu6pvi12o" path="res://entities/attacks/components/soul/res/graze.png" id="12_jvsfl"]
 [ext_resource type="ArrayMesh" uid="uid://ddcpe8eo1o3we" path="res://entities/characters/enemies/warden/phase5/aqua/scenes/rude_buster.obj" id="13_7opux"]
 [ext_resource type="ArrayMesh" uid="uid://bo0mmxgxiq047" path="res://entities/characters/enemies/warden/phase5/aqua/scenes/defend.obj" id="14_yju4x"]
+[ext_resource type="Texture2D" uid="uid://blm5e0cq0sp6i" path="res://entities/characters/enemies/warden/phase5/aqua/res/susie_roll_slash.png" id="17_pnpct"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xt0p"]
+atlas = ExtResource("2_rtioi")
+region = Rect2(106, 0, 106, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4ji1"]
+atlas = ExtResource("2_rtioi")
+region = Rect2(212, 0, 106, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_regyw"]
+atlas = ExtResource("2_rtioi")
+region = Rect2(318, 0, 106, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hcriq"]
+atlas = ExtResource("2_rtioi")
+region = Rect2(424, 0, 106, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1erqo"]
+atlas = ExtResource("2_rtioi")
+region = Rect2(530, 0, 106, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8slt1"]
+atlas = ExtResource("3_pnpct")
+region = Rect2(0, 0, 107, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvl7a"]
+atlas = ExtResource("3_pnpct")
+region = Rect2(107, 0, 107, 51)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qbqlf"]
+atlas = ExtResource("3_pnpct")
+region = Rect2(214, 0, 107, 51)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_c06ra"]
 atlas = ExtResource("4_yju4x")
@@ -170,6 +205,40 @@ region = Rect2(1104, 0, 138, 71)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_y04b2"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xt0p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o4ji1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_regyw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hcriq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1erqo")
+}],
+"loop": 1,
+"name": &"attack_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8slt1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jvl7a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qbqlf")
+}],
+"loop": 1,
+"name": &"attack_2",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("2_jvsfl")
@@ -458,7 +527,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [&"slash"]
+"values": [&"attack_1"]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -467,10 +536,10 @@ tracks/1/path = NodePath("Pivot/Susie:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.033333335, 0.1, 0.13333334, 0.16666667),
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.16666667),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [2, 3, 4, 5, 6]
+"values": [0, 1, 2, 3, 4]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -482,7 +551,59 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-14, 21)]
+"values": [Vector2(-6, 21)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pivot/Susie/Attack/CollisionShape3D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.16666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_rtioi"]
+resource_name = "slash"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Susie:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"attack_2"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/Susie:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666666),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot/Susie:offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-6, 21)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -910,7 +1031,8 @@ tracks/0/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o0dci"]
 _data = {
 &"RESET": SubResource("Animation_o0dci"),
-&"attack": SubResource("Animation_xpa20"),
+&"attack_1": SubResource("Animation_xpa20"),
+&"attack_2": SubResource("Animation_rtioi"),
 &"crouch": SubResource("Animation_s74s4"),
 &"dash": SubResource("Animation_c2nda"),
 &"fall": SubResource("Animation_dl2jl"),
@@ -991,6 +1113,15 @@ transform = Transform3D(0.058, 0, 0, 0, 0.058, 0, 0, 0, 0.058, 0, 0.08483574, -0
 visible = false
 mesh = ExtResource("14_yju4x")
 surface_material_override/0 = SubResource("StandardMaterial3D_g4v7s")
+
+[node name="Sprite3D" type="Sprite3D" parent="Pivot/Susie" unique_id=1048110148]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.06830561, 0)
+visible = false
+pixel_size = 0.00416
+billboard = 1
+texture_filter = 0
+texture = ExtResource("17_pnpct")
+hframes = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=931561375]
 libraries/ = SubResource("AnimationLibrary_o0dci")

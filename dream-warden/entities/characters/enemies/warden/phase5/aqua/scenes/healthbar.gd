@@ -7,6 +7,8 @@ var transitioning: float = 0.0
 var fading_in: bool = false
 
 func _ready() -> void:
+	if not Battle.fight_scene:
+		return
 	hero = Battle.heroes[0]
 	update_hp_values()
 	hero.hp_changed.connect(_on_hp_changed)

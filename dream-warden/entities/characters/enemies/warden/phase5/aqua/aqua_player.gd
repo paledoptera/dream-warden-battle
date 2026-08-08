@@ -21,6 +21,7 @@ var airborne: bool = false
 var move_speed: float = 2
 var roll_direction = 0.0
 var active: bool = true
+var attack_var: int = 1
 @export var bkg: Node3D
 
 var invulnerable := false
@@ -156,6 +157,9 @@ func handle_attack() -> void:
 	if is_attacking or not attack:
 		return
 	
+	if attack:
+		attack_var *= -1
+	
 	is_attacking = true
 	Sound.play(preload("uid://cihi8p7nv4w7g"),1.0,randf_range(0.9,1.1)) #snd_swing
 	await get_tree().create_timer(0.2).timeout
@@ -193,9 +197,7 @@ func animate_actions() -> void:
 		animate("idle")
 		return
 	
-	if is_attacking:
-		animate("attack")
-		return
+
 	
 	if is_rolling:
 		if last_rolling != is_rolling:
@@ -208,6 +210,13 @@ func animate_actions() -> void:
 		
 			animate(anim_name,true)
 			return
+		return
+
+	if is_attacking:
+		if attack_var == -1:
+			animate("attack_1")
+		else:
+			animate("attack_2")
 		return
 	
 	if not grounded:
