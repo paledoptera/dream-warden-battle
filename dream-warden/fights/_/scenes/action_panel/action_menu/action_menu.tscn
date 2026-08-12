@@ -599,7 +599,7 @@ _data = {
 &"open": SubResource("Animation_ki6id")
 }
 
-[node name="ActionMenu" type="Control" unique_id=104529111 node_paths=PackedStringArray("hp", "hp_max", "health_bar")]
+[node name="ActionMenu" type="Control" unique_id=104529111 node_paths=PackedStringArray("hp", "hp_max", "health_bar", "icon")]
 custom_minimum_size = Vector2(213, 35)
 layout_mode = 3
 anchors_preset = 0
@@ -610,6 +610,7 @@ script = ExtResource("1_ki6id")
 hp = NodePath("Background/Stats/HP")
 hp_max = NodePath("Background/Stats/HPMax")
 health_bar = NodePath("Background/Stats/HealthBar")
+icon = NodePath("Background/Stats/Icon")
 
 [node name="Background" type="ColorRect" parent="." unique_id=2047254509]
 custom_minimum_size = Vector2(213, 36)

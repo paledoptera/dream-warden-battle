@@ -83,7 +83,7 @@ func handle_dash(delta: float) -> void:
 			charge_timer = 0.0
 			print("NEW SPEED = ", orange_speed)
 			dash_state = DashState.DASHING
-			Sound.play(preload("uid://bxcputrgmxarv"),0.5) #snd_chargeshot_fire
+			Sound.play(preload("res://shared/sound_effects/snd_chargeshot_fire.wav"),0.5)
 	
 	if dash_state == DashState.DASHING:
 		afterimage_offset = lerp(1.0,0.5,(20.0-(dash_timer))/20.0)

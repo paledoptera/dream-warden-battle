@@ -27,6 +27,7 @@ Sound="*uid://cwwq8yp11tjnc"
 Music="*uid://d254d7fap6pmo"
 Dialogue="*uid://dy45sx7dln5l8"
 Battle="*uid://cvr8sbcwccovk"
+Events="*uid://cj160iv8gqsw0"
 
 [display]
 
@@ -38,6 +39,8 @@ window/vsync/vsync_mode=0
 [global_group]
 
 orange_track=""
+battlebox=""
+soul=""
 
 [gui]
 

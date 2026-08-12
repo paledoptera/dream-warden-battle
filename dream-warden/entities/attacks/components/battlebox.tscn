@@ -14,7 +14,7 @@ border_width_right = 4
 border_width_bottom = 4
 border_color = Color(0, 0.752941, 0, 1)
 
-[node name="Battlebox" type="PanelContainer" unique_id=445257611]
+[node name="Battlebox" type="PanelContainer" unique_id=445257611 groups=["battlebox"]]
 clip_children = 2
 clip_contents = true
 anchors_preset = 8

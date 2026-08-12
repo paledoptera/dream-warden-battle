@@ -27,7 +27,7 @@ func _on_timer_timeout() -> void:
 	sparkle_sprite.play("sparkle")
 	sparkle_sprite.animation_finished.connect(sparkle_sprite.queue_free)
 	
-	Sound.play(preload("uid://hrkqcb85cqe1"),1.0,1.0,50) #snd_eye_telegraph
+	Sound.play(preload("res://shared/sound_effects/snd_eye_telegraph.wav"),1.0,1.0,50)
 	
 	if order.size() >= 3:
 		$Timer.stop()
@@ -52,4 +52,4 @@ func _on_rush_timer_timeout() -> void:
 	if ind >= order.size():
 		$RushTimer.stop()
 	await get_tree().create_timer(0.5).timeout
-	Sound.play(preload("uid://x47plh8rwwly"),1.0,1.0,5) #snd_knight_cut2
+	Sound.play(preload("res://shared/sound_effects/snd_knight_cut2.wav"),1.0,1.0,5)

@@ -11,8 +11,10 @@ script = ExtResource("1_el6or")
 spawnpoints = [NodePath("Center"), NodePath("SideSwapper/Side")]
 
 [node name="Battlebox" parent="." unique_id=445257611 instance=ExtResource("2_dnviu")]
+z_index = 0
 
 [node name="SoulRed" parent="." unique_id=443094051 instance=ExtResource("5_dnviu")]
+z_index = 0
 
 [node name="Center" type="Marker2D" parent="." unique_id=1571653594]
 position = Vector2(0, -100)

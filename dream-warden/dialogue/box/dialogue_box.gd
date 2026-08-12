@@ -14,7 +14,7 @@ func _physics_process(_delta: float) -> void:
 		visible_characters += 1
 		var c := text[visible_characters - 1].to_ascii_buffer()[0]
 		if is_letter_or_number(c):
-			Sound.play(preload("uid://cq4reluk6vlur")) # snd_text.wav
+			Sound.play(preload("res://shared/sound_effects/snd_text.wav")) 
 		if visible_ratio >= 1.0 and !current.require_input:
 			check_if_text_finished(false)
 

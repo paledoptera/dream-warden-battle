@@ -74,18 +74,55 @@ func do_attack(parent_node: Node) -> void:
 	
 	if attack.scene:
 		var attack_scene = attack.scene.instantiate()
+		
 		parent_node.add_child(attack_scene)
-	
+		await animate_soul_transition(attack_scene,false)
+		
 		if attack.length:
 			await get_tree().create_timer(attack.length).timeout
 		else:
 			await attack_area_end
 		
-		attack_scene.queue_free()
+		await animate_soul_transition(attack_scene,true)
 	
 	enemy_attacking = false
 	return
+
+func animate_soul_transition(attack_scene: Node, end: bool = false) -> void:
 	
+	if not end:
+		attack_scene.visible = false
+		attack_scene.process_mode = ProcessMode.PROCESS_MODE_DISABLED
+	else:
+		attack_scene.call_deferred("queue_free")
+		
+	var soul_transition = preload("uid://mmposqk66pey").instantiate()
+	var anim = "in"
+	var time = 0.6
+	heroes[0].add_child(soul_transition)
+	soul_transition.start_point = heroes[0].global_position
+	soul_transition.end_point = get_tree().get_first_node_in_group("soul").global_position
+	soul_transition.battlebox.size = get_tree().get_first_node_in_group("battlebox").size
+	soul_transition.battlebox_pivot.global_position = get_tree().get_first_node_in_group("battlebox").global_position
+	
+	if end:
+		soul_transition.start_point = soul_transition.end_point
+		soul_transition.end_point = heroes[0].global_position
+		anim = "out"
+		time = 0.4
+		
+	soul_transition.anim.play(anim)
+	await get_tree().physics_frame
+	await get_tree().create_timer(time).timeout
+	
+	
+	
+	if not end:
+		attack_scene.visible = true
+		attack_scene.process_mode = ProcessMode.PROCESS_MODE_INHERIT
+		soul_transition.queue_free()
+	else:
+		soul_transition.destroy()
 
 func get_opening_line() -> DialogueString:
 	var dialogue = enemies[0].get_opening_line()
@@ -113,7 +150,7 @@ func get_flavor_text() -> DialogueString:
 	return dialogue
 
 func damage_hero(value: float):
-	Sound.play(preload("uid://cd65urqn1o8fi")) # snd_hurt1.wav
+	Sound.play(preload("res://shared/sound_effects/snd_hurt1.wav"))
 	
 	if not heroes:
 		return
@@ -146,7 +183,7 @@ func damage_enemy(value: float, id: int = 0):
 	enemy.create_floating_text_string(str(damage))
 
 func heal_hero(value: float, id: int = 0):
-	Sound.play(preload("uid://dn6sygxxt1y8u")) # snd_heal_c.wav
+	Sound.play(preload("res://shared/sound_effects/snd_heal_c.wav"))
 	
 	if not heroes:
 		return

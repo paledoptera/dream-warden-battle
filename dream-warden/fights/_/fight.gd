@@ -20,10 +20,6 @@ func _ready() -> void:
 	Dialogue.display_text.emit(Battle.get_opening_line())
 
 
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("confirm"):
-		Battle.enemy_attacking = true
-
 func _on_attack_started() -> void:
 	Battle.enemy_attacking = true
 	Dialogue.clear_text.emit()
@@ -34,3 +30,7 @@ func _on_battle_state_changed(new_state: Battle.State, last_state: Battle.State)
 	match new_state:
 		Battle.State.CHOOSE_ACTION:
 			Dialogue.display_text.emit(Battle.get_flavor_text())
+		Battle.State.ATTACK_START:
+			$AnimationPlayer.play("attack_fade")
+		Battle.State.ATTACK_END:
+			$AnimationPlayer.play_backwards("attack_fade")

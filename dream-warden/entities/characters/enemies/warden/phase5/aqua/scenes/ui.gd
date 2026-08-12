@@ -145,8 +145,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		selected += 1
 	
 	if last_selected != selected:
-		Sound.play(preload("uid://con5cuooujhtc"))
+		Sound.play(preload("res://shared/sound_effects/snd_menumove.wav"))
 
 	if event.is_action_pressed("confirm"):
-		Sound.play(preload("uid://dhgp6ob58xc1m")) # snd_select.wav
+		Sound.play(preload("res://shared/sound_effects/snd_select.wav"))
 		action()

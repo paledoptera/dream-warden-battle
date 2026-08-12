@@ -11,9 +11,10 @@ content_margin_top = 15.0
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
 bg_color = Color(0.2, 0.1254902, 0.2, 1)
 
-[node name="ActionPanel" type="Node2D" unique_id=1178111876 node_paths=PackedStringArray("actions")]
+[node name="ActionPanel" type="Node2D" unique_id=1178111876 node_paths=PackedStringArray("actions", "action_menu")]
 script = ExtResource("1_6w33t")
 actions = NodePath("Actions")
+action_menu = NodePath("Actions/ActionMenu")
 
 [node name="Background" type="ColorRect" parent="." unique_id=315189480]
 offset_top = -39.0
@@ -54,3 +55,6 @@ offset_left = 213.0
 offset_top = -33.0
 offset_right = 426.0
 offset_bottom = 2.0
+
+[connection signal="selected_action_changed" from="Actions/ActionMenu" to="." method="_on_selected_action_changed"]
+[connection signal="spawn_menu" from="Actions/ActionMenu" to="." method="spawn_menu"]

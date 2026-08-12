@@ -1,0 +1,139 @@
+[gd_scene format=3 uid="uid://he0wouxpjxmq"]
+
+[ext_resource type="Texture2D" uid="uid://c1ovxwjuc4om1" path="res://entities/characters/heroes/susie/res/action_icons.png" id="1_i1t4x"]
+[ext_resource type="Script" uid="uid://bsosg4ca4iqa0" path="res://fights/_/scenes/action_panel/fight_minigame/fight_minigame.gd" id="1_nyxgj"]
+[ext_resource type="Texture2D" uid="uid://dc3hn1ovehqiv" path="res://fights/_/scenes/action_panel/fight_minigame/hit_mark.png" id="2_015jt"]
+[ext_resource type="Texture2D" uid="uid://dpou4phsm4qfi" path="res://fights/_/scenes/action_panel/fight_minigame/hit_target.png" id="3_mstpk"]
+
+[sub_resource type="Animation" id="Animation_nyxgj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HitMarker:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HitMarker:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ukuq0"]
+resource_name = "fade_out"
+
+[sub_resource type="Animation" id="Animation_pl1mr"]
+resource_name = "perfect_hit"
+length = 0.33999999999999997
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HitMarker:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(3, 3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HitMarker:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.33333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_hpmvt"]
+resource_name = "perfect_hit"
+length = 0.33999999999999997
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HitMarker:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(3, 3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HitMarker:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.33333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 0, 1), Color(1, 1, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hpmvt"]
+_data = {
+&"RESET": SubResource("Animation_nyxgj"),
+&"fade_out": SubResource("Animation_ukuq0"),
+&"hit": SubResource("Animation_pl1mr"),
+&"perfect_hit": SubResource("Animation_hpmvt")
+}
+
+[node name="fight_minigame" type="Node2D" unique_id=2139349978 node_paths=PackedStringArray("hitmarker")]
+script = ExtResource("1_nyxgj")
+hitmarker = NodePath("HitMarker")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1665275972]
+position = Vector2(24, 24)
+texture = ExtResource("1_i1t4x")
+offset = Vector2(0, 0.5)
+hframes = 11
+frame = 1
+
+[node name="HitMarker" type="Sprite2D" parent="." unique_id=104882979]
+z_index = 90
+position = Vector2(330, 24.5)
+texture = ExtResource("2_015jt")
+offset = Vector2(-2, -6)
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1533198139]
+position = Vector2(80, -2)
+texture = ExtResource("3_mstpk")
+centered = false
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=533090963]
+offset_left = 83.0
+offset_top = 37.0
+offset_right = 309.0
+offset_bottom = 38.0
+color = Color(0.039215688, 0.015686275, 0.38039216, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=2147322001]
+offset_left = 83.0
+offset_top = 73.0
+offset_right = 309.0
+offset_bottom = 74.0
+color = Color(0.039215688, 0.015686275, 0.38039216, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1900745357]
+libraries/ = SubResource("AnimationLibrary_hpmvt")

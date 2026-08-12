@@ -19,7 +19,7 @@ func _update_tp(value: float) -> void:
 
 func _process(delta: float) -> void:
 	
-	tp = lerp(tp,int(Battle.tp),0.66)
+	tp = lerp(tp,int(Battle.tp+1.0),0.66)
 	$Normal/Label.text = str(tp)
 	
 	

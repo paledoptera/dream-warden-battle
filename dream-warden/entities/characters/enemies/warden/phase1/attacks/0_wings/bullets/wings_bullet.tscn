@@ -8,7 +8,7 @@ resource_name = "Wings"
 script/source = "extends Node2D
 
 func _ready() -> void:
-	Sound.play(preload(\"uid://ddvpdjvbgs5ms\"),0.5,randf_range(0.7,3.0))
+	Sound.play(preload(\"res://shared/sound_effects/snd_wingflap2.wav\"),0.5,randf_range(0.7,3.0))
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rvx65"]

@@ -110,8 +110,8 @@ func handle_roll() -> void:
 	y_velocity = 0.4
 	
 	#Sounds.play("snd_wing",0.3,randf_range(0.7,0.9))
-	Sound.play(preload("uid://cihi8p7nv4w7g"),0.1,randf_range(1.2,1.3)) # snd_swing
-	Sound.play(preload("uid://tbxowuw25v82"),0.65,randf_range(1.0,1.3)) # snd_petaldrain
+	Sound.play(preload("res://shared/sound_effects/snd_swing.wav"),0.1,randf_range(1.2,1.3))
+	Sound.play(preload("res://shared/sound_effects/snd_petaldrain.wav"),0.65,randf_range(1.0,1.3))
 	owner.shift_horizontal(roll_direction)
 	await get_tree().create_timer(0.2).timeout
 	grounded = true
@@ -148,7 +148,7 @@ func handle_jump() -> void:
 		return
 	
 	if jump:
-		Sound.play(preload("uid://c4147ge6tt2fq"),1.0,randf_range(0.9,1.1)) #snd_smallswing
+		Sound.play(preload("res://shared/sound_effects/snd_smallswing.wav"),1.0,randf_range(0.9,1.1)) 
 		is_jumping = true
 		y_velocity = jump_speed
 		midair_roll_used = false
@@ -161,7 +161,7 @@ func handle_attack() -> void:
 		attack_var *= -1
 	
 	is_attacking = true
-	Sound.play(preload("uid://cihi8p7nv4w7g"),1.0,randf_range(0.9,1.1)) #snd_swing
+	Sound.play(preload("res://shared/sound_effects/snd_swing.wav"),1.0,randf_range(0.9,1.1))
 	await get_tree().create_timer(0.2).timeout
 	is_attacking = false
 

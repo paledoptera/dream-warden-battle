@@ -1,8 +1,13 @@
 class_name ActionMenu extends Control
 
+signal spawn_menu(menu: PackedScene)
+signal selected_action_changed(new_action: int)
+
 @export var hp: Label
 @export var hp_max: Label
 @export var health_bar: ProgressBar
+@export var icon: Sprite2D
+
 var active = true
 var frozen = false
 var actions: Array
@@ -12,6 +17,8 @@ var selected: int = 0:
 		actions[selected].selected = false
 		actions[value].selected = true
 		selected = value
+		selected_action_changed.emit(value)
+
 
 var hero: Hero
 		
@@ -48,6 +55,9 @@ func activate() -> void:
 	if active:
 		return
 	
+	icon.frame = 1
+	hero.is_defending = false
+	
 	set_process_unhandled_input(true)
 	
 	$AnimationPlayer.play("open")
@@ -74,7 +84,7 @@ func _on_battle_state_changed(new_state: Battle.State, last_state: Battle.State)
 
 func _unhandled_input(event: InputEvent) -> void:
 	
-	if not active and not frozen:
+	if not active or frozen:
 		return
 	
 	if not event.is_action("left") and not event.is_action("right") and not event.is_action("confirm"):
@@ -88,7 +98,23 @@ func _unhandled_input(event: InputEvent) -> void:
 		selected += 1
 	
 	if last_selected != selected:
-		Sound.play(preload("uid://con5cuooujhtc"))
+		Sound.play(preload("res://shared/sound_effects/snd_menumove.wav"))
 
 	if event.is_action_pressed("confirm"):
-		Sound.play(preload("uid://dhgp6ob58xc1m")) # snd_select.wav
+		do_selected_action()
+		Sound.play(preload("res://shared/sound_effects/snd_select.wav"))
+
+func do_selected_action() -> void:
+	var action = selected as ActionPanel.Action
+	
+	match action:
+		ActionPanel.Action.FIGHT:
+			spawn_menu.emit(preload("uid://cnthh51l1n1ux")) # enemy_selection.tscn
+			icon.frame = 3
+			freeze()
+			
+		ActionPanel.Action.DEFEND:
+			Battle.tp += 32
+			icon.frame = 7
+			hero.is_defending = true
+			Battle.enemy_attacking = true
