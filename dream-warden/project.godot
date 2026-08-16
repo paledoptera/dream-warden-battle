@@ -28,6 +28,8 @@ Music="*uid://d254d7fap6pmo"
 Dialogue="*uid://dy45sx7dln5l8"
 Battle="*uid://cvr8sbcwccovk"
 Events="*uid://cj160iv8gqsw0"
+Menu="*uid://d0akdrgrmdix0"
+Flags="*uid://4sgii74kfv0r"
 
 [display]
 
@@ -41,6 +43,7 @@ window/vsync/vsync_mode=0
 orange_track=""
 battlebox=""
 soul=""
+menu_option=""
 
 [gui]
 
@@ -89,6 +92,11 @@ toggle_fullscreen={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194335,"key_label":0,"unicode":0,"location":0,"echo":false,"script":null)
 ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="Soul"
+2d_physics/layer_2="Bullets"
 
 [physics]
 

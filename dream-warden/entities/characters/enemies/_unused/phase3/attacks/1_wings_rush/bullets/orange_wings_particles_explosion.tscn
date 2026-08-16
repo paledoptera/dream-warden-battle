@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://b3g6bliqyvqgp"]
+
+[ext_resource type="Texture2D" uid="uid://by8kdq2k1sqxq" path="res://entities/characters/enemies/warden/attacks/normal/0_wings/bullets/res/wings_particle.png" id="1_wdcyx"]
+
+[sub_resource type="Curve" id="Curve_704u2"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.095833346, 0.7250001), 7.090908, 7.090908, 0, 0, Vector2(0.53333336, 0.5500001), 0.0, 0.0, 0, 0, Vector2(1, 0), -0.1188119, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="Curve" id="Curve_h1dh4"]
+_limits = [0.0, 3.0, 0.0, 1.0]
+_data = [Vector2(0, 2.0071943), 0.0, 0.0, 0, 0, Vector2(0.77245516, 1.7697842), -3.085713, -3.085713, 0, 0, Vector2(0.9791667, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_yf6s2"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[node name="CPUParticles2D" type="CPUParticles2D" unique_id=832654261]
+scale = Vector2(0.5, 0.5)
+amount = 32
+texture = ExtResource("1_wdcyx")
+lifetime = 4.0
+one_shot = true
+speed_scale = 4.0
+explosiveness = 1.0
+local_coords = true
+direction = Vector2(0, 1)
+spread = 180.0
+gravity = Vector2(0, -100)
+initial_velocity_max = 200.0
+orbit_velocity_curve = SubResource("Curve_704u2")
+angle_min = -360.0
+angle_max = 360.0
+scale_amount_max = 5.0
+split_scale = true
+scale_curve_x = SubResource("Curve_h1dh4")
+scale_curve_y = null
+color = Color(0.007843138, 0.49411765, 0.9607843, 1)
+color_ramp = SubResource("Gradient_yf6s2")

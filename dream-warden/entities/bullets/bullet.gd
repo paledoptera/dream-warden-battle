@@ -3,7 +3,7 @@ class_name Bullet extends Area2D
 @export_group("Stats")
 @export var damage := 1
 ## The amount of TP gained by grazing
-@export var graze_points := 5
+@export var graze_points := 2.0
 ## How much the turn timer is reduced when grazing (in seconds)
 @export var time_points := 5.0 / 30.0
 ##Whether the pellet gets destroyed if it collides
@@ -27,6 +27,8 @@ var grazed := false
 var time := 0.0
 
 func _ready() -> void:
+	collision_layer = 2
+	collision_mask = 1
 	body_entered.connect(_on_body_entered)
 
 func _physics_process(delta: float) -> void:

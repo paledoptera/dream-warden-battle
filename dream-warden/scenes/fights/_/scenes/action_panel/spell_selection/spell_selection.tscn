@@ -1,0 +1,136 @@
+[gd_scene format=3 uid="uid://um2a64cmuqm6"]
+
+[ext_resource type="FontVariation" uid="uid://72sk30ahlloh" path="res://shared/theme/fonts/default_textbox.tres" id="1_csc4n"]
+[ext_resource type="Script" uid="uid://dhp880u4rgwtq" path="res://scenes/fights/_/scenes/action_panel/spell_selection/spell_selection.gd" id="1_d3p02"]
+[ext_resource type="Texture2D" uid="uid://wy7dhu8gvr8c" path="res://entities/attacks/components/soul/res/soul.png" id="2_qlpwb"]
+
+[sub_resource type="Theme" id="Theme_7rakj"]
+default_font = ExtResource("1_csc4n")
+default_font_size = 32
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fe7gu"]
+content_margin_left = 28.0
+content_margin_top = 15.0
+
+[node name="SpellSelection" type="Node2D" unique_id=2003309357 node_paths=PackedStringArray("options_parent")]
+script = ExtResource("1_d3p02")
+options_parent = NodePath("Options")
+
+[node name="Options" type="Node2D" parent="." unique_id=14856207]
+
+[node name="Option1" type="RichTextLabel" parent="Options" unique_id=151941393 groups=["menu_option"]]
+custom_minimum_size = Vector2(100, 40)
+offset_top = -4.0
+offset_right = 640.0
+offset_bottom = 47.0
+theme = SubResource("Theme_7rakj")
+theme_override_fonts/normal_font = ExtResource("1_csc4n")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
+bbcode_enabled = true
+text = "Spell1"
+scroll_active = false
+
+[node name="Option2" type="RichTextLabel" parent="Options" unique_id=2078893534 groups=["menu_option"]]
+custom_minimum_size = Vector2(100, 40)
+offset_left = 232.0
+offset_top = -4.0
+offset_right = 872.0
+offset_bottom = 47.0
+theme = SubResource("Theme_7rakj")
+theme_override_fonts/normal_font = ExtResource("1_csc4n")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
+bbcode_enabled = true
+text = "Spell2"
+scroll_active = false
+
+[node name="Option3" type="RichTextLabel" parent="Options" unique_id=1431091085 groups=["menu_option"]]
+custom_minimum_size = Vector2(100, 40)
+offset_top = 28.0
+offset_right = 640.0
+offset_bottom = 79.0
+theme = SubResource("Theme_7rakj")
+theme_override_fonts/normal_font = ExtResource("1_csc4n")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
+bbcode_enabled = true
+text = "Spell3"
+scroll_active = false
+
+[node name="Option4" type="RichTextLabel" parent="Options" unique_id=1776980224 groups=["menu_option"]]
+custom_minimum_size = Vector2(100, 40)
+offset_left = 232.0
+offset_top = 28.0
+offset_right = 872.0
+offset_bottom = 79.0
+theme = SubResource("Theme_7rakj")
+theme_override_fonts/normal_font = ExtResource("1_csc4n")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
+bbcode_enabled = true
+text = "Spell4"
+scroll_active = false
+
+[node name="Description" type="RichTextLabel" parent="." unique_id=1079294880]
+custom_minimum_size = Vector2(100, 40)
+offset_left = 460.0
+offset_top = -4.0
+offset_right = 1100.0
+offset_bottom = 107.0
+theme = SubResource("Theme_7rakj")
+theme_override_colors/default_color = Color(0.49803922, 0.49803922, 0.49803922, 1)
+theme_override_fonts/normal_font = ExtResource("1_csc4n")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
+bbcode_enabled = true
+text = "Consider
+strategy"
+scroll_active = false
+
+[node name="TPCost" type="RichTextLabel" parent="." unique_id=264706061]
+visible = false
+custom_minimum_size = Vector2(100, 40)
+offset_left = 460.0
+offset_top = -4.0
+offset_right = 1100.0
+offset_bottom = 107.0
+theme = SubResource("Theme_7rakj")
+theme_override_colors/default_color = Color(0.9843137, 0.62352943, 0.25882354, 1)
+theme_override_fonts/normal_font = ExtResource("1_csc4n")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
+bbcode_enabled = true
+text = "
+
+99% TP"
+scroll_active = false
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1258073754]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(16, 29)
+texture = ExtResource("2_qlpwb")

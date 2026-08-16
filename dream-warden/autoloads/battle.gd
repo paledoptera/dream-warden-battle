@@ -1,15 +1,21 @@
 extends Node
 
-enum State {CHOOSE_ACTION, CHOOSE_ENEMY, CHOOSE_SPELL, CHOOSE_ITEM, HERO_DIALOGUE, ENEMY_DIALOGUE, ATTACK_START, ATTACK_END}
+enum State {CHOOSE_ACTION, CHOOSE_ENEMY, CHOOSE_SPELL, CHOOSE_ITEM, HERO_ACTION, HERO_DIALOGUE, ENEMY_DIALOGUE, ATTACK_START, ATTACK_END}
+enum Action {FIGHT, MAGIC, ITEM, MERCY, DEFEND}
+
 
 var state := State.CHOOSE_ACTION:
 	set(value):
 		state_changed.emit(value,state)
 		state = value
 
+var selected_action: Action = Action.FIGHT
+
 var heroes: Array
 var enemies: Array
 var fight_scene: FightScene
+var target: int = 0
+
 
 var turn: int = 0
 
@@ -22,14 +28,9 @@ var enemy_attacking: bool = false:
 		enemy_attacking = value
 		if last != enemy_attacking:
 			if value:
-				state = State.ATTACK_START
 				attack_start.emit()
 			else:
-				state = State.ATTACK_END
 				attack_end.emit()
-				await get_tree().create_timer(0.2).timeout
-				turn += 1
-				state = State.CHOOSE_ACTION
 				
 
 var tp: float = 0.0:
@@ -51,6 +52,13 @@ signal state_changed(new_state: State, last_state: State)
 func _ready() -> void:
 	heroes_updated.connect(update_heroes)
 	enemies_updated.connect(update_enemies)
+	state_changed.connect(_on_state_changed)
+	
+	Menu.set_cursor_sprite(preload("uid://wy7dhu8gvr8c"))
+	await get_tree().process_frame
+	
+	state_changed.emit(state,State.ATTACK_END)
+	
 
 
 func update_heroes(parent_node: Node):
@@ -85,7 +93,7 @@ func do_attack(parent_node: Node) -> void:
 		
 		await animate_soul_transition(attack_scene,true)
 	
-	enemy_attacking = false
+	goto_next_phase()
 	return
 
 func animate_soul_transition(attack_scene: Node, end: bool = false) -> void:
@@ -101,9 +109,11 @@ func animate_soul_transition(attack_scene: Node, end: bool = false) -> void:
 	var time = 0.6
 	heroes[0].add_child(soul_transition)
 	soul_transition.start_point = heroes[0].global_position
-	soul_transition.end_point = get_tree().get_first_node_in_group("soul").global_position
-	soul_transition.battlebox.size = get_tree().get_first_node_in_group("battlebox").size
-	soul_transition.battlebox_pivot.global_position = get_tree().get_first_node_in_group("battlebox").global_position
+	if get_tree().get_first_node_in_group("soul"):
+		soul_transition.end_point = get_tree().get_first_node_in_group("soul").global_position
+	if get_tree().get_first_node_in_group("battlebox"):
+		soul_transition.battlebox.size = get_tree().get_first_node_in_group("battlebox").size
+		soul_transition.battlebox_pivot.global_position = get_tree().get_first_node_in_group("battlebox").global_position
 	
 	if end:
 		soul_transition.start_point = soul_transition.end_point
@@ -193,5 +203,65 @@ func heal_hero(value: float, id: int = 0):
 	
 	hero.hp += value
 	hero.create_floating_text_string(str(int(value)),Color.GREEN)
+
+func goto_next_phase() -> void:
+	match state:
+		State.CHOOSE_ACTION:
+			match selected_action:
+				Action.FIGHT, Action.MAGIC:
+					state = State.CHOOSE_ENEMY
+				Action.DEFEND, Action.MERCY:
+					state = State.HERO_ACTION
+		
+		State.CHOOSE_SPELL:
+			state = State.HERO_ACTION
+		
+		State.CHOOSE_ENEMY:
+			match selected_action:
+				Action.FIGHT:
+					state = State.HERO_ACTION
+				Action.MAGIC:
+					state = State.CHOOSE_SPELL
+		
+		State.HERO_ACTION:
+			state = State.ATTACK_START
+		
+		State.ATTACK_START:
+			state = State.ATTACK_END
+		
+		State.ATTACK_END:
+			state = State.CHOOSE_ACTION
+		
+
+func goto_prev_phase() -> void:
 	
+	match state:
+		State.CHOOSE_ENEMY:
+			state = State.CHOOSE_ACTION
+		
+		State.CHOOSE_SPELL:
+			state = State.CHOOSE_ENEMY
+
+func _on_state_changed(new_state: State, last_state: State) -> void:
+	match new_state:
+		State.ATTACK_START:
+			enemy_attacking = true
+		
+		State.ATTACK_END:
+			enemy_attacking = false
+			await get_tree().create_timer(0.2).timeout
+			turn += 1
+			goto_next_phase()
+
+func get_target_enemy() -> Enemy:
+	target = clampi(target,0,enemies.size()-1)
+	return enemies[target]
+
+func try_mercy() -> void:
+	if enemies[0].try_mercy():
+		pass
+	else:
+		Dialogue.display_text.emit(enemies[0].mercy_fail_text)
+		await Dialogue.text_finished
+		goto_next_phase()
 	

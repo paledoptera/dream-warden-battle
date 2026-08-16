@@ -1,7 +1,65 @@
 [gd_scene format=3 uid="uid://dqlcm46i6llth"]
 
 [ext_resource type="Script" uid="uid://dcoj2hdic3s7p" path="res://entities/characters/heroes/_hero.gd" id="1_atl7j"]
+[ext_resource type="Script" uid="uid://cto2fxwpogr36" path="res://resources/spells/spell.gd" id="2_6rqmn"]
 [ext_resource type="Texture2D" uid="uid://u70e8hvqvvvx" path="res://entities/characters/heroes/susie/res/susie_organized_sheet.png" id="2_jq4a0"]
+[ext_resource type="Script" uid="uid://di3ljx2aw4xl7" path="res://resources/spells/effects/heal.gd" id="4_7bx4w"]
+[ext_resource type="Script" uid="uid://d3xaygu7d8jdf" path="res://resources/spells/effects/check.gd" id="4_27peg"]
+
+[sub_resource type="Resource" id="Resource_xbtyo"]
+script = ExtResource("4_27peg")
+metadata/_custom_type_script = "uid://d3xaygu7d8jdf"
+
+[sub_resource type="Resource" id="Resource_jq4a0"]
+resource_name = "Check"
+script = ExtResource("2_6rqmn")
+title = &"[color=fa81fa]Check"
+description = "Consider
+strategy"
+spell_effect = SubResource("Resource_xbtyo")
+tp_cost = 0
+metadata/_custom_type_script = "uid://cto2fxwpogr36"
+
+[sub_resource type="Resource" id="Resource_27peg"]
+script = ExtResource("4_7bx4w")
+metadata/_custom_type_script = "uid://di3ljx2aw4xl7"
+
+[sub_resource type="Resource" id="Resource_7bx4w"]
+resource_name = "Rude Buster"
+script = ExtResource("2_6rqmn")
+title = &"Rude Buster"
+description = "Hopeless
+attack"
+spell_effect = SubResource("Resource_27peg")
+tp_cost = 50
+metadata/_custom_type_script = "uid://cto2fxwpogr36"
+
+[sub_resource type="Resource" id="Resource_fvjnl"]
+script = ExtResource("4_7bx4w")
+metadata/_custom_type_script = "uid://di3ljx2aw4xl7"
+
+[sub_resource type="Resource" id="Resource_sup8m"]
+resource_name = "BlazingHeal"
+script = ExtResource("2_6rqmn")
+title = &"BlazingHeal"
+description = "Desperate
+recovery"
+spell_effect = SubResource("Resource_fvjnl")
+metadata/_custom_type_script = "uid://cto2fxwpogr36"
+
+[sub_resource type="Resource" id="Resource_smtgx"]
+script = ExtResource("4_7bx4w")
+metadata/_custom_type_script = "uid://di3ljx2aw4xl7"
+
+[sub_resource type="Resource" id="Resource_2ljn2"]
+resource_name = "Unleash"
+script = ExtResource("2_6rqmn")
+title = &"Unleash"
+description = "Shine
+bright"
+spell_effect = SubResource("Resource_smtgx")
+tp_cost = 100
+metadata/_custom_type_script = "uid://cto2fxwpogr36"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6rqmn"]
 atlas = ExtResource("2_jq4a0")
@@ -184,6 +242,7 @@ _data = {
 
 [node name="Susie" type="Node2D" unique_id=643348922]
 script = ExtResource("1_atl7j")
+spells = Array[ExtResource("2_6rqmn")]([SubResource("Resource_jq4a0"), SubResource("Resource_7bx4w"), SubResource("Resource_sup8m"), SubResource("Resource_2ljn2")])
 title = "Susie"
 hp_max = 460
 metadata/_custom_type_script = "uid://dcoj2hdic3s7p"

@@ -8,6 +8,7 @@ radius = 2.5
 
 [node name="DiamondBullet" type="Area2D" unique_id=194047947]
 scale = Vector2(2, 2)
+collision_layer = 2
 script = ExtResource("1_pt3dd")
 damage = 9
 graze_points = 0

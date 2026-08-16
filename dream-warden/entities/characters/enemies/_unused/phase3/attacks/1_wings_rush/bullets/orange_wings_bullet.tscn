@@ -1,0 +1,249 @@
+[gd_scene format=3 uid="uid://c5hqwl5y42r0r"]
+
+[ext_resource type="Script" uid="uid://bisu8d38by8b5" path="res://entities/bullets/bullet.gd" id="1_ojyvm"]
+[ext_resource type="Texture2D" uid="uid://dubxsbl8ycjyg" path="res://entities/characters/enemies/warden/attacks/normal/0_wings/bullets/res/wings_sheet.png" id="2_0fcip"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ipo2o"]
+size = Vector2(25, 13)
+
+[sub_resource type="Animation" id="Animation_totoe"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/Right:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite/Left:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [3]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite/Left:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite/Right:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprite/Right:offset")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(10, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Sprite/Left:offset")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-10, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ipo2o"]
+resource_name = "flutter"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/Right:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.19999999, 0.4),
+"transitions": PackedFloat32Array(-2, 1, -2),
+"update": 0,
+"values": [0.0, 0.17453292519943295, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite/Left:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.19999999, 0.4),
+"transitions": PackedFloat32Array(-2, 1, -2),
+"update": 0,
+"values": [0.0, -0.17453292519943295, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 5), Vector2(0, -5), Vector2(0, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite/Right:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(10, 0), Vector2(9, -3), Vector2(10, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite/Left:offset")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-10, 0), Vector2(-9, -3), Vector2(-10, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite/Right:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.16666667, 0.33333334, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [3, 1, 2, 4, 3]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprite/Left:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.16666667, 0.33333334, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [3, 1, 2, 4, 3]
+}
+
+[sub_resource type="Animation" id="Animation_6toh1"]
+resource_name = "new_animation"
+length = 1.5
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d7gc2"]
+_data = {
+&"RESET": SubResource("Animation_totoe"),
+&"flutter": SubResource("Animation_ipo2o"),
+&"spawn": SubResource("Animation_6toh1")
+}
+
+[node name="Wings" type="Node2D" unique_id=64823786]
+z_index = 2
+
+[node name="Bullet" type="Area2D" parent="." unique_id=1350055120]
+collision_layer = 2
+script = ExtResource("1_ojyvm")
+damage = 20
+graze_points = 0
+velocity = Vector2(0, 0.1)
+life_time = -1.0
+
+[node name="Sprite" type="Node2D" parent="Bullet" unique_id=554455508]
+scale = Vector2(1, 1.0400369)
+
+[node name="Right" type="Sprite2D" parent="Bullet/Sprite" unique_id=429389388]
+position = Vector2(33, -5.215405e-08)
+scale = Vector2(2.25, 1.25)
+texture = ExtResource("2_0fcip")
+offset = Vector2(10, 0)
+hframes = 5
+frame = 3
+
+[node name="Left" type="Sprite2D" parent="Bullet/Sprite" unique_id=1890297899]
+position = Vector2(-33, 0)
+scale = Vector2(2.25, 1.25)
+texture = ExtResource("2_0fcip")
+offset = Vector2(-10, 0)
+flip_h = true
+hframes = 5
+frame = 3
+
+[node name="Right" type="CollisionShape2D" parent="Bullet" unique_id=817256706]
+position = Vector2(49, 3.5)
+shape = SubResource("RectangleShape2D_ipo2o")
+
+[node name="Left" type="CollisionShape2D" parent="Bullet" unique_id=1980325071]
+position = Vector2(-51, 3.5)
+shape = SubResource("RectangleShape2D_ipo2o")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Bullet" unique_id=860548971]
+libraries/ = SubResource("AnimationLibrary_d7gc2")
+autoplay = &"flutter"

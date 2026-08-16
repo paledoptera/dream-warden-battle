@@ -2,14 +2,18 @@ class_name Enemy extends AbstractFighter
 
 enum Order { RANDOM, SEQUENTIAL }
 
+signal mercy_attempted
+
 @export_group("Attacks")
 @export var attack_order := Order.RANDOM
 @export var attacks: Array[Attack]
 @export_group("Dialogue")
+@export var check_text : Array[DialogueString]
 @export var opening_line_singular := DialogueString.new()
 @export var opening_line_plural := DialogueString.new()
 @export var flavor_text_order := Order.RANDOM
 @export var flavor_text : Array[DialogueString]
+@export var mercy_fail_text: Array[DialogueString]
 @export_group("Data")
 @export var soundbank: Dictionary[StringName, AudioStream]
 @export var next_phase: PackedScene
@@ -20,6 +24,7 @@ var repetitions = 0
 func _ready() -> void:
 	super()
 	Battle.attack_end.connect(progress_turn)
+	mercy_attempted.connect(_on_mercy_attempted)
 
 func progress_turn() -> void:
 	turn += 1
@@ -80,4 +85,9 @@ func goto_next_phase() -> void:
 	reparent(get_tree().root)
 	Battle.update_enemies(enemies_root)
 	queue_free()
-	
+
+func try_mercy() -> bool:
+	return false
+
+func _on_mercy_attempted() -> void:
+	pass

@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://c0oopy8rd7aua"]
+
+[ext_resource type="Script" uid="uid://bc605h3x6ov6y" path="res://scenes/fights/_/scenes/action_panel/action_panel.gd" id="1_6w33t"]
+[ext_resource type="PackedScene" uid="uid://ca3d2dgphgx5j" path="res://entities/dialogue/dialogue_box.tscn" id="1_yn2l1"]
+[ext_resource type="PackedScene" uid="uid://jeonilaut88t" path="res://scenes/fights/_/scenes/action_panel/action_menu/action_menu.tscn" id="2_6w33t"]
+[ext_resource type="PackedScene" uid="uid://cnthh51l1n1ux" path="res://scenes/fights/_/scenes/action_panel/enemy_selection/enemy_selection.tscn" id="4_62nv4"]
+[ext_resource type="PackedScene" uid="uid://um2a64cmuqm6" path="res://scenes/fights/_/scenes/action_panel/spell_selection/spell_selection.tscn" id="5_ots36"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_68wrf"]
+content_margin_left = 30.0
+content_margin_top = 15.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
+bg_color = Color(0.2, 0.1254902, 0.2, 1)
+
+[node name="ActionPanel" type="Node2D" unique_id=1178111876 node_paths=PackedStringArray("actions", "action_menu", "enemy_selection", "spell_selection")]
+script = ExtResource("1_6w33t")
+actions = NodePath("Actions")
+action_menu = NodePath("Actions/ActionMenu")
+enemy_selection = NodePath("Menus/EnemySelection")
+spell_selection = NodePath("Menus/SpellSelection")
+
+[node name="Background" type="ColorRect" parent="." unique_id=315189480]
+offset_top = -39.0
+offset_right = 1000.0
+offset_bottom = 478.0
+color = Color(0, 0, 0, 1)
+
+[node name="DialogueBox" parent="." unique_id=933132283 instance=ExtResource("1_yn2l1")]
+offset_top = -4.0
+offset_right = 640.0
+offset_bottom = 111.0
+offset_transform_position = Vector2(114, 0)
+theme_override_colors/font_shadow_color = Color(0.05490196, 0.07450981, 1, 0.49803922)
+theme_override_constants/shadow_outline_size = 0
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_styles/normal = SubResource("StyleBoxEmpty_68wrf")
+bbcode_enabled = true
+text = "* This is a sample text"
+tab_size = 2
+effect_offset = Vector2(30, 15)
+
+[node name="BottomDivider" type="Panel" parent="." unique_id=309884350]
+custom_minimum_size = Vector2(640, 3)
+offset_top = -3.0
+offset_right = 640.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_g4v7s")
+
+[node name="TopDivider" type="Panel" parent="." unique_id=344870905]
+custom_minimum_size = Vector2(640, 2)
+offset_top = -39.0
+offset_right = 640.0
+offset_bottom = -37.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_g4v7s")
+
+[node name="Actions" type="Node2D" parent="." unique_id=876718920]
+
+[node name="ActionMenu" parent="Actions" unique_id=104529111 instance=ExtResource("2_6w33t")]
+offset_left = 213.0
+offset_top = -33.0
+offset_right = 426.0
+offset_bottom = 2.0
+
+[node name="Menus" type="Node2D" parent="." unique_id=361706530]
+
+[node name="EnemySelection" parent="Menus" unique_id=2003309357 instance=ExtResource("4_62nv4")]
+visible = false
+
+[node name="SpellSelection" parent="Menus" unique_id=1382132427 instance=ExtResource("5_ots36")]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=178178877]
+visible = false
+offset_left = 106.0
+offset_top = 30.0
+offset_right = 152.0
+offset_bottom = 34.0
+
+[connection signal="selected_action_changed" from="Actions/ActionMenu" to="." method="_on_selected_action_changed"]
+[connection signal="spawn_menu" from="Actions/ActionMenu" to="." method="spawn_menu"]
