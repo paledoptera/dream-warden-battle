@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://jeonilaut88t" path="res://scenes/fights/_/scenes/action_panel/action_menu/action_menu.tscn" id="2_6w33t"]
 [ext_resource type="PackedScene" uid="uid://cnthh51l1n1ux" path="res://scenes/fights/_/scenes/action_panel/enemy_selection/enemy_selection.tscn" id="4_62nv4"]
 [ext_resource type="PackedScene" uid="uid://um2a64cmuqm6" path="res://scenes/fights/_/scenes/action_panel/spell_selection/spell_selection.tscn" id="5_ots36"]
+[ext_resource type="PackedScene" uid="uid://bfe6w1e1the6h" path="res://scenes/fights/_/scenes/action_panel/item_selection/item_selection.tscn" id="6_vhihh"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_68wrf"]
 content_margin_left = 30.0
@@ -13,12 +14,13 @@ content_margin_top = 15.0
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
 bg_color = Color(0.2, 0.1254902, 0.2, 1)
 
-[node name="ActionPanel" type="Node2D" unique_id=1178111876 node_paths=PackedStringArray("actions", "action_menu", "enemy_selection", "spell_selection")]
+[node name="ActionPanel" type="Node2D" unique_id=1178111876 node_paths=PackedStringArray("actions", "action_menu", "enemy_selection", "spell_selection", "item_selection")]
 script = ExtResource("1_6w33t")
 actions = NodePath("Actions")
 action_menu = NodePath("Actions/ActionMenu")
 enemy_selection = NodePath("Menus/EnemySelection")
 spell_selection = NodePath("Menus/SpellSelection")
+item_selection = NodePath("Menus/ItemSelection")
 
 [node name="Background" type="ColorRect" parent="." unique_id=315189480]
 offset_top = -39.0
@@ -68,6 +70,9 @@ offset_bottom = 2.0
 visible = false
 
 [node name="SpellSelection" parent="Menus" unique_id=1382132427 instance=ExtResource("5_ots36")]
+visible = false
+
+[node name="ItemSelection" parent="Menus" unique_id=140256077 instance=ExtResource("6_vhihh")]
 visible = false
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=178178877]

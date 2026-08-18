@@ -30,6 +30,7 @@ Battle="*uid://cvr8sbcwccovk"
 Events="*uid://cj160iv8gqsw0"
 Menu="*uid://d0akdrgrmdix0"
 Flags="*uid://4sgii74kfv0r"
+PlayerInventory="*uid://br10nbojxuoc5"
 
 [display]
 

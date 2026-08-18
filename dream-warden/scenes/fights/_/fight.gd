@@ -31,7 +31,7 @@ func _on_battle_state_changed(new_state: Battle.State, last_state: Battle.State)
 	match new_state:
 		Battle.State.HERO_ACTION:
 			match Battle.selected_action:
-				Battle.Action.DEFEND:
+				Battle.Action.DEFEND, Battle.Action.ITEM:
 					await get_tree().physics_frame
 					Battle.goto_next_phase()
 		Battle.State.ATTACK_START:

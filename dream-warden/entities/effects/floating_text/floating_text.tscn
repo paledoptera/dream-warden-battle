@@ -111,7 +111,7 @@ script = ExtResource("1_1frxc")
 [node name="Sprite2D" type="Sprite2D" parent="Container" unique_id=593545790]
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Container" unique_id=1944854665]
-offset_right = 100.0
+offset_right = 221.0
 offset_bottom = 25.0
 offset_transform_enabled = true
 offset_transform_position_ratio = Vector2(-0.5, -0.5)

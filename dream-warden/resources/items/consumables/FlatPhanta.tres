@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Consumable" format=3 uid="uid://bjg27nth05bhe"]
+
+[ext_resource type="Script" uid="uid://bx25pyuc661xe" path="res://resources/items/_/effects/_item_effect.gd" id="1_6460i"]
+[ext_resource type="Script" uid="uid://b0d1seuyqeod0" path="res://resources/items/_/effects/item_heal.gd" id="2_1ta4s"]
+[ext_resource type="Script" uid="uid://dqqspvep6hbuo" path="res://resources/items/_/effects/item_tp.gd" id="3_1ta4s"]
+[ext_resource type="Script" uid="uid://bo1qbrqox8ixs" path="res://resources/items/consumables/consumable.gd" id="3_eoe60"]
+
+[sub_resource type="Resource" id="Resource_pmyap"]
+script = ExtResource("2_1ta4s")
+heal_amount = 160
+metadata/_custom_type_script = "uid://b0d1seuyqeod0"
+
+[sub_resource type="Resource" id="Resource_tg5i7"]
+script = ExtResource("3_1ta4s")
+metadata/_custom_type_script = "uid://dqqspvep6hbuo"
+
+[resource]
+resource_name = "FlatPhanta"
+script = ExtResource("3_eoe60")
+effects = Array[ExtResource("1_6460i")]([SubResource("Resource_pmyap"), SubResource("Resource_tg5i7")])
+title = &"FlatPhanta"
+description = "Raises 
+TP 16%
++ 160HP"
+metadata/_custom_type_script = "uid://bo1qbrqox8ixs"

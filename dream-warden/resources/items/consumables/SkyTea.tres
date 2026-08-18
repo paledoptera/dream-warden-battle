@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="Consumable" format=3 uid="uid://7j3ajsewfoyd"]
+
+[ext_resource type="Script" uid="uid://bx25pyuc661xe" path="res://resources/items/_/effects/_item_effect.gd" id="1_kxa1y"]
+[ext_resource type="Script" uid="uid://b0d1seuyqeod0" path="res://resources/items/_/effects/item_heal.gd" id="2_fbuhg"]
+[ext_resource type="Script" uid="uid://dpshigxt0yaq7" path="res://resources/items/_/effects/item_soul_speed.gd" id="3_7xaix"]
+[ext_resource type="Script" uid="uid://bo1qbrqox8ixs" path="res://resources/items/consumables/consumable.gd" id="4_pqah8"]
+
+[sub_resource type="Resource" id="Resource_eoe60"]
+script = ExtResource("2_fbuhg")
+heal_amount = 60
+metadata/_custom_type_script = "uid://b0d1seuyqeod0"
+
+[sub_resource type="Resource" id="Resource_60ijq"]
+script = ExtResource("3_7xaix")
+soul_speed = 150.0
+metadata/_custom_type_script = "uid://dpshigxt0yaq7"
+
+[resource]
+resource_name = "SkyTea"
+script = ExtResource("4_pqah8")
+effects = Array[ExtResource("1_kxa1y")]([SubResource("Resource_eoe60"), SubResource("Resource_60ijq")])
+title = &"SkyTea"
+description = "Increase 
+SPEED
++ 60HP"
+metadata/_custom_type_script = "uid://bo1qbrqox8ixs"

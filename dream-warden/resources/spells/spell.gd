@@ -7,3 +7,4 @@ class_name Spell extends Resource
 
 func cast(user : AbstractFighter, used_on : AbstractFighter) -> void:
 	spell_effect.do_effect(user,used_on)
+	Battle.tp -= tp_cost

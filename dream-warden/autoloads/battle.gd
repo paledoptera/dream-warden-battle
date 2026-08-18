@@ -16,6 +16,8 @@ var enemies: Array
 var fight_scene: FightScene
 var target: int = 0
 
+var soul_speed: float = 120.0
+
 
 var turn: int = 0
 
@@ -166,6 +168,11 @@ func damage_hero(value: float):
 		return
 	
 	var hero: Hero = heroes.pick_random()
+	if hero.prism_shield > 0:
+		hero.prism_shield -= 1
+		hero.create_floating_text_string("BLOCKED", Color("00ffff"))
+		return
+	
 	var damage: int = (value * 5) - (hero.defense * 3)
 	
 	if Global.hard_mode:
@@ -212,8 +219,10 @@ func goto_next_phase() -> void:
 					state = State.CHOOSE_ENEMY
 				Action.DEFEND, Action.MERCY:
 					state = State.HERO_ACTION
+				Action.ITEM:
+					state = State.CHOOSE_ITEM
 		
-		State.CHOOSE_SPELL:
+		State.CHOOSE_SPELL, State.CHOOSE_ITEM:
 			state = State.HERO_ACTION
 		
 		State.CHOOSE_ENEMY:
@@ -236,7 +245,7 @@ func goto_next_phase() -> void:
 func goto_prev_phase() -> void:
 	
 	match state:
-		State.CHOOSE_ENEMY:
+		State.CHOOSE_ENEMY, State.CHOOSE_ITEM:
 			state = State.CHOOSE_ACTION
 		
 		State.CHOOSE_SPELL:

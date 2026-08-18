@@ -91,6 +91,9 @@ func refresh() -> void:
 	if current.talksound:
 		talksound = current.talksound
 	
+	if current.flag:
+		if Flags.get_flag(current.flag) != null:
+			Flags.set_flag(current.flag,current.flag_value)
 	
 	Dialogue.displaying_text = true
 	visible_characters = 1

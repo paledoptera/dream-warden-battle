@@ -135,6 +135,7 @@ libraries/ = SubResource("AnimationLibrary_yqp5e")
 autoplay = &"start"
 
 [node name="Debug" type="Node2D" parent="." unique_id=1307453711]
+visible = false
 script = ExtResource("4_slas2")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Debug" unique_id=33190341]

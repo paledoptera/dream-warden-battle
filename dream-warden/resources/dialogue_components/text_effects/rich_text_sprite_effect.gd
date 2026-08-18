@@ -19,6 +19,7 @@ func place_element() -> void:
 	sprite.scale = sprite_scale
 	sprite.texture = texture
 	sprite.visible = false
+	sprite.z_index = 999
 
 func _process(delta: float) -> void:
 	if sprite:

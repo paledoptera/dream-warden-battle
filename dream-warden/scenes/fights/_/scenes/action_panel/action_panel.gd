@@ -4,6 +4,7 @@ class_name ActionPanel extends Node2D
 @export var action_menu: ActionMenu
 @export var enemy_selection: EnemySelection
 @export var spell_selection: SpellSelection
+@export var item_selection: ItemSelection
 var menu_is_temporary: bool = false
 var element: Node
 var cached_option: int = 0
@@ -67,11 +68,16 @@ func _on_battle_state_changed(new_state: Battle.State, last_state: Battle.State)
 			Dialogue.clear_text.emit()
 			print("CLEARED!")
 			switch_to_menu(enemy_selection)
+			enemy_selection.refresh()
 			Menu.hook_cursor(enemy_selection.options_parent,Menu.Layout.VERTICAL)
-	
+			
 		Battle.State.CHOOSE_SPELL:
 			switch_to_menu(spell_selection)
 			spell_selection.refresh()
+		
+		Battle.State.CHOOSE_ITEM:
+			switch_to_menu(item_selection)
+			item_selection.refresh()
 		
 		Battle.State.HERO_ACTION:
 			close_current_menu()

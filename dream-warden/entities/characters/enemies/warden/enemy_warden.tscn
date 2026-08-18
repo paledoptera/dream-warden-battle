@@ -58,6 +58,7 @@ script = ExtResource("6_61jcs")
 text = "* DREAM WARDEN - AT 50 DF .
 * The guardian of the prophecy."
 markers = Array[ExtResource("2_dgkhq")]([SubResource("Resource_kpjfp")])
+flag_value = null
 metadata/_custom_type_script = "uid://m17i7j602jax"
 
 [sub_resource type="Resource" id="Resource_j8j1u"]
@@ -65,6 +66,7 @@ script = ExtResource("6_61jcs")
 text = "* The core is surrounded by an
 	unbreakable LIGHT shield...
 * Strike the shield to gain TP."
+flag_value = null
 metadata/_custom_type_script = "uid://m17i7j602jax"
 
 [sub_resource type="Gradient" id="Gradient_j8j1u"]
@@ -87,12 +89,14 @@ script = ExtResource("6_61jcs")
 text = "* Then, use \"UNLEASH\" to reveal
 	the WEAK POINT!"
 markers = Array[ExtResource("2_dgkhq")]([SubResource("Resource_l4ra8")])
+flag_value = null
 metadata/_custom_type_script = "uid://m17i7j602jax"
 
 [sub_resource type="Resource" id="Resource_alf2x"]
 script = ExtResource("6_61jcs")
 text = "* Just another enemy to strike down...
 * Isn't that right, Susie?"
+flag_value = null
 metadata/_custom_type_script = "uid://m17i7j602jax"
 
 [sub_resource type="Resource" id="Resource_k4cw7"]
@@ -114,6 +118,7 @@ text = "* Iridescent feathers fall around you.
 * TP Gain reduced outside of ???"
 require_input = false
 markers = Array[ExtResource("2_dgkhq")]([SubResource("Resource_k4cw7"), SubResource("Resource_h8ayj")])
+flag_value = null
 metadata/_custom_type_script = "uid://m17i7j602jax"
 
 [sub_resource type="Resource" id="Resource_ho82e"]
@@ -122,6 +127,7 @@ script = ExtResource("6_61jcs")
 text = "* Iridescent feathers fall around you.
 * The wind is howling..."
 require_input = false
+flag_value = null
 metadata/_custom_type_script = "uid://m17i7j602jax"
 
 [sub_resource type="Resource" id="Resource_vmkok"]
@@ -129,6 +135,7 @@ resource_name = "Zaps"
 script = ExtResource("6_61jcs")
 text = "* Blinding flashes light up the sky."
 require_input = false
+flag_value = null
 metadata/_custom_type_script = "uid://m17i7j602jax"
 
 [sub_resource type="Resource" id="Resource_ohji1"]
@@ -137,6 +144,7 @@ script = ExtResource("6_61jcs")
 text = "* The world revolves around you...
 * Stars streak across the sky."
 require_input = false
+flag_value = null
 metadata/_custom_type_script = "uid://m17i7j602jax"
 
 [sub_resource type="Resource" id="Resource_sgcr6"]
@@ -145,6 +153,7 @@ script = ExtResource("6_61jcs")
 text = "* The atmosphere thins.
 * Your hair stands on end."
 require_input = false
+flag_value = null
 metadata/_custom_type_script = "uid://m17i7j602jax"
 
 [sub_resource type="Resource" id="Resource_ots36"]
@@ -152,6 +161,8 @@ script = ExtResource("6_61jcs")
 text = "* Hey! Focus, dumbass!"
 talksound = ExtResource("16_l4ra8")
 portrait = ExtResource("15_ea6ii")
+flag = &"mercy_disabled"
+flag_value = true
 metadata/_custom_type_script = "uid://m17i7j602jax"
 
 [sub_resource type="Resource" id="Resource_byxgd"]
@@ -160,7 +171,7 @@ text = "* There's no WAY we're gonna
 	spare this thing."
 talksound = ExtResource("16_l4ra8")
 portrait = ExtResource("17_kjsfs")
-flag_trigger = &"test"
+flag_value = null
 metadata/_custom_type_script = "uid://m17i7j602jax"
 
 [sub_resource type="Resource" id="Resource_rhod4"]
@@ -169,12 +180,13 @@ text = "* If it's even... alive...
 * You know what it wants."
 talksound = ExtResource("16_l4ra8")
 portrait = ExtResource("17_l4ra8")
+flag_value = null
 metadata/_custom_type_script = "uid://m17i7j602jax"
 
 [sub_resource type="Resource" id="Resource_kjsfs"]
 script = ExtResource("6_61jcs")
 text = "* (Susie will not show MERCY anymore.)"
-flag_trigger = &"susie_refuses_mercy"
+flag_value = null
 metadata/_custom_type_script = "uid://m17i7j602jax"
 
 [node name="DreamWarden" type="Node2D" unique_id=968285758]
@@ -186,6 +198,7 @@ opening_line_singular = SubResource("Resource_y0t3x")
 flavor_text_order = 1
 flavor_text = Array[ExtResource("6_61jcs")]([SubResource("Resource_ho82e"), SubResource("Resource_vmkok"), SubResource("Resource_ohji1"), SubResource("Resource_sgcr6")])
 mercy_fail_text = Array[ExtResource("6_61jcs")]([SubResource("Resource_ots36"), SubResource("Resource_byxgd"), SubResource("Resource_rhod4"), SubResource("Resource_kjsfs")])
+title = "Dream Warden"
 
 [node name="SpriteContainer" type="SubViewportContainer" parent="." unique_id=1646923799]
 custom_minimum_size = Vector2(1000, 800)

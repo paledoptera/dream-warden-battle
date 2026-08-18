@@ -9,6 +9,8 @@ func refresh() -> void:
 	hero = Battle.heroes[0]
 	spells = hero.spells
 	
+	_on_selected_changed(0,-1)
+	
 	for i in range(options_parent.get_child_count()):
 		var option = options_parent.get_child(i)
 		if i >= spells.size():

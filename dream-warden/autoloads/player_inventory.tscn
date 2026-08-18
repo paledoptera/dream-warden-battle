@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://br10nbojxuoc5"]
+
+[ext_resource type="Script" uid="uid://db6ldefdjht3x" path="res://autoloads/inventory.gd" id="1_6ajgd"]
+[ext_resource type="Script" uid="uid://ja135b46ug1h" path="res://resources/items/_/item.gd" id="2_tg5i7"]
+[ext_resource type="Resource" uid="uid://br8x0sb460ro7" path="res://resources/items/consumables/AgedScarlixir.tres" id="3_6ajgd"]
+[ext_resource type="Resource" uid="uid://7j3ajsewfoyd" path="res://resources/items/consumables/SkyTea.tres" id="4_23dkq"]
+[ext_resource type="Resource" uid="uid://bjg27nth05bhe" path="res://resources/items/consumables/FlatPhanta.tres" id="4_tg5i7"]
+[ext_resource type="Resource" uid="uid://bvw10vrjm0yvk" path="res://resources/items/consumables/PrismShard.tres" id="4_vdatl"]
+
+[node name="PlayerInventory" type="Node" unique_id=1419208885]
+script = ExtResource("1_6ajgd")
+items = Array[ExtResource("2_tg5i7")]([ExtResource("3_6ajgd"), ExtResource("4_vdatl"), ExtResource("4_tg5i7"), ExtResource("4_23dkq"), ExtResource("3_6ajgd"), ExtResource("3_6ajgd"), ExtResource("4_vdatl"), ExtResource("4_tg5i7")])
+metadata/_custom_type_script = "uid://db6ldefdjht3x"

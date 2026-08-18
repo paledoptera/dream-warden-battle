@@ -9,7 +9,10 @@
 [ext_resource type="FontFile" uid="uid://q7kjkfbse6t8" path="res://shared/theme/fonts/character_names/character_names.png" id="6_hr8ol"]
 [ext_resource type="Texture2D" uid="uid://c3alw5u77cjem" path="res://scenes/fights/_/scenes/action_panel/action_menu/res/slash.png" id="6_w0j0w"]
 [ext_resource type="Texture2D" uid="uid://blno2yhk2pcsr" path="res://scenes/fights/_/scenes/action_panel/action_menu/res/hp.png" id="7_aejdm"]
+[ext_resource type="Script" uid="uid://bvlkg3a6cpko6" path="res://scenes/fights/_/scenes/action_panel/action_menu/prism_shield.gd" id="7_o3y8d"]
+[ext_resource type="Texture2D" uid="uid://drpiotfiw68u2" path="res://scenes/minigames/aqua_warden/aqua/res/sheild_icon.png" id="7_tdaxr"]
 [ext_resource type="FontFile" uid="uid://dln4jdnfh0rd6" path="res://shared/theme/fonts/hp_numbers/hp_numbers.png" id="8_obbis"]
+[ext_resource type="Script" uid="uid://pdxyaj8th4bo" path="res://scenes/fights/_/scenes/action_panel/action_menu/flag_mercy_enabled.gd" id="10_wabyi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_obbis"]
 bg_color = Color(0.2, 0.1254902, 0.2, 1)
@@ -692,6 +695,28 @@ value = 460.0
 show_percentage = false
 metadata/_edit_use_anchors_ = true
 
+[node name="StatusEffects" type="Node2D" parent="Background/Stats" unique_id=1867539649]
+
+[node name="PrismShield" type="Node2D" parent="Background/Stats/StatusEffects" unique_id=984358849]
+visible = false
+script = ExtResource("7_o3y8d")
+col = Color(0, 1, 1, 1)
+
+[node name="Sheild1" type="Sprite2D" parent="Background/Stats/StatusEffects/PrismShield" unique_id=1193538820]
+position = Vector2(113, -25)
+texture = ExtResource("7_tdaxr")
+
+[node name="Sheild2" type="Sprite2D" parent="Background/Stats/StatusEffects/PrismShield" unique_id=1155570481]
+position = Vector2(122, -25)
+texture = ExtResource("7_tdaxr")
+
+[node name="ColorRect" type="ColorRect" parent="Background/Stats/StatusEffects/PrismShield" unique_id=222393396]
+offset_left = 128.0
+offset_top = -17.0
+offset_right = 204.0
+offset_bottom = -8.0
+color = Color(0, 1, 1, 1)
+
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Background" unique_id=672370307]
 remote_path = NodePath("../../FrameUpper")
 
@@ -724,22 +749,32 @@ show_behind_parent = true
 
 [node name="Fight" parent="Actions" unique_id=661455976 groups=["menu_option"] instance=ExtResource("4_pnv7i")]
 position = Vector2(35, 13.5)
+vframes = 3
 frame = 6
 
 [node name="Magic" parent="Actions" unique_id=2129334913 groups=["menu_option"] instance=ExtResource("4_pnv7i")]
 position = Vector2(70, 13.5)
+vframes = 3
 frame = 5
 
 [node name="Item" parent="Actions" unique_id=258436601 groups=["menu_option"] instance=ExtResource("4_pnv7i")]
 position = Vector2(105, 13.5)
+vframes = 3
 frame = 2
 
-[node name="Spare" parent="Actions" unique_id=1172439640 groups=["menu_option"] instance=ExtResource("4_pnv7i")]
+[node name="Mercy" parent="Actions" unique_id=1172439640 groups=["menu_option"] instance=ExtResource("4_pnv7i")]
 position = Vector2(140, 13.5)
+vframes = 3
 frame = 3
+
+[node name="MercyDisabled" type="Node" parent="Actions/Mercy" unique_id=1258724296]
+script = ExtResource("10_wabyi")
+flag = &"mercy_disabled"
+value = true
 
 [node name="Defend" parent="Actions" unique_id=1097153336 groups=["menu_option"] instance=ExtResource("4_pnv7i")]
 position = Vector2(175, 13.5)
+vframes = 3
 frame = 4
 
 [node name="FrameUpper" type="Sprite2D" parent="." unique_id=1001865]

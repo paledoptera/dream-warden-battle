@@ -9,6 +9,7 @@ enum Layout {HORIZONTAL, VERTICAL, TWO_BY_TWOCOLUMN}
 @export var cursor: Sprite2D
 
 var options: Array[Node]
+var disabled_options: Array[int]
 var current_menu: Node
 var previous_menu: Node
 var selected: int = 0
@@ -108,6 +109,18 @@ func change_selection(event: InputEvent):
 		elif event.is_action_pressed(next):
 			selected += 1
 	
+	if disabled_options:
+		if selected in disabled_options:
+			var sign: int
+			if last_selected < selected:
+				sign = 1
+			else:
+				sign = -1
+				
+			while selected in disabled_options:
+				selected += sign
+				selected = wrapi(selected,0,options.size())
+	
 	selected = wrapi(selected,0,options.size())
 	
 	if last_selected != selected:
@@ -142,6 +155,7 @@ func open(menu_scene: Node, cursor_visible := true) -> void:
 
 func hook_cursor(options_parent: Node, layout := Layout.VERTICAL, default_option: int = 0):
 	options.clear()
+	disabled_options.clear()
 	
 	current_layout = layout
 	selected = -999

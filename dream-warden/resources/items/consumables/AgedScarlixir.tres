@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Consumable" format=3 uid="uid://br8x0sb460ro7"]
+
+[ext_resource type="Script" uid="uid://b0d1seuyqeod0" path="res://resources/items/_/effects/item_heal.gd" id="1_323hn"]
+[ext_resource type="Script" uid="uid://bx25pyuc661xe" path="res://resources/items/_/effects/_item_effect.gd" id="1_seymd"]
+[ext_resource type="Script" uid="uid://bo1qbrqox8ixs" path="res://resources/items/consumables/consumable.gd" id="3_ir0i7"]
+
+[sub_resource type="Resource" id="Resource_23dkq"]
+script = ExtResource("1_323hn")
+heal_amount = 260
+metadata/_custom_type_script = "uid://b0d1seuyqeod0"
+
+[resource]
+resource_name = "AgedScarlixir"
+script = ExtResource("3_ir0i7")
+effects = Array[ExtResource("1_seymd")]([SubResource("Resource_23dkq")])
+title = &"AgedScarlixir"
+description = "Heals
+260HP"
+metadata/_custom_type_script = "uid://bo1qbrqox8ixs"

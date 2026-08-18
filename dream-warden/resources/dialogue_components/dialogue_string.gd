@@ -10,4 +10,5 @@ extends Resource
 @export_group("Markers")
 @export var markers: Array[DialogueMarker]
 @export_group("Flags")
-@export var flag_trigger: StringName = ""
+@export var flag: StringName = ""
+@export var flag_value: Variant
