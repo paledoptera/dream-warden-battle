@@ -124,7 +124,6 @@ visible = false
 
 [node name="FrameUpper" parent="Camera2D/ActionPanel/Actions/ActionMenu2" index="3" unique_id=1001865]
 self_modulate = Color(0.29803923, 0.4392157, 0.8, 1)
-position = Vector2(0, -2)
 
 [node name="ActionMenu3" parent="Camera2D/ActionPanel/Actions" parent_id_path=PackedInt32Array(1178111876, 876718920) index="2" unique_id=1096513309 instance=ExtResource("6_347rr")]
 offset_left = 426.0
@@ -158,7 +157,6 @@ visible = false
 
 [node name="FrameUpper" parent="Camera2D/ActionPanel/Actions/ActionMenu3" index="3" unique_id=1001865]
 self_modulate = Color(0.73333335, 0.9529412, 0.92941177, 1)
-position = Vector2(0, -6)
 
 [connection signal="selected_action_changed" from="Camera2D/ActionPanel/Actions/ActionMenu2" to="Camera2D/ActionPanel" method="_on_selected_action_changed"]
 [connection signal="spawn_menu" from="Camera2D/ActionPanel/Actions/ActionMenu2" to="Camera2D/ActionPanel" method="spawn_menu"]

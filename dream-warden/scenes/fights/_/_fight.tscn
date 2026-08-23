@@ -95,9 +95,10 @@ _data = {
 &"start": SubResource("Animation_bm74x")
 }
 
-[node name="FightScene" type="Node2D" unique_id=2124086931 node_paths=PackedStringArray("action_panel")]
+[node name="FightScene" type="Node2D" unique_id=2124086931 node_paths=PackedStringArray("action_panel", "tp_bar")]
 script = ExtResource("1_7nq4e")
 action_panel = NodePath("Camera2D/ActionPanel")
+tp_bar = NodePath("Camera2D/TPBar")
 
 [node name="Heroes" type="Node2D" parent="." unique_id=203608346]
 

@@ -1,0 +1,552 @@
+[gd_scene format=3 uid="uid://6pjv2tpw0t0c"]
+
+[ext_resource type="PackedScene" uid="uid://c3baha85ndj6f" path="res://entities/attacks/components/battlebox.tscn" id="1_ljje6"]
+[ext_resource type="Script" uid="uid://dnmtvxkr34yp5" path="res://entities/characters/enemies/warden/attacks/parry/1_charge/charge_attack.gd" id="1_xfll0"]
+[ext_resource type="PackedScene" uid="uid://dxp2dj0rfpq0l" path="res://entities/attacks/components/soul/soul_parry.tscn" id="2_p5d36"]
+[ext_resource type="Texture2D" uid="uid://cx63rcsaytrqg" path="res://entities/characters/enemies/warden/attacks/normal/2_revolve/res/circle.png" id="3_4tbh2"]
+[ext_resource type="Script" uid="uid://bcmlmcjn7wnkt" path="res://entities/bullets/pellet_spawner_mega.gd" id="4_jkdss"]
+[ext_resource type="Texture2D" uid="uid://d2lxtl6wybgmo" path="res://entities/characters/enemies/warden/attacks/parry/1_charge/wing_circle.png" id="5_nqf3g"]
+[ext_resource type="Texture2D" uid="uid://hfvhoxn0qkpu" path="res://entities/bullets/generic/res/diamond.png" id="5_rlfqh"]
+[ext_resource type="PackedScene" uid="uid://63r6fhdgqubr" path="res://entities/bullets/generic/diamond_bullet_attackable.tscn" id="7_0ib5s"]
+[ext_resource type="Script" uid="uid://dm837u7nkploy" path="res://entities/bullets/bullet_spawner.gd" id="9_gxbdq"]
+[ext_resource type="PackedScene" uid="uid://c481m54u0w1nd" path="res://entities/characters/enemies/warden/attacks/parry/1_charge/rapid_bullet.tscn" id="10_vh474"]
+[ext_resource type="AudioStream" uid="uid://b1s3p8d6nyfuf" path="res://shared/sound_effects/snd_ward_hiss.wav" id="11_65vs8"]
+[ext_resource type="AudioStream" uid="uid://cr8rn1nyqwkfn" path="res://shared/sound_effects/snd_warden_rapidloop.wav" id="11_b4wum"]
+[ext_resource type="AudioStream" uid="uid://dfba4enamvygi" path="res://shared/sound_effects/snd_warden_charge.wav" id="12_7lgsm"]
+[ext_resource type="AudioStream" uid="uid://dxh3bxbptaffk" path="res://shared/sound_effects/snd_warden_thunder.wav" id="13_65vs8"]
+[ext_resource type="Texture2D" uid="uid://c73s2jaehwrhp" path="res://entities/characters/enemies/warden/attacks/normal/2_revolve/res/lightning_bolt1.png" id="15_0ib5s"]
+[ext_resource type="Texture2D" uid="uid://bwye2t0bmvhto" path="res://entities/characters/enemies/warden/attacks/normal/2_revolve/res/lightning_bolt3.png" id="15_myv8g"]
+[ext_resource type="Texture2D" uid="uid://bvtjlv2vbxbex" path="res://entities/characters/enemies/warden/attacks/normal/2_revolve/res/lightning_bolt2.png" id="16_7k3r1"]
+[ext_resource type="Texture2D" uid="uid://c11kdwmwrtsw7" path="res://entities/characters/enemies/warden/attacks/normal/2_revolve/res/lightning_bolt4.png" id="18_sw3sr"]
+[ext_resource type="Texture2D" uid="uid://em3kkfjtnjoc" path="res://entities/characters/enemies/warden/attacks/normal/2_revolve/res/lightning_bolt5.png" id="19_utfbj"]
+[ext_resource type="Texture2D" uid="uid://bb544skrbx0w8" path="res://entities/characters/enemies/warden/attacks/normal/2_revolve/res/lightning_bolt6.png" id="20_po7xq"]
+
+[sub_resource type="Animation" id="Animation_nqf3g"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D/Wings:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/Wings:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_gxbdq"]
+resource_name = "wing_spin"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D/Wings:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.2831855]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D/Wings:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.10000001, 0.23333335, 0.36666667, 0.5, 0.6, 0.73333335, 0.8666667, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.25, 0.75), Vector2(1, 1), Vector2(0.75, 1.25), Vector2(1, 1), Vector2(1.25, 0.75), Vector2(1, 1), Vector2(0.75, 1.25), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vh474"]
+_data = {
+&"RESET": SubResource("Animation_nqf3g"),
+&"wing_spin": SubResource("Animation_gxbdq")
+}
+
+[sub_resource type="Animation" id="Animation_vh474"]
+resource_name = "1"
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 1.1999998,
+"start_offset": 0.35795346,
+"stream": ExtResource("11_65vs8")
+}],
+"times": PackedFloat32Array(0.05)
+}
+tracks/0/use_blend = true
+
+[sub_resource type="Animation" id="Animation_2b6nn"]
+resource_name = "1"
+length = 2.0
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("11_b4wum")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+
+[sub_resource type="Animation" id="Animation_myv8g"]
+resource_name = "2"
+length = 2.5000000000000004
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("12_7lgsm")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/0/use_blend = true
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("13_65vs8")
+}],
+"times": PackedFloat32Array(1.0666667)
+}
+tracks/1/use_blend = true
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LightningAttack/Line2D:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.0666667, 1.1, 1.1333333, 1.1666666, 1.2, 1.2333332, 1.3, 1.3666667, 1.4333333, 1.4666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("15_0ib5s"), ExtResource("16_7k3r1"), ExtResource("15_myv8g"), ExtResource("18_sw3sr"), ExtResource("15_myv8g"), ExtResource("18_sw3sr"), ExtResource("15_myv8g"), ExtResource("18_sw3sr"), ExtResource("19_utfbj"), ExtResource("20_po7xq")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LightningAttack/Line2D:width")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.0666667, 1.1333333, 1.4666667),
+"transitions": PackedFloat32Array(1, 0.5, 1),
+"update": 0,
+"values": [32.15, 30.0, 20.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("LightningAttack/Line2D/Line2D2:width")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.0666667, 1.1666666, 1.5),
+"transitions": PackedFloat32Array(0.5, -2, 1),
+"update": 0,
+"values": [21.91, 50.0, 50.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("LightningAttack/Line2D/Line2D2:default_color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1.0666667, 1.1666667, 1.5000001),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.30588236), Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("LightningAttack/Line2D:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.9666667, 1.0333334, 1.0666667, 1.4666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, false, true, false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("LightningAttack/Line2D:default_color")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1.0666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("LightningAttack/Line2D/Line2D3:width")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.033333335, 0.13333334, 1.0333333),
+"transitions": PackedFloat32Array(0.5, -2, 1),
+"update": 0,
+"values": [0.0, 4.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_4585k"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("LightningAttack/Line2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("15_myv8g")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("LightningAttack/Line2D:width")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [32.15]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LightningAttack/Line2D/Line2D2:width")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [21.91]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LightningAttack/Line2D/Line2D2:default_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.30588236)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("LightningAttack/Line2D:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("LightningAttack/Line2D:default_color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("LightningAttack/Line2D/Line2D3:width")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_b4wum"]
+_data = {
+&"0": SubResource("Animation_vh474"),
+&"1": SubResource("Animation_2b6nn"),
+&"2": SubResource("Animation_myv8g"),
+&"RESET": SubResource("Animation_4585k")
+}
+
+[sub_resource type="Curve2D" id="Curve2D_65vs8"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 112, -1, 0, 0, 0, 0, 229, 59, 0, 0, 0, 0, -15, 197, 0, 0, 0, 0, 225, -171, 0, 0, 0, 0, -2, -156, 0, 0, 0, 0, 211, 191, 0, 0, 0, 0, -97, 38, 0, 0, 0, 0, -37, -82, 0, 0, 0, 0, 344, -56)
+}
+point_count = 10
+
+[node name="ChargeAttack" type="Node2D" unique_id=1619920108]
+script = ExtResource("1_xfll0")
+
+[node name="Battlebox" parent="." unique_id=445257611 instance=ExtResource("1_ljje6")]
+offset_right = 350.0
+offset_bottom = 250.0
+metadata/_edit_use_anchors_ = true
+
+[node name="SoulParry" parent="." unique_id=443094051 instance=ExtResource("2_p5d36")]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1525625985]
+
+[node name="Warden" type="Node2D" parent="." unique_id=839227628]
+position = Vector2(231, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Warden" unique_id=1611233847]
+texture = ExtResource("3_4tbh2")
+
+[node name="Wings" type="Node2D" parent="Warden/Sprite2D" unique_id=675169998]
+
+[node name="Wing1" type="Sprite2D" parent="Warden/Sprite2D/Wings" unique_id=1106174809]
+scale = Vector2(2, 2)
+texture = ExtResource("5_nqf3g")
+offset = Vector2(-12.23, 0)
+
+[node name="Wing2" type="Sprite2D" parent="Warden/Sprite2D/Wings" unique_id=484024997]
+scale = Vector2(2, 2)
+texture = ExtResource("5_nqf3g")
+offset = Vector2(12.23, 0)
+flip_h = true
+flip_v = true
+
+[node name="BulletSpawnerMega" type="Node2D" parent="Warden" unique_id=539704778 node_paths=PackedStringArray("spawnpoints", "parent")]
+visible = false
+script = ExtResource("4_jkdss")
+bullet = ExtResource("7_0ib5s")
+spawnpoints = [NodePath("Arm1/Marker2D"), NodePath("Arm5/Marker2D"), NodePath("Arm6/Marker2D"), NodePath("Arm2/Marker2D"), NodePath("Arm7/Marker2D"), NodePath("Arm8/Marker2D"), NodePath("Arm3/Marker2D"), NodePath("Arm9/Marker2D"), NodePath("Arm10/Marker2D"), NodePath("Arm4/Marker2D"), NodePath("Arm12/Marker2D"), NodePath("Arm11/Marker2D")]
+parent = NodePath("../..")
+speed_mult = 0.8
+metadata/_custom_type_script = "uid://bcmlmcjn7wnkt"
+
+[node name="Arm1" type="Node2D" parent="Warden/BulletSpawnerMega" unique_id=666093682]
+rotation = -0.7853982
+
+[node name="Marker2D" type="Marker2D" parent="Warden/BulletSpawnerMega/Arm1" unique_id=156393029]
+position = Vector2(15, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Warden/BulletSpawnerMega/Arm1/Marker2D" unique_id=243341093]
+texture = ExtResource("5_rlfqh")
+
+[node name="Arm5" type="Node2D" parent="Warden/BulletSpawnerMega" unique_id=814350694]
+rotation = -1.2217305
+
+[node name="Marker2D" type="Marker2D" parent="Warden/BulletSpawnerMega/Arm5" unique_id=2002678734]
+position = Vector2(15, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Warden/BulletSpawnerMega/Arm5/Marker2D" unique_id=1816508575]
+texture = ExtResource("5_rlfqh")
+
+[node name="Arm6" type="Node2D" parent="Warden/BulletSpawnerMega" unique_id=1457348757]
+rotation = -0.34906584
+
+[node name="Marker2D" type="Marker2D" parent="Warden/BulletSpawnerMega/Arm6" unique_id=14576699]
+position = Vector2(15, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Warden/BulletSpawnerMega/Arm6/Marker2D" unique_id=639212245]
+texture = ExtResource("5_rlfqh")
+
+[node name="Arm2" type="Node2D" parent="Warden/BulletSpawnerMega" unique_id=369742922]
+rotation = 0.7853982
+
+[node name="Marker2D" type="Marker2D" parent="Warden/BulletSpawnerMega/Arm2" unique_id=1827144534]
+position = Vector2(15, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Warden/BulletSpawnerMega/Arm2/Marker2D" unique_id=1929231534]
+texture = ExtResource("5_rlfqh")
+
+[node name="Arm7" type="Node2D" parent="Warden/BulletSpawnerMega" unique_id=2059907717]
+rotation = 0.34906584
+
+[node name="Marker2D" type="Marker2D" parent="Warden/BulletSpawnerMega/Arm7" unique_id=1056149771]
+position = Vector2(15, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Warden/BulletSpawnerMega/Arm7/Marker2D" unique_id=1307936009]
+texture = ExtResource("5_rlfqh")
+
+[node name="Arm8" type="Node2D" parent="Warden/BulletSpawnerMega" unique_id=1069013180]
+rotation = 1.2217305
+
+[node name="Marker2D" type="Marker2D" parent="Warden/BulletSpawnerMega/Arm8" unique_id=528230509]
+position = Vector2(15, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Warden/BulletSpawnerMega/Arm8/Marker2D" unique_id=1633927066]
+texture = ExtResource("5_rlfqh")
+
+[node name="Arm3" type="Node2D" parent="Warden/BulletSpawnerMega" unique_id=1103467142]
+rotation = 2.3561945
+
+[node name="Marker2D" type="Marker2D" parent="Warden/BulletSpawnerMega/Arm3" unique_id=251069171]
+position = Vector2(15, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Warden/BulletSpawnerMega/Arm3/Marker2D" unique_id=295988209]
+texture = ExtResource("5_rlfqh")
+
+[node name="Arm9" type="Node2D" parent="Warden/BulletSpawnerMega" unique_id=151730139]
+rotation = 1.9198622
+
+[node name="Marker2D" type="Marker2D" parent="Warden/BulletSpawnerMega/Arm9" unique_id=309948791]
+position = Vector2(15, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Warden/BulletSpawnerMega/Arm9/Marker2D" unique_id=2096512656]
+texture = ExtResource("5_rlfqh")
+
+[node name="Arm10" type="Node2D" parent="Warden/BulletSpawnerMega" unique_id=435317133]
+rotation = 2.7925267
+
+[node name="Marker2D" type="Marker2D" parent="Warden/BulletSpawnerMega/Arm10" unique_id=22990103]
+position = Vector2(15, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Warden/BulletSpawnerMega/Arm10/Marker2D" unique_id=587228937]
+texture = ExtResource("5_rlfqh")
+
+[node name="Arm4" type="Node2D" parent="Warden/BulletSpawnerMega" unique_id=11542467]
+rotation = 3.9269907
+
+[node name="Marker2D" type="Marker2D" parent="Warden/BulletSpawnerMega/Arm4" unique_id=1304901996]
+position = Vector2(15, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Warden/BulletSpawnerMega/Arm4/Marker2D" unique_id=103548226]
+texture = ExtResource("5_rlfqh")
+
+[node name="Arm12" type="Node2D" parent="Warden/BulletSpawnerMega" unique_id=1007573528]
+rotation = 3.4906585
+
+[node name="Marker2D" type="Marker2D" parent="Warden/BulletSpawnerMega/Arm12" unique_id=94984699]
+position = Vector2(15, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Warden/BulletSpawnerMega/Arm12/Marker2D" unique_id=1841431661]
+texture = ExtResource("5_rlfqh")
+
+[node name="Arm11" type="Node2D" parent="Warden/BulletSpawnerMega" unique_id=378248224]
+rotation = 4.363323
+
+[node name="Marker2D" type="Marker2D" parent="Warden/BulletSpawnerMega/Arm11" unique_id=1306410285]
+position = Vector2(15, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Warden/BulletSpawnerMega/Arm11/Marker2D" unique_id=1001674634]
+texture = ExtResource("5_rlfqh")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Warden" unique_id=1557350437]
+libraries/ = SubResource("AnimationLibrary_vh474")
+autoplay = &"wing_spin"
+
+[node name="RapidBullets" type="Node2D" parent="Warden" unique_id=84428630]
+script = ExtResource("9_gxbdq")
+bullet = ExtResource("10_vh474")
+add_velocity_min = Vector2(-100, -100)
+add_velocity_max = Vector2(0, 100)
+metadata/_custom_type_script = "uid://dm837u7nkploy"
+
+[node name="RapidTimer" type="Timer" parent="Warden" unique_id=418620078]
+wait_time = 0.15
+autostart = true
+
+[node name="Timer" type="Timer" parent="." unique_id=177555343]
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1689590029]
+libraries/ = SubResource("AnimationLibrary_b4wum")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1539992940]
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=1290863570]
+
+[node name="Path2D" type="Path2D" parent="." unique_id=675374722]
+visible = false
+curve = SubResource("Curve2D_65vs8")
+
+[node name="LightningAttack" type="Node2D" parent="." unique_id=531446869]
+top_level = true
+scale = Vector2(1.75, 1.75)
+
+[node name="Line2D" type="Line2D" parent="LightningAttack" unique_id=1511981511]
+visible = false
+texture_repeat = 2
+points = PackedVector2Array(0, 0.6666667, 24.666668, -29.333334, 38.666668, 53.333336, -49.333336, 10, 158, 6.666667, 13.333334, 108.66667, -34, -16.666668, 82.66667, -11.333334, -44, 116, -16, -104.66667, 74.66667, -49.333336, -102.66667, 14.666667, -80, -60, 138.66667, 79.333336, 92, -27.333334, -78, 43.333336, -63.333336, 102.66667, -134.66667, 26, -126.66667, -60.666668, -59.333336, -97.333336, 84, -96, 130.66667, -26.666668, -48, -70, -16.666668, 122.66667, 100, 112, 133.33334, -14.666667, 143.5, 139, -42, 158.5, -141, 91.5, -180.5, -58, -129, -102, 22.5, -139.5, 150.5, -122, 183, -61, 186, 7, 167.5, 67.5, -90.5, 174.5, -204, 54.5, -67.5, -153.5, 110.5, -151.5, 146.5, -50, 150, 33, 206, 6, 228, 6)
+width = 32.15
+default_color = Color(1, 1, 1, 0)
+texture = ExtResource("15_myv8g")
+texture_mode = 1
+
+[node name="Line2D2" type="Line2D" parent="LightningAttack/Line2D" unique_id=1081363696]
+texture_repeat = 2
+points = PackedVector2Array(0, 0.6666667, 24.666668, -29.333334, 38.666668, 53.333336, -49.333336, 10, 158, 6.666667, 13.333334, 108.66667, -34, -16.666668, 82.66667, -11.333334, -44, 116, -16, -104.66667, 74.66667, -49.333336, -102.66667, 14.666667, -80, -60, 138.66667, 79.333336, 92, -27.333334, -78, 43.333336, -63.333336, 102.66667, -134.66667, 26, -126.66667, -60.666668, -59.333336, -97.333336, 84, -96, 130.66667, -26.666668, -48, -70, -16.666668, 122.66667, 100, 112, 133.33334, -14.666667, 143.5, 139, -42, 158.5, -141, 91.5, -180.5, -58, -129, -102, 22.5, -139.5, 150.5, -122, 183, -61, 186, 7, 167.5, 67.5, -90.5, 174.5, -204, 54.5, -67.5, -153.5, 110.5, -151.5, 146.5, -50, 150, 33, 206, 6, 228, 6)
+width = 21.91
+default_color = Color(1, 1, 1, 0.30588236)
+texture = ExtResource("15_myv8g")
+texture_mode = 1
+sharp_limit = 0.0
+round_precision = 1
+
+[node name="Line2D3" type="Line2D" parent="LightningAttack/Line2D" unique_id=1723757075]
+texture_repeat = 2
+points = PackedVector2Array(0, 0.6666667, 24.666668, -29.333334, 38.666668, 53.333336, -49.333336, 10, 158, 6.666667, 13.333334, 108.66667, -34, -16.666668, 82.66667, -11.333334, -44, 116, -16, -104.66667, 74.66667, -49.333336, -102.66667, 14.666667, -80, -60, 138.66667, 79.333336, 92, -27.333334, -78, 43.333336, -63.333336, 102.66667, -134.66667, 26, -126.66667, -60.666668, -59.333336, -97.333336, 84, -96, 130.66667, -26.666668, -48, -70, -16.666668, 122.66667, 100, 112, 133.33334, -14.666667, 143.5, 139, -42, 158.5, -141, 91.5, -180.5, -58, -129, -102, 22.5, -139.5, 150.5, -122, 183, -61, 186, 7, 167.5, 67.5, -90.5, 174.5, -204, 54.5, -67.5, -153.5, 110.5, -151.5, 146.5, -50, 150, 33, 206, 6, 228, 6)
+width = 0.0
+default_color = Color(1, 0, 0, 0.11372549)
+texture_mode = 1
+sharp_limit = 0.0
+round_precision = 1
+
+[connection signal="timeout" from="Warden/RapidTimer" to="." method="_on_rapid_timer_timeout"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

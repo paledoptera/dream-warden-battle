@@ -31,6 +31,7 @@ Events="*uid://cj160iv8gqsw0"
 Menu="*uid://d0akdrgrmdix0"
 Flags="*uid://4sgii74kfv0r"
 PlayerInventory="*uid://br10nbojxuoc5"
+Conductor="*uid://c5rvmkaorxynb"
 
 [display]
 
@@ -39,12 +40,17 @@ window/size/viewport_height=480
 window/stretch/mode="viewport"
 window/vsync/vsync_mode=0
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/conductor/plugin.cfg")
+
 [global_group]
 
 orange_track=""
 battlebox=""
 soul=""
 menu_option=""
+textbox_comp=""
 
 [gui]
 

@@ -56,27 +56,32 @@ script = ExtResource("7_eh0bv")
 text = "* Ice Palace Boss - 20 AT 50 DEF
 * The , Final boss of the Ice Palace"
 markers = Array[ExtResource("8_ocrcg")]([SubResource("Resource_3lm2b"), SubResource("Resource_k8yhc"), SubResource("Resource_g16pf")])
+flag_value = null
 metadata/_custom_type_script = "uid://m17i7j602jax"
 
 [sub_resource type="Resource" id="Resource_3ggtu"]
 script = ExtResource("7_eh0bv")
 text = "* It's the enemy!"
+flag_value = null
 metadata/_custom_type_script = "uid://m17i7j602jax"
 
 [sub_resource type="Resource" id="Resource_b7lin"]
 script = ExtResource("7_eh0bv")
 text = "* The air crackles with freedom for Big Shots"
+flag_value = null
 metadata/_custom_type_script = "uid://m17i7j602jax"
 
 [sub_resource type="Resource" id="Resource_axrom"]
 script = ExtResource("7_eh0bv")
 text = "* It's pretty cold dude"
+flag_value = null
 metadata/_custom_type_script = "uid://m17i7j602jax"
 
 [sub_resource type="Resource" id="Resource_376ry"]
 script = ExtResource("7_eh0bv")
 text = "* The Ice Palace Boss
 * Dances awesomely"
+flag_value = null
 metadata/_custom_type_script = "uid://m17i7j602jax"
 
 [sub_resource type="Gradient" id="Gradient_axrom"]

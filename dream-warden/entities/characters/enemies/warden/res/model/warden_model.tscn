@@ -19,38 +19,38 @@ script = ExtResource("1_30ukv")
 
 [node name="warden" parent="." unique_id=760203765 instance=ExtResource("2_30ukv")]
 
-[node name="Core" parent="warden/rig/Skeleton3D" parent_id_path=PackedInt32Array(760203765, 1294022880) index="0" unique_id=869459470]
+[node name="Core" parent="warden/rig/Skeleton3D" parent_id_path=PackedInt32Array(760203765, 1944744744) index="0" unique_id=2065587519]
 material_override = ExtResource("3_cujqf")
 
-[node name="DeltaRune" parent="warden/rig/Skeleton3D" parent_id_path=PackedInt32Array(760203765, 1294022880) index="1" unique_id=1287142248]
+[node name="DeltaRune" parent="warden/rig/Skeleton3D" parent_id_path=PackedInt32Array(760203765, 1944744744) index="1" unique_id=1538383717]
 material_override = ExtResource("3_cujqf")
 
-[node name="Face_Bottom" parent="warden/rig/Skeleton3D" parent_id_path=PackedInt32Array(760203765, 1294022880) index="2" unique_id=1787294338]
+[node name="Face_Bottom" parent="warden/rig/Skeleton3D" parent_id_path=PackedInt32Array(760203765, 1944744744) index="2" unique_id=750363847]
 material_override = ExtResource("3_cujqf")
 
-[node name="Face_Top" parent="warden/rig/Skeleton3D" parent_id_path=PackedInt32Array(760203765, 1294022880) index="3" unique_id=1945976657]
+[node name="Face_Top" parent="warden/rig/Skeleton3D" parent_id_path=PackedInt32Array(760203765, 1944744744) index="3" unique_id=1296325712]
 material_override = ExtResource("3_cujqf")
 
-[node name="LesserWing" parent="warden/rig/Skeleton3D" parent_id_path=PackedInt32Array(760203765, 1294022880) index="4" unique_id=149431035]
+[node name="LesserWing" parent="warden/rig/Skeleton3D" parent_id_path=PackedInt32Array(760203765, 1944744744) index="4" unique_id=1778321753]
 material_override = ExtResource("3_cujqf")
 
-[node name="MainDeltaRune" parent="warden/rig/Skeleton3D" parent_id_path=PackedInt32Array(760203765, 1294022880) index="5" unique_id=206130294]
+[node name="MainDeltaRune" parent="warden/rig/Skeleton3D" parent_id_path=PackedInt32Array(760203765, 1944744744) index="5" unique_id=1306093388]
 material_override = ExtResource("3_cujqf")
 
-[node name="PrimaryWing" parent="warden/rig/Skeleton3D" parent_id_path=PackedInt32Array(760203765, 1294022880) index="6" unique_id=1951683161]
+[node name="PrimaryWing" parent="warden/rig/Skeleton3D" parent_id_path=PackedInt32Array(760203765, 1944744744) index="6" unique_id=1278410782]
 material_override = ExtResource("3_cujqf")
 material_overlay = ExtResource("3_cujqf")
 
-[node name="PrimaryWing_001" parent="warden/rig/Skeleton3D" parent_id_path=PackedInt32Array(760203765, 1294022880) index="7" unique_id=2039347815]
+[node name="PrimaryWing_001" parent="warden/rig/Skeleton3D" parent_id_path=PackedInt32Array(760203765, 1944744744) index="7" unique_id=1376516655]
 material_override = ExtResource("3_cujqf")
 
-[node name="PrimaryWing_002" parent="warden/rig/Skeleton3D" parent_id_path=PackedInt32Array(760203765, 1294022880) index="8" unique_id=1469257253]
+[node name="PrimaryWing_002" parent="warden/rig/Skeleton3D" parent_id_path=PackedInt32Array(760203765, 1944744744) index="8" unique_id=1841086295]
 material_override = SubResource("ShaderMaterial_22l4l")
 
-[node name="UpperArm" parent="warden/rig/Skeleton3D" parent_id_path=PackedInt32Array(760203765, 1294022880) index="9" unique_id=593369244]
+[node name="UpperArm" parent="warden/rig/Skeleton3D" parent_id_path=PackedInt32Array(760203765, 1944744744) index="9" unique_id=1167412492]
 material_override = ExtResource("3_cujqf")
 
-[node name="AnimationPlayer" parent="warden" index="2" unique_id=1696508570]
+[node name="AnimationPlayer" parent="warden" index="2" unique_id=950246919]
 autoplay = &"warden_idle"
 playback_auto_capture_ease_type = 2
 playback_default_blend_time = 0.3

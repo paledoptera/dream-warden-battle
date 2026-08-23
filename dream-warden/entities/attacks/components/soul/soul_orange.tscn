@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cufn5wwk6fwud" path="res://entities/attacks/components/soul/scripts/soul_orange.gd" id="2_76v1n"]
 [ext_resource type="Texture2D" uid="uid://62aqhu25begk" path="res://entities/attacks/components/soul/res/soul_onlyoutline.png" id="3_33jv2"]
 [ext_resource type="Texture2D" uid="uid://djls6luanvyxd" path="res://entities/attacks/components/soul/res/orange_charge.png" id="4_gvj5s"]
-[ext_resource type="AudioStream" uid="uid://donl1yvfytcte" path="res://shared/sound_effects/snd_chargeshot_charge.wav" id="5_mux03"]
+[ext_resource type="AudioStream" uid="uid://cr7mpvdds2p0q" path="res://shared/sound_effects/snd_chargeshot_charge.wav" id="5_mux03"]
 [ext_resource type="Texture2D" uid="uid://c23y1f0vpogfg" path="res://entities/attacks/components/soul/res/orange_dots.png" id="6_q7cek"]
 [ext_resource type="Texture2D" uid="uid://brsx35kjl8ymg" path="res://entities/attacks/components/soul/res/soul_withoutline.png" id="7_ooxh1"]
 [ext_resource type="Texture2D" uid="uid://c3e2s410krvah" path="res://entities/attacks/components/soul/res/soul_nooutline.png" id="8_pdi44"]

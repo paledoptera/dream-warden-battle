@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ctxt1iyae8oay" path="res://entities/characters/enemies/_unused/phase3/attacks/1_wings_rush/orange_wings_attack.tscn" id="3_6dbgm"]
 [ext_resource type="Script" uid="uid://m17i7j602jax" path="res://resources/dialogue_components/dialogue_string.gd" id="3_hiwwd"]
 [ext_resource type="PackedScene" uid="uid://dh2qd4hvinrud" path="res://entities/characters/enemies/_unused/phase3/attacks/0_zap_rush/orange_zap_rush_attack.tscn" id="4_cwcgd"]
+[ext_resource type="AudioStream" uid="uid://c3m6sxg7kebei" path="res://shared/sound_effects/snd_text.wav" id="7_4selv"]
 [ext_resource type="PackedScene" uid="uid://xasw07kjd5h0" path="res://scenes/minigames/aqua_warden/enemy_warden_phase2.tscn" id="7_urxd2"]
 
 [sub_resource type="Resource" id="Resource_ouo2s"]
@@ -24,10 +25,12 @@ metadata/_custom_type_script = "uid://caqnjjh4u2r54"
 script = ExtResource("3_hiwwd")
 text = "* The lighting has changed."
 require_input = false
+flag_value = null
 metadata/_custom_type_script = "uid://m17i7j602jax"
 
 [sub_resource type="Resource" id="Resource_cwcgd"]
 script = ExtResource("3_hiwwd")
+flag_value = null
 metadata/_custom_type_script = "uid://m17i7j602jax"
 
 [node name="DreamWardenPhase3" type="Node2D" unique_id=1949145884]

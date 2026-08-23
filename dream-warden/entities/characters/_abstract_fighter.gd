@@ -12,6 +12,8 @@ signal hp_changed(new_hp: int)
 @export_group("Equipment")
 @export var weapon: Equippable
 @export var armors: Array[Equippable]
+@export_group("Misc")
+@export var speechbubble_id: StringName = ""
 
 var hp := 0:
 	set(value):

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bow0ke1smpf1r"]
 
 [ext_resource type="Texture2D" uid="uid://c23y1f0vpogfg" path="res://entities/attacks/components/soul/res/orange_dots.png" id="5_wv4ap"]
-[ext_resource type="AudioStream" uid="uid://donl1yvfytcte" path="res://shared/sound_effects/snd_chargeshot_charge.wav" id="6_t3har"]
+[ext_resource type="AudioStream" uid="uid://cr7mpvdds2p0q" path="res://shared/sound_effects/snd_chargeshot_charge.wav" id="6_t3har"]
 [ext_resource type="Texture2D" uid="uid://djls6luanvyxd" path="res://entities/attacks/components/soul/res/orange_charge.png" id="7_o537i"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rujom"]

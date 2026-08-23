@@ -3,7 +3,9 @@ extends Resource
 
 @export_multiline var text : String = "* Nothing happened."
 @export var require_input: bool = true
+@export var auto_skip: bool = false
 @export var talksound: AudioStream = preload("res://shared/sound_effects/snd_text.wav")
+@export var talksound_oneshot: bool = false
 @export_group("Portrait")
 @export var portrait: Texture2D
 @export var portrait_scale:= Vector2.ONE * 2
@@ -12,3 +14,5 @@ extends Resource
 @export_group("Flags")
 @export var flag: StringName = ""
 @export var flag_value: Variant
+@export_group("Identifier")
+@export var identifier: StringName = ""

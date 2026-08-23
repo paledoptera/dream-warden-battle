@@ -1,6 +1,6 @@
 extends Node
 
-enum State {CHOOSE_ACTION, CHOOSE_ENEMY, CHOOSE_SPELL, CHOOSE_ITEM, HERO_ACTION, HERO_DIALOGUE, ENEMY_DIALOGUE, ATTACK_START, ATTACK_END}
+enum State {CHOOSE_ACTION, CHOOSE_ENEMY, CHOOSE_SPELL, CHOOSE_ITEM, HERO_ACTION, DIALOGUE, ATTACK_START, ATTACK_END}
 enum Action {FIGHT, MAGIC, ITEM, MERCY, DEFEND}
 
 
@@ -157,6 +157,10 @@ func get_opening_line() -> DialogueString:
 	#
 	#return dialogue
 
+func get_dialogue() -> DialogueBlock:
+	var dialogue = enemies[0].get_dialogue()
+	return dialogue
+
 func get_flavor_text() -> DialogueString:
 	var dialogue = enemies[0].get_flavor_text()
 	return dialogue
@@ -185,6 +189,7 @@ func damage_hero(value: float):
 	print(damage)
 	
 	hero.create_floating_text_string(str(damage))
+
 
 func damage_enemy(value: float, id: int = 0):
 	if not enemies:
@@ -233,6 +238,9 @@ func goto_next_phase() -> void:
 					state = State.CHOOSE_SPELL
 		
 		State.HERO_ACTION:
+			state = State.DIALOGUE
+		
+		State.DIALOGUE:
 			state = State.ATTACK_START
 		
 		State.ATTACK_START:
@@ -240,6 +248,7 @@ func goto_next_phase() -> void:
 		
 		State.ATTACK_END:
 			state = State.CHOOSE_ACTION
+			selected_action = Action.FIGHT
 		
 
 func goto_prev_phase() -> void:
@@ -270,7 +279,7 @@ func try_mercy() -> void:
 	if enemies[0].try_mercy():
 		pass
 	else:
-		Dialogue.display_text.emit(enemies[0].mercy_fail_text)
+		Dialogue.display_text(enemies[0].mercy_fail_text)
 		await Dialogue.text_finished
 		goto_next_phase()
 	

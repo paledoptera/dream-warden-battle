@@ -3,6 +3,7 @@ extends Node2D
 @export var hitmarker: Sprite2D
 var hitmarker_afterimage_timer: int = 0
 var pressed: bool = false
+var accuracy = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -36,12 +37,36 @@ func create_afterimage() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("confirm") and not pressed:
 		Sound.play(preload("res://shared/sound_effects/snd_laz.wav"))
-		if hitmarker.position.x >= 91.0 and hitmarker.position.x <= 98.0:
-			hitmarker.position.x = 91.0
-		if round(hitmarker.position.x) == 91.0:
-			$AnimationPlayer.play("perfect_hit")
-		else:
-			$AnimationPlayer.play("hit")
+		get_hit_accuracy()
+		do_attack()
 		pressed = true
 		await get_tree().create_timer(0.6666).timeout
 		Battle.goto_next_phase()
+
+func get_hit_accuracy() -> void:
+	if hitmarker.position.x >= 91.0 and hitmarker.position.x <= 98.0 or round(hitmarker.position.x) == 91.0:
+		accuracy = 150
+		hitmarker.position.x = 91.0
+		accuracy = 150
+		$AnimationPlayer.play("perfect_hit")
+	else:
+		var frames_off = abs(floor((hitmarker.position.x-91.0)/7))
+		match frames_off:
+			1.0:
+				accuracy = 120
+			2.0:
+				accuracy = 110
+			_:
+				accuracy = 100.0-(frames_off*2)
+		$AnimationPlayer.play("hit")
+
+func do_attack() -> void:
+	var target = Battle.get_target_enemy()
+	if target.unhittable:
+		var tp_gain = (float(accuracy)/150.0) * 24.0
+		Battle.tp += tp_gain
+		return
+	
+	var damage = (float(Battle.heroes[0].attack) * accuracy)/20
+	Battle.damage_enemy(damage)
+	print("Accuracy = ", accuracy)

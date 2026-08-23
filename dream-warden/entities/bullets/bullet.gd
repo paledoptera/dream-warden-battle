@@ -10,6 +10,8 @@ class_name Bullet extends Area2D
 @export var destructible: bool = false
 ##If the pellet can hit you even if you have i-frames
 @export var ignore_iframes: bool = false
+##If the pellet can be destroyed by yellow soul, parry soul etc
+@export var attackable: bool = false
 
 @export_group("Movement")
 @export var velocity := Vector2.ZERO
@@ -35,15 +37,15 @@ func _physics_process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
 	time += delta
-	velocity += velocity * linear_acceleration * delta * speed_multiplier
+	velocity += velocity * linear_acceleration * delta
 	velocity = velocity.rotated(deg_to_rad(angular_velocity) * delta)
 	
 	if time >= life_time:
 		if life_time != -1.0:
 			queue_free()
 	if rotate_sprite:
-		$Sprite.rotation = velocity.angle()
-	global_position += velocity * delta
+		$Sprite2D.rotation = velocity.angle()
+	global_position += (velocity * delta) * speed_multiplier
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is Soul:

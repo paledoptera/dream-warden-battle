@@ -3,8 +3,10 @@ class_name BulletSpawnerMega
 
 @export var bullet: PackedScene
 @export var spawnpoints: Array[Marker2D]
+@export var parent: Node
+@export var speed_mult: float = 1.0
 
-func spawn(spawn_position: Vector2 = global_position, aim_position:= Vector2.ZERO, parent: Node = get_parent()) -> Array[Node]:
+func spawn(spawn_position: Vector2 = global_position, aim_position:= Vector2.ZERO) -> Array[Node]:
 	if aim_position != Vector2.ZERO:
 		look_at(aim_position)
 	
@@ -20,6 +22,8 @@ func spawn(spawn_position: Vector2 = global_position, aim_position:= Vector2.ZER
 		bullets.append(bullet_inst)
 		bullet_inst.global_position = spawn_pos
 		bullet_inst.global_rotation = spawn_rot
+		bullet_inst.speed_multiplier = speed_mult
+		print("speed mult: ", bullet_inst.speed_multiplier)
 		bullet_inst.velocity = bullet_inst.velocity.rotated(bullet_inst.global_rotation)
 	
 	return bullets

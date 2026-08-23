@@ -1,4 +1,4 @@
-extends Node2D
+class_name TPBar extends Node2D
 
 var tp: int = 0
 

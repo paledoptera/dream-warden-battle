@@ -3,6 +3,7 @@ class_name FightScene extends Node2D
 @export var bgm: AudioStream
 @export_group("Node Paths")
 @export var action_panel: Node2D
+@export var tp_bar: TPBar
 
 func _ready() -> void:
 	Global.in_battle = true
@@ -34,6 +35,16 @@ func _on_battle_state_changed(new_state: Battle.State, last_state: Battle.State)
 				Battle.Action.DEFEND, Battle.Action.ITEM:
 					await get_tree().physics_frame
 					Battle.goto_next_phase()
+		Battle.State.DIALOGUE:
+			var dialogue = Battle.get_dialogue()
+			if not dialogue:
+				await get_tree().physics_frame
+				Battle.goto_next_phase()
+				return
+			Dialogue.display_text(dialogue.text.duplicate_deep())
+			await Dialogue.text_finished
+			Battle.goto_next_phase()
+			
 		Battle.State.ATTACK_START:
 			$AnimationPlayer.play("attack_fade")
 		Battle.State.ATTACK_END:

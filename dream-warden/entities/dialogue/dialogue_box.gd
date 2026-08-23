@@ -1,55 +1,39 @@
+class_name DialogueBox
 extends RichTextLabel
 
+@export var identifier: StringName = ""
 @export var effect_offset := Vector2.ZERO
 var markers: Array[DialogueMarker]
 var effects: Array[RichTextPlacementEffect]
-var queue: Array[DialogueString]
-var current: DialogueString
 var portrait: Sprite2D
 var talksound: AudioStream = preload("res://shared/sound_effects/snd_text.wav")
 
 
 func _ready() -> void:
-	Dialogue.display_text.connect(display_text)
+	visible = false
 	Dialogue.clear_text.connect(hide_text)
-
-func _physics_process(_delta: float) -> void:
-	if Dialogue.displaying_text and visible_ratio < 1.0:
-		visible_characters += 1
-		var c := text[visible_characters - 1].to_ascii_buffer()[0]
-		if is_letter_or_number(c):
-			Sound.play(talksound) 
-		if visible_ratio >= 1.0 and !current.require_input:
-			check_if_text_finished(false)
+	Dialogue.refresh.connect(refresh)
+	Dialogue.boxes.append(self)
 
 
-func _unhandled_key_input(event: InputEvent) -> void:
-	if not current:
+func _process(_delta: float) -> void:
+	if not visible:
 		return
-	if event.is_action("confirm") and event.is_pressed():
-		if visible_ratio >= 1.0 and current.require_input and Dialogue.displaying_text:
-			check_if_text_finished()
-
-
-func display_text(p_dialogue: Variant) -> void:
-	queue.clear()
 	
-	if p_dialogue is DialogueString:
-		queue.append(p_dialogue.duplicate(true))
-	elif p_dialogue is Array[DialogueString]:
-		queue = p_dialogue.duplicate(true)
-	elif p_dialogue is String:
-		var new_dialogue = DialogueString.new()
-		new_dialogue.text = p_dialogue
-		queue.append(new_dialogue.duplicate(true))
-	
-	refresh()
+	if Dialogue.active and visible_ratio < 1.0:
+		visible_characters += 1
+		if self in Dialogue.current_boxes and not Dialogue.current.talksound_oneshot:
+			var c := text[visible_characters - 1].to_ascii_buffer()[0]
+			if is_letter_or_number(c):
+				Sound.play(talksound) 
+		#if visible_ratio >= 1.0 and !Dialogue.current.require_input:
+			#check_if_text_finished(false)
 
 
 func hide_text() -> void:
 	visible_characters = 0
-	Dialogue.displaying_text = false
 	clear_effects()
+	visible = false
 
 func clear_effects() -> void:
 	for i in effects:
@@ -58,21 +42,28 @@ func clear_effects() -> void:
 	effects.clear()
 
 func refresh() -> void:
-	clear_effects()
+	clear_everything()
+	if Dialogue.current.identifier != identifier:
+		if self in Dialogue.current_boxes:
+			Dialogue.current_boxes.erase(self)
+			visible = false
+			return
+	else:
+		if self not in Dialogue.current_boxes:
+			Dialogue.current_boxes.append(self)
+			visible = true
+	start_dialogue()
 	
-	clip_children = CanvasItem.CLIP_CHILDREN_DISABLED
+
+
+func start_dialogue() -> void:
+	text = Dialogue.current.text
 	
-	for i in get_children():
-		i.queue_free()
-	
-	current = queue.pop_front()
-	text = current.text
-	
-	if current.markers.size() > 0:
-		for marker in current.markers:
+	if Dialogue.current.markers.size() > 0:
+		for marker in Dialogue.current.markers:
 			add_marker(marker)
 	
-	if current.portrait:
+	if Dialogue.current.portrait:
 		if portrait:
 			portrait.queue_free()
 		portrait = Sprite2D.new()
@@ -80,40 +71,32 @@ func refresh() -> void:
 		add_child(portrait)
 		portrait.top_level = true
 		portrait.global_position = global_position+Vector2(24.0,19.0)
-		portrait.scale = current.portrait_scale
+		portrait.scale = Dialogue.current.portrait_scale
 		portrait.z_index = 10
-		portrait.texture = current.portrait
+		portrait.texture = Dialogue.current.portrait
 		offset_transform_enabled = true
 		offset_transform_position.x = 114.0
 	else:
-		offset_transform_enabled = false
+		offset_transform_position.x = 0.0
 	
-	if current.talksound:
-		talksound = current.talksound
-	
-	if current.flag:
-		if Flags.get_flag(current.flag) != null:
-			Flags.set_flag(current.flag,current.flag_value)
-	
-	Dialogue.displaying_text = true
+	if Dialogue.current.talksound:
+		talksound = Dialogue.current.talksound
+
 	visible_characters = 1
 
-
-func check_if_text_finished(hide: bool = true) -> void:
-	if queue.size() > 0:
-		refresh()
-	else:
-		Dialogue.text_finished.emit()
-		if not hide:
-			Dialogue.displaying_text = false
-			return
-		hide_text()
+func clear_everything() -> void:
+	clear_effects()
+	
+	clip_children = CanvasItem.CLIP_CHILDREN_DISABLED
+	
+	for i in get_children():
+		if i.is_in_group("textbox_comp"):
+			continue
+		i.queue_free()
 
 
 func add_marker(marker: DialogueMarker) -> void:
 	markers.append(marker)
-	
-	
 	
 	if marker is GradientMarker:
 		var gradient_eff = RichTextGradientEffect.new()
@@ -123,7 +106,6 @@ func add_marker(marker: DialogueMarker) -> void:
 		add_child(gradient_eff)
 		effects.append(gradient_eff)
 		gradient_eff.position = effect_offset
-		
 		
 	if marker is SpriteMarker:
 		var sprite_eff = RichTextSpriteEffect.new()
@@ -135,8 +117,6 @@ func add_marker(marker: DialogueMarker) -> void:
 		add_child(sprite_eff)
 		effects.append(sprite_eff)
 		sprite_eff.position = effect_offset
-	
-	
 
 
 static func is_letter_or_number(p_char: int) -> bool:

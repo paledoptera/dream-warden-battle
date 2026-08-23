@@ -7,9 +7,6 @@
 default_font = ExtResource("1_rb2vk")
 default_font_size = 32
 
-[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_y04b2"]
-streams_count = 1
-
 [node name="DialogueBox" type="RichTextLabel" unique_id=151941393]
 custom_minimum_size = Vector2(100, 40)
 offset_right = 1.0
@@ -23,6 +20,3 @@ theme_override_font_sizes/mono_font_size = 32
 text = "Textbox"
 scroll_active = false
 script = ExtResource("2_2s3bk")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1566117837]
-stream = SubResource("AudioStreamRandomizer_y04b2")

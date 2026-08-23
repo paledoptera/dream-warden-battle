@@ -78,7 +78,7 @@ func _on_battle_state_changed(new_state: Battle.State, last_state: Battle.State)
 			unfreeze()
 		Battle.State.CHOOSE_ENEMY, Battle.State.CHOOSE_SPELL, Battle.State.CHOOSE_ITEM:
 			freeze()
-		Battle.State.HERO_DIALOGUE, Battle.State.ENEMY_DIALOGUE, Battle.State.ATTACK_START:
+		Battle.State.DIALOGUE, Battle.State.ATTACK_START:
 			deactivate()
 
 func _on_selected_changed(current: int, previous: int) -> void:

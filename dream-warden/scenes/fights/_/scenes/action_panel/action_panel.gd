@@ -48,6 +48,7 @@ func close_current_menu() -> void:
 				Menu.current_menu.queue_free()
 				menu_is_temporary = false
 		Menu.close()
+	$DialogueBox.visible = false
 
 
 func _on_battle_state_changed(new_state: Battle.State, last_state: Battle.State):
@@ -58,9 +59,9 @@ func _on_battle_state_changed(new_state: Battle.State, last_state: Battle.State)
 	match new_state:
 		Battle.State.CHOOSE_ACTION:
 			if Battle.turn == 0:
-				Dialogue.display_text.emit(Battle.get_opening_line())
+				Dialogue.display_text(Battle.get_opening_line())
 			else:
-				Dialogue.display_text.emit(Battle.get_flavor_text())
+				Dialogue.display_text(Battle.get_flavor_text())
 			switch_to_menu(action_menu)
 			Menu.hook_cursor(action_menu.actions_parent,Menu.Layout.HORIZONTAL,action_menu.cached_option)
 		

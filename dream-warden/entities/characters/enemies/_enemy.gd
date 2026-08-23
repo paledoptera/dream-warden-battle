@@ -13,10 +13,15 @@ signal mercy_attempted
 @export var opening_line_plural := DialogueString.new()
 @export var flavor_text_order := Order.RANDOM
 @export var flavor_text : Array[DialogueString]
+@export var dialogue_order := Order.RANDOM
+@export var dialogue : Array[DialogueBlock]
 @export var mercy_fail_text: Array[DialogueString]
 @export_group("Data")
 @export var soundbank: Dictionary[StringName, AudioStream]
 @export var next_phase: PackedScene
+@export_group("Interactions")
+## Attacks to this enemy will always miss
+@export var unhittable: bool = false
 
 var turn = 0
 var repetitions = 0
@@ -72,19 +77,38 @@ func get_flavor_text() -> DialogueString:
 	else:
 		return DialogueString.new()
 
+func get_dialogue() -> DialogueBlock:
+	var dialogue_turn = wrapi(turn,0,dialogue.size())
+
+	match flavor_text_order:
+		Order.SEQUENTIAL:
+			pass
+			
+		Order.RANDOM:
+			dialogue.shuffle()
+	
+	if not dialogue:
+		return null
+	if not dialogue[dialogue_turn]:
+		return null
+	else:
+		return dialogue[dialogue_turn]
+
 func check_phase() -> void:
 	## put a conditional to goto_next_phase here if you want a multi-phase enemy/boss
 	pass
 
-func goto_next_phase() -> void:
-	var new_phase = next_phase.instantiate()
-	new_phase.hp = hp
-	get_parent().add_child(new_phase)
-	new_phase.global_position = global_position
+func transform_into(enemy: PackedScene) -> Enemy:
+	var new_enemy = enemy.instantiate()
+	new_enemy.hp = hp
+	get_parent().add_child(new_enemy)
+	new_enemy.global_position = global_position
 	var enemies_root = get_parent()
 	reparent(get_tree().root)
 	Battle.update_enemies(enemies_root)
 	queue_free()
+	return new_enemy
+
 
 func try_mercy() -> bool:
 	return false

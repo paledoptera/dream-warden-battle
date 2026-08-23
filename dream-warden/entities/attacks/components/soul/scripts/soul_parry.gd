@@ -8,6 +8,6 @@ func _physics_process(delta: float) -> void:
 	if direction != Vector2.ZERO:
 		last_direction = direction
 
-	shield_direction = shield_direction.slerp(last_direction,0.2)
-	$Shield.look_at(global_position+shield_direction)
+	shield_direction = shield_direction.slerp(last_direction,0.15)
+	#$Shield.look_at(global_position+shield_direction)
 	
