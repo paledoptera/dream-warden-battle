@@ -21,10 +21,6 @@ func _ready() -> void:
 	area_entered.connect(_on_area_entered)
 
 func _process(delta: float) -> void:
-	
-	if has_overlapping_areas():
-		Battle.tp += (1.0/6)
-	
 	if trying_to_fade_out:
 		if has_overlapping_areas():
 			graze_sprite_frame = move_toward(graze_sprite_frame,1.0,0.5)

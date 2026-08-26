@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://caqnjjh4u2r54" path="res://entities/attacks/attack.gd" id="2_h81wx"]
 [ext_resource type="PackedScene" uid="uid://cgpsbpg4xrt5s" path="res://entities/characters/enemies/warden/attacks/parry/0_rings/rings_attack.tscn" id="3_jiduq"]
 [ext_resource type="PackedScene" uid="uid://6pjv2tpw0t0c" path="res://entities/characters/enemies/warden/attacks/parry/1_charge/charge_attack.tscn" id="4_1ebud"]
+[ext_resource type="PackedScene" uid="uid://cfs3vvke5udle" path="res://entities/characters/enemies/warden/attacks/parry/2_shocker/shocker_attack.tscn" id="5_bua6j"]
 [ext_resource type="Script" uid="uid://m17i7j602jax" path="res://resources/dialogue_components/dialogue_string.gd" id="7_7i4gm"]
 [ext_resource type="Script" uid="uid://cci227fj67d4u" path="res://resources/dialogue_components/markers/_dialogue_marker.gd" id="8_lpoqj"]
 [ext_resource type="AudioStream" uid="uid://c3m6sxg7kebei" path="res://shared/sound_effects/snd_text.wav" id="11_a78fx"]
@@ -31,6 +32,13 @@ resource_name = "Charge"
 script = ExtResource("2_h81wx")
 scene = ExtResource("4_1ebud")
 length = 11.0
+metadata/_custom_type_script = "uid://caqnjjh4u2r54"
+
+[sub_resource type="Resource" id="Resource_0noj1"]
+resource_name = "Shocker"
+script = ExtResource("2_h81wx")
+scene = ExtResource("5_bua6j")
+length = 12.0
 metadata/_custom_type_script = "uid://caqnjjh4u2r54"
 
 [sub_resource type="Resource" id="Resource_0xok2"]
@@ -126,7 +134,7 @@ metadata/_custom_type_script = "uid://m17i7j602jax"
 modulate = Color(0, 2.055, 2.055, 1)
 script = ExtResource("1_xc6dn")
 attack_order = 1
-attacks = Array[ExtResource("2_h81wx")]([SubResource("Resource_qff6h"), SubResource("Resource_bidu8")])
+attacks = Array[ExtResource("2_h81wx")]([SubResource("Resource_qff6h"), SubResource("Resource_bidu8"), SubResource("Resource_0noj1")])
 check_text = Array[ExtResource("7_7i4gm")]([SubResource("Resource_0xok2")])
 opening_line_singular = SubResource("Resource_y0t3x")
 flavor_text_order = 1

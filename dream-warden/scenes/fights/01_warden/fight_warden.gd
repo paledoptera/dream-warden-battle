@@ -17,3 +17,14 @@ func _on_world_event(event: StringName) -> void:
 			tp_bar.global_position = pos
 			
 			warden = warden.transform_into(preload("uid://4arqgvofsxsd"))
+			
+		"exit_parry_mode":
+			
+			var parent = tp_bar.get_parent()
+			var pos = tp_bar.global_position
+			tp_bar.queue_free()
+			tp_bar = preload("uid://jhaejpx46ycp").instantiate()
+			parent.add_child(tp_bar)
+			tp_bar.global_position = pos
+			
+			warden = warden.transform_into(preload("uid://cs6cms21rjeis"))

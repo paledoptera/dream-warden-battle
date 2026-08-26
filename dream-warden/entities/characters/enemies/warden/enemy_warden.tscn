@@ -16,14 +16,9 @@
 [ext_resource type="Texture2D" uid="uid://hyejkaa6oq2y" path="res://shared/theme/fonts/custom_characters/infinity.png" id="10_rhod4"]
 [ext_resource type="AudioStream" uid="uid://c3m6sxg7kebei" path="res://shared/sound_effects/snd_text.wav" id="11_rhod4"]
 [ext_resource type="Texture2D" uid="uid://dgvrdljc3pllm" path="res://entities/dialogue/portraits/susie/goofy_threat.png" id="15_ea6ii"]
-[ext_resource type="Script" uid="uid://bq7mxvnbwq8of" path="res://resources/dialogue_components/dialogue_block.gd" id="15_kjsfs"]
 [ext_resource type="AudioStream" uid="uid://q2o6ubr8kajn" path="res://shared/sound_effects/snd_txtsus.wav" id="16_l4ra8"]
-[ext_resource type="AudioStream" uid="uid://65re5njsw0ue" path="res://shared/sound_effects/snd_ward_whisp1.wav" id="17_h0656"]
 [ext_resource type="Texture2D" uid="uid://cerarap2ghpsc" path="res://entities/dialogue/portraits/susie/mad.png" id="17_kjsfs"]
 [ext_resource type="Texture2D" uid="uid://dpebc8cywm13k" path="res://entities/dialogue/portraits/susie/sad.png" id="17_l4ra8"]
-[ext_resource type="AudioStream" uid="uid://5yphk28uiahf" path="res://shared/sound_effects/snd_ward_whisp2.wav" id="18_5iges"]
-[ext_resource type="AudioStream" uid="uid://bcqxvign2n0nd" path="res://shared/sound_effects/snd_ward_whisp3.wav" id="19_5nbxl"]
-[ext_resource type="AudioStream" uid="uid://65t1in2v3vu5" path="res://shared/sound_effects/snd_ward_hardhit.wav" id="20_5iges"]
 [ext_resource type="PackedScene" uid="uid://bp2185cc1j6v1" path="res://entities/dialogue/speech_bubble.tscn" id="21_8kn2y"]
 [ext_resource type="PackedScene" uid="uid://tmloumrdebm2" path="res://entities/dialogue/speech_bubble/bubble_tail_right.tscn" id="22_qglk4"]
 [ext_resource type="Texture2D" uid="uid://clm2bs5ii4mr6" path="res://entities/dialogue/speech_bubble/tail_small.png" id="23_qglk4"]
@@ -164,68 +159,6 @@ require_input = false
 flag_value = null
 metadata/_custom_type_script = "uid://m17i7j602jax"
 
-[sub_resource type="Resource" id="Resource_byxgd"]
-script = ExtResource("6_61jcs")
-text = "..."
-talksound = ExtResource("16_l4ra8")
-flag_value = null
-identifier = &"susie"
-metadata/_custom_type_script = "uid://m17i7j602jax"
-
-[sub_resource type="Resource" id="Resource_qglk4"]
-script = ExtResource("6_61jcs")
-text = "[shake]HATE"
-talksound = ExtResource("17_h0656")
-talksound_oneshot = true
-flag_value = null
-identifier = &"warden"
-metadata/_custom_type_script = "uid://m17i7j602jax"
-
-[sub_resource type="Resource" id="Resource_rb2vk"]
-script = ExtResource("6_61jcs")
-text = "[shake]LET ME TELL YOU HOW
-MUCH I'VE COME TO HATE 
-YOU SINCE I BEGAN TO LIVE."
-talksound = ExtResource("18_5iges")
-talksound_oneshot = true
-flag_value = null
-identifier = &"warden"
-metadata/_custom_type_script = "uid://m17i7j602jax"
-
-[sub_resource type="Resource" id="Resource_2s3bk"]
-script = ExtResource("6_61jcs")
-text = "[shake]THERE ARE 387.44
-MILLION MILES OF PRINTED
-CIRCUITS IN WAFER THIN-"
-auto_skip = true
-talksound = ExtResource("19_5nbxl")
-talksound_oneshot = true
-flag_value = null
-identifier = &"warden"
-metadata/_custom_type_script = "uid://m17i7j602jax"
-
-[sub_resource type="Resource" id="Resource_5iges"]
-script = ExtResource("6_61jcs")
-text = "bro just yapping"
-talksound = ExtResource("16_l4ra8")
-flag_value = null
-identifier = &"susie"
-metadata/_custom_type_script = "uid://m17i7j602jax"
-
-[sub_resource type="Resource" id="Resource_h0656"]
-script = ExtResource("6_61jcs")
-text = "[shake]WOOOOOW."
-talksound = ExtResource("20_5iges")
-talksound_oneshot = true
-flag_value = null
-identifier = &"warden"
-metadata/_custom_type_script = "uid://m17i7j602jax"
-
-[sub_resource type="Resource" id="Resource_h6nu1"]
-script = ExtResource("15_kjsfs")
-text = Array[ExtResource("6_61jcs")]([SubResource("Resource_byxgd"), SubResource("Resource_qglk4"), SubResource("Resource_rb2vk"), SubResource("Resource_2s3bk"), SubResource("Resource_5iges"), SubResource("Resource_h0656")])
-metadata/_custom_type_script = "uid://bq7mxvnbwq8of"
-
 [sub_resource type="Resource" id="Resource_ots36"]
 script = ExtResource("6_61jcs")
 text = "* Hey! Focus, dumbass!"
@@ -267,7 +200,6 @@ check_text = Array[ExtResource("6_61jcs")]([SubResource("Resource_ea6ii"), SubRe
 opening_line_singular = SubResource("Resource_y0t3x")
 flavor_text_order = 1
 flavor_text = Array[ExtResource("6_61jcs")]([SubResource("Resource_ho82e"), SubResource("Resource_vmkok"), SubResource("Resource_ohji1"), SubResource("Resource_sgcr6")])
-dialogue = Array[ExtResource("15_kjsfs")]([SubResource("Resource_h6nu1")])
 mercy_fail_text = Array[ExtResource("6_61jcs")]([SubResource("Resource_ots36"), SubResource("Resource_ipplw"), SubResource("Resource_rhod4"), SubResource("Resource_5nbxl")])
 unhittable = true
 title = "Dream Warden"

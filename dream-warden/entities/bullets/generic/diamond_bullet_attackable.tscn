@@ -11,6 +11,7 @@ scale = Vector2(2, 2)
 collision_layer = 2
 script = ExtResource("1_e00ux")
 damage = 9
+graze_points = 15.0
 destructible = true
 attackable = true
 velocity = Vector2(150, 0)

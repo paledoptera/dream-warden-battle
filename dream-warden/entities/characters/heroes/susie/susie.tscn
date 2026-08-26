@@ -250,7 +250,7 @@ spells = Array[ExtResource("2_6rqmn")]([SubResource("Resource_jq4a0"), SubResour
 title = "Susie"
 hp_max = 460
 defense = 2
-attack = 24
+attack = 40
 magic = 5
 metadata/_custom_type_script = "uid://dcoj2hdic3s7p"
 

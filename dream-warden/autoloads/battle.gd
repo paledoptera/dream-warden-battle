@@ -17,7 +17,7 @@ var fight_scene: FightScene
 var target: int = 0
 
 var soul_speed: float = 120.0
-
+var attack_scene: Node
 
 var turn: int = 0
 
@@ -83,7 +83,9 @@ func do_attack(parent_node: Node) -> void:
 	var attack = enemies[0].get_attack()
 	
 	if attack.scene:
-		var attack_scene = attack.scene.instantiate()
+		if attack_scene:
+			attack_scene.queue_free()
+		attack_scene = attack.scene.instantiate()
 		
 		parent_node.add_child(attack_scene)
 		await animate_soul_transition(attack_scene,false)
@@ -93,11 +95,13 @@ func do_attack(parent_node: Node) -> void:
 		else:
 			await attack_area_end
 		
-		await animate_soul_transition(attack_scene,true)
-	
-	goto_next_phase()
+		finish_attack(attack_scene)
 	return
 
+func finish_attack(attack_scene: Node) -> void:
+	await animate_soul_transition(attack_scene,true)
+	goto_next_phase()
+	
 func animate_soul_transition(attack_scene: Node, end: bool = false) -> void:
 	
 	if not end:

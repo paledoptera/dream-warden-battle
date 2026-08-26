@@ -1,0 +1,145 @@
+[gd_scene format=3 uid="uid://cfs3vvke5udle"]
+
+[ext_resource type="PackedScene" uid="uid://c3baha85ndj6f" path="res://entities/attacks/components/battlebox.tscn" id="1_8tkeh"]
+[ext_resource type="Script" uid="uid://q4ttaombsumi" path="res://entities/characters/enemies/warden/attacks/parry/2_shocker/shocker_attack.gd" id="1_uoh3s"]
+[ext_resource type="PackedScene" uid="uid://dxp2dj0rfpq0l" path="res://entities/attacks/components/soul/soul_parry.tscn" id="2_lweat"]
+[ext_resource type="Texture2D" uid="uid://uc3mluq7bs2f" path="res://scenes/minigames/aqua_warden/aqua/dreamwardensprite.png" id="3_qbm3s"]
+[ext_resource type="Script" uid="uid://bcmlmcjn7wnkt" path="res://entities/bullets/pellet_spawner_mega.gd" id="4_jnu58"]
+[ext_resource type="PackedScene" uid="uid://o4i3coiv8dpu" path="res://entities/bullets/generic/diamond_bullet.tscn" id="6_uoh3s"]
+[ext_resource type="AudioStream" uid="uid://v580w6b4i5we" path="res://shared/sound_effects/mus_sfx_a_bullet.wav" id="7_84tqa"]
+[ext_resource type="PackedScene" uid="uid://biavcsynb4tc4" path="res://entities/bullets/generic/diamond_bullet_blue.tscn" id="7_wrgnh"]
+
+[node name="ShockerAttack" type="Node2D" unique_id=1619920108]
+script = ExtResource("1_uoh3s")
+
+[node name="Battlebox" parent="." unique_id=445257611 instance=ExtResource("1_8tkeh")]
+offset_right = 350.0
+offset_bottom = 250.0
+
+[node name="SoulParry" parent="." unique_id=443094051 instance=ExtResource("2_lweat")]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1525625985]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1613504405]
+position = Vector2(1, -163)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_qbm3s")
+offset = Vector2(97, -138)
+
+[node name="BulletSpawnerMega" type="Node2D" parent="Sprite2D" unique_id=1314670372 node_paths=PackedStringArray("spawnpoints", "parent")]
+unique_name_in_owner = true
+script = ExtResource("4_jnu58")
+bullet = ExtResource("6_uoh3s")
+rare_bullet = ExtResource("7_wrgnh")
+spawnpoints = [NodePath("Marker2D"), NodePath("Marker2D2"), NodePath("Marker2D3"), NodePath("Marker2D4"), NodePath("Marker2D5")]
+parent = NodePath("../..")
+speed_mult = 2.0
+sound = ExtResource("7_84tqa")
+metadata/_custom_type_script = "uid://bcmlmcjn7wnkt"
+
+[node name="Timer" type="Timer" parent="Sprite2D/BulletSpawnerMega" unique_id=707441434]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[node name="Marker2D" type="Marker2D" parent="Sprite2D/BulletSpawnerMega" unique_id=390151640]
+
+[node name="Marker2D2" type="Marker2D" parent="Sprite2D/BulletSpawnerMega" unique_id=1638611614]
+position = Vector2(-5.999999, 22)
+rotation = 0.5235988
+
+[node name="Marker2D4" type="Marker2D" parent="Sprite2D/BulletSpawnerMega" unique_id=274444978]
+position = Vector2(-1.999999, 11)
+rotation = 0.26179937
+scale = Vector2(0.99999994, 0.99999994)
+
+[node name="Marker2D5" type="Marker2D" parent="Sprite2D/BulletSpawnerMega" unique_id=1299573210]
+position = Vector2(-2.0000005, -11)
+rotation = -0.26179945
+
+[node name="Marker2D3" type="Marker2D" parent="Sprite2D/BulletSpawnerMega" unique_id=1415869452]
+position = Vector2(-6.000001, -22)
+rotation = -0.52359873
+
+[node name="Timer" type="Timer" parent="." unique_id=1685388507]
+wait_time = 0.5
+
+[node name="Target1" type="Node2D" parent="." unique_id=1364858136]
+position = Vector2(0, 121)
+
+[node name="Marker2D" type="Marker2D" parent="Target1" unique_id=1903386350]
+position = Vector2(-150, 0)
+
+[node name="Marker2D2" type="Marker2D" parent="Target1" unique_id=793390578]
+position = Vector2(-120, 0)
+
+[node name="Marker2D3" type="Marker2D" parent="Target1" unique_id=708853024]
+position = Vector2(-90, 0)
+
+[node name="Marker2D4" type="Marker2D" parent="Target1" unique_id=1686539961]
+position = Vector2(-60, 0)
+
+[node name="Marker2D5" type="Marker2D" parent="Target1" unique_id=548365304]
+position = Vector2(-30, 0)
+
+[node name="Marker2D6" type="Marker2D" parent="Target1" unique_id=1885881003]
+
+[node name="Marker2D8" type="Marker2D" parent="Target1" unique_id=506606655]
+position = Vector2(30, 0)
+
+[node name="Marker2D9" type="Marker2D" parent="Target1" unique_id=929772120]
+position = Vector2(60, 0)
+
+[node name="Marker2D10" type="Marker2D" parent="Target1" unique_id=1275369713]
+position = Vector2(90, 0)
+
+[node name="Marker2D11" type="Marker2D" parent="Target1" unique_id=1764464231]
+position = Vector2(120, 0)
+
+[node name="Marker2D12" type="Marker2D" parent="Target1" unique_id=2034065049]
+position = Vector2(150, 0)
+
+[node name="Target2" type="Node2D" parent="." unique_id=1806089579]
+position = Vector2(0, -121)
+
+[node name="Marker2D" type="Marker2D" parent="Target2" unique_id=1317622659]
+position = Vector2(-150, 0)
+
+[node name="Marker2D2" type="Marker2D" parent="Target2" unique_id=1107559416]
+position = Vector2(-120, 0)
+
+[node name="Marker2D3" type="Marker2D" parent="Target2" unique_id=1286942029]
+position = Vector2(-90, 0)
+
+[node name="Marker2D4" type="Marker2D" parent="Target2" unique_id=357501475]
+position = Vector2(-60, 0)
+
+[node name="Marker2D5" type="Marker2D" parent="Target2" unique_id=634759446]
+position = Vector2(-30, 0)
+
+[node name="Marker2D6" type="Marker2D" parent="Target2" unique_id=1820703204]
+
+[node name="Marker2D8" type="Marker2D" parent="Target2" unique_id=1485043686]
+position = Vector2(30, 0)
+
+[node name="Marker2D9" type="Marker2D" parent="Target2" unique_id=83380916]
+position = Vector2(60, 0)
+
+[node name="Marker2D10" type="Marker2D" parent="Target2" unique_id=512524201]
+position = Vector2(90, 0)
+
+[node name="Marker2D11" type="Marker2D" parent="Target2" unique_id=26025061]
+position = Vector2(120, 0)
+
+[node name="Marker2D12" type="Marker2D" parent="Target2" unique_id=1344274695]
+position = Vector2(150, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2097894208]
+
+[node name="MegaLaserTarget1" type="Marker2D" parent="." unique_id=782780727]
+position = Vector2(0, 121)
+
+[node name="MegaLaserTarget2" type="Marker2D" parent="." unique_id=1444981010]
+position = Vector2(0, -121)
+
+[connection signal="timeout" from="Sprite2D/BulletSpawnerMega/Timer" to="." method="_on_timer_timeout"]
