@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ux5c4buxxlkh"]
 
-[ext_resource type="PackedScene" uid="uid://d4km1k6q6wbdd" path="res://scenes/fights/_/_fight.tscn" id="1_fco8t"]
+[ext_resource type="PackedScene" uid="uid://d4km1k6q6wbdd" path="res://scenes/fights/_/battle.tscn" id="1_fco8t"]
 [ext_resource type="PackedScene" uid="uid://ct2r68cc6eq0r" path="res://entities/characters/heroes/ice_palace/rangle/rangle.tscn" id="2_7tck5"]
 [ext_resource type="AudioStream" uid="uid://b16qa5ic5ugao" path="res://shared/music/mus_ice_palace.ogg" id="2_dy038"]
 [ext_resource type="Texture2D" uid="uid://dni58cch6mwsi" path="res://scenes/fights/09J_ice_palace/res/ice-texture-background-the-textured-cold-frosty-surface-of-crushed-ice-photo.jpg" id="3_r6oxw"]

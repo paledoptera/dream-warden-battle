@@ -8,9 +8,10 @@ var prism_shield: int = -1
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	await get_tree().physics_frame
-	hero = Battle.heroes[0]
-	hero.prism_shield_changed.connect(_on_prism_shield_changed)
-	_on_prism_shield_changed(0)
+	
+	#hero = Battle.heroes[0]
+	#hero.prism_shield_changed.connect(_on_prism_shield_changed)
+	#_on_prism_shield_changed(0)
 
 func _on_prism_shield_changed(value: int):
 	if prism_shield == value:

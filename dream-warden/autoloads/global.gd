@@ -1,7 +1,11 @@
 extends Node
 
-var hard_mode: bool = false
-var in_battle: bool = false
+signal tp_changed(value: float)
+
+var tp: float = 0.0:
+	set(value):
+		tp_changed.emit(value)
+		tp = value
 
 func _ready() -> void:
 	prepare_menu()

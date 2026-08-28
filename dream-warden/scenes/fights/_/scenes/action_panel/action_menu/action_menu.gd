@@ -9,7 +9,7 @@ signal selected_action_changed(new_action: int)
 @export var icon: Sprite2D
 @export var actions_parent: Node2D
 
-var active = true
+var active = false
 var frozen = false
 var actions: Array
 var selected: int = 0
@@ -22,9 +22,6 @@ var hero: Hero
 
 func _ready() -> void:
 	actions = $Actions.get_children()
-	actions[0].selected = true
-	
-	Battle.state_changed.connect(_on_battle_state_changed)
 
 
 func update_hp_values() -> void:
@@ -38,6 +35,23 @@ func _on_hp_changed(new_hp: int) -> void:
 	health_bar.value = new_hp
 	hp.text = str(new_hp)
 
+func activate() -> void:
+	if active:
+		return
+	
+	#icon.frame = 1
+	#hero.is_defending = false
+	
+	set_process_unhandled_input(true)
+	
+	$AnimationPlayer.play("open")
+
+	for i in actions:
+		i.selected = false
+	
+	_on_selected_changed(cached_option,-1)
+
+	active = true
 
 func deactivate() -> void:
 	if not active:
@@ -50,20 +64,6 @@ func deactivate() -> void:
 	
 	active = false
 
-func activate() -> void:
-	if active:
-		return
-	
-	icon.frame = 1
-	hero.is_defending = false
-	
-	set_process_unhandled_input(true)
-	
-	$AnimationPlayer.play("open")
-	actions[0].selected = true
-	selected = 0
-	active = true
-
 func freeze() -> void:
 	frozen = true
 
@@ -71,31 +71,16 @@ func unfreeze() -> void:
 	frozen = false
 	
 
-func _on_battle_state_changed(new_state: Battle.State, last_state: Battle.State):
-	match new_state:
-		Battle.State.CHOOSE_ACTION:
-			activate()
-			unfreeze()
-		Battle.State.CHOOSE_ENEMY, Battle.State.CHOOSE_SPELL, Battle.State.CHOOSE_ITEM:
-			freeze()
-		Battle.State.DIALOGUE, Battle.State.ATTACK_START:
-			deactivate()
-
 func _on_selected_changed(current: int, previous: int) -> void:
-	actions[previous].selected = false
+	for i in actions:
+		i.selected = false
 	actions[current].selected = true
-	Battle.selected_action = current
 	cached_option = current
 
 func _on_accepted() -> void:
-	var action = selected as Battle.Action
+	var action = selected as BattleTurnState.Action
 	
-	if action == Battle.Action.DEFEND:
-		Battle.tp += 32
-		icon.frame = 7
-		hero.is_defending = true
-	
-	Battle.goto_next_phase()
+	EventBus.battle_goto_next_phase.emit()
 	return
 	
 	

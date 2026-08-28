@@ -3,7 +3,7 @@ class_name TPBar extends Node2D
 var tp: int = 0
 
 func _ready() -> void:
-	Battle.tp_changed.connect(_update_tp)
+	Global.tp_changed.connect(_update_tp)
 
 func _update_tp(value: float) -> void:
 	if value == 100.0:
@@ -19,7 +19,7 @@ func _update_tp(value: float) -> void:
 
 func _process(delta: float) -> void:
 	
-	tp = lerp(tp,int(Battle.tp+1.0),0.66)
+	tp = move_toward(tp,Global.tp,10)
 	$Normal/Label.text = str(tp)
 	
 	

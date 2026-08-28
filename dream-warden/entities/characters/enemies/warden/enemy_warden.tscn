@@ -19,6 +19,7 @@
 [ext_resource type="AudioStream" uid="uid://q2o6ubr8kajn" path="res://shared/sound_effects/snd_txtsus.wav" id="16_l4ra8"]
 [ext_resource type="Texture2D" uid="uid://cerarap2ghpsc" path="res://entities/dialogue/portraits/susie/mad.png" id="17_kjsfs"]
 [ext_resource type="Texture2D" uid="uid://dpebc8cywm13k" path="res://entities/dialogue/portraits/susie/sad.png" id="17_l4ra8"]
+[ext_resource type="Resource" uid="uid://dsnpoy8ro5it6" path="res://resources/character_stats/enemy/stats_enemy_warden.tres" id="19_qglk4"]
 [ext_resource type="PackedScene" uid="uid://bp2185cc1j6v1" path="res://entities/dialogue/speech_bubble.tscn" id="21_8kn2y"]
 [ext_resource type="PackedScene" uid="uid://tmloumrdebm2" path="res://entities/dialogue/speech_bubble/bubble_tail_right.tscn" id="22_qglk4"]
 [ext_resource type="Texture2D" uid="uid://clm2bs5ii4mr6" path="res://entities/dialogue/speech_bubble/tail_small.png" id="23_qglk4"]
@@ -202,8 +203,7 @@ flavor_text_order = 1
 flavor_text = Array[ExtResource("6_61jcs")]([SubResource("Resource_ho82e"), SubResource("Resource_vmkok"), SubResource("Resource_ohji1"), SubResource("Resource_sgcr6")])
 mercy_fail_text = Array[ExtResource("6_61jcs")]([SubResource("Resource_ots36"), SubResource("Resource_ipplw"), SubResource("Resource_rhod4"), SubResource("Resource_5nbxl")])
 unhittable = true
-title = "Dream Warden"
-hp_max = 4000
+stats = ExtResource("19_qglk4")
 
 [node name="SpriteContainer" type="SubViewportContainer" parent="." unique_id=1646923799]
 custom_minimum_size = Vector2(1000, 800)

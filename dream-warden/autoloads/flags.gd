@@ -1,5 +1,8 @@
 extends Node
 
+var hard_mode: bool = false
+var in_battle: bool = false
+
 var mercy_disabled: bool = false
 
 

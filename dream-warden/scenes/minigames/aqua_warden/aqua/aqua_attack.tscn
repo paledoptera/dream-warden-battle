@@ -97,15 +97,6 @@ height = 0.015
 cap_top = false
 cap_bottom = false
 
-[sub_resource type="GDScript" id="GDScript_ol237"]
-resource_name = "HeroTransform"
-script/source = "extends RemoteTransform3D2D
-
-func _ready() -> void:
-	if Battle.heroes:
-		node = Battle.heroes[0]
-"
-
 [node name="AquaAttack" type="SubViewportContainer" unique_id=1205939739 node_paths=PackedStringArray("player", "stage", "background")]
 top_level = true
 custom_minimum_size = Vector2(640, 480)
@@ -190,12 +181,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04, 0.258, 0)
 script = ExtResource("20_ol237")
 node = NodePath("../../../../../../Healthbar")
 x_enabled = false
-res_scale = 2.0
-
-[node name="HeroTransform" type="Node3D" parent="SubViewport/Stage/Player/Pivot/Susie" parent_id_path=PackedInt32Array(1795950396, 1134979943) index="5" unique_id=1095486130]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04, 0.258, 0)
-script = SubResource("GDScript_ol237")
-offset = Vector2(16, 64)
 res_scale = 2.0
 
 [node name="Boss" parent="SubViewport" unique_id=1593148642 node_paths=PackedStringArray("player", "player_sprite", "attacks_parent") instance=ExtResource("21_su1ak")]

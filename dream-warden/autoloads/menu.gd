@@ -77,7 +77,6 @@ func change_selection(event: InputEvent):
 			standard = false
 			var half = 2.0
 			#var half = ceilf(float(options.size()))/2
-			print("SELECTED: ", selected, " HALF:", half)
 			
 			if event.is_action_pressed("up"):
 				selected -= half
@@ -189,11 +188,11 @@ func _on_selected_changed(current: int, previous: int):
 	_fix_cursor_position()
 
 func _on_canceled() -> void:
-	if Global.in_battle:
-		Battle.goto_prev_phase()
+	if Flags.in_battle:
+		EventBus.battle_goto_prev_phase.emit()
 
 func _fix_cursor_position() -> void:
-	if not options:
+	if not options or not cursor:
 		return
 	
 	if "global_position" in options[selected]:

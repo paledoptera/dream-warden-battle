@@ -27,7 +27,6 @@ var turn = 0
 var repetitions = 0
 
 func _ready() -> void:
-	super()
 	Battle.attack_end.connect(progress_turn)
 	mercy_attempted.connect(_on_mercy_attempted)
 
@@ -100,7 +99,8 @@ func check_phase() -> void:
 
 func transform_into(enemy: PackedScene) -> Enemy:
 	var new_enemy = enemy.instantiate()
-	new_enemy.hp = hp
+	new_enemy.stats.max_hp = stats.max_hp
+	new_enemy.stats.hp = stats.hp
 	get_parent().add_child(new_enemy)
 	new_enemy.global_position = global_position
 	var enemies_root = get_parent()

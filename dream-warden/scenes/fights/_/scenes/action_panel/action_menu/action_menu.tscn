@@ -488,7 +488,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, -39)]
+"values": [Vector2(0, -6)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -500,7 +500,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -512,7 +512,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [true]
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_ho504"]
@@ -620,9 +620,9 @@ actions_parent = NodePath("Actions")
 custom_minimum_size = Vector2(213, 36)
 custom_maximum_size = Vector2(213, 36)
 layout_mode = 0
-offset_top = -39.0
+offset_top = -6.0
 offset_right = 213.0
-offset_bottom = -3.0
+offset_bottom = 30.0
 color = Color(0, 0, 0, 1)
 
 [node name="TopDivider" type="Panel" parent="Background" unique_id=2006547987]
@@ -721,6 +721,7 @@ color = Color(0, 1, 1, 1)
 remote_path = NodePath("../../FrameUpper")
 
 [node name="FrameLower" type="Sprite2D" parent="." unique_id=329959281]
+visible = false
 modulate = Color(1, 0, 1, 1)
 show_behind_parent = true
 position = Vector2(107, -5)
@@ -769,8 +770,6 @@ frame = 3
 
 [node name="MercyDisabled" type="Node" parent="Actions/Mercy" unique_id=1258724296]
 script = ExtResource("10_wabyi")
-flag = &"mercy_disabled"
-value = true
 
 [node name="Defend" parent="Actions" unique_id=1097153336 groups=["menu_option"] instance=ExtResource("4_pnv7i")]
 position = Vector2(175, 13.5)
@@ -778,12 +777,14 @@ vframes = 3
 frame = 4
 
 [node name="FrameUpper" type="Sprite2D" parent="." unique_id=1001865]
+visible = false
 self_modulate = Color(1, 0, 1, 1)
 z_index = 21
 z_as_relative = false
-position = Vector2(0, -39)
+position = Vector2(0, -24)
 texture = ExtResource("3_obbis")
 centered = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1670591623]
 libraries/ = SubResource("AnimationLibrary_ho504")
+autoplay = &"RESET"
