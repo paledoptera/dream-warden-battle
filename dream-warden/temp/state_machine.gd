@@ -14,20 +14,21 @@ func _ready() -> void:
 			continue
 		
 		i.index = i.get_index()
-		action.connect(i.action)
 		i.change_state.connect(change_state)
 		i.event.connect(echo_event)
 	
 	change_state(get_child(0))
 
-func change_state(state: State, action: StringName = "init"):
+func change_state(state: State, new_action: StringName = "init"):
 	if current_state:
-		state_exited.emit(current_state,action)
+		state_exited.emit(current_state,new_action)
+		action.disconnect(current_state.action)
 		if current_state.events:
 			current_state.perform_events(current_state.events.exit)
 		
 	current_state = state
-	state_entered.emit(current_state,action)
+	state_entered.emit(current_state,new_action)
+	action.connect(current_state.action)
 	if current_state.events:
 		current_state.perform_events(current_state.events.enter)
 	

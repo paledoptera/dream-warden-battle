@@ -63,7 +63,7 @@ func _on_turn_queue_event(event: StringName) -> void:
 		"open_action_menu":
 			var party_member = get_current_party_member()
 			open_action_menu(party_member)
-			%ActionState.action.emit("start")
+			%ActionState.change_state($ActionState/ChooseAction)
 
 		"reset_hero_battlers":
 			for ind in range(hero_battlers.size()):
@@ -74,6 +74,10 @@ func _on_turn_queue_event(event: StringName) -> void:
 				hero.finished = false
 				for i in action_menus:
 					change_icon.emit(i,1)
+			current_option = 0
+			current_target = 0
+			current_item_events.clear()
+			current_spell_events.clear()
 		
 		"do_party_actions":
 			do_party_actions()
@@ -94,6 +98,10 @@ func _on_turn_queue_event(event: StringName) -> void:
 # by logic like a flow chart.
 func _on_action_state_event(event: StringName) -> void:
 	match event:
+		"open_action_menu":
+			var party_member = get_current_party_member()
+			open_action_menu(party_member)
+		
 		"freeze_action_menu":
 			freeze_action_menu(get_current_party_member())
 		
@@ -108,14 +116,37 @@ func _on_action_state_event(event: StringName) -> void:
 			%DialogueBox.hide()
 		
 		"menu_enemy_selection":
+			var action = hero_battlers[get_current_party_member()].action as HeroBattler.Action
+			match action:
+				HeroBattler.Action.FIGHT, HeroBattler.Action.MERCY:
+					%ChooseEnemy.transitions["cancel"] = %ChooseAction
+				
+				HeroBattler.Action.MAGIC:
+					%ChooseEnemy.transitions["cancel"] = %ChooseSpell
+				
+				HeroBattler.Action.ITEM:
+					%ChooseEnemy.transitions["cancel"] = %ChooseItem
+				
 			open_menu(preload("uid://cnthh51l1n1ux")) # enemy_selection.tscn
-		
+			
+		"menu_hero_selection":
+			var action = hero_battlers[get_current_party_member()].action as HeroBattler.Action
+			match action:
+				HeroBattler.Action.MAGIC:
+					%ChooseHero.transitions["cancel"] = %ChooseSpell
+				
+				HeroBattler.Action.ITEM:
+					%ChooseHero.transitions["cancel"] = %ChooseItem
+			open_menu(preload("uid://c4bcqpaoppovb")) # hero_selection.tscn
+			
 		"menu_spell_selection":
 			open_menu(preload("uid://um2a64cmuqm6")) # spell_selection.tscn
+			
+		"menu_item_selection":
+			open_menu(preload("uid://bfe6w1e1the6h")) # item_selection.tscn
 		
 		"clear_menus":
-			for i in %MenuParent.get_children():
-				i.queue_free()
+			clear_menus()
 		
 		"close_current_menu":
 			close_current_menu()
@@ -138,8 +169,13 @@ func battle_event(event: StringName, value: Variant) -> void:
 			hero.action = action
 			prepare_action(action)
 			print("Next action: ", action)
+			
+			
 		
 		"action_canceled":
+			if %ActionState.current_state != $ActionState/ChooseAction:
+				return
+			
 			var party_member = get_current_party_member()
 			close_action_menu(party_member)
 			
@@ -179,20 +215,32 @@ func battle_event(event: StringName, value: Variant) -> void:
 			
 			if not current_spell.targets_own_party:
 				%ActionState.action.emit("choose_enemy")
+				$ActionState/ChooseEnemy.transitions["cancel"] = $ActionState/ChooseSpell
 		
 		"item_prepare":
-			var current_item = value
+			var current_item = value.duplicate()
+			print(current_item)
 			current_item_events.resize(3)
 			var item_event = setup_party_event(preload("res://battle/resources/events/be_action_item.tres"))
-			item_event.data["tp"] = current_item.tp_add
 			item_event.data["item"] = current_item
+			item_event.data["index"] = PlayerInventory.items.find(value)
+			item_event.data["ref"] = value
 			current_item_events[get_current_party_member()] = item_event
+			
+			if current_item.targets_enemy:
+				%ActionState.action.emit("choose_enemy")
+				$ActionState/ChooseEnemy.transitions["cancel"] = $ActionState/ChooseItem
+			else:
+				%ActionState.action.emit("choose_hero")
+				$ActionState/ChooseHero.transitions["cancel"] = $ActionState/ChooseItem
 			
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("cancel"):
-		await get_tree().physics_frame
-		%ActionState.action.emit("cancel")
+		if %ActionState.current_state != $ActionState/ChooseAction:
+			if %TurnQueue.current_turn.index < 4:
+				await get_tree().physics_frame
+				%ActionState.action.emit("cancel")
 
 
 func get_current_party_member() -> int:
@@ -264,6 +312,9 @@ func close_current_menu() -> void:
 	
 	%DialogueBox.visible = false
 
+func clear_menus() -> void:
+	for i in %MenuParent.get_children():
+		i.queue_free()
 
 func spawn_element(new_element: PackedScene) -> Node:
 	close_current_menu()
@@ -287,6 +338,15 @@ func prepare_action(action: HeroBattler.Action, undo: bool = false):
 				var event = current_spell_events[get_current_party_member()]
 				%EventQueue.add_event(event,undo)
 				current_spell_events[get_current_party_member()] = null
+		
+		HeroBattler.Action.ITEM:
+			%ActionState.action.emit("item")
+			if undo:
+				var event = current_item_events[get_current_party_member()]
+				%EventQueue.add_event(event,undo)
+				PlayerInventory.items.insert(event.data["index"],event.data["item"])
+				current_item_events[get_current_party_member()] = null
+		
 		HeroBattler.Action.DEFEND:
 			var event = setup_party_event(preload("res://battle/resources/events/be_action_defend.tres"))
 			%EventQueue.add_event(event,undo)
@@ -321,14 +381,17 @@ func hero_action_chosen() -> void:
 			action_icon = 5
 		
 		HeroBattler.Action.ITEM:
-			var event = setup_party_event(preload("res://battle/resources/events/be_action_item.tres"))
+			var event = current_item_events[get_current_party_member()]
 			%EventQueue.add_event(event)
+			if PlayerInventory.items.has(event.data["ref"]):
+				PlayerInventory.items.erase(event.data["ref"])
 			action_icon = 6
 	
 	change_icon.emit(action_menus[party_member], action_icon)
 	
 	hero.preparing = true
 	close_action_menu(party_member)
+	await get_tree().physics_frame
 	%TurnQueue.goto_next_turn()
 
 
@@ -349,6 +412,13 @@ func setup_party_event(event: BattleEvent) -> BattleEvent:
 
 
 func do_party_actions() -> void:
+	%ActionState.change_state($ActionState/Idle)
+	
+	for i in range(action_menus.size()):
+		close_action_menu(i)
+	
+	close_current_menu()
+	
 	%DialogueBox.show()
 	%EventQueue.execute_events()
 	await %EventQueue.events_finished

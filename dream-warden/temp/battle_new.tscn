@@ -26,7 +26,7 @@ metadata/_custom_type_script = "uid://bx58feb8ua4g1"
 
 [sub_resource type="Resource" id="Resource_wjys2"]
 script = ExtResource("4_11b1j")
-start = Array[StringName]([&"do_party_actions"])
+start = Array[StringName]([&"do_party_actions", &""])
 metadata/_custom_type_script = "uid://bx58feb8ua4g1"
 
 [sub_resource type="Resource" id="Resource_virxf"]
@@ -41,12 +41,22 @@ metadata/_custom_type_script = "uid://d3cylmioux5h2"
 
 [sub_resource type="Resource" id="Resource_mefbn"]
 script = ExtResource("7_mefbn")
-enter = Array[StringName]([&"hide_flavor_text", &"freeze_action_menu", &"menu_enemy_selection"])
+enter = Array[StringName]([&"clear_menus", &"hide_flavor_text", &"freeze_action_menu", &"menu_enemy_selection"])
+metadata/_custom_type_script = "uid://d3cylmioux5h2"
+
+[sub_resource type="Resource" id="Resource_pvm8t"]
+script = ExtResource("7_mefbn")
+enter = Array[StringName]([&"clear_menus", &"hide_flavor_text", &"freeze_action_menu", &"menu_hero_selection"])
 metadata/_custom_type_script = "uid://d3cylmioux5h2"
 
 [sub_resource type="Resource" id="Resource_vr38d"]
 script = ExtResource("7_mefbn")
-enter = Array[StringName]([&"hide_flavor_text", &"freeze_action_menu", &"menu_spell_selection"])
+enter = Array[StringName]([&"clear_menus", &"hide_flavor_text", &"freeze_action_menu", &"menu_spell_selection"])
+metadata/_custom_type_script = "uid://d3cylmioux5h2"
+
+[sub_resource type="Resource" id="Resource_2ugkw"]
+script = ExtResource("7_mefbn")
+enter = Array[StringName]([&"hide_flavor_text", &"freeze_action_menu", &"menu_item_selection"])
 exit = Array[StringName]([&"clear_menus"])
 metadata/_custom_type_script = "uid://d3cylmioux5h2"
 
@@ -204,6 +214,7 @@ unique_name_in_owner = true
 script = ExtResource("4_2patj")
 
 [node name="Idle" type="Node" parent="ActionState" unique_id=980417130 node_paths=PackedStringArray("transitions")]
+unique_name_in_owner = true
 script = ExtResource("5_2patj")
 transitions = {
 &"start": NodePath("../ChooseAction")
@@ -211,6 +222,7 @@ transitions = {
 metadata/_custom_type_script = "uid://ghsf1gi1h2ug"
 
 [node name="ChooseAction" type="Node" parent="ActionState" unique_id=1025188186 node_paths=PackedStringArray("transitions")]
+unique_name_in_owner = true
 script = ExtResource("5_2patj")
 transitions = {
 &"defend": NodePath("../Idle"),
@@ -222,6 +234,7 @@ events = SubResource("Resource_0fxuo")
 metadata/_custom_type_script = "uid://ghsf1gi1h2ug"
 
 [node name="ChooseEnemy" type="Node" parent="ActionState" unique_id=1424563577 node_paths=PackedStringArray("transitions")]
+unique_name_in_owner = true
 script = ExtResource("5_2patj")
 transitions = {
 &"cancel": NodePath("../ChooseAction")
@@ -229,16 +242,35 @@ transitions = {
 events = SubResource("Resource_mefbn")
 metadata/_custom_type_script = "uid://ghsf1gi1h2ug"
 
-[node name="ChooseSpell" type="Node" parent="ActionState" unique_id=1578127279 node_paths=PackedStringArray("transitions")]
+[node name="ChooseHero" type="Node" parent="ActionState" unique_id=1712727819 node_paths=PackedStringArray("transitions")]
+unique_name_in_owner = true
 script = ExtResource("5_2patj")
 transitions = {
-&"choose_enemy": NodePath("../ChooseEnemy")
+&"cancel": NodePath("../ChooseAction")
+}
+events = SubResource("Resource_pvm8t")
+metadata/_custom_type_script = "uid://ghsf1gi1h2ug"
+
+[node name="ChooseSpell" type="Node" parent="ActionState" unique_id=1578127279 node_paths=PackedStringArray("transitions")]
+unique_name_in_owner = true
+script = ExtResource("5_2patj")
+transitions = {
+&"cancel": NodePath("../ChooseAction"),
+&"choose_enemy": NodePath("../ChooseEnemy"),
+&"choose_hero": NodePath("../ChooseHero")
 }
 events = SubResource("Resource_vr38d")
 metadata/_custom_type_script = "uid://ghsf1gi1h2ug"
 
-[node name="ChooseItem" type="Node" parent="ActionState" unique_id=750880135]
+[node name="ChooseItem" type="Node" parent="ActionState" unique_id=1520030724 node_paths=PackedStringArray("transitions")]
+unique_name_in_owner = true
 script = ExtResource("5_2patj")
+transitions = {
+&"cancel": NodePath("../ChooseAction"),
+&"choose_enemy": NodePath("../ChooseEnemy"),
+&"choose_hero": NodePath("../ChooseHero")
+}
+events = SubResource("Resource_2ugkw")
 metadata/_custom_type_script = "uid://ghsf1gi1h2ug"
 
 [node name="EventQueue" type="Node" parent="." unique_id=369006052]

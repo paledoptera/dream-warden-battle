@@ -12,9 +12,8 @@ default_font_size = 32
 content_margin_left = 28.0
 content_margin_top = 15.0
 
-[node name="ItemSelection" type="Node2D" unique_id=2003309357 node_paths=PackedStringArray("options_parent")]
+[node name="ItemSelection" type="Node2D" unique_id=2003309357]
 script = ExtResource("1_noxnm")
-options_parent = NodePath("Options")
 
 [node name="Options" type="Node2D" parent="." unique_id=14856207]
 
@@ -86,6 +85,41 @@ theme_override_font_sizes/mono_font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
 bbcode_enabled = true
 text = "Item4"
+scroll_active = false
+
+[node name="Option5" type="RichTextLabel" parent="Options" unique_id=360646135 groups=["menu_option"]]
+custom_minimum_size = Vector2(100, 40)
+offset_top = 60.0
+offset_right = 640.0
+offset_bottom = 111.0
+theme = SubResource("Theme_7rakj")
+theme_override_fonts/normal_font = ExtResource("2_2r0qd")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
+bbcode_enabled = true
+text = "Item5"
+scroll_active = false
+
+[node name="Option6" type="RichTextLabel" parent="Options" unique_id=164722673 groups=["menu_option"]]
+custom_minimum_size = Vector2(100, 40)
+offset_left = 232.0
+offset_top = 60.0
+offset_right = 872.0
+offset_bottom = 111.0
+theme = SubResource("Theme_7rakj")
+theme_override_fonts/normal_font = ExtResource("2_2r0qd")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
+bbcode_enabled = true
+text = "Item6"
 scroll_active = false
 
 [node name="Description" type="RichTextLabel" parent="." unique_id=1079294880]

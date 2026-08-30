@@ -11,34 +11,33 @@ func add_event(event: BattleEvent, undo: bool = false):
 		"action_defend":
 			if not undo:
 				var tp_amount = event.data["tp"]
-				EventBus.battle_event.emit("tp_add",event.data["tp"])
+				tp_amount = check_for_tp_overflow(tp_amount)
+				EventBus.battle_event.emit("tp_add",tp_amount)
+				event.data["tp"] = tp_amount
 				
 			else:
-				
-				EventBus.battle_event.emit("tp_sub",event.data["tp"])
+				var other_event = find_same_event(event)
+				EventBus.battle_event.emit("tp_sub",other_event.data["tp"])
 				queue.erase(event)
+				queue.erase(other_event)
 				return
+		
 		"action_spell":
 			if not undo:
 				var tp_amount = event.data["tp"]
-				EventBus.battle_event.emit("tp_sub",event.data["tp"])
-				
+				EventBus.battle_event.emit("tp_sub",tp_amount)
 			else:
-				
+				var other_event = find_same_event(event)
 				EventBus.battle_event.emit("tp_add",event.data["tp"])
-				var spells_to_erase = []
-				for i in queue:
-					if i.name == "action_spell" and \
-					i.data["party_member"] == event.data["party_member"] and \
-					i.data["spell"] == event.data["spell"]:
-						spells_to_erase.append(i)
-				if spells_to_erase:
-					for i in spells_to_erase:
-						queue.erase(i)
 				queue.erase(event)
-				
-				
+				queue.erase(other_event)
 				return
+		
+		"action_item":
+			if undo:
+				var other_event = find_same_event(event)
+				queue.erase(event)
+				queue.erase(other_event)
 
 func execute_events():
 	## NOTE:
@@ -87,7 +86,7 @@ func execute_events():
 				continue
 			
 			"action_item":
-				Dialogue.display_text(str("* ", hero_name, " used item!"))
+				Dialogue.display_text(str("* ", hero_name, " used ", event.data["item"].title, "!"))
 				await Dialogue.text_finished
 				continue
 			
@@ -113,5 +112,18 @@ func execute_events():
 	queue.clear()
 	events_finished.emit()
 
+func check_for_tp_overflow(val: int) -> int:
+	if Party.tp + val > 100.0:
+		val -= ((Party.tp+val)-100.0)
+	return val
+
 func sort_by_weight(a, b):
 	return a.weight < b.weight
+
+func find_same_event(event:BattleEvent) -> BattleEvent:
+	for i in queue:
+		if i.name == event.name and \
+		i.data["party_member"] == event.data["party_member"]:
+			return i
+	
+	return null
