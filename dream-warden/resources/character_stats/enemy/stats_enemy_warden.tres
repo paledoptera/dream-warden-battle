@@ -1,14 +1,14 @@
-[gd_resource type="Resource" script_class="CharacterStats" format=3 uid="uid://dsnpoy8ro5it6"]
+[gd_resource type="Resource" script_class="CharacterStatsEnemy" format=3 uid="uid://dsnpoy8ro5it6"]
 
-[ext_resource type="Script" uid="uid://bp3vktl4048ff" path="res://resources/items/equippables/equippable.gd" id="1_gkpk3"]
-[ext_resource type="Script" uid="uid://doj56elw7dew4" path="res://resources/character_stats/character_stats.gd" id="2_cc758"]
+[ext_resource type="Script" uid="uid://bpvsxd6yo0sl4" path="res://resources/character_stats/character_stats_enemy.gd" id="1_sde3h"]
 
 [resource]
-script = ExtResource("2_cc758")
+script = ExtResource("1_sde3h")
 name = "Dream Warden"
 hp_max = 4000
 hp = 4000
 attack = 0
 defense = 0
 magic = 0
-metadata/_custom_type_script = "uid://doj56elw7dew4"
+character_id = &"warden"
+metadata/_custom_type_script = "uid://bpvsxd6yo0sl4"

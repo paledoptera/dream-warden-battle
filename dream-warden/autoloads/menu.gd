@@ -27,7 +27,6 @@ var snd_select: AudioStream
 
 func _ready() -> void:
 	selected_changed.connect(_on_selected_changed)
-	canceled.connect(_on_canceled)
 	
 func set_cursor_sprite(texture: Texture2D):
 	cursor_texture = texture
@@ -146,9 +145,10 @@ func open(menu_scene: Node, cursor_visible := true) -> void:
 	
 	if current_menu.has_method("_on_selected_changed"):
 		selected_changed.connect(current_menu._on_selected_changed)
-	
 	if current_menu.has_method("_on_accepted"):
 		accepted.connect(current_menu._on_accepted)
+	if current_menu.has_method("_on_canceled"):
+		canceled.connect(current_menu._on_canceled)
 	
 
 
@@ -177,6 +177,8 @@ func close() -> void:
 			accepted.disconnect(current_menu._on_accepted)
 		if current_menu.has_method("_on_selected_changed"):
 			selected_changed.disconnect(current_menu._on_selected_changed)
+		if current_menu.has_method("_on_canceled"):
+			canceled.disconnect(current_menu._on_canceled)
 		current_menu = null
 	
 	options.clear()
@@ -186,10 +188,6 @@ func _on_selected_changed(current: int, previous: int):
 		current_menu.set(current_selected_property,current)
 
 	_fix_cursor_position()
-
-func _on_canceled() -> void:
-	if Flags.in_battle:
-		EventBus.battle_goto_prev_phase.emit()
 
 func _fix_cursor_position() -> void:
 	if not options or not cursor:

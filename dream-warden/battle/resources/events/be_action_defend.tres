@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BattleEvent" format=3 uid="uid://qpynbg1lnofs"]
+
+[ext_resource type="Script" uid="uid://vnlshm61cymq" path="res://battle/resources/events/battle_event.gd" id="1_vq32y"]
+
+[resource]
+script = ExtResource("1_vq32y")
+name = &"action_defend"
+data = Dictionary[StringName, Variant]({
+&"tp": 32
+})
+metadata/_custom_type_script = "uid://vnlshm61cymq"

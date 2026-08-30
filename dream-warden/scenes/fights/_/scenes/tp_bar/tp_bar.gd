@@ -1,33 +1,28 @@
 class_name TPBar extends Node2D
 
 var tp: int = 0
-
-func _ready() -> void:
-	Global.tp_changed.connect(_update_tp)
+var tp_display: int = 0
 
 func _update_tp(value: float) -> void:
-	if value == 100.0:
+	tp = clampi(value,0,100)
+	
+	if tp == 100:
 		$Normal.visible = false
 		$Max.visible = true
 	else:
 		$Normal.visible = true
 		$Max.visible = false
 	
-	
-	
-	
 
 func _process(delta: float) -> void:
-	
-	tp = move_toward(tp,Global.tp,10)
-	$Normal/Label.text = str(tp)
-	
+	tp_display = move_toward(tp_display,tp,10)
+	$Normal/Label.text = str(tp_display)
 	
 	var progress_white := $Normal/ProgressWhite
 	var progress_topper := $Normal/ProgressWhiteTopper
 	var progress := $Normal/Progress
 	
-	progress_white.value = tp
-	progress.value = lerp(progress.value,float(tp),delta*10.0)
+	progress_white.value = tp_display
+	progress.value = lerp(progress.value,float(tp_display),delta*10.0)
 	progress_topper.value = progress.value+1.0
 	

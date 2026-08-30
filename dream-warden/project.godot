@@ -33,6 +33,7 @@ Menu="*uid://d0akdrgrmdix0"
 PlayerInventory="*uid://br10nbojxuoc5"
 Conductor="*uid://c5rvmkaorxynb"
 SceneLoader="*uid://binypt512cdek"
+BattleData="*uid://bluk82yiuvi8i"
 
 [display]
 
@@ -53,6 +54,8 @@ soul=""
 menu_option=""
 textbox_comp=""
 battle=""
+tp_bar=""
+action_menu=""
 
 [gui]
 

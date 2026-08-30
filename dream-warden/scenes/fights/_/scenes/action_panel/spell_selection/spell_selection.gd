@@ -4,8 +4,9 @@ class_name SpellSelection extends Node2D
 var test: int
 var spells: Array[Spell]
 var hero: Hero
-#
-#func refresh() -> void:
+
+func refresh() -> void:
+	pass
 	#hero = Battle.heroes[0]
 	#spells = hero.spells
 	#

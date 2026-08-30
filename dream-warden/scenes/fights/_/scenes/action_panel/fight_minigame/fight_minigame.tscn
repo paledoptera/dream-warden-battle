@@ -99,9 +99,8 @@ _data = {
 &"perfect_hit": SubResource("Animation_hpmvt")
 }
 
-[node name="FightMinigame" type="Node2D" unique_id=2139349978 node_paths=PackedStringArray("hitmarker")]
+[node name="FightMinigame" type="Node2D" unique_id=2139349978]
 script = ExtResource("1_nyxgj")
-hitmarker = NodePath("HitMarker")
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=1665275972]
 position = Vector2(24, 24)

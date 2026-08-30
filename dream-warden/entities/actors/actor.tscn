@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bhxfonpfdcqc"]
+
+[ext_resource type="Script" uid="uid://c0eum5nfaksrs" path="res://entities/actors/actor.gd" id="1_wogxd"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wogxd"]
+
+[node name="Actor" type="Node2D" unique_id=305211112]
+script = ExtResource("1_wogxd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1641531519]
+scale = Vector2(2, 2)
+animation = &""
+autoplay = "idle"
+offset = Vector2(0, -27)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1810737045]
+libraries/ = SubResource("AnimationLibrary_wogxd")
+autoplay = &"idle"

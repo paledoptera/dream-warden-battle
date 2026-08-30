@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c1ovxwjuc4om1" path="res://entities/characters/heroes/susie/res/action_icons.png" id="4_rgtfp"]
 [ext_resource type="FontFile" uid="uid://q7kjkfbse6t8" path="res://shared/theme/fonts/character_names/character_names.png" id="6_hr8ol"]
 [ext_resource type="Texture2D" uid="uid://c3alw5u77cjem" path="res://scenes/fights/_/scenes/action_panel/action_menu/res/slash.png" id="6_w0j0w"]
+[ext_resource type="Script" uid="uid://di3pjvm6ep82r" path="res://scenes/fights/_/scenes/action_panel/action_menu/label_hp.gd" id="7_8yugo"]
 [ext_resource type="Texture2D" uid="uid://blno2yhk2pcsr" path="res://scenes/fights/_/scenes/action_panel/action_menu/res/hp.png" id="7_aejdm"]
 [ext_resource type="Script" uid="uid://bvlkg3a6cpko6" path="res://scenes/fights/_/scenes/action_panel/action_menu/prism_shield.gd" id="7_o3y8d"]
 [ext_resource type="Texture2D" uid="uid://drpiotfiw68u2" path="res://scenes/minigames/aqua_warden/aqua/res/sheild_icon.png" id="7_tdaxr"]
@@ -602,7 +603,7 @@ _data = {
 &"open": SubResource("Animation_ki6id")
 }
 
-[node name="ActionMenu" type="Control" unique_id=104529111 node_paths=PackedStringArray("hp", "hp_max", "health_bar", "icon", "actions_parent")]
+[node name="ActionMenu" type="Control" unique_id=104529111 node_paths=PackedStringArray("actions_parent")]
 custom_minimum_size = Vector2(213, 35)
 layout_mode = 3
 anchors_preset = 0
@@ -610,10 +611,6 @@ offset_right = 213.0
 offset_bottom = 35.0
 offset_transform_visual_only = false
 script = ExtResource("1_ki6id")
-hp = NodePath("Background/Stats/HP")
-hp_max = NodePath("Background/Stats/HPMax")
-health_bar = NodePath("Background/Stats/HealthBar")
-icon = NodePath("Background/Stats/Icon")
 actions_parent = NodePath("Actions")
 
 [node name="Background" type="ColorRect" parent="." unique_id=2047254509]
@@ -637,6 +634,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_obbis")
 position = Vector2(0, 39)
 
 [node name="Icon" type="Sprite2D" parent="Background/Stats" unique_id=49218159]
+unique_name_in_owner = true
 position = Vector2(30, -16)
 texture = ExtResource("4_rgtfp")
 offset = Vector2(0, 0.5)
@@ -660,7 +658,8 @@ texture = ExtResource("6_w0j0w")
 position = Vector2(117, -13)
 texture = ExtResource("7_aejdm")
 
-[node name="HP" type="Label" parent="Background/Stats" unique_id=1983410731]
+[node name="LabelHP" type="Label" parent="Background/Stats" unique_id=1983410731]
+unique_name_in_owner = true
 offset_left = 110.0
 offset_top = -31.0
 offset_right = 160.0
@@ -669,9 +668,11 @@ theme_override_fonts/font = ExtResource("8_obbis")
 theme_override_font_sizes/font_size = 10
 text = "0"
 horizontal_alignment = 2
+script = ExtResource("7_8yugo")
 metadata/_edit_use_anchors_ = true
 
-[node name="HPMax" type="Label" parent="Background/Stats" unique_id=848134122]
+[node name="LabelHPMax" type="Label" parent="Background/Stats" unique_id=848134122]
+unique_name_in_owner = true
 offset_left = 155.0
 offset_top = -31.0
 offset_right = 205.0
@@ -680,9 +681,11 @@ theme_override_fonts/font = ExtResource("8_obbis")
 theme_override_font_sizes/font_size = 10
 text = "0"
 horizontal_alignment = 2
+script = ExtResource("7_8yugo")
 metadata/_edit_use_anchors_ = true
 
 [node name="HealthBar" type="ProgressBar" parent="Background/Stats" unique_id=1360356514]
+unique_name_in_owner = true
 offset_left = 128.0
 offset_top = -17.0
 offset_right = 204.0
@@ -770,6 +773,8 @@ frame = 3
 
 [node name="MercyDisabled" type="Node" parent="Actions/Mercy" unique_id=1258724296]
 script = ExtResource("10_wabyi")
+flag = &"mercy_disabled"
+value = true
 
 [node name="Defend" parent="Actions" unique_id=1097153336 groups=["menu_option"] instance=ExtResource("4_pnv7i")]
 position = Vector2(175, 13.5)
@@ -781,7 +786,7 @@ visible = false
 self_modulate = Color(1, 0, 1, 1)
 z_index = 21
 z_as_relative = false
-position = Vector2(0, -24)
+position = Vector2(0, -6)
 texture = ExtResource("3_obbis")
 centered = false
 

@@ -1,0 +1,328 @@
+[gd_scene format=3 uid="uid://cxu6vtdp70cut"]
+
+[ext_resource type="Script" uid="uid://cptlmmcfinivj" path="res://temp/battle_new.gd" id="1_gow0g"]
+[ext_resource type="Script" uid="uid://xraf1l3pry4t" path="res://temp/turn_queue.gd" id="2_fkh0k"]
+[ext_resource type="Script" uid="uid://iujmg8xbh06m" path="res://temp/turn.gd" id="3_2patj"]
+[ext_resource type="Script" uid="uid://bv7uj1vntr6a3" path="res://temp/state_machine.gd" id="4_2patj"]
+[ext_resource type="Script" uid="uid://bx58feb8ua4g1" path="res://temp/turn_events.gd" id="4_11b1j"]
+[ext_resource type="PackedScene" uid="uid://c0oopy8rd7aua" path="res://scenes/fights/_/scenes/action_panel/action_panel.tscn" id="4_k6ceo"]
+[ext_resource type="Script" uid="uid://ghsf1gi1h2ug" path="res://temp/state.gd" id="5_2patj"]
+[ext_resource type="PackedScene" uid="uid://jhaejpx46ycp" path="res://scenes/fights/_/scenes/tp_bar/tp_bar.tscn" id="5_11b1j"]
+[ext_resource type="PackedScene" uid="uid://ca3d2dgphgx5j" path="res://entities/dialogue/dialogue_box.tscn" id="6_gq06c"]
+[ext_resource type="Script" uid="uid://cqgqqn8on2o56" path="res://battle/resources/events/event_queue.gd" id="7_gq06c"]
+[ext_resource type="Script" uid="uid://d3cylmioux5h2" path="res://temp/state_events.gd" id="7_mefbn"]
+[ext_resource type="Script" uid="uid://bk0agddknt6y8" path="res://scenes/fights/_/fight_debug.gd" id="7_virxf"]
+[ext_resource type="PackedScene" uid="uid://jeonilaut88t" path="res://scenes/fights/_/scenes/action_panel/action_menu/action_menu.tscn" id="10_k6ceo"]
+
+[sub_resource type="Resource" id="Resource_gq06c"]
+script = ExtResource("4_11b1j")
+start = Array[StringName]([&"start_flavor_text"])
+metadata/_custom_type_script = "uid://bx58feb8ua4g1"
+
+[sub_resource type="Resource" id="Resource_11b1j"]
+script = ExtResource("4_11b1j")
+start = Array[StringName]([&"open_action_menu", &"show_flavor_text"])
+metadata/_custom_type_script = "uid://bx58feb8ua4g1"
+
+[sub_resource type="Resource" id="Resource_virxf"]
+script = ExtResource("4_11b1j")
+start = Array[StringName]([&"start_dialogue", &"reset_hero_battlers", &"end_flavor_text"])
+metadata/_custom_type_script = "uid://bx58feb8ua4g1"
+
+[sub_resource type="Resource" id="Resource_0fxuo"]
+script = ExtResource("7_mefbn")
+enter = Array[StringName]([&"show_flavor_text", &"unfreeze_action_menu", &"clear_menus"])
+metadata/_custom_type_script = "uid://d3cylmioux5h2"
+
+[sub_resource type="Resource" id="Resource_mefbn"]
+script = ExtResource("7_mefbn")
+enter = Array[StringName]([&"hide_flavor_text", &"freeze_action_menu", &"menu_enemy_selection"])
+metadata/_custom_type_script = "uid://d3cylmioux5h2"
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lrihj"]
+content_margin_left = 30.0
+content_margin_top = 15.0
+
+[sub_resource type="Animation" id="Animation_4uv82"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Battle/ActionPanel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 365)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Battle/TPBar:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(50, 137)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Battle/AttackFade:color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_yqp5e"]
+resource_name = "attack_fade_in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Battle/AttackFade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.64705884)]
+}
+
+[sub_resource type="Animation" id="Animation_bm74x"]
+resource_name = "start"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Battle/ActionPanel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Vector2(0, 519), Vector2(0, 365)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Battle/TPBar:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Vector2(-13, 137), Vector2(50, 137)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_shmih"]
+_data = {
+&"RESET": SubResource("Animation_4uv82"),
+&"attack_fade": SubResource("Animation_yqp5e"),
+&"start": SubResource("Animation_bm74x")
+}
+
+[node name="Battle" type="Camera2D" unique_id=2046104350]
+offset = Vector2(320, 240)
+script = ExtResource("1_gow0g")
+
+[node name="TurnQueue" type="Node" parent="." unique_id=660614065]
+unique_name_in_owner = true
+script = ExtResource("2_fkh0k")
+minimum_cancel = 1
+maximum_cancel = 4
+
+[node name="FlavorText" type="Node" parent="TurnQueue" unique_id=639529402]
+script = ExtResource("3_2patj")
+events = SubResource("Resource_gq06c")
+metadata/_custom_type_script = "uid://iujmg8xbh06m"
+
+[node name="Character1" type="Node" parent="TurnQueue" unique_id=1192138590]
+script = ExtResource("3_2patj")
+events = SubResource("Resource_11b1j")
+metadata/_custom_type_script = "uid://iujmg8xbh06m"
+
+[node name="Character2" type="Node" parent="TurnQueue" unique_id=1094429415]
+script = ExtResource("3_2patj")
+events = SubResource("Resource_11b1j")
+metadata/_custom_type_script = "uid://iujmg8xbh06m"
+
+[node name="Character3" type="Node" parent="TurnQueue" unique_id=1358055329]
+script = ExtResource("3_2patj")
+events = SubResource("Resource_11b1j")
+metadata/_custom_type_script = "uid://iujmg8xbh06m"
+
+[node name="Dialogue" type="Node" parent="TurnQueue" unique_id=2055860549]
+script = ExtResource("3_2patj")
+events = SubResource("Resource_virxf")
+metadata/_custom_type_script = "uid://iujmg8xbh06m"
+
+[node name="ActionState" type="Node" parent="." unique_id=1685570964]
+unique_name_in_owner = true
+script = ExtResource("4_2patj")
+
+[node name="Idle" type="Node" parent="ActionState" unique_id=980417130 node_paths=PackedStringArray("transitions")]
+script = ExtResource("5_2patj")
+transitions = {
+&"start": NodePath("../ChooseAction")
+}
+metadata/_custom_type_script = "uid://ghsf1gi1h2ug"
+
+[node name="ChooseAction" type="Node" parent="ActionState" unique_id=1025188186 node_paths=PackedStringArray("transitions")]
+script = ExtResource("5_2patj")
+transitions = {
+&"defend": NodePath("../Idle"),
+&"enemy_choice": NodePath("../ChooseEnemy"),
+&"item": NodePath("../ChooseItem")
+}
+events = SubResource("Resource_0fxuo")
+metadata/_custom_type_script = "uid://ghsf1gi1h2ug"
+
+[node name="ChooseEnemy" type="Node" parent="ActionState" unique_id=1424563577 node_paths=PackedStringArray("transitions")]
+script = ExtResource("5_2patj")
+transitions = {
+&"cancel": NodePath("../ChooseAction")
+}
+events = SubResource("Resource_mefbn")
+metadata/_custom_type_script = "uid://ghsf1gi1h2ug"
+
+[node name="ChooseSpell" type="Node" parent="ActionState" unique_id=1578127279]
+script = ExtResource("5_2patj")
+metadata/_custom_type_script = "uid://ghsf1gi1h2ug"
+
+[node name="ChooseItem" type="Node" parent="ActionState" unique_id=750880135]
+script = ExtResource("5_2patj")
+metadata/_custom_type_script = "uid://ghsf1gi1h2ug"
+
+[node name="EventQueue" type="Node" parent="." unique_id=369006052]
+unique_name_in_owner = true
+script = ExtResource("7_gq06c")
+
+[node name="temp" type="Node" parent="." unique_id=636403014]
+
+[node name="DoActs" type="Node" parent="temp" unique_id=202280121]
+script = ExtResource("3_2patj")
+metadata/_custom_type_script = "uid://iujmg8xbh06m"
+
+[node name="TryMercy" type="Node" parent="temp" unique_id=793334831]
+script = ExtResource("3_2patj")
+metadata/_custom_type_script = "uid://iujmg8xbh06m"
+
+[node name="CastSpells" type="Node" parent="temp" unique_id=1722471926]
+script = ExtResource("3_2patj")
+metadata/_custom_type_script = "uid://iujmg8xbh06m"
+
+[node name="UseItems" type="Node" parent="temp" unique_id=754867171]
+script = ExtResource("3_2patj")
+metadata/_custom_type_script = "uid://iujmg8xbh06m"
+
+[node name="DoAttack" type="Node" parent="temp" unique_id=655894385]
+script = ExtResource("3_2patj")
+metadata/_custom_type_script = "uid://iujmg8xbh06m"
+
+[node name="Cutscene" type="Node" parent="temp" unique_id=852483120]
+script = ExtResource("3_2patj")
+metadata/_custom_type_script = "uid://iujmg8xbh06m"
+
+[node name="AttackStart" type="Node" parent="temp" unique_id=605400655]
+script = ExtResource("3_2patj")
+metadata/_custom_type_script = "uid://iujmg8xbh06m"
+
+[node name="Attacking" type="Node" parent="temp" unique_id=999513867]
+script = ExtResource("3_2patj")
+metadata/_custom_type_script = "uid://iujmg8xbh06m"
+
+[node name="AttackEnd" type="Node" parent="temp" unique_id=770557930]
+script = ExtResource("3_2patj")
+metadata/_custom_type_script = "uid://iujmg8xbh06m"
+
+[node name="ActionPanel" parent="." unique_id=1178111876 instance=ExtResource("4_k6ceo")]
+unique_name_in_owner = true
+z_index = 10
+z_as_relative = false
+position = Vector2(0, 365)
+
+[node name="ActionMenus" type="Node2D" parent="ActionPanel" unique_id=1670684205]
+z_index = 10
+
+[node name="ActionMenu1" parent="ActionPanel/ActionMenus" unique_id=104529111 groups=["action_menu"] instance=ExtResource("10_k6ceo")]
+offset_top = -33.0
+offset_bottom = 2.0
+
+[node name="ActionMenu2" parent="ActionPanel/ActionMenus" unique_id=937958269 groups=["action_menu"] instance=ExtResource("10_k6ceo")]
+offset_left = 213.0
+offset_top = -33.0
+offset_right = 426.0
+offset_bottom = 2.0
+
+[node name="ActionMenu3" parent="ActionPanel/ActionMenus" unique_id=1035848211 groups=["action_menu"] instance=ExtResource("10_k6ceo")]
+offset_left = 426.0
+offset_top = -33.0
+offset_right = 639.0
+offset_bottom = 2.0
+
+[node name="MenuParent" type="Node2D" parent="ActionPanel" unique_id=1230524754]
+unique_name_in_owner = true
+
+[node name="DialogueBox" parent="ActionPanel" unique_id=151941393 instance=ExtResource("6_gq06c")]
+unique_name_in_owner = true
+offset_top = -4.0
+offset_right = 640.0
+offset_bottom = 111.0
+offset_transform_position = Vector2(114, 0)
+theme_override_colors/font_shadow_color = Color(0.05490196, 0.07450981, 1, 0.49803922)
+theme_override_constants/shadow_outline_size = 0
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lrihj")
+bbcode_enabled = true
+text = "* This is a sample texttt"
+tab_size = 2
+effect_offset = Vector2(30, 15)
+metadata/_edit_use_anchors_ = true
+
+[node name="TPBar" parent="." unique_id=1921588265 groups=["tp_bar"] instance=ExtResource("5_11b1j")]
+unique_name_in_owner = true
+position = Vector2(50, 137)
+
+[node name="UIAnimations" type="AnimationPlayer" parent="." unique_id=1158790252]
+unique_name_in_owner = true
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_shmih")
+autoplay = &"start"
+
+[node name="AttackFade" type="ColorRect" parent="." unique_id=787912060]
+z_index = -1
+custom_minimum_size = Vector2(640, 480)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 640.0
+offset_bottom = 480.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+metadata/_edit_use_anchors_ = true
+
+[node name="Debug" type="Node2D" parent="." unique_id=538624064]
+visible = false
+script = ExtResource("7_virxf")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Debug" unique_id=54453997]
+offset_right = 439.0
+offset_bottom = 90.0
+text = "Current state: "
+
+[connection signal="event" from="TurnQueue" to="." method="_on_turn_queue_event"]
+[connection signal="event" from="ActionState" to="." method="_on_action_state_event"]

@@ -103,6 +103,26 @@ _data = {
 [node name="Battle" type="Node2D" unique_id=2124086931 groups=["battle"]]
 script = ExtResource("1_dje42")
 
+[node name="TurnQueue" type="Node" parent="." unique_id=1370454581]
+
+[node name="Character1" type="Node" parent="TurnQueue" unique_id=1826382005]
+
+[node name="Character2" type="Node" parent="TurnQueue" unique_id=258629328]
+
+[node name="Character3" type="Node" parent="TurnQueue" unique_id=1852211814]
+
+[node name="ActAction" type="Node" parent="TurnQueue" unique_id=60729703]
+
+[node name="SpareAction" type="Node" parent="TurnQueue" unique_id=1090840763]
+
+[node name="MagicAction" type="Node" parent="TurnQueue" unique_id=13534201]
+
+[node name="ItemsAction" type="Node" parent="TurnQueue" unique_id=356134097]
+
+[node name="FightAction" type="Node" parent="TurnQueue" unique_id=480212434]
+
+[node name="Enemy" type="Node" parent="TurnQueue" unique_id=122892706]
+
 [node name="Camera2D" type="Camera2D" parent="." unique_id=540027549]
 offset = Vector2(320, 240)
 
@@ -112,11 +132,20 @@ z_index = 10
 z_as_relative = false
 position = Vector2(0, 365)
 
-[node name="DialogueBox" parent="Camera2D/ActionPanel" unique_id=151941393 instance=ExtResource("3_vsg0r")]
+[node name="TPBar" parent="Camera2D" unique_id=1921588265 instance=ExtResource("3_4uv82")]
 unique_name_in_owner = true
-offset_top = -4.0
+position = Vector2(50, 137)
+
+[node name="Menu" type="Node2D" parent="Camera2D" unique_id=537372588]
+unique_name_in_owner = true
+position = Vector2(0, 365)
+
+[node name="DialogueBox" parent="Camera2D" unique_id=151941393 instance=ExtResource("3_vsg0r")]
+unique_name_in_owner = true
+z_index = 10
+offset_top = 361.0
 offset_right = 640.0
-offset_bottom = 111.0
+offset_bottom = 476.0
 offset_transform_position = Vector2(114, 0)
 theme_override_colors/font_shadow_color = Color(0.05490196, 0.07450981, 1, 0.49803922)
 theme_override_constants/shadow_outline_size = 0
@@ -124,13 +153,9 @@ theme_override_constants/shadow_offset_x = 1
 theme_override_constants/shadow_offset_y = 1
 theme_override_styles/normal = SubResource("StyleBoxEmpty_ka3mc")
 bbcode_enabled = true
-text = "* This is a sample text"
+text = "* This is a sample texttt"
 tab_size = 2
 effect_offset = Vector2(30, 15)
-
-[node name="TPBar" parent="Camera2D" unique_id=1921588265 instance=ExtResource("3_4uv82")]
-unique_name_in_owner = true
-position = Vector2(50, 137)
 
 [node name="UIAnimations" type="AnimationPlayer" parent="Camera2D" unique_id=1879224646]
 unique_name_in_owner = true

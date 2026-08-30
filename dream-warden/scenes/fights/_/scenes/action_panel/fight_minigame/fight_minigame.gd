@@ -1,4 +1,6 @@
-#extends Node2D
+extends Node2D
+
+signal finished
 #
 #@export var hitmarker: Sprite2D
 #var hitmarker_afterimage_timer: int = 0

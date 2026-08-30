@@ -66,9 +66,9 @@ show_percentage = false
 [node name="Label" type="RichTextLabel" parent="Options/Enemy/HP" unique_id=1258764359]
 clip_contents = false
 layout_mode = 0
-offset_left = 2.0
+offset_left = 4.0
 offset_top = -16.0
-offset_right = 42.0
+offset_right = 44.0
 offset_bottom = 24.0
 scale = Vector2(1, 0.485)
 theme_override_fonts/normal_font = ExtResource("3_fe7gu")
@@ -79,7 +79,8 @@ autowrap_mode = 0
 [node name="Number" type="RichTextLabel" parent="Options/Enemy/HP" unique_id=1553537469]
 clip_contents = false
 layout_mode = 0
-offset_right = 40.0
+offset_left = 2.0
+offset_right = 42.0
 offset_bottom = 40.0
 scale = Vector2(0.95, 0.5)
 text = "100%"
@@ -100,9 +101,9 @@ show_percentage = false
 [node name="Label2" type="RichTextLabel" parent="Options/Enemy/HP2" unique_id=227174168]
 clip_contents = false
 layout_mode = 0
-offset_left = 2.0
+offset_left = 4.0
 offset_top = -16.0
-offset_right = 42.0
+offset_right = 44.0
 offset_bottom = 24.0
 scale = Vector2(1, 0.485)
 theme_override_fonts/normal_font = ExtResource("3_fe7gu")
