@@ -1,24 +1,23 @@
 class_name BattleNew extends Node2D
 
-signal tp_changed(value: float)
+
 signal change_icon(menu: ActionMenu, icon: int)
 
 const DEFAULT_SOUL_SPEED: float = 120.0
 
 var hero_battlers: Array[HeroBattler]
 var enemy_battlers: Array[EnemyBattler]
-var tp: float = 0.0:
-	set(value):
-		tp_changed.emit(value)
-		tp = value
-var soul_speed: float
 var action_menus: Array[Node]
 var element: Node
+var current_target: int = 0
+var current_option: int = 0
+var current_spell_events: Array[BattleEvent]
+var current_item_events: Array[BattleEvent]
 
-
+## Ready -> Mostly setup, attaching signals, getting nodes and resources ready
 func _ready() -> void:
-	soul_speed = DEFAULT_SOUL_SPEED
-	tp = 0.0
+	Party.soul_speed = DEFAULT_SOUL_SPEED
+	Party.tp = 0.0
 	
 	for hero in Party.hero:
 		hero_battlers.append(HeroBattler.new())
@@ -28,7 +27,7 @@ func _ready() -> void:
 	
 	# Updating TP bar
 	var tp_bar = get_tree().get_first_node_in_group("tp_bar")
-	tp_changed.connect(tp_bar._update_tp)
+	Party.tp_changed.connect(tp_bar._update_tp)
 	
 	# Getting action menus
 	action_menus = get_tree().get_nodes_in_group("action_menu")
@@ -39,6 +38,15 @@ func _ready() -> void:
 	# Signals
 	EventBus.battle_event.connect(battle_event)
 
+
+## Turn queue events -> Events that are emitted from %TurnQueue
+# This mostly controls inner workings of the battle engine,
+# like getting dialogue or choosing/changing player actions
+## NOTE:
+	# TurnQueue is meant to only go in one direction, like a conveyor belt
+	# It's current state is defined by the first child -> get_child(0). When it goes to the next
+	# State, it moves the child in index 0 (first) to index -1 (last), so
+	# it's an infinite loop of pre-defined states.
 func _on_turn_queue_event(event: StringName) -> void:
 	match event:
 		"start_flavor_text":
@@ -66,41 +74,62 @@ func _on_turn_queue_event(event: StringName) -> void:
 				hero.finished = false
 				for i in action_menus:
 					change_icon.emit(i,1)
-				print(hero, " has been reset")
-#endregion
+		
+		"do_party_actions":
+			do_party_actions()
+		
+		"attack_anim_start":
+			attack_anim_start()
+		
+		"attack":
+			attack()
+		
+		"attack_anim_end":
+			attack_anim_end()
+
+## Action state events -> Events emitted from %ActionState
+# Basically controls what you see on screen, what menus are open at one point.
+# Current state is defined by it's "state" variable.
+# More traditional state machine, which state it's currently in is controlled
+# by logic like a flow chart.
+func _on_action_state_event(event: StringName) -> void:
+	match event:
+		"freeze_action_menu":
+			freeze_action_menu(get_current_party_member())
+		
+		"unfreeze_action_menu":
+			unfreeze_action_menu(get_current_party_member())
 
 
-func get_current_party_member() -> int:
-	var party_member: int = -1
-	
-	for ind in range(hero_battlers.size()):
-		var hero = hero_battlers[ind]
-		if not hero.preparing:
-			party_member = ind
-			break
-	
-	return party_member
+		"show_flavor_text":
+			%DialogueBox.show()
+		
+		"hide_flavor_text":
+			%DialogueBox.hide()
+		
+		"menu_enemy_selection":
+			open_menu(preload("uid://cnthh51l1n1ux")) # enemy_selection.tscn
+		
+		"menu_spell_selection":
+			open_menu(preload("uid://um2a64cmuqm6")) # spell_selection.tscn
+		
+		"clear_menus":
+			for i in %MenuParent.get_children():
+				i.queue_free()
+		
+		"close_current_menu":
+			close_current_menu()
 
-func open_action_menu(index: int):
-	for i in %MenuParent.get_children():
-		i.queue_free()
-	var menu: ActionMenu = action_menus[index]
-	menu.activate()
-	
 
-func close_action_menu(index: int):
-	var menu: ActionMenu = action_menus[index]
-	menu.deactivate()
-
-func freeze_action_menu(index: int):
-	var menu: ActionMenu = action_menus[index]
-	menu.freeze()
-
-func unfreeze_action_menu(index: int):
-	var menu: ActionMenu = action_menus[index]
-	menu.unfreeze()
-
-func battle_event(event: StringName, value: int) -> void:
+## Battle events -> Mostly events from %EventQueue, but can be called
+## by any node by using EventBus.battle_event()
+# For the most part these events are asynchronous. They can be called at any time
+# and don't rely on other events to "start" or "finish" tasks.
+# When calling from the EventBus signal, these events will go off automatically and in no
+# particular order. Otherwise, they will be called in a specific order defined by
+# %EventQueue's execute_events method
+# (which is called during the PartyActions turn in TurnQueue)
+func battle_event(event: StringName, value: Variant) -> void:
 	match event:
 		"action_selected":
 			var party_member = get_current_party_member()
@@ -128,21 +157,80 @@ func battle_event(event: StringName, value: int) -> void:
 			hero_action_chosen()
 		
 		"tp_add":
-			tp += value
-		"tp_sub":
-			tp -= value
-
-func prepare_action(action: HeroBattler.Action, undo: bool = false):
-	match action:
-		HeroBattler.Action.FIGHT, HeroBattler.Action.MERCY:
-			%ActionState.action.emit("enemy_choice")
-			
-		HeroBattler.Action.DEFEND:
-			%EventQueue.add_event(preload("res://battle/resources/events/be_action_defend.tres"),undo)
-			if not undo: 
-				hero_action_chosen()
+			Party.tp += value
 		
+		"tp_sub":
+			Party.tp -= value
+		
+		"target_changed":
+			current_target = value
+		
+		"fight_minigame_start":
+			var fight_minigame = spawn_element(preload("uid://he0wouxpjxmq")) # fight_minigame.tscn
+			fight_minigame.enable(value)
+		
+		"spell_prepare":
+			var current_spell = value
+			current_spell_events.resize(3)
+			var spell_event = setup_party_event(preload("res://battle/resources/events/be_action_spell.tres"))
+			spell_event.data["tp"] = current_spell.tp_cost
+			spell_event.data["spell"] = current_spell
+			current_spell_events[get_current_party_member()] = spell_event
+			
+			if not current_spell.targets_own_party:
+				%ActionState.action.emit("choose_enemy")
+		
+		"item_prepare":
+			var current_item = value
+			current_item_events.resize(3)
+			var item_event = setup_party_event(preload("res://battle/resources/events/be_action_item.tres"))
+			item_event.data["tp"] = current_item.tp_add
+			item_event.data["item"] = current_item
+			current_item_events[get_current_party_member()] = item_event
+			
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("cancel"):
+		await get_tree().physics_frame
+		%ActionState.action.emit("cancel")
+
+
+func get_current_party_member() -> int:
+	var party_member: int = -1
+	
+	for ind in range(hero_battlers.size()):
+		var hero = hero_battlers[ind]
+		if not hero.preparing:
+			party_member = ind
+			break
+	
+	return party_member
+
+#region ---------------------- Action menu
+func open_action_menu(index: int):
+	for i in %MenuParent.get_children():
+		i.queue_free()
+	var menu: ActionMenu = action_menus[index]
+	menu.activate()
+
+
+func close_action_menu(index: int):
+	var menu: ActionMenu = action_menus[index]
+	menu.deactivate()
+
+
+func freeze_action_menu(index: int):
+	var menu: ActionMenu = action_menus[index]
+	menu.freeze()
+
+
+func unfreeze_action_menu(index: int):
+	var menu: ActionMenu = action_menus[index]
+	menu.unfreeze()
+#endregion
+
+
+#region ---------------------- Menu
 func open_menu(new_menu: PackedScene) -> void:
 	close_current_menu()
 	
@@ -177,12 +265,34 @@ func close_current_menu() -> void:
 	%DialogueBox.visible = false
 
 
-func spawn_element(new_element: PackedScene) -> void:
+func spawn_element(new_element: PackedScene) -> Node:
 	close_current_menu()
 	
 	var inst = new_element.instantiate()
-	%Menu.add_child(inst)
+	%MenuParent.add_child(inst)
 	element = inst
+	return element
+#endregion
+
+
+#region ---------------------- Hero actions
+func prepare_action(action: HeroBattler.Action, undo: bool = false):
+	match action:
+		HeroBattler.Action.FIGHT, HeroBattler.Action.MERCY:
+			%ActionState.action.emit("enemy_choice")
+		
+		HeroBattler.Action.MAGIC:
+			%ActionState.action.emit("magic")
+			if undo:
+				var event = current_spell_events[get_current_party_member()]
+				%EventQueue.add_event(event,undo)
+				current_spell_events[get_current_party_member()] = null
+		HeroBattler.Action.DEFEND:
+			var event = setup_party_event(preload("res://battle/resources/events/be_action_defend.tres"))
+			%EventQueue.add_event(event,undo)
+			if not undo: 
+				hero_action_chosen()
+
 
 func hero_action_chosen() -> void:
 	var party_member = get_current_party_member()
@@ -193,11 +303,27 @@ func hero_action_chosen() -> void:
 	
 	match action:
 		HeroBattler.Action.FIGHT:
+			var event = setup_party_event(preload("res://battle/resources/events/be_action_fight.tres"))
+			%EventQueue.add_event(event)
 			action_icon = 3
+			
 		HeroBattler.Action.MERCY:
+			var event = setup_party_event(preload("res://battle/resources/events/be_action_mercy.tres"))
+			%EventQueue.add_event(event)
 			action_icon = 10
+			
 		HeroBattler.Action.DEFEND:
 			action_icon = 7
+		
+		HeroBattler.Action.MAGIC:
+			var event = current_spell_events[get_current_party_member()]
+			%EventQueue.add_event(event)
+			action_icon = 5
+		
+		HeroBattler.Action.ITEM:
+			var event = setup_party_event(preload("res://battle/resources/events/be_action_item.tres"))
+			%EventQueue.add_event(event)
+			action_icon = 6
 	
 	change_icon.emit(action_menus[party_member], action_icon)
 	
@@ -206,35 +332,39 @@ func hero_action_chosen() -> void:
 	%TurnQueue.goto_next_turn()
 
 
-func _on_action_state_event(event: StringName) -> void:
-	match event:
-		"freeze_action_menu":
-			freeze_action_menu(get_current_party_member())
+func setup_party_event(event: BattleEvent) -> BattleEvent:
+	var new_event: BattleEvent = event.duplicate_deep()
+	new_event.resource_local_to_scene = true
+	
+	if "party_member" in new_event.data.keys():
+		new_event.data.set("party_member", get_current_party_member())
 		
-		"unfreeze_action_menu":
-			unfreeze_action_menu(get_current_party_member())
+	if "target" in new_event.data.keys():
+		new_event.data.set("target", current_target)
+		
+	if "option" in new_event.data.keys():
+		new_event.data.set("option", current_option)
+	
+	return new_event
 
 
-		"show_flavor_text":
-			%DialogueBox.show()
-		
-		"hide_flavor_text":
-			%DialogueBox.hide()
-		
-		"menu_enemy_selection":
-			open_menu(preload("uid://cnthh51l1n1ux")) # enemy_selection.tscn
-		
-		"clear_menus":
-			for i in %MenuParent.get_children():
-				i.queue_free()
-		
-		"close_current_menu":
-			close_current_menu()
+func do_party_actions() -> void:
+	%DialogueBox.show()
+	%EventQueue.execute_events()
+	await %EventQueue.events_finished
+	%TurnQueue.goto_next_turn()
+#endregion
 
-			
-		
 
-func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("cancel"):
-		await get_tree().physics_frame
-		%ActionState.action.emit("cancel")
+#region ---------------------- Attacks
+func attack_anim_end() -> void:
+	pass
+
+
+func attack() -> void:
+	pass
+
+
+func attack_anim_start() -> void:
+	pass
+#endregion

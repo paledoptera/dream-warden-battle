@@ -6,6 +6,7 @@
 script = ExtResource("1_vq32y")
 name = &"action_defend"
 data = Dictionary[StringName, Variant]({
+&"party_member": 0,
 &"tp": 32
 })
 metadata/_custom_type_script = "uid://vnlshm61cymq"

@@ -14,14 +14,16 @@ func _ready() -> void:
 	$Options/Enemy/HP/Number.text = str(percentage,"%")
 
 func _on_accepted() -> void:
+
 	EventBus.battle_event.emit("hero_action_chosen",selected)
 	queue_free()
 
 func _on_canceled() -> void:
 	queue_free()
 #
-#func _on_selected_changed(current: int, previous: int):
-	#selected = current
+func _on_selected_changed(current: int, previous: int):
+	EventBus.battle_event.emit("target_changed", selected)
+
 #
 #
 #func _on_accepted() -> void:

@@ -1,6 +1,12 @@
 extends Node2D
 
 signal finished
+
+func enable(array: Array):
+	for i in range($Fighters.get_child_count()):
+		if not array[i]:
+			$Fighters.get_child(i).queue_free()
+
 #
 #@export var hitmarker: Sprite2D
 #var hitmarker_afterimage_timer: int = 0

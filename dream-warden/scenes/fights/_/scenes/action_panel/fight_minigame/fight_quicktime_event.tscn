@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bujqje3nbhkbh"]
+
+[ext_resource type="Texture2D" uid="uid://c1ovxwjuc4om1" path="res://entities/characters/heroes/susie/res/action_icons.png" id="1_re8ua"]
+[ext_resource type="Texture2D" uid="uid://dc3hn1ovehqiv" path="res://scenes/fights/_/scenes/action_panel/fight_minigame/hit_mark.png" id="2_21im4"]
+[ext_resource type="Texture2D" uid="uid://7dlq57bryuej" path="res://battle/press.png" id="2_r7idt"]
+[ext_resource type="Texture2D" uid="uid://dpou4phsm4qfi" path="res://scenes/fights/_/scenes/action_panel/fight_minigame/hit_target.png" id="3_r7idt"]
+
+[node name="FightQuicktimeEvent" type="Node2D" unique_id=23909635]
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1517451945]
+position = Vector2(24, 24)
+texture = ExtResource("1_re8ua")
+offset = Vector2(0, 0.5)
+hframes = 11
+frame = 1
+
+[node name="Icon2" type="Sprite2D" parent="." unique_id=1253275831]
+position = Vector2(62, 21)
+texture = ExtResource("2_r7idt")
+offset = Vector2(0.5, 0)
+
+[node name="HitMarker" type="Sprite2D" parent="." unique_id=1396895990]
+z_index = 90
+position = Vector2(330, 24.5)
+texture = ExtResource("2_21im4")
+offset = Vector2(-2, -6)
+
+[node name="Bar" type="Sprite2D" parent="." unique_id=1273553901]
+position = Vector2(80, -2)
+texture = ExtResource("3_r7idt")
+centered = false

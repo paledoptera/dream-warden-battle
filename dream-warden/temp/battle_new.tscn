@@ -24,6 +24,11 @@ script = ExtResource("4_11b1j")
 start = Array[StringName]([&"open_action_menu", &"show_flavor_text"])
 metadata/_custom_type_script = "uid://bx58feb8ua4g1"
 
+[sub_resource type="Resource" id="Resource_wjys2"]
+script = ExtResource("4_11b1j")
+start = Array[StringName]([&"do_party_actions"])
+metadata/_custom_type_script = "uid://bx58feb8ua4g1"
+
 [sub_resource type="Resource" id="Resource_virxf"]
 script = ExtResource("4_11b1j")
 start = Array[StringName]([&"start_dialogue", &"reset_hero_battlers", &"end_flavor_text"])
@@ -37,6 +42,12 @@ metadata/_custom_type_script = "uid://d3cylmioux5h2"
 [sub_resource type="Resource" id="Resource_mefbn"]
 script = ExtResource("7_mefbn")
 enter = Array[StringName]([&"hide_flavor_text", &"freeze_action_menu", &"menu_enemy_selection"])
+metadata/_custom_type_script = "uid://d3cylmioux5h2"
+
+[sub_resource type="Resource" id="Resource_vr38d"]
+script = ExtResource("7_mefbn")
+enter = Array[StringName]([&"hide_flavor_text", &"freeze_action_menu", &"menu_spell_selection"])
+exit = Array[StringName]([&"clear_menus"])
 metadata/_custom_type_script = "uid://d3cylmioux5h2"
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lrihj"]
@@ -133,6 +144,21 @@ _data = {
 &"start": SubResource("Animation_bm74x")
 }
 
+[sub_resource type="Resource" id="Resource_5o8ev"]
+script = ExtResource("4_11b1j")
+start = Array[StringName]([&"attack_anim_start"])
+metadata/_custom_type_script = "uid://bx58feb8ua4g1"
+
+[sub_resource type="Resource" id="Resource_ppw8w"]
+script = ExtResource("4_11b1j")
+start = Array[StringName]([&"attack"])
+metadata/_custom_type_script = "uid://bx58feb8ua4g1"
+
+[sub_resource type="Resource" id="Resource_etp1n"]
+script = ExtResource("4_11b1j")
+start = Array[StringName]([&"attack_anim_end"])
+metadata/_custom_type_script = "uid://bx58feb8ua4g1"
+
 [node name="Battle" type="Camera2D" unique_id=2046104350]
 offset = Vector2(320, 240)
 script = ExtResource("1_gow0g")
@@ -163,6 +189,11 @@ script = ExtResource("3_2patj")
 events = SubResource("Resource_11b1j")
 metadata/_custom_type_script = "uid://iujmg8xbh06m"
 
+[node name="PartyActions" type="Node" parent="TurnQueue" unique_id=202280121]
+script = ExtResource("3_2patj")
+events = SubResource("Resource_wjys2")
+metadata/_custom_type_script = "uid://iujmg8xbh06m"
+
 [node name="Dialogue" type="Node" parent="TurnQueue" unique_id=2055860549]
 script = ExtResource("3_2patj")
 events = SubResource("Resource_virxf")
@@ -184,7 +215,8 @@ script = ExtResource("5_2patj")
 transitions = {
 &"defend": NodePath("../Idle"),
 &"enemy_choice": NodePath("../ChooseEnemy"),
-&"item": NodePath("../ChooseItem")
+&"item": NodePath("../ChooseItem"),
+&"magic": NodePath("../ChooseSpell")
 }
 events = SubResource("Resource_0fxuo")
 metadata/_custom_type_script = "uid://ghsf1gi1h2ug"
@@ -197,8 +229,12 @@ transitions = {
 events = SubResource("Resource_mefbn")
 metadata/_custom_type_script = "uid://ghsf1gi1h2ug"
 
-[node name="ChooseSpell" type="Node" parent="ActionState" unique_id=1578127279]
+[node name="ChooseSpell" type="Node" parent="ActionState" unique_id=1578127279 node_paths=PackedStringArray("transitions")]
 script = ExtResource("5_2patj")
+transitions = {
+&"choose_enemy": NodePath("../ChooseEnemy")
+}
+events = SubResource("Resource_vr38d")
 metadata/_custom_type_script = "uid://ghsf1gi1h2ug"
 
 [node name="ChooseItem" type="Node" parent="ActionState" unique_id=750880135]
@@ -208,44 +244,6 @@ metadata/_custom_type_script = "uid://ghsf1gi1h2ug"
 [node name="EventQueue" type="Node" parent="." unique_id=369006052]
 unique_name_in_owner = true
 script = ExtResource("7_gq06c")
-
-[node name="temp" type="Node" parent="." unique_id=636403014]
-
-[node name="DoActs" type="Node" parent="temp" unique_id=202280121]
-script = ExtResource("3_2patj")
-metadata/_custom_type_script = "uid://iujmg8xbh06m"
-
-[node name="TryMercy" type="Node" parent="temp" unique_id=793334831]
-script = ExtResource("3_2patj")
-metadata/_custom_type_script = "uid://iujmg8xbh06m"
-
-[node name="CastSpells" type="Node" parent="temp" unique_id=1722471926]
-script = ExtResource("3_2patj")
-metadata/_custom_type_script = "uid://iujmg8xbh06m"
-
-[node name="UseItems" type="Node" parent="temp" unique_id=754867171]
-script = ExtResource("3_2patj")
-metadata/_custom_type_script = "uid://iujmg8xbh06m"
-
-[node name="DoAttack" type="Node" parent="temp" unique_id=655894385]
-script = ExtResource("3_2patj")
-metadata/_custom_type_script = "uid://iujmg8xbh06m"
-
-[node name="Cutscene" type="Node" parent="temp" unique_id=852483120]
-script = ExtResource("3_2patj")
-metadata/_custom_type_script = "uid://iujmg8xbh06m"
-
-[node name="AttackStart" type="Node" parent="temp" unique_id=605400655]
-script = ExtResource("3_2patj")
-metadata/_custom_type_script = "uid://iujmg8xbh06m"
-
-[node name="Attacking" type="Node" parent="temp" unique_id=999513867]
-script = ExtResource("3_2patj")
-metadata/_custom_type_script = "uid://iujmg8xbh06m"
-
-[node name="AttackEnd" type="Node" parent="temp" unique_id=770557930]
-script = ExtResource("3_2patj")
-metadata/_custom_type_script = "uid://iujmg8xbh06m"
 
 [node name="ActionPanel" parent="." unique_id=1178111876 instance=ExtResource("4_k6ceo")]
 unique_name_in_owner = true
@@ -323,6 +321,23 @@ script = ExtResource("7_virxf")
 offset_right = 439.0
 offset_bottom = 90.0
 text = "Current state: "
+
+[node name="Node" type="Node" parent="." unique_id=666743285]
+
+[node name="AttackStart" type="Node" parent="Node" unique_id=605400655]
+script = ExtResource("3_2patj")
+events = SubResource("Resource_5o8ev")
+metadata/_custom_type_script = "uid://iujmg8xbh06m"
+
+[node name="Attacking" type="Node" parent="Node" unique_id=999513867]
+script = ExtResource("3_2patj")
+events = SubResource("Resource_ppw8w")
+metadata/_custom_type_script = "uid://iujmg8xbh06m"
+
+[node name="AttackEnd" type="Node" parent="Node" unique_id=770557930]
+script = ExtResource("3_2patj")
+events = SubResource("Resource_etp1n")
+metadata/_custom_type_script = "uid://iujmg8xbh06m"
 
 [connection signal="event" from="TurnQueue" to="." method="_on_turn_queue_event"]
 [connection signal="event" from="ActionState" to="." method="_on_action_state_event"]

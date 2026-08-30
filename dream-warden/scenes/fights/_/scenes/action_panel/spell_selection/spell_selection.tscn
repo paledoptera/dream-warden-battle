@@ -2,7 +2,40 @@
 
 [ext_resource type="FontVariation" uid="uid://72sk30ahlloh" path="res://shared/theme/fonts/default_textbox.tres" id="1_csc4n"]
 [ext_resource type="Script" uid="uid://dhp880u4rgwtq" path="res://scenes/fights/_/scenes/action_panel/spell_selection/spell_selection.gd" id="1_d3p02"]
+[ext_resource type="Script" uid="uid://cto2fxwpogr36" path="res://resources/spells/spell.gd" id="2_csc4n"]
 [ext_resource type="Texture2D" uid="uid://wy7dhu8gvr8c" path="res://entities/attacks/components/soul/res/soul.png" id="2_qlpwb"]
+
+[sub_resource type="Resource" id="Resource_j1kbc"]
+script = ExtResource("2_csc4n")
+title = &"[color=fa81fa]S-Action"
+description = "No
+TP
+Required"
+tp_cost = 0
+metadata/_custom_type_script = "uid://cto2fxwpogr36"
+
+[sub_resource type="Resource" id="Resource_d3p02"]
+script = ExtResource("2_csc4n")
+title = &"Rude Buster"
+description = "Rude
+damage"
+metadata/_custom_type_script = "uid://cto2fxwpogr36"
+
+[sub_resource type="Resource" id="Resource_qlpwb"]
+script = ExtResource("2_csc4n")
+title = &"BetterHeal"
+description = "Better
+heal"
+tp_cost = 16
+metadata/_custom_type_script = "uid://cto2fxwpogr36"
+
+[sub_resource type="Resource" id="Resource_csc4n"]
+script = ExtResource("2_csc4n")
+title = &"CheapTrick"
+description = "Cheap
+spell"
+tp_cost = 1
+metadata/_custom_type_script = "uid://cto2fxwpogr36"
 
 [sub_resource type="Theme" id="Theme_7rakj"]
 default_font = ExtResource("1_csc4n")
@@ -12,9 +45,9 @@ default_font_size = 32
 content_margin_left = 28.0
 content_margin_top = 15.0
 
-[node name="SpellSelection" type="Node2D" unique_id=2003309357 node_paths=PackedStringArray("options_parent")]
+[node name="SpellSelection" type="Node2D" unique_id=2003309357]
 script = ExtResource("1_d3p02")
-options_parent = NodePath("Options")
+spells = Array[ExtResource("2_csc4n")]([SubResource("Resource_j1kbc"), SubResource("Resource_d3p02"), SubResource("Resource_qlpwb"), SubResource("Resource_csc4n")])
 
 [node name="Options" type="Node2D" parent="." unique_id=14856207]
 
