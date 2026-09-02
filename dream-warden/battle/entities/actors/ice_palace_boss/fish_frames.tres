@@ -1,0 +1,61 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://cqri1omo853jl"]
+
+[ext_resource type="Texture2D" uid="uid://brjre8wy8beq7" path="res://battle/entities/actors/ice_palace_boss/res/fish_sheet.png" id="2_rp2ah"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivo7t"]
+atlas = ExtResource("2_rp2ah")
+region = Rect2(103, 0, 103, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iha1r"]
+atlas = ExtResource("2_rp2ah")
+region = Rect2(309, 0, 103, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3l4ib"]
+atlas = ExtResource("2_rp2ah")
+region = Rect2(412, 0, 103, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yx2v5"]
+atlas = ExtResource("2_rp2ah")
+region = Rect2(206, 0, 103, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rt00b"]
+atlas = ExtResource("2_rp2ah")
+region = Rect2(0, 0, 103, 71)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivo7t")
+}],
+"loop": 1,
+"name": &"defend",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iha1r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3l4ib")
+}],
+"loop": 0,
+"name": &"fight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yx2v5")
+}],
+"loop": 1,
+"name": &"fight_prepare",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rt00b")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]

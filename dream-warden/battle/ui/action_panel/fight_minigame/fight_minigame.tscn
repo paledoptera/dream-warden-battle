@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://he0wouxpjxmq"]
+
+[ext_resource type="Script" uid="uid://bsosg4ca4iqa0" path="res://battle/ui/action_panel/fight_minigame/fight_minigame.gd" id="1_nyxgj"]
+[ext_resource type="PackedScene" uid="uid://bujqje3nbhkbh" path="res://battle/ui/action_panel/fight_minigame/fight_quicktime_event.tscn" id="2_qngb5"]
+
+[sub_resource type="Animation" id="Animation_nyxgj"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_ukuq0"]
+resource_name = "fade_out"
+
+[sub_resource type="Animation" id="Animation_pl1mr"]
+resource_name = "perfect_hit"
+length = 0.33999999999999997
+
+[sub_resource type="Animation" id="Animation_hpmvt"]
+resource_name = "perfect_hit"
+length = 0.33999999999999997
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hpmvt"]
+_data = {
+&"RESET": SubResource("Animation_nyxgj"),
+&"fade_out": SubResource("Animation_ukuq0"),
+&"hit": SubResource("Animation_pl1mr"),
+&"perfect_hit": SubResource("Animation_hpmvt")
+}
+
+[node name="FightMinigame" type="Node2D" unique_id=2139349978]
+script = ExtResource("1_nyxgj")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=533090963]
+offset_left = 83.0
+offset_top = 37.0
+offset_right = 309.0
+offset_bottom = 38.0
+color = Color(0.039215688, 0.015686275, 0.38039216, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=2147322001]
+offset_left = 83.0
+offset_top = 73.0
+offset_right = 309.0
+offset_bottom = 74.0
+color = Color(0.039215688, 0.015686275, 0.38039216, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1900745357]
+libraries/ = SubResource("AnimationLibrary_hpmvt")
+
+[node name="Fighters" type="Node2D" parent="." unique_id=626210163]
+
+[node name="0" parent="Fighters" unique_id=23909635 instance=ExtResource("2_qngb5")]
+
+[node name="1" parent="Fighters" unique_id=1387471931 instance=ExtResource("2_qngb5")]
+position = Vector2(0, 37)
+
+[node name="2" parent="Fighters" unique_id=206435093 instance=ExtResource("2_qngb5")]
+position = Vector2(0, 74)

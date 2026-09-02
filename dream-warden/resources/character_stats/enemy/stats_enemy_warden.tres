@@ -1,9 +1,13 @@
 [gd_resource type="Resource" script_class="CharacterStatsEnemy" format=3 uid="uid://dsnpoy8ro5it6"]
 
 [ext_resource type="Script" uid="uid://bpvsxd6yo0sl4" path="res://resources/character_stats/character_stats_enemy.gd" id="1_sde3h"]
+[ext_resource type="Script" uid="uid://caqnjjh4u2r54" path="res://entities/attacks/attack.gd" id="1_tm5nv"]
+[ext_resource type="Script" uid="uid://m17i7j602jax" path="res://resources/dialogue_components/dialogue_string.gd" id="2_52sh0"]
+[ext_resource type="Script" uid="uid://bq7mxvnbwq8of" path="res://resources/dialogue_components/dialogue_block.gd" id="3_bp68h"]
 
 [resource]
 script = ExtResource("1_sde3h")
+check_text = Array[ExtResource("2_52sh0")]([null])
 name = "Dream Warden"
 hp_max = 4000
 hp = 4000

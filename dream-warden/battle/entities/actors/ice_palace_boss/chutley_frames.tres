@@ -1,0 +1,61 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://d1heye7wbytj7"]
+
+[ext_resource type="Texture2D" uid="uid://civy0c3trdmhy" path="res://battle/entities/actors/ice_palace_boss/res/chutley_sheet.png" id="1_fw0sm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3a5x1"]
+atlas = ExtResource("1_fw0sm")
+region = Rect2(103, 0, 103, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d3q7f"]
+atlas = ExtResource("1_fw0sm")
+region = Rect2(309, 0, 103, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wnw2v"]
+atlas = ExtResource("1_fw0sm")
+region = Rect2(412, 0, 103, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1fh8"]
+atlas = ExtResource("1_fw0sm")
+region = Rect2(206, 0, 103, 71)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2uqdm"]
+atlas = ExtResource("1_fw0sm")
+region = Rect2(0, 0, 103, 71)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3a5x1")
+}],
+"loop": 1,
+"name": &"defend",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d3q7f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wnw2v")
+}],
+"loop": 0,
+"name": &"fight",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u1fh8")
+}],
+"loop": 1,
+"name": &"fight_prepare",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2uqdm")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]

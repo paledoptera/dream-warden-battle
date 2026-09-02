@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dcoj2hdic3s7p" path="res://entities/characters/heroes/_hero.gd" id="1_w5e26"]
 [ext_resource type="Script" uid="uid://cto2fxwpogr36" path="res://resources/spells/spell.gd" id="2_5hlbo"]
 [ext_resource type="Script" uid="uid://d3xaygu7d8jdf" path="res://resources/spells/effects/check.gd" id="3_lb8cg"]
-[ext_resource type="Texture2D" uid="uid://cfskcj1e3nylg" path="res://entities/characters/heroes/ice_palace/rangle/rangle.png" id="5_ekgra"]
+[ext_resource type="Texture2D" uid="uid://cfskcj1e3nylg" path="res://battle/entities/actors/ice_palace_boss/res/rangle.png" id="5_ekgra"]
 
 [sub_resource type="Resource" id="Resource_axrom"]
 script = ExtResource("3_lb8cg")

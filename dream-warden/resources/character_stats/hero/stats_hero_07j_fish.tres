@@ -1,0 +1,77 @@
+[gd_resource type="Resource" script_class="CharacterStatsHero" format=3 uid="uid://232nf3wslcjx"]
+
+[ext_resource type="Script" uid="uid://bp3vktl4048ff" path="res://resources/items/equippables/equippable.gd" id="1_ryh4w"]
+[ext_resource type="Script" uid="uid://cjlmox2rkhaa4" path="res://resources/character_stats/character_stats_hero.gd" id="2_8et8e"]
+[ext_resource type="Script" uid="uid://cto2fxwpogr36" path="res://resources/spells/spell.gd" id="3_wtdes"]
+[ext_resource type="Script" uid="uid://d3xaygu7d8jdf" path="res://resources/spells/effects/check.gd" id="4_8w1ep"]
+[ext_resource type="Script" uid="uid://dcepdbft0i2j2" path="res://resources/spells/effects/spell_rudebuster.gd" id="5_7n622"]
+[ext_resource type="Script" uid="uid://di3ljx2aw4xl7" path="res://resources/spells/effects/heal.gd" id="6_njwqw"]
+[ext_resource type="Script" uid="uid://dvetmwyvlw0vg" path="res://resources/spells/effects/unleash.gd" id="7_u4sl5"]
+
+[sub_resource type="Resource" id="Resource_xbtyo"]
+script = ExtResource("4_8w1ep")
+metadata/_custom_type_script = "uid://d3xaygu7d8jdf"
+
+[sub_resource type="Resource" id="Resource_jq4a0"]
+resource_name = "Check"
+script = ExtResource("3_wtdes")
+title = &"[color=fa81fa]Check"
+description = "Consider
+strategy"
+spell_effect = SubResource("Resource_xbtyo")
+tp_cost = 0
+metadata/_custom_type_script = "uid://cto2fxwpogr36"
+
+[sub_resource type="Resource" id="Resource_sup8m"]
+script = ExtResource("5_7n622")
+metadata/_custom_type_script = "uid://dcepdbft0i2j2"
+
+[sub_resource type="Resource" id="Resource_7bx4w"]
+resource_name = "Rude Buster"
+script = ExtResource("3_wtdes")
+title = &"Rude Buster"
+description = "Hopeless
+attack"
+spell_effect = SubResource("Resource_sup8m")
+tp_cost = 50
+metadata/_custom_type_script = "uid://cto2fxwpogr36"
+
+[sub_resource type="Resource" id="Resource_fvjnl"]
+script = ExtResource("6_njwqw")
+metadata/_custom_type_script = "uid://di3ljx2aw4xl7"
+
+[sub_resource type="Resource" id="Resource_wxgg1"]
+resource_name = "BlazingHeal"
+script = ExtResource("3_wtdes")
+title = &"BlazingHeal"
+description = "Desperate
+recovery"
+spell_effect = SubResource("Resource_fvjnl")
+metadata/_custom_type_script = "uid://cto2fxwpogr36"
+
+[sub_resource type="Resource" id="Resource_2ljn2"]
+script = ExtResource("7_u4sl5")
+metadata/_custom_type_script = "uid://dvetmwyvlw0vg"
+
+[sub_resource type="Resource" id="Resource_smtgx"]
+resource_name = "Unleash"
+script = ExtResource("3_wtdes")
+title = &"Unleash"
+description = "Shine
+bright"
+spell_effect = SubResource("Resource_2ljn2")
+tp_cost = 0
+metadata/_custom_type_script = "uid://cto2fxwpogr36"
+
+[resource]
+script = ExtResource("2_8et8e")
+spells = Array[ExtResource("3_wtdes")]([SubResource("Resource_jq4a0"), SubResource("Resource_7bx4w"), SubResource("Resource_wxgg1"), SubResource("Resource_smtgx")])
+name = "Fish"
+color = Color(0.6, 0.972549, 0.93333334, 1)
+hp_max = 120
+hp = 120
+attack = 40
+defense = 2
+magic = 5
+character_id = &"fish"
+metadata/_custom_type_script = "uid://cjlmox2rkhaa4"

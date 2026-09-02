@@ -1,88 +1,12 @@
-[gd_scene format=3 uid="uid://7pvrttkdb6rv"]
+[gd_scene format=3 uid="uid://ux5c4buxxlkh"]
 
-[ext_resource type="Script" uid="uid://ke7oieq215uo" path="res://entities/characters/enemies/_enemy.gd" id="1_vvkwy"]
-[ext_resource type="Texture2D" uid="uid://baabv66yi7i04" path="res://entities/characters/enemies/ice_palace_boss/res/ice_palace_boss.png" id="2_b7lin"]
-[ext_resource type="Script" uid="uid://caqnjjh4u2r54" path="res://entities/attacks/attack.gd" id="2_xj46p"]
-[ext_resource type="PackedScene" uid="uid://cuwui318cvb75" path="res://entities/characters/enemies/warden/attacks/normal/0_wings/wings_attack.tscn" id="3_j42ns"]
-[ext_resource type="Texture2D" uid="uid://pl1h77urjfpv" path="res://battle/stages/res/final boss.png" id="7_03we4"]
-[ext_resource type="Script" uid="uid://m17i7j602jax" path="res://resources/dialogue_components/dialogue_string.gd" id="7_eh0bv"]
-[ext_resource type="Texture2D" uid="uid://bhecgn16x7t7" path="res://battle/stages/res/noelle.png" id="7_pwl3m"]
-[ext_resource type="Script" uid="uid://cci227fj67d4u" path="res://resources/dialogue_components/markers/_dialogue_marker.gd" id="8_ocrcg"]
-[ext_resource type="Script" uid="uid://qf5ag5dlrsbc" path="res://resources/dialogue_components/markers/sprite_marker.gd" id="9_ak5g1"]
-[ext_resource type="AudioStream" uid="uid://c3m6sxg7kebei" path="res://shared/sound_effects/snd_text.wav" id="11_go3kd"]
-[ext_resource type="Script" uid="uid://b8tmchw2csyvn" path="res://resources/dialogue_components/markers/gradient_marker.gd" id="12_2fmrg"]
-
-[sub_resource type="Resource" id="Resource_l2tpx"]
-script = ExtResource("2_xj46p")
-scene = ExtResource("3_j42ns")
-metadata/_custom_type_script = "uid://caqnjjh4u2r54"
-
-[sub_resource type="Resource" id="Resource_3lm2b"]
-script = ExtResource("9_ak5g1")
-texture = ExtResource("7_03we4")
-offset = Vector2(-8, 16)
-start_char = 40
-metadata/_custom_type_script = "uid://qf5ag5dlrsbc"
-
-[sub_resource type="Gradient" id="Gradient_03we4"]
-colors = PackedColorArray(8.061901e-07, 0.41346616, 3.85046e-07, 1, 1, 1, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_87uge"]
-gradient = SubResource("Gradient_03we4")
-fill_to = Vector2(0, 1)
-
-[sub_resource type="Resource" id="Resource_k8yhc"]
-script = ExtResource("12_2fmrg")
-texture = SubResource("GradientTexture2D_87uge")
-start_char = 40
-end_char = 51
-metadata/_custom_type_script = "uid://b8tmchw2csyvn"
-
-[sub_resource type="Gradient" id="Gradient_3lm2b"]
-colors = PackedColorArray(0.68396026, 0.7890422, 1, 1, 0, 0.1428257, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_3bnto"]
-gradient = SubResource("Gradient_3lm2b")
-fill_to = Vector2(0, 1)
-
-[sub_resource type="Resource" id="Resource_g16pf"]
-script = ExtResource("12_2fmrg")
-texture = SubResource("GradientTexture2D_3bnto")
-start_char = 58
-metadata/_custom_type_script = "uid://b8tmchw2csyvn"
-
-[sub_resource type="Resource" id="Resource_pwl3m"]
-script = ExtResource("7_eh0bv")
-text = "* Ice Palace Boss - 20 AT 50 DEF
-* The , Final boss of the Ice Palace"
-markers = Array[ExtResource("8_ocrcg")]([SubResource("Resource_3lm2b"), SubResource("Resource_k8yhc"), SubResource("Resource_g16pf")])
-flag_value = null
-metadata/_custom_type_script = "uid://m17i7j602jax"
-
-[sub_resource type="Resource" id="Resource_3ggtu"]
-script = ExtResource("7_eh0bv")
-text = "* It's the enemy!"
-flag_value = null
-metadata/_custom_type_script = "uid://m17i7j602jax"
-
-[sub_resource type="Resource" id="Resource_b7lin"]
-script = ExtResource("7_eh0bv")
-text = "* The air crackles with freedom for Big Shots"
-flag_value = null
-metadata/_custom_type_script = "uid://m17i7j602jax"
-
-[sub_resource type="Resource" id="Resource_axrom"]
-script = ExtResource("7_eh0bv")
-text = "* It's pretty cold dude"
-flag_value = null
-metadata/_custom_type_script = "uid://m17i7j602jax"
-
-[sub_resource type="Resource" id="Resource_376ry"]
-script = ExtResource("7_eh0bv")
-text = "* The Ice Palace Boss
-* Dances awesomely"
-flag_value = null
-metadata/_custom_type_script = "uid://m17i7j602jax"
+[ext_resource type="Texture2D" uid="uid://dni58cch6mwsi" path="res://battle/stages/res/ice-texture-background-the-textured-cold-frosty-surface-of-crushed-ice-photo.jpg" id="1_4xyt8"]
+[ext_resource type="Script" uid="uid://c0eum5nfaksrs" path="res://battle/entities/actors/actor.gd" id="3_6dh1b"]
+[ext_resource type="SpriteFrames" uid="uid://bge5eg02oc13v" path="res://battle/entities/actors/ice_palace_boss/rangle_frames.tres" id="3_a1yq5"]
+[ext_resource type="SpriteFrames" uid="uid://d1heye7wbytj7" path="res://battle/entities/actors/ice_palace_boss/chutley_frames.tres" id="4_6dh1b"]
+[ext_resource type="Texture2D" uid="uid://bhecgn16x7t7" path="res://battle/stages/res/noelle.png" id="5_6b8kr"]
+[ext_resource type="SpriteFrames" uid="uid://cqri1omo853jl" path="res://battle/entities/actors/ice_palace_boss/fish_frames.tres" id="5_e4j6a"]
+[ext_resource type="Texture2D" uid="uid://baabv66yi7i04" path="res://entities/characters/enemies/ice_palace_boss/res/ice_palace_boss.png" id="6_sh803"]
 
 [sub_resource type="Gradient" id="Gradient_axrom"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
@@ -96,7 +20,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Node2D:position")
+tracks/0/path = NodePath("VesselContainer:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -108,7 +32,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Node2D:skew")
+tracks/1/path = NodePath("VesselContainer:skew")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -120,7 +44,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Node2D/Node2D:skew")
+tracks/2/path = NodePath("VesselContainer/VesselRot:skew")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -132,7 +56,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Node2D/Node2D/Sprite2D:skew")
+tracks/3/path = NodePath("VesselContainer/VesselRot/Vessel:skew")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -144,7 +68,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("TextureRect:position")
+tracks/4/path = NodePath("NoelleFade:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -156,7 +80,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("TextureRect:modulate")
+tracks/5/path = NodePath("NoelleFade:modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -168,7 +92,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Node2D2:position")
+tracks/6/path = NodePath("WeirdGlitchEffect:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -180,7 +104,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Node2D2/ColorRect:position")
+tracks/7/path = NodePath("WeirdGlitchEffect/ColorRect:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -192,7 +116,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Node2D2/ColorRect5:position")
+tracks/8/path = NodePath("WeirdGlitchEffect/ColorRect5:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -204,7 +128,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Node2D2/ColorRect6:position")
+tracks/9/path = NodePath("WeirdGlitchEffect/ColorRect6:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -216,7 +140,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Node2D2/ColorRect3:position")
+tracks/10/path = NodePath("WeirdGlitchEffect/ColorRect3:position")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -233,7 +157,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Node2D:position")
+tracks/0/path = NodePath("VesselContainer:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -245,7 +169,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Node2D:skew")
+tracks/1/path = NodePath("VesselContainer:skew")
 tracks/1/interp = 4
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -257,7 +181,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Node2D/Node2D:skew")
+tracks/2/path = NodePath("VesselContainer/VesselRot:skew")
 tracks/2/interp = 4
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -269,7 +193,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Node2D/Node2D/Sprite2D:skew")
+tracks/3/path = NodePath("VesselContainer/VesselRot/Vessel:skew")
 tracks/3/interp = 4
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -281,7 +205,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("TextureRect:position")
+tracks/4/path = NodePath("NoelleFade:position")
 tracks/4/interp = 2
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -293,7 +217,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("TextureRect:modulate")
+tracks/5/path = NodePath("NoelleFade:modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -305,7 +229,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Node2D2:position")
+tracks/6/path = NodePath("WeirdGlitchEffect:position")
 tracks/6/interp = 2
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -317,7 +241,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Node2D2/ColorRect:position")
+tracks/7/path = NodePath("WeirdGlitchEffect/ColorRect:position")
 tracks/7/interp = 2
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -329,7 +253,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Node2D2/ColorRect5:position")
+tracks/8/path = NodePath("WeirdGlitchEffect/ColorRect5:position")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -341,7 +265,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Node2D2/ColorRect6:position")
+tracks/9/path = NodePath("WeirdGlitchEffect/ColorRect6:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -353,7 +277,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("Node2D2/ColorRect3:position")
+tracks/10/path = NodePath("WeirdGlitchEffect/ColorRect3:position")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -369,60 +293,112 @@ _data = {
 &"dance": SubResource("Animation_vr6dg")
 }
 
-[node name="IcePalaceBoss" type="Node2D" unique_id=968285758]
-script = ExtResource("1_vvkwy")
-attacks = Array[ExtResource("2_xj46p")]([SubResource("Resource_l2tpx")])
-check_text = Array[ExtResource("7_eh0bv")]([SubResource("Resource_pwl3m")])
-opening_line_singular = SubResource("Resource_3ggtu")
-flavor_text = Array[ExtResource("7_eh0bv")]([SubResource("Resource_b7lin"), SubResource("Resource_axrom"), SubResource("Resource_376ry")])
-title = "Ice Palace Boss"
+[node name="IcePalaceFight" type="Node2D" unique_id=2124086931 groups=["battle"]]
 
-[node name="Node2D2" type="Node2D" parent="." unique_id=1581237470]
+[node name="Background" type="Node2D" parent="." unique_id=749045585]
+z_index = -4096
+position = Vector2(0, -24)
+
+[node name="Polygon2D" type="Polygon2D" parent="Background" unique_id=1577991891]
+modulate = Color(1.2742168, 1.2742168, 1.2742168, 1)
+texture = ExtResource("1_4xyt8")
+texture_scale = Vector2(22.415, 22.415)
+polygon = PackedVector2Array(5, 174, 638, 174, 1104, 304, -555, 333)
+uv = PackedVector2Array(-0.57136536, 1.2569513, 47.22325, 0.6776228, 46.96235, 48.12946, 0.8793793, 47.076134)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Background" unique_id=729073396]
+modulate = Color(0.83269507, 1.2215557, 1.2239999, 1)
+position = Vector2(0, -217)
+color = Color(18.892157, 17.926367, 17.432722, 1)
+texture = ExtResource("1_4xyt8")
+texture_scale = Vector2(17.65, 17.65)
+polygon = PackedVector2Array(4, 155, 624, 162, 680, 404, -39, 399)
+uv = PackedVector2Array(-0.57136536, 1.2569513, 47.22325, 0.6776228, 46.96235, 48.12946, 0.8793793, 47.076134)
+
+[node name="Rangle" type="Node2D" parent="." unique_id=329384223]
+position = Vector2(185, 184)
+script = ExtResource("3_6dh1b")
+id = &"rangle"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Rangle" unique_id=1495474628]
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("3_a1yq5")
+animation = &"idle"
+autoplay = "idle"
+offset = Vector2(0, -35)
+
+[node name="Chutley" type="Node2D" parent="." unique_id=1274269982]
+position = Vector2(140, 160)
+script = ExtResource("3_6dh1b")
+id = &"chutley"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Chutley" unique_id=540382288]
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("4_6dh1b")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Fish" type="Node2D" parent="." unique_id=814108151]
+position = Vector2(207, 207)
+script = ExtResource("3_6dh1b")
+id = &"fish"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Fish" unique_id=1482424476]
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("5_e4j6a")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="IcePalaceBoss" type="Node2D" parent="." unique_id=968285758]
+position = Vector2(536, 168.99998)
+scale = Vector2(2, 2)
+
+[node name="WeirdGlitchEffect" type="Node2D" parent="IcePalaceBoss" unique_id=1581237470]
 modulate = Color(1, 1, 1, 0.596)
 
-[node name="ColorRect" type="ColorRect" parent="Node2D2" unique_id=914130811]
+[node name="ColorRect" type="ColorRect" parent="IcePalaceBoss/WeirdGlitchEffect" unique_id=914130811]
 offset_left = -29.0
 offset_top = -54.0
 offset_right = -9.0
 offset_bottom = -10.0
 color = Color(0, 0, 0, 0.5019608)
 
-[node name="ColorRect3" type="ColorRect" parent="Node2D2" unique_id=1557455035]
+[node name="ColorRect3" type="ColorRect" parent="IcePalaceBoss/WeirdGlitchEffect" unique_id=1557455035]
 offset_left = -57.0
 offset_top = -34.0
 offset_right = -9.0
 offset_bottom = -25.0
 color = Color(0, 0, 0, 0.5019608)
 
-[node name="ColorRect4" type="ColorRect" parent="Node2D2" unique_id=1559774593]
+[node name="ColorRect4" type="ColorRect" parent="IcePalaceBoss/WeirdGlitchEffect" unique_id=1559774593]
 offset_left = -45.0
 offset_top = -66.0
 offset_right = -26.0
 offset_bottom = -12.0
 color = Color(0, 0, 0, 0.5019608)
 
-[node name="ColorRect5" type="ColorRect" parent="Node2D2" unique_id=932546708]
+[node name="ColorRect5" type="ColorRect" parent="IcePalaceBoss/WeirdGlitchEffect" unique_id=932546708]
 offset_left = -64.0
 offset_top = -72.0
 offset_right = -34.0
 offset_bottom = -53.0
 color = Color(0, 0, 0, 0.5019608)
 
-[node name="ColorRect6" type="ColorRect" parent="Node2D2" unique_id=338505215]
+[node name="ColorRect6" type="ColorRect" parent="IcePalaceBoss/WeirdGlitchEffect" unique_id=338505215]
 offset_left = -30.0
 offset_top = -60.0
 offset_right = -20.0
 offset_bottom = -12.0
 color = Color(0, 0, 0, 0.5019608)
 
-[node name="ColorRect2" type="ColorRect" parent="Node2D2" unique_id=1843215998]
+[node name="ColorRect2" type="ColorRect" parent="IcePalaceBoss/WeirdGlitchEffect" unique_id=1843215998]
 offset_left = -40.0
 offset_top = -41.0
 offset_right = -3.0
 offset_bottom = 6.0
 color = Color(0, 0, 0, 0.5019608)
 
-[node name="TextureRect" type="TextureRect" parent="." unique_id=1667981524]
+[node name="NoelleFade" type="TextureRect" parent="IcePalaceBoss" unique_id=1667981524]
 clip_children = 1
 offset_left = -41.000004
 offset_top = -45.000004
@@ -432,26 +408,26 @@ scale = Vector2(1.2, 1.2)
 texture = SubResource("GradientTexture2D_g4v7s")
 expand_mode = 1
 
-[node name="Sprite2D" type="Sprite2D" parent="TextureRect" unique_id=1706538036]
+[node name="Noelle" type="Sprite2D" parent="IcePalaceBoss/NoelleFade" unique_id=1706538036]
 position = Vector2(15.581533, 19.531307)
-texture = ExtResource("7_pwl3m")
+texture = ExtResource("5_6b8kr")
 flip_h = true
 
-[node name="Node2D" type="Node2D" parent="." unique_id=1159907228]
+[node name="VesselContainer" type="Node2D" parent="IcePalaceBoss" unique_id=1159907228]
 rotation = -1.5707964
 skew = -0.7557276
 
-[node name="Node2D" type="Node2D" parent="Node2D" unique_id=232909373]
+[node name="VesselRot" type="Node2D" parent="IcePalaceBoss/VesselContainer" unique_id=232909373]
 rotation = -0.06632251
 scale = Vector2(1, 0.753)
 skew = 0.55676
 
-[node name="Sprite2D" type="Sprite2D" parent="Node2D/Node2D" unique_id=689928774]
+[node name="Vessel" type="Sprite2D" parent="IcePalaceBoss/VesselContainer/VesselRot" unique_id=689928774]
 rotation = 1.5707964
 scale = Vector2(4.071, 2)
 skew = 0.28274333
-texture = ExtResource("2_b7lin")
+texture = ExtResource("6_sh803")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1751063435]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="IcePalaceBoss" unique_id=1751063435]
 libraries/ = SubResource("AnimationLibrary_cbydg")
 autoplay = &"dance"

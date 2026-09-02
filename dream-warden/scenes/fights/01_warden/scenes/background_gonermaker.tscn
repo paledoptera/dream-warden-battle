@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ddq6pu65n1i1g" path="res://scenes/fights/01_warden/res/layers/layer1.png" id="5_cratu"]
 [ext_resource type="Texture2D" uid="uid://bx52th3towfu2" path="res://scenes/fights/01_warden/res/layers/layer3.png" id="6_nn7w7"]
 [ext_resource type="Texture2D" uid="uid://1b6lgewhhjm1" path="res://scenes/fights/01_warden/res/layers/layer4.png" id="7_c0018"]
-[ext_resource type="PackedScene" uid="uid://kmi8dqcvidoa" path="res://scenes/fights/_/scenes/effects/gonermaker_effect/gonermaker_effect.tscn" id="8_v16dq"]
+[ext_resource type="PackedScene" uid="uid://kmi8dqcvidoa" path="res://battle/ui/effects/gonermaker_effect/gonermaker_effect.tscn" id="8_v16dq"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qw0i8"]
 blend_mode = 2
