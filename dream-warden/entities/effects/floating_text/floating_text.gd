@@ -1,17 +1,22 @@
-extends Node2D
+class_name FloatingText extends Node2D
 
-func initialize_text(init_position: Vector2, text: String, color: Color) -> void:
-	var label = $Container/RichTextLabel
-	global_position = init_position
+const SCENE = preload("uid://cmoaj8ubaywoh")
+
+static func initialize_text(text: String, color: Color) -> FloatingText:
+	var new_text = SCENE.instantiate()
+	
+	var label = new_text.get_node("Container/RichTextLabel")
 	label.text = text
 	label.modulate = color
-	$Container/Sprite2D.queue_free()
+	
+	return new_text
 
-
-func initialize_sprite(init_position: Vector2, texture: Texture2D, offset: Vector2, color: Color) -> void:
-	var sprite = $Container/Sprite2D
-	global_position = init_position
+static func initialize_sprite(texture: Texture2D, offset: Vector2, color: Color) -> FloatingText:
+	var new_text = SCENE.instantiate()
+	
+	var sprite = new_text.get_node("Container/Sprite2D")
 	sprite.texture = texture
 	sprite.offset = offset
 	sprite.modulate = color
-	$Container/RichTextLabel.queue_free()
+
+	return new_text

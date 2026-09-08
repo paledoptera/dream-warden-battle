@@ -1,0 +1,254 @@
+[gd_scene format=3 uid="uid://evdoduytwa6e"]
+
+[ext_resource type="Script" uid="uid://dipbt15v8eqt3" path="res://battle/system/scenes/stats_tab.gd" id="1_4qv7t"]
+[ext_resource type="Texture2D" uid="uid://c1ovxwjuc4om1" path="res://battle/heroes/susie/res/action_icons.png" id="2_8dnka"]
+[ext_resource type="FontFile" uid="uid://q7kjkfbse6t8" path="res://shared/theme/fonts/character_names/character_names.png" id="3_hqpoc"]
+[ext_resource type="Texture2D" uid="uid://c3alw5u77cjem" path="res://battle/system/ui/action_panel/action_menu/res/slash.png" id="4_trjd4"]
+[ext_resource type="Texture2D" uid="uid://blno2yhk2pcsr" path="res://battle/system/ui/action_panel/action_menu/res/hp.png" id="5_h8e5t"]
+[ext_resource type="FontFile" uid="uid://dln4jdnfh0rd6" path="res://shared/theme/fonts/hp_numbers/hp_numbers.png" id="6_2oa7j"]
+[ext_resource type="Script" uid="uid://di3pjvm6ep82r" path="res://battle/system/ui/action_panel/action_menu/label_hp.gd" id="7_6bqg4"]
+[ext_resource type="Script" uid="uid://bvlkg3a6cpko6" path="res://battle/system/ui/action_panel/action_menu/prism_shield.gd" id="8_pyn4v"]
+[ext_resource type="Texture2D" uid="uid://drpiotfiw68u2" path="res://scenes/minigames/aqua_warden/aqua/res/sheild_icon.png" id="9_3xyj7"]
+[ext_resource type="Texture2D" uid="uid://cysinl1ouo4d5" path="res://battle/system/ui/action_panel/action_menu/res/frame_upper.png" id="10_jdypi"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_81ejl"]
+bg_color = Color(0.2, 0.1254902, 0.2, 1)
+
+[sub_resource type="FontVariation" id="FontVariation_vk51i"]
+base_font = ExtResource("3_hqpoc")
+spacing_glyph = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mvnd4"]
+bg_color = Color(0.49803922, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ri2aa"]
+resource_local_to_scene = true
+bg_color = Color(1, 0, 1, 1)
+
+[sub_resource type="Animation" id="Animation_obbis"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -6)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background/FrameUpper:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ho504"]
+resource_name = "close"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.100000024),
+"transitions": PackedFloat32Array(0.3, 1),
+"update": 0,
+"values": [Vector2(0, -24), Vector2(0, -6)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background/FrameUpper:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ki6id"]
+resource_name = "open"
+length = 0.234
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.23333335),
+"transitions": PackedFloat32Array(0.3, 1),
+"update": 0,
+"values": [Vector2(0, -19), Vector2(0, -39)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background/FrameUpper:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_niybl"]
+_data = {
+&"RESET": SubResource("Animation_obbis"),
+&"close": SubResource("Animation_ho504"),
+&"open": SubResource("Animation_ki6id")
+}
+
+[node name="StatsTab" type="Control" unique_id=1838573815]
+custom_minimum_size = Vector2(210, 35)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -430.0
+offset_bottom = -445.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4qv7t")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1569102247]
+custom_minimum_size = Vector2(213, 36)
+custom_maximum_size = Vector2(213, 36)
+layout_mode = 0
+offset_top = -6.0
+offset_right = 213.0
+offset_bottom = 30.0
+color = Color(0, 0, 0, 1)
+
+[node name="TopDivider" type="Panel" parent="Background" unique_id=2141121559]
+custom_minimum_size = Vector2(213, 2)
+custom_maximum_size = Vector2(213, 2)
+layout_mode = 0
+offset_right = 213.0
+offset_bottom = 2.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_81ejl")
+
+[node name="Stats" type="Node2D" parent="Background" unique_id=1913310607]
+position = Vector2(0, 39)
+
+[node name="Icon" type="Sprite2D" parent="Background/Stats" unique_id=1286252362]
+unique_name_in_owner = true
+position = Vector2(30, -16)
+texture = ExtResource("2_8dnka")
+offset = Vector2(0, 0.5)
+hframes = 11
+frame = 1
+
+[node name="LabelName" type="Label" parent="Background/Stats" unique_id=1530986424]
+unique_name_in_owner = true
+offset_left = 51.0
+offset_top = -25.0
+offset_right = 101.0
+offset_bottom = -9.0
+theme_override_fonts/font = SubResource("FontVariation_vk51i")
+text = "SUSIE"
+metadata/_edit_use_anchors_ = true
+
+[node name="Slash" type="Sprite2D" parent="Background/Stats" unique_id=1836973141]
+position = Vector2(167, -25)
+texture = ExtResource("4_trjd4")
+
+[node name="HPText" type="Sprite2D" parent="Background/Stats" unique_id=1387374447]
+position = Vector2(117, -13)
+texture = ExtResource("5_h8e5t")
+
+[node name="LabelHP" type="Label" parent="Background/Stats" unique_id=1928239169]
+unique_name_in_owner = true
+offset_left = 110.0
+offset_top = -31.0
+offset_right = 160.0
+offset_bottom = -15.0
+theme_override_fonts/font = ExtResource("6_2oa7j")
+theme_override_font_sizes/font_size = 10
+text = "0"
+horizontal_alignment = 2
+script = ExtResource("7_6bqg4")
+metadata/_edit_use_anchors_ = true
+
+[node name="LabelHPMax" type="Label" parent="Background/Stats" unique_id=1695611081]
+unique_name_in_owner = true
+offset_left = 155.0
+offset_top = -31.0
+offset_right = 205.0
+offset_bottom = -15.0
+theme_override_fonts/font = ExtResource("6_2oa7j")
+theme_override_font_sizes/font_size = 10
+text = "0"
+horizontal_alignment = 2
+script = ExtResource("7_6bqg4")
+metadata/_edit_use_anchors_ = true
+
+[node name="HealthBar" type="ProgressBar" parent="Background/Stats" unique_id=1973264428]
+unique_name_in_owner = true
+offset_left = 128.0
+offset_top = -17.0
+offset_right = 204.0
+offset_bottom = -8.0
+theme_override_styles/background = SubResource("StyleBoxFlat_mvnd4")
+theme_override_styles/fill = SubResource("StyleBoxFlat_ri2aa")
+max_value = 460.0
+step = 1.0
+value = 460.0
+show_percentage = false
+metadata/_edit_use_anchors_ = true
+
+[node name="StatusEffects" type="Node2D" parent="Background/Stats" unique_id=1184815845]
+
+[node name="PrismShield" type="Node2D" parent="Background/Stats/StatusEffects" unique_id=137099897]
+visible = false
+script = ExtResource("8_pyn4v")
+col = Color(0, 1, 1, 1)
+
+[node name="Sheild1" type="Sprite2D" parent="Background/Stats/StatusEffects/PrismShield" unique_id=1707846151]
+position = Vector2(113, -25)
+texture = ExtResource("9_3xyj7")
+
+[node name="Sheild2" type="Sprite2D" parent="Background/Stats/StatusEffects/PrismShield" unique_id=1674945630]
+position = Vector2(122, -25)
+texture = ExtResource("9_3xyj7")
+
+[node name="ColorRect" type="ColorRect" parent="Background/Stats/StatusEffects/PrismShield" unique_id=1426924378]
+offset_left = 128.0
+offset_top = -17.0
+offset_right = 204.0
+offset_bottom = -8.0
+color = Color(0, 1, 1, 1)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Background" unique_id=500190139]
+remote_path = NodePath("../FrameUpper")
+
+[node name="FrameUpper" type="Sprite2D" parent="Background" unique_id=142014630]
+unique_name_in_owner = true
+visible = false
+self_modulate = Color(1, 0, 1, 1)
+z_index = 21
+z_as_relative = false
+texture = ExtResource("10_jdypi")
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1936093668]
+libraries/ = SubResource("AnimationLibrary_niybl")
+autoplay = &"RESET"
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="." unique_id=1230502302]

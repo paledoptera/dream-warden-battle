@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cev8j51xyelxs"]
 
-[ext_resource type="Texture2D" uid="uid://wy7dhu8gvr8c" path="res://entities/attacks/components/soul/res/soul.png" id="1_s2chk"]
+[ext_resource type="Texture2D" uid="uid://wy7dhu8gvr8c" path="res://battle/soul/soul/res/soul.png" id="1_s2chk"]
 
 [sub_resource type="GDScript" id="GDScript_ukb1h"]
 resource_name = "afterimage"

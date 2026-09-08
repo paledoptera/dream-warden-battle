@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cr5wivx86lx7o"]
+
+[ext_resource type="PackedScene" uid="uid://uec82rpcc8iu" path="res://battle/soul/soul/_soul.tscn" id="1_q4hba"]
+
+[node name="SoulRed" unique_id=443094051 instance=ExtResource("1_q4hba")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=135992417]
+modulate = Color(1, 0, 0, 1)

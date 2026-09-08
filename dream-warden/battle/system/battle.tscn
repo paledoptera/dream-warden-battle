@@ -1,0 +1,193 @@
+[gd_scene format=3 uid="uid://cxu6vtdp70cut"]
+
+[ext_resource type="Script" uid="uid://clltp64t44fr4" path="res://battle/system/battle.gd" id="1_obv46"]
+[ext_resource type="Script" uid="uid://cwtgrjmq8jiy" path="res://battle/system/components/turn_queue.gd" id="2_obv46"]
+[ext_resource type="Script" uid="uid://k3lwlefinvbw" path="res://battle/system/components/fighter.gd" id="3_r6df0"]
+[ext_resource type="PackedScene" uid="uid://c0oopy8rd7aua" path="res://battle/system/ui/action_panel/action_panel.tscn" id="4_k6ceo"]
+[ext_resource type="Script" uid="uid://cqgqqn8on2o56" path="res://battle/system/components/event_queue.gd" id="4_t33rp"]
+[ext_resource type="Script" uid="uid://cq8b2sfdp7v82" path="res://battle/system/components/battle_data_manager.gd" id="5_uhooo"]
+[ext_resource type="PackedScene" uid="uid://ca3d2dgphgx5j" path="res://entities/dialogue/dialogue_box.tscn" id="6_gq06c"]
+[ext_resource type="PackedScene" uid="uid://jhaejpx46ycp" path="res://battle/system/ui/tp_bar/tp_bar.tscn" id="10_d1p73"]
+[ext_resource type="PackedScene" uid="uid://evdoduytwa6e" path="res://battle/system/scenes/stats_tab.tscn" id="15_obv46"]
+[ext_resource type="Script" uid="uid://cyrn1w378lyp6" path="res://battle/system/components/character_status_manager.gd" id="15_r6df0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lrihj"]
+content_margin_left = 30.0
+content_margin_top = 15.0
+
+[sub_resource type="Animation" id="Animation_4uv82"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Battle/ActionPanel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 365)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Battle/TPBar:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(50, 137)]
+}
+
+[sub_resource type="Animation" id="Animation_yqp5e"]
+resource_name = "attack_fade_in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Battle/AttackFade:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.64705884)]
+}
+
+[sub_resource type="Animation" id="Animation_bm74x"]
+resource_name = "start"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Battle/ActionPanel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Vector2(0, 519), Vector2(0, 365)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Battle/TPBar:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.25, 1),
+"update": 0,
+"values": [Vector2(-13, 137), Vector2(50, 137)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vii0q"]
+_data = {
+&"RESET": SubResource("Animation_4uv82"),
+&"attack_fade": SubResource("Animation_yqp5e"),
+&"start": SubResource("Animation_bm74x")
+}
+
+[node name="Battle" type="CanvasLayer" unique_id=1416402505]
+script = ExtResource("1_obv46")
+
+[node name="TurnQueue" type="Node" parent="." unique_id=888930780]
+unique_name_in_owner = true
+script = ExtResource("2_obv46")
+
+[node name="Character1" type="Node" parent="TurnQueue" unique_id=474069424]
+script = ExtResource("3_r6df0")
+
+[node name="Character2" type="Node" parent="TurnQueue" unique_id=1450523891]
+script = ExtResource("3_r6df0")
+
+[node name="Character3" type="Node" parent="TurnQueue" unique_id=775094627]
+script = ExtResource("3_r6df0")
+
+[node name="EventQueue" type="Node" parent="." unique_id=1527209980]
+unique_name_in_owner = true
+script = ExtResource("4_t33rp")
+
+[node name="BattleDataManager" type="Node" parent="." unique_id=2095664746]
+unique_name_in_owner = true
+script = ExtResource("5_uhooo")
+metadata/_custom_type_script = "uid://cq8b2sfdp7v82"
+
+[node name="ActionPanel" parent="." unique_id=1178111876 instance=ExtResource("4_k6ceo")]
+unique_name_in_owner = true
+position = Vector2(0, 365)
+
+[node name="CharacterStatusManager" type="HBoxContainer" parent="ActionPanel" unique_id=309745863]
+unique_name_in_owner = true
+offset_top = -33.0
+offset_right = 640.0
+offset_bottom = 3.0
+alignment = 1
+script = ExtResource("15_r6df0")
+
+[node name="Character1" parent="ActionPanel/CharacterStatusManager" unique_id=1838573815 instance=ExtResource("15_obv46")]
+layout_mode = 2
+
+[node name="Character2" parent="ActionPanel/CharacterStatusManager" unique_id=1239830273 instance=ExtResource("15_obv46")]
+layout_mode = 2
+index = 1
+
+[node name="Character3" parent="ActionPanel/CharacterStatusManager" unique_id=1206307458 instance=ExtResource("15_obv46")]
+layout_mode = 2
+index = 2
+
+[node name="MenuParent" type="Node2D" parent="ActionPanel" unique_id=1230524754]
+unique_name_in_owner = true
+
+[node name="DialogueBox" parent="ActionPanel" unique_id=151941393 instance=ExtResource("6_gq06c")]
+unique_name_in_owner = true
+offset_top = -4.0
+offset_right = 640.0
+offset_bottom = 111.0
+offset_transform_position = Vector2(114, 0)
+theme_override_colors/font_shadow_color = Color(0.05490196, 0.07450981, 1, 0.49803922)
+theme_override_constants/shadow_outline_size = 0
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_styles/normal = SubResource("StyleBoxEmpty_lrihj")
+bbcode_enabled = true
+text = "* This is a sample texttt"
+tab_size = 2
+effect_offset = Vector2(30, 15)
+metadata/_edit_use_anchors_ = true
+
+[node name="TPBar" parent="." unique_id=1921588265 instance=ExtResource("10_d1p73")]
+unique_name_in_owner = true
+position = Vector2(50, 137)
+
+[node name="Helpers" type="Node2D" parent="." unique_id=1926037317]
+
+[node name="AttackPos" type="Marker2D" parent="Helpers" unique_id=110304123]
+position = Vector2(320, 163)
+
+[node name="UIAnimations" type="AnimationPlayer" parent="." unique_id=327431266]
+unique_name_in_owner = true
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_vii0q")
+autoplay = &"start"
+
+[node name="AttackFade" type="ColorRect" parent="." unique_id=485000389]
+z_index = -1
+custom_minimum_size = Vector2(640, 480)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 640.0
+offset_bottom = 480.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.64705884)
+
+[connection signal="turn_number_changed" from="." to="BattleDataManager" method="_on_battle_turn_number_changed"]
+[connection signal="turn_finished" from="TurnQueue" to="ActionPanel/CharacterStatusManager" method="_on_turn_queue_turn_finished"]
+[connection signal="turn_started" from="TurnQueue" to="ActionPanel/CharacterStatusManager" method="_on_turn_queue_turn_started"]

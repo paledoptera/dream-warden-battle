@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="CharacterStatsEnemy" format=3 uid="uid://dsnpoy8ro5it6"]
+
+[ext_resource type="Resource" uid="uid://counr7nqw075t" path="res://battle/enemies/warden/data/att_list_warden.tres" id="1_ls6l3"]
+[ext_resource type="Resource" uid="uid://dgabaq3y26n6k" path="res://battle/enemies/warden/data/check_warden.tres" id="2_lyorr"]
+[ext_resource type="Script" uid="uid://bq7mxvnbwq8of" path="res://resources/dialogue_components/dialogue_block.gd" id="3_6d4yv"]
+[ext_resource type="Resource" uid="uid://cld6dkn35vrx6" path="res://battle/enemies/warden/data/flavor_opening_warden.tres" id="4_6d4yv"]
+[ext_resource type="Resource" uid="uid://c4be7nfmiusm8" path="res://battle/enemies/warden/data/flavor_warden.tres" id="4_c3qyi"]
+[ext_resource type="Script" uid="uid://bpvsxd6yo0sl4" path="res://resources/character_stats/character_stats_enemy.gd" id="4_dbtjp"]
+[ext_resource type="Resource" uid="uid://dxq13dosllqvn" path="res://battle/enemies/warden/data/mercy_fail_warden.tres" id="5_ysdyg"]
+
+[resource]
+script = ExtResource("4_dbtjp")
+attack_list = ExtResource("1_ls6l3")
+check_text = ExtResource("2_lyorr")
+opening_line_singular = ExtResource("4_6d4yv")
+flavor_text_order = 1
+flavor_text = ExtResource("4_c3qyi")
+mercy_fail_text = ExtResource("5_ysdyg")
+unhittable = true
+name = "Dream Warden"
+hp_max = 4000
+hp = 4000
+attack = 0
+defense = 0
+magic = 0
+character_id = &"warden"
+metadata/_custom_type_script = "uid://bpvsxd6yo0sl4"

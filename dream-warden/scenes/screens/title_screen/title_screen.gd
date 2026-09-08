@@ -10,8 +10,6 @@ func _unhandled_key_input(event: InputEvent) -> void:
 			preload("uid://c0r0lc0kwmgif"), # stage_warden.tscn
 			[
 				preload("uid://b43pqrbag27nj"), # stats_hero_susie.tres
-				preload("uid://b43pqrbag27nj"), # stats_hero_susie.tres
-				preload("uid://b43pqrbag27nj"), # stats_hero_susie.tres
 			]
 		)
 	
@@ -27,3 +25,5 @@ func _unhandled_key_input(event: InputEvent) -> void:
 				preload("uid://232nf3wslcjx") # stats_hero_07j_fish.tres
 			]
 		)
+	if event.is_action_pressed("3"):
+		SceneLoader.change_scene(preload("uid://ddmjcvocbt7r1"))

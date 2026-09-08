@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://btf3v6p22qrjq"]
+
+[ext_resource type="Script" uid="uid://c0eum5nfaksrs" path="res://systems/animation/actor.gd" id="1_c8khq"]
+[ext_resource type="PackedScene" uid="uid://daeern1c5gfgq" path="res://battle/enemies/warden/actor/res/model/warden_model.tscn" id="1_w3vvi"]
+[ext_resource type="PackedScene" uid="uid://bp2185cc1j6v1" path="res://entities/dialogue/speech_bubble.tscn" id="2_c8khq"]
+[ext_resource type="PackedScene" uid="uid://tmloumrdebm2" path="res://entities/dialogue/speech_bubble/bubble_tail_right.tscn" id="3_41c81"]
+[ext_resource type="Texture2D" uid="uid://clm2bs5ii4mr6" path="res://entities/dialogue/speech_bubble/tail_small.png" id="4_h3mnu"]
+
+[node name="ActorWarden" type="Node2D" unique_id=1608169694]
+script = ExtResource("1_c8khq")
+id = &"warden"
+
+[node name="SpriteContainer" type="SubViewportContainer" parent="." unique_id=993463662]
+custom_minimum_size = Vector2(1000, 800)
+offset_right = 40.0
+offset_bottom = 40.0
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(-0.5, -0.5)
+offset_transform_visual_only = false
+focus_mode = 0
+mouse_filter = 2
+stretch = true
+stretch_shrink = 2
+
+[node name="SubViewport" type="SubViewport" parent="SpriteContainer" unique_id=459426953]
+transparent_bg = true
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+size = Vector2i(500, 400)
+render_target_update_mode = 4
+
+[node name="Camera3D" type="Camera3D" parent="SpriteContainer/SubViewport" unique_id=1928159042]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.94, 0)
+projection = 1
+size = 17.66
+
+[node name="warden" parent="SpriteContainer/SubViewport" unique_id=1864175887 instance=ExtResource("1_w3vvi")]
+transform = Transform3D(0.88753587, 0.026494635, -0.7260764, -0.19614853, 1.1124136, -0.19917445, 0.6995818, 0.27828535, 0.86530423, 0, -1.385, -5)
+
+[node name="SpeechBubble" parent="." unique_id=151941393 instance=ExtResource("2_c8khq")]
+offset_left = -54.0
+offset_top = -53.0
+offset_right = 46.0
+offset_bottom = -13.0
+offset_transform_position_ratio = Vector2(-1, -0.5)
+offset_transform_visual_only = false
+identifier = &"warden"
+
+[node name="Tail" parent="SpeechBubble" unique_id=719384932 instance=ExtResource("3_41c81")]
+layout_mode = 1
+
+[node name="Sprite2D" parent="SpeechBubble/Tail/CenterPos" parent_id_path=PackedInt32Array(719384932, 1995928829) index="0" unique_id=45751498]
+texture = ExtResource("4_h3mnu")
+
+[editable path="SpeechBubble/Tail"]

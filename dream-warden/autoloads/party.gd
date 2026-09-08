@@ -4,15 +4,17 @@ signal hero_updated(hero: Array[CharacterStats])
 signal enemy_updated(enemy: Array[CharacterStats])
 signal tp_changed(value: float)
 
+const DEFAULT_SOUL_SPEED: float = 120.0
+
 var tp: float = 0.0:
 	set(value):
 		tp_changed.emit(value)
 		tp = value
 
-var soul_speed: float
+var soul_speed: float = DEFAULT_SOUL_SPEED
 
 
-var hero: Array[CharacterStats] = [preload("uid://b43pqrbag27nj"), preload("uid://b43pqrbag27nj"), preload("uid://b43pqrbag27nj")]:
+var hero: Array[CharacterStats] = [preload("uid://b43pqrbag27nj")]:
 	set(value):
 		hero = value
 		hero_updated.emit()

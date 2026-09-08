@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://63r6fhdgqubr"]
+
+[ext_resource type="Script" uid="uid://bisu8d38by8b5" path="res://battle/bullets/bullet.gd" id="1_e00ux"]
+[ext_resource type="Texture2D" uid="uid://24liblwr0d2p" path="res://battle/enemies/warden/attacks/parry/0_rings/res/rune_delta.png" id="2_e00ux"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_74fs8"]
+radius = 2.5
+
+[node name="DiamondBulletAttackable" type="Area2D" unique_id=194047947]
+scale = Vector2(2, 2)
+collision_layer = 2
+script = ExtResource("1_e00ux")
+damage = 9
+graze_points = 15.0
+destructible = true
+attackable = true
+velocity = Vector2(150, 0)
+life_time = 4.0
+angular_velocity = 50.0
+rotate_sprite = true
+metadata/_custom_type_script = "uid://bisu8d38by8b5"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=419109947]
+modulate = Color(0, 1, 1, 1)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_e00ux")
+offset = Vector2(0, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1331419005]
+shape = SubResource("CircleShape2D_74fs8")

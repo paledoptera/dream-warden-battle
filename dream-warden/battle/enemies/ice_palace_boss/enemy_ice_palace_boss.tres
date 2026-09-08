@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="CharacterStatsEnemy" format=3 uid="uid://drqjfytfhj3kc"]
+
+[ext_resource type="Script" uid="uid://bq7mxvnbwq8of" path="res://resources/dialogue_components/dialogue_block.gd" id="1_3b2i2"]
+[ext_resource type="Script" uid="uid://caqnjjh4u2r54" path="res://battle/system/resources/attack.gd" id="1_8xdrs"]
+[ext_resource type="Script" uid="uid://bpvsxd6yo0sl4" path="res://resources/character_stats/character_stats_enemy.gd" id="1_gstsc"]
+[ext_resource type="PackedScene" uid="uid://cuwui318cvb75" path="res://battle/enemies/warden/attacks/normal/0_wings/wings_attack.tscn" id="2_c25d6"]
+[ext_resource type="Script" uid="uid://emdpqbj1xvm7" path="res://battle/system/resources/attack_block.gd" id="2_hsrht"]
+[ext_resource type="Script" uid="uid://cci227fj67d4u" path="res://resources/dialogue_components/markers/_dialogue_marker.gd" id="4_c25d6"]
+[ext_resource type="Script" uid="uid://m17i7j602jax" path="res://resources/dialogue_components/dialogue_string.gd" id="5_n6pv2"]
+[ext_resource type="AudioStream" uid="uid://c3m6sxg7kebei" path="res://shared/sound_effects/snd_text.wav" id="6_rkvk0"]
+
+[sub_resource type="Resource" id="Resource_37nmq"]
+script = ExtResource("1_8xdrs")
+scene = ExtResource("2_c25d6")
+metadata/_custom_type_script = "uid://caqnjjh4u2r54"
+
+[sub_resource type="Resource" id="Resource_vtipj"]
+script = ExtResource("2_hsrht")
+attacks = Array[ExtResource("1_8xdrs")]([SubResource("Resource_37nmq")])
+metadata/_custom_type_script = "uid://emdpqbj1xvm7"
+
+[sub_resource type="Resource" id="Resource_2c8ds"]
+script = ExtResource("5_n6pv2")
+text = "* It's the boss of the ice palace"
+flag_value = null
+metadata/_custom_type_script = "uid://m17i7j602jax"
+
+[resource]
+script = ExtResource("1_gstsc")
+attack_list = SubResource("Resource_vtipj")
+opening_line_singular = SubResource("Resource_2c8ds")
+name = "Ice Palace Boss"
+hp_max = 2000
+hp = 2000
+attack = 0
+defense = 0
+magic = 0
+character_id = &"icepalaceboss"
+metadata/_custom_type_script = "uid://bpvsxd6yo0sl4"

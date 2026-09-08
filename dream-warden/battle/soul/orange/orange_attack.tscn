@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://ymvde2d86kvp"]
+
+[ext_resource type="Script" uid="uid://dfn7tn1rbv1w5" path="res://battle/soul/orange/orange_attack.gd" id="1_mmwhu"]
+[ext_resource type="PackedScene" uid="uid://c3baha85ndj6f" path="res://battle/soul/battlebox.tscn" id="2_73g2k"]
+[ext_resource type="PackedScene" uid="uid://w4vad3six4bp" path="res://battle/soul/soul/soul_orange.tscn" id="4_72rbo"]
+
+[node name="OrangeAttack" type="Node2D" unique_id=1160995327 node_paths=PackedStringArray("soul")]
+script = ExtResource("1_mmwhu")
+soul = NodePath("SoulOrange")
+
+[node name="Battlebox" parent="." unique_id=445257611 instance=ExtResource("2_73g2k")]
+offset_right = 700.0
+offset_bottom = 225.0
+
+[node name="SoulOrange" parent="." unique_id=443094051 instance=ExtResource("4_72rbo")]
+direction = Vector2(1, 0)
+
+[node name="TrackBullets" type="Node2D" parent="." unique_id=1777001450]

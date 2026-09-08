@@ -1,0 +1,138 @@
+[gd_scene format=3 uid="uid://ctxt1iyae8oay"]
+
+[ext_resource type="PackedScene" uid="uid://ymvde2d86kvp" path="res://battle/soul/orange/orange_attack.tscn" id="1_hd2qw"]
+[ext_resource type="Script" uid="uid://db4hywqkarw1k" path="res://battle/enemies/warden/attacks/unused/1_wings_rush/orange_wings_attack.gd" id="2_b5mfs"]
+[ext_resource type="PackedScene" uid="uid://b0w27gyj83vuv" path="res://battle/soul/orange/orange_track_vertical.tscn" id="2_kd0sq"]
+[ext_resource type="Script" uid="uid://dm837u7nkploy" path="res://battle/bullets/bullet_spawner.gd" id="3_helnr"]
+[ext_resource type="PackedScene" uid="uid://c5hqwl5y42r0r" path="res://battle/enemies/warden/attacks/unused/1_wings_rush/bullets/orange_wings_bullet.tscn" id="5_b5mfs"]
+[ext_resource type="PackedScene" uid="uid://bbjrd4tlg63vq" path="res://battle/enemies/warden/attacks/unused/1_wings_rush/bullets/creeping_bullet.tscn" id="6_2k3qg"]
+[ext_resource type="PackedScene" uid="uid://cp21k73fi0r5i" path="res://battle/enemies/warden/attacks/unused/1_wings_rush/bullets/orange_wings_dash_bullet.tscn" id="6_jjnou"]
+[ext_resource type="Script" uid="uid://cale785y6cvnn" path="res://battle/soul/orange/scripts/end_attack_area.gd" id="8_2qgdd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
+size = Vector2(600, 200)
+
+[node name="OrangeWingsAttack" unique_id=1160995327 node_paths=PackedStringArray("spawnpoints") instance=ExtResource("1_hd2qw")]
+script = ExtResource("2_b5mfs")
+spawnpoints = [NodePath("Center"), NodePath("SideSwapper/Side")]
+
+[node name="Battlebox" parent="." index="0" unique_id=445257611]
+offset_right = 300.0
+offset_bottom = 700.0
+
+[node name="OrangeTrackVertical" parent="Battlebox" index="1" unique_id=1183339624 instance=ExtResource("2_kd0sq")]
+
+[node name="SoulOrange" parent="." index="1" unique_id=443094051]
+position = Vector2(0, 70)
+direction = Vector2(0, -1)
+
+[node name="Segment1" type="Node2D" parent="TrackBullets" parent_id_path=PackedInt32Array(1777001450) index="0" unique_id=500626702]
+position = Vector2(0, -248)
+
+[node name="DashWings1" parent="TrackBullets/Segment1" index="0" unique_id=1350055120 instance=ExtResource("6_jjnou")]
+position = Vector2(0, -195)
+scale = Vector2(0.5, 0.5)
+
+[node name="Wings1" parent="TrackBullets/Segment1" index="1" unique_id=64823786 instance=ExtResource("5_b5mfs")]
+position = Vector2(0, -287)
+scale = Vector2(2, 2)
+
+[node name="Wings2" parent="TrackBullets/Segment1" index="2" unique_id=707208269 instance=ExtResource("5_b5mfs")]
+position = Vector2(0, -542)
+
+[node name="Wings4" parent="TrackBullets/Segment1" index="3" unique_id=1263998072 instance=ExtResource("5_b5mfs")]
+position = Vector2(79, -943)
+
+[node name="DashWings2" parent="TrackBullets/Segment1" index="4" unique_id=1012034078 instance=ExtResource("6_jjnou")]
+position = Vector2(80, -1116)
+scale = Vector2(0.5, 0.5)
+
+[node name="Wings5" parent="TrackBullets/Segment1/DashWings2" index="3" unique_id=1927036821 instance=ExtResource("5_b5mfs")]
+position = Vector2(-4, -102)
+scale = Vector2(3, 3)
+
+[node name="DashWings3" parent="TrackBullets/Segment1" index="5" unique_id=681137653 instance=ExtResource("6_jjnou")]
+position = Vector2(2, -1849)
+scale = Vector2(0.5, 0.5)
+
+[node name="DashWings4" parent="TrackBullets/Segment1" index="6" unique_id=1400372809 instance=ExtResource("6_jjnou")]
+position = Vector2(40, -766)
+scale = Vector2(0.5, 0.5)
+
+[node name="DashWings5" parent="TrackBullets/Segment1" index="7" unique_id=328858543 instance=ExtResource("6_jjnou")]
+position = Vector2(78, -1447)
+scale = Vector2(0.5, 0.5)
+
+[node name="Segment2" type="Node2D" parent="TrackBullets" parent_id_path=PackedInt32Array(1777001450) index="1" unique_id=122821761]
+position = Vector2(0, -1492)
+
+[node name="Wings4" parent="TrackBullets/Segment2" index="0" unique_id=1338579236 instance=ExtResource("5_b5mfs")]
+position = Vector2(26, -468)
+
+[node name="Segment3" type="Node2D" parent="TrackBullets" parent_id_path=PackedInt32Array(1777001450) index="2" unique_id=340964676]
+position = Vector2(-27, -2560)
+
+[node name="Area2D" type="Area2D" parent="TrackBullets/Segment3" index="0" unique_id=1456849224]
+position = Vector2(27, -1041)
+script = ExtResource("8_2qgdd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TrackBullets/Segment3/Area2D" index="0" unique_id=1840252663]
+shape = SubResource("RectangleShape2D_g4v7s")
+
+[node name="DashWings1" parent="TrackBullets/Segment3" index="1" unique_id=1171837801 instance=ExtResource("6_jjnou")]
+position = Vector2(0, -61)
+scale = Vector2(0.5, 0.5)
+
+[node name="Wings1" parent="TrackBullets/Segment3" index="2" unique_id=1350384210 instance=ExtResource("5_b5mfs")]
+position = Vector2(0, -131)
+scale = Vector2(1.5, 1.5)
+
+[node name="DashWings2" parent="TrackBullets/Segment3" index="3" unique_id=10632778 instance=ExtResource("6_jjnou")]
+position = Vector2(44.999992, -380)
+scale = Vector2(0.5, 0.5)
+
+[node name="DashWings4" parent="TrackBullets/Segment3" index="4" unique_id=639983884 instance=ExtResource("6_jjnou")]
+position = Vector2(-4.0000076, 281)
+scale = Vector2(0.5, 0.5)
+
+[node name="DashWings3" parent="TrackBullets/Segment3" index="5" unique_id=75704022 instance=ExtResource("6_jjnou")]
+position = Vector2(41.999992, -476)
+
+[node name="Wings5" parent="TrackBullets/Segment3" index="6" unique_id=1387052822 instance=ExtResource("5_b5mfs")]
+position = Vector2(42.999992, -431)
+scale = Vector2(1.5, 1.5)
+
+[node name="Wings6" parent="TrackBullets/Segment3" index="7" unique_id=1535555326 instance=ExtResource("5_b5mfs")]
+position = Vector2(42.999992, -537)
+scale = Vector2(1.5, 1.5)
+
+[node name="DashWings5" parent="TrackBullets/Segment3" index="8" unique_id=1451997560 instance=ExtResource("6_jjnou")]
+position = Vector2(41.999992, -586)
+scale = Vector2(0.5, 0.5)
+
+[node name="Wings7" parent="TrackBullets/Segment3" index="9" unique_id=564645824 instance=ExtResource("5_b5mfs")]
+position = Vector2(-6.0000076, 230)
+scale = Vector2(1.5, 1.5)
+
+[node name="CreepingBullet" parent="TrackBullets" parent_id_path=PackedInt32Array(1777001450) index="3" unique_id=199743647 instance=ExtResource("6_2k3qg")]
+position = Vector2(0, 315)
+
+[node name="Camera2D" type="Camera2D" parent="." index="3" unique_id=1438094131]
+
+[node name="Center" type="Marker2D" parent="." index="4" unique_id=1505501741]
+position = Vector2(0, -214)
+
+[node name="SideSwapper" type="Node2D" parent="." index="5" unique_id=532087788]
+position = Vector2(0, -153)
+
+[node name="Side" type="Marker2D" parent="SideSwapper" index="0" unique_id=1449610555]
+position = Vector2(77, -100)
+
+[node name="BulletSpawner" type="Node2D" parent="." index="6" unique_id=804975394]
+position = Vector2(0, -283)
+script = ExtResource("3_helnr")
+bullet = ExtResource("5_b5mfs")
+
+[node name="DashBulletSpawner" type="Node2D" parent="." index="7" unique_id=260364629]
+script = ExtResource("3_helnr")
+bullet = ExtResource("6_jjnou")

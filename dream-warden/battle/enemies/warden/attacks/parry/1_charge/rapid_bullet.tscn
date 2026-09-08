@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://c481m54u0w1nd"]
+
+[ext_resource type="Script" uid="uid://bisu8d38by8b5" path="res://battle/bullets/bullet.gd" id="1_h4f0f"]
+[ext_resource type="Texture2D" uid="uid://271mufhyxn72" path="res://battle/enemies/warden/attacks/parry/1_charge/rapid_bullet.png" id="2_oaqm4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6htq7"]
+radius = 2.5
+
+[node name="RapidBullet" type="Area2D" unique_id=194047947]
+scale = Vector2(2, 2)
+collision_layer = 2
+script = ExtResource("1_h4f0f")
+damage = 3
+destructible = true
+velocity = Vector2(150, 0)
+life_time = 4.0
+linear_acceleration = 1.005
+rotate_sprite = true
+metadata/_custom_type_script = "uid://bisu8d38by8b5"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=419109947]
+texture = ExtResource("2_oaqm4")
+offset = Vector2(6, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1331419005]
+shape = SubResource("CircleShape2D_6htq7")

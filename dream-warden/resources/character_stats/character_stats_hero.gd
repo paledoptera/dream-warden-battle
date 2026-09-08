@@ -5,3 +5,4 @@ class_name CharacterStatsHero extends CharacterStats
 @export var armors: Array[Equippable]
 @export_group("Spells")
 @export var spells: Array[Spell]
+var downed: bool = false

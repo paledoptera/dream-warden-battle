@@ -1,0 +1,46 @@
+[gd_resource type="Resource" script_class="DialogueBlock" format=3 uid="uid://c4be7nfmiusm8"]
+
+[ext_resource type="Script" uid="uid://bq7mxvnbwq8of" path="res://resources/dialogue_components/dialogue_block.gd" id="1_ws7t1"]
+[ext_resource type="Script" uid="uid://m17i7j602jax" path="res://resources/dialogue_components/dialogue_string.gd" id="2_rpdqo"]
+[ext_resource type="Script" uid="uid://cci227fj67d4u" path="res://resources/dialogue_components/markers/_dialogue_marker.gd" id="3_re0s0"]
+[ext_resource type="AudioStream" uid="uid://c3m6sxg7kebei" path="res://shared/sound_effects/snd_text.wav" id="4_aud06"]
+
+[sub_resource type="Resource" id="Resource_ws7t1"]
+resource_name = "Wings"
+script = ExtResource("2_rpdqo")
+text = "* Iridescent feathers fall around you.
+* The wind is howling..."
+require_input = false
+flag_value = null
+metadata/_custom_type_script = "uid://m17i7j602jax"
+
+[sub_resource type="Resource" id="Resource_rpdqo"]
+resource_name = "Zaps"
+script = ExtResource("2_rpdqo")
+text = "* Blinding flashes light up the sky."
+require_input = false
+flag_value = null
+metadata/_custom_type_script = "uid://m17i7j602jax"
+
+[sub_resource type="Resource" id="Resource_r8pq3"]
+resource_name = "Revolve"
+script = ExtResource("2_rpdqo")
+text = "* The world revolves around you...
+* Stars streak across the sky."
+require_input = false
+flag_value = null
+metadata/_custom_type_script = "uid://m17i7j602jax"
+
+[sub_resource type="Resource" id="Resource_qkxm6"]
+resource_name = "Rush"
+script = ExtResource("2_rpdqo")
+text = "* The atmosphere thins.
+* Your hair stands on end."
+require_input = false
+flag_value = null
+metadata/_custom_type_script = "uid://m17i7j602jax"
+
+[resource]
+script = ExtResource("1_ws7t1")
+text = Array[ExtResource("2_rpdqo")]([SubResource("Resource_ws7t1"), SubResource("Resource_rpdqo"), SubResource("Resource_r8pq3"), SubResource("Resource_qkxm6")])
+metadata/_custom_type_script = "uid://bq7mxvnbwq8of"

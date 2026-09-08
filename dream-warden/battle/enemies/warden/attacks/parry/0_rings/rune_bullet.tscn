@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://cihquislad5ol"]
+
+[ext_resource type="Script" uid="uid://bisu8d38by8b5" path="res://battle/bullets/bullet.gd" id="1_ysdyb"]
+[ext_resource type="Texture2D" uid="uid://24liblwr0d2p" path="res://battle/enemies/warden/attacks/parry/0_rings/res/rune_delta.png" id="2_loowa"]
+
+[sub_resource type="GDScript" id="GDScript_g4v7s"]
+resource_name = "Sprite"
+script/source = "extends Sprite2D
+
+func _process(delta: float) -> void:
+	global_scale = Vector2.ONE
+	global_rotation = 0.0
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g3r7h"]
+radius = 4.0
+
+[node name="RuneBullet" type="Area2D" unique_id=194047947]
+scale = Vector2(2, 2)
+collision_layer = 2
+script = ExtResource("1_ysdyb")
+damage = 9
+graze_points = 0.0
+destructible = true
+life_time = -1.0
+metadata/_custom_type_script = "uid://bisu8d38by8b5"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=419109947]
+texture = ExtResource("2_loowa")
+offset = Vector2(0, -3)
+script = SubResource("GDScript_g4v7s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1331419005]
+shape = SubResource("CircleShape2D_g3r7h")

@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="DialogueString" format=3 uid="uid://cld6dkn35vrx6"]
+
+[ext_resource type="Script" uid="uid://cci227fj67d4u" path="res://resources/dialogue_components/markers/_dialogue_marker.gd" id="1_virlh"]
+[ext_resource type="Script" uid="uid://b8tmchw2csyvn" path="res://resources/dialogue_components/markers/gradient_marker.gd" id="2_s15c7"]
+[ext_resource type="Texture2D" uid="uid://cjff5uju5g06g" path="res://resources/dialogue_components/text_effects/res/yellow_gradient.tres" id="3_t01w4"]
+[ext_resource type="Texture2D" uid="uid://bhdwk28mf7hoe" path="res://resources/dialogue_components/text_effects/res/green_gradient.tres" id="4_2bevr"]
+[ext_resource type="Script" uid="uid://m17i7j602jax" path="res://resources/dialogue_components/dialogue_string.gd" id="5_i5dq6"]
+[ext_resource type="AudioStream" uid="uid://c3m6sxg7kebei" path="res://shared/sound_effects/snd_text.wav" id="6_qviam"]
+
+[sub_resource type="Resource" id="Resource_k4cw7"]
+script = ExtResource("2_s15c7")
+texture = ExtResource("3_t01w4")
+start_char = 41
+end_char = 43
+metadata/_custom_type_script = "uid://b8tmchw2csyvn"
+
+[sub_resource type="Resource" id="Resource_h8ayj"]
+script = ExtResource("2_s15c7")
+texture = ExtResource("4_2bevr")
+start_char = 68
+metadata/_custom_type_script = "uid://b8tmchw2csyvn"
+
+[resource]
+script = ExtResource("5_i5dq6")
+text = "* Iridescent feathers fall around you.
+* TP Gain reduced outside of ???"
+require_input = false
+markers = Array[ExtResource("1_virlh")]([SubResource("Resource_k4cw7"), SubResource("Resource_h8ayj")])
+flag_value = null
+metadata/_custom_type_script = "uid://m17i7j602jax"

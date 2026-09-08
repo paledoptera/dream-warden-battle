@@ -73,4 +73,5 @@ hp = 460
 attack = 40
 defense = 2
 magic = 5
+character_id = &"susie"
 metadata/_custom_type_script = "uid://cjlmox2rkhaa4"

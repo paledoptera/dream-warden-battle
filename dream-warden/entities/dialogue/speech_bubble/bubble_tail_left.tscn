@@ -12,9 +12,11 @@ offset_transform_enabled = true
 offset_transform_position = Vector2(-11, 0)
 offset_transform_position_ratio = Vector2(-0.5, 0)
 offset_transform_visual_only = false
+mouse_filter = 2
 
 [node name="CenterPos" type="Control" parent="." unique_id=1995928829]
 layout_mode = 2
+mouse_filter = 2
 
 [node name="Sprite2D" type="Sprite2D" parent="CenterPos" unique_id=45751498]
 texture = ExtResource("1_td0y6")

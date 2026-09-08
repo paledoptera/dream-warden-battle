@@ -1,0 +1,39 @@
+[gd_resource type="Resource" script_class="AttackList" format=3 uid="uid://counr7nqw075t"]
+
+[ext_resource type="Script" uid="uid://caqnjjh4u2r54" path="res://battle/system/resources/attack.gd" id="1_yolso"]
+[ext_resource type="PackedScene" uid="uid://cuwui318cvb75" path="res://battle/enemies/warden/attacks/normal/0_wings/wings_attack.tscn" id="2_yolso"]
+[ext_resource type="PackedScene" uid="uid://q3t3r8c6t065" path="res://battle/enemies/warden/attacks/normal/1_zaps/zap_attack.tscn" id="3_sr53u"]
+[ext_resource type="PackedScene" uid="uid://cp8jvyn2dnnpv" path="res://battle/enemies/warden/attacks/normal/2_revolve/revolve_attack.tscn" id="4_3b7m7"]
+[ext_resource type="PackedScene" uid="uid://bqj31vq3siu3" path="res://battle/enemies/warden/attacks/normal/4_laser_knives/laser_knives_attack.tscn" id="5_cf3p1"]
+[ext_resource type="Script" uid="uid://emdpqbj1xvm7" path="res://battle/system/resources/attack_block.gd" id="6_rplur"]
+
+[sub_resource type="Resource" id="Resource_yolso"]
+resource_name = "Wings"
+script = ExtResource("1_yolso")
+scene = ExtResource("2_yolso")
+metadata/_custom_type_script = "uid://caqnjjh4u2r54"
+
+[sub_resource type="Resource" id="Resource_sr53u"]
+resource_name = "Zaps"
+script = ExtResource("1_yolso")
+scene = ExtResource("3_sr53u")
+length = 9.0
+metadata/_custom_type_script = "uid://caqnjjh4u2r54"
+
+[sub_resource type="Resource" id="Resource_3b7m7"]
+resource_name = "Revolve"
+script = ExtResource("1_yolso")
+scene = ExtResource("4_3b7m7")
+metadata/_custom_type_script = "uid://caqnjjh4u2r54"
+
+[sub_resource type="Resource" id="Resource_cf3p1"]
+resource_name = "LaserKnives"
+script = ExtResource("1_yolso")
+scene = ExtResource("5_cf3p1")
+metadata/_custom_type_script = "uid://caqnjjh4u2r54"
+
+[resource]
+script = ExtResource("6_rplur")
+attack_order = 1
+attacks = Array[ExtResource("1_yolso")]([SubResource("Resource_yolso"), SubResource("Resource_sr53u"), SubResource("Resource_3b7m7"), SubResource("Resource_cf3p1")])
+metadata/_custom_type_script = "uid://emdpqbj1xvm7"
