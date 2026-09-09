@@ -76,13 +76,14 @@ scale = Vector2(3, 3)
 script = ExtResource("2_fxlxd")
 bullet = ExtResource("5_iersl")
 
-[node name="BulletSpawnerMega" type="Node2D" parent="." unique_id=1644954684 node_paths=PackedStringArray("spawnpoints")]
+[node name="BulletSpawnerMega" type="Node2D" parent="." unique_id=1644954684 node_paths=PackedStringArray("spawnpoints", "parent")]
 visible = false
 modulate = Color(1, 1, 1, 0.21568628)
 scale = Vector2(3, 3)
 script = ExtResource("2_b07jm")
 bullet = ExtResource("3_u2qme")
 spawnpoints = [NodePath("Spawn1"), NodePath("Spawn2"), NodePath("Spawn3"), NodePath("Spawn4"), NodePath("Spawn5"), NodePath("Spawn6"), NodePath("Spawn7")]
+parent = NodePath("..")
 
 [node name="Spawn1" type="Marker2D" parent="BulletSpawnerMega" unique_id=1018569113]
 rotation = -1.5707964

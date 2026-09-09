@@ -12,6 +12,7 @@ var tp: float = 0.0:
 		tp = value
 
 var soul_speed: float = DEFAULT_SOUL_SPEED
+var soul_bearer: StringName = "susie" # this is for animations
 
 
 var hero: Array[CharacterStats] = [preload("uid://b43pqrbag27nj")]:
@@ -30,3 +31,11 @@ func add_hero(character: CharacterStats) -> void:
 
 func add_enemy(enemy: CharacterStats) -> void:
 	enemy.append(enemy)
+
+func get_target_hero(target: int) -> CharacterStatsHero:
+	target = clampi(target,0,Party.hero.size()-1)
+	return Party.hero[target]
+
+func get_target_enemy(target: int) -> CharacterStatsEnemy:
+	target = clampi(target,0,Party.enemy.size()-1)
+	return Party.enemy[target]

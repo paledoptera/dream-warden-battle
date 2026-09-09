@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="ItemConsumable" format=3 uid="uid://cilknrdus62he"]
+
+[ext_resource type="Script" uid="uid://btrgo1tokswmg" path="res://resources/effects/_effect.gd" id="1_a4bka"]
+[ext_resource type="Script" uid="uid://dop4vic03r4nv" path="res://resources/effects/add_status_effect.gd" id="2_m8igo"]
+[ext_resource type="Script" uid="uid://cx2fxco6dtvj1" path="res://resources/effects/status_effects/status_fast_soul.gd" id="3_a4bka"]
+[ext_resource type="Script" uid="uid://yegntalaquou" path="res://resources/usables/items/consumables/_item_consumable.gd" id="4_1q5d6"]
+[ext_resource type="Script" uid="uid://wrd5a758xsyj" path="res://resources/effects/heal_effect.gd" id="4_m8igo"]
+[ext_resource type="Script" uid="uid://cci227fj67d4u" path="res://resources/dialogue_components/markers/_dialogue_marker.gd" id="5_inqm2"]
+[ext_resource type="Script" uid="uid://m17i7j602jax" path="res://resources/dialogue_components/dialogue_string.gd" id="6_8lpfq"]
+[ext_resource type="AudioStream" uid="uid://c3m6sxg7kebei" path="res://shared/sound_effects/snd_text.wav" id="7_rxvn1"]
+
+[sub_resource type="Resource" id="Resource_4rvf0"]
+script = ExtResource("3_a4bka")
+name = &"KnightSoulSpeed"
+turn_duration = -1
+metadata/_custom_type_script = "uid://cx2fxco6dtvj1"
+
+[sub_resource type="Resource" id="Resource_70e8t"]
+script = ExtResource("2_m8igo")
+status = SubResource("Resource_4rvf0")
+metadata/_custom_type_script = "uid://dop4vic03r4nv"
+
+[sub_resource type="Resource" id="Resource_0lcqq"]
+script = ExtResource("4_m8igo")
+amount = 60
+metadata/_custom_type_script = "uid://wrd5a758xsyj"
+
+[sub_resource type="Resource" id="Resource_1q5d6"]
+script = ExtResource("6_8lpfq")
+text = "* %s drank SkyTea!
+* Soul speed was increased."
+flag_value = null
+metadata/_custom_type_script = "uid://m17i7j602jax"
+
+[resource]
+script = ExtResource("4_1q5d6")
+name = &"SkyTea"
+description = "Increase 
+SPEED
++ 60HP"
+effects = Array[ExtResource("1_a4bka")]([SubResource("Resource_70e8t"), SubResource("Resource_0lcqq")])
+use_text = SubResource("Resource_1q5d6")
+metadata/_custom_type_script = "uid://yegntalaquou"

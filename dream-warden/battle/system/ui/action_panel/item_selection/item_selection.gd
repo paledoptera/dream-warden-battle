@@ -1,7 +1,7 @@
 class_name ItemSelection extends Control
 
 var items: Array[Item]
-var hero: Hero
+#var hero: Hero
 #
 
 func _ready() -> void:
@@ -16,7 +16,7 @@ func _ready() -> void:
 			continue
 		
 		option.add_to_group("menu_option")
-		option.text = items[i].title
+		option.text = items[i].name
 
 func _on_selected_changed(current: int, previous: int):
 	$Sprite2D.global_position = $Options.get_child(current).global_position+Vector2(16.0,33.0)
@@ -26,6 +26,7 @@ func _on_selected_changed(current: int, previous: int):
 	
 
 func _on_accepted() -> void:
-	var item = items[Menu.selected]
+	#var item = items[Menu.selected]
+	var item = null
 	EventBus.battle_event.emit("item_prepare",item)
 	#PlayerInventory.use_item(Menu.selected,hero,hero)

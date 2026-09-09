@@ -5,11 +5,10 @@
 [ext_resource type="Script" uid="uid://cc5k140pvhkn2" path="res://common/rpg_menu_button.gd" id="3_svpqt"]
 [ext_resource type="Texture2D" uid="uid://wy7dhu8gvr8c" path="res://battle/soul/soul/res/soul.png" id="5_5qhq5"]
 
-[node name="HeroSelection" type="Control" unique_id=1693749241 node_paths=PackedStringArray("options_parent")]
+[node name="HeroSelection" type="Control" unique_id=1693749241]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_v42ql")
-options_parent = NodePath("")
 
 [node name="Options" type="VBoxContainer" parent="." unique_id=834588578]
 layout_mode = 0

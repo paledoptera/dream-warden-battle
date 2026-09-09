@@ -2,6 +2,7 @@ class_name Battle extends CanvasLayer
 
 signal turn_state_changed
 signal turn_number_changed(val: int)
+signal action_reversed
 
 const SCENE = preload("uid://cxu6vtdp70cut")
 
@@ -21,7 +22,7 @@ var waiting_on_minigame: bool = false
 var minigame: Node
 var attack_scenes: Array[Node]
 
-static func start(enemies: Array[CharacterStats], stage: PackedScene, party: Array[CharacterStats] = Party.active_party) -> Node:
+static func start(enemies: Array[CharacterStats], stage: PackedScene, party: Array[CharacterStats] = Party.active_party, soul_bearer: StringName = "") -> Node:
 	var scene = SceneLoader.change_scene(SCENE)
 	
 	Party.enemy.clear()
@@ -30,6 +31,11 @@ static func start(enemies: Array[CharacterStats], stage: PackedScene, party: Arr
 	if party != Party.hero:
 		Party.hero.clear()
 		Party.hero = party
+	
+	if soul_bearer == "":
+		Party.soul_bearer = Party.hero[0].character_id
+	else:
+		Party.soul_bearer = soul_bearer
 	
 	var stage_inst = stage.instantiate()
 	scene.add_child(stage_inst)
@@ -43,23 +49,41 @@ func _ready() -> void:
 	turn_state = TurnState.PLAYER
 
 	$TurnQueue.turn_finished.connect(check_turn)
+	$TurnQueue.reverse_action.connect(reverse_action)
 	%CharacterStatusManager.reposition_action_menu.connect(_reposition_action_menu)
 	
 	EventBus.battle_event.connect(battle_event)
 	EventBus.enter_fight_minigame.connect(fight_minigame_start)
 	EventBus.hero_attack.connect(hero_attack)
+	
+	Party.tp_changed.connect(%TPBar._update_tp)
 
 func check_turn(index: int) -> void:
 	await get_tree().physics_frame
 	$TurnQueue.play_turn()
 
-
+func reverse_action(index: int) -> void:
+	var character = $TurnQueue.get_child(index)
+	
+	var action: BattleEvent
+	for i in %EventQueue.queue:
+		if i.character == index:
+			action = i
+			break
+	
+	if not action:
+		return
+	
+	%EventQueue.add_event(action,true)
+	
+	action_reversed.emit()
+	
 func _on_turn_state_changed(value: TurnState):
 	match value:
 		TurnState.PLAYER:
 			await get_tree().process_frame
 			turn += 1
-			Dialogue.display_text("* test")
+			start_flavor_text()
 			open_action_menu()
 			refresh_queue()
 			await $TurnQueue.all_turns_finished
@@ -75,24 +99,21 @@ func _on_turn_state_changed(value: TurnState):
 				await EventBus.end_fight_minigame
 			
 			turn_state = TurnState.ENEMY
-			
-			
-			print("event phase")
-			# act/minigame
-			# s-event
-			# spare = spell = item
-			# attack
-			pass
 		
 		TurnState.ENEMY:
 			print("enemy phase")
+			
 			# check if dead
 				# end battle
+			
+			var dialogue = %BattleDataManager.get_dialogue()
+			if dialogue:
+				Dialogue.display_text(dialogue)
+				await Dialogue.text_finished
+				Dialogue.clear_text.emit()
+
 			# do dialogue / cutscenes
 			enemy_attack(self) # do attack
-			
-			# end attack
-			pass
 
 func _reposition_action_menu(index: int) -> void:
 	action_menu.stats_tab = %CharacterStatusManager.get_child(index)
@@ -101,6 +122,7 @@ func _reposition_action_menu(index: int) -> void:
 func _on_action_selected(action_type: int, option: int, target: int) -> void:
 	var event: BattleEvent = get_action_data(action_type, option, target)
 	$TurnQueue.active_character.action = event
+	event.character = $TurnQueue.active_character.get_index()
 	%EventQueue.add_event(event, false)
 
 	$TurnQueue.active_character.turn_finished.emit()
@@ -108,6 +130,7 @@ func _on_action_selected(action_type: int, option: int, target: int) -> void:
 
 func _on_action_cancel_turn() -> void:
 	$TurnQueue.goto_prev_turn()
+	
 	pass
 
 func open_action_menu() -> void:
@@ -283,4 +306,18 @@ func animate_soul_transition(attack_scene: Node, end: bool):
 	transition.global_position = $Helpers/AttackPos.global_position
 	transition.animate_soul_transition(end)
 	await transition.done
+
+func start_flavor_text() -> void:
+	%DialogueBox.show()
 	
+	var dialogue_line: DialogueString
+	
+	if turn == 0:
+		dialogue_line = %BattleDataManager.get_opening_line()
+	else:
+		dialogue_line = %BattleDataManager.get_flavor_text()
+	
+	if not dialogue_line:
+		dialogue_line = DialogueString.new("* It is known.")
+	
+	Dialogue.display_text(dialogue_line)

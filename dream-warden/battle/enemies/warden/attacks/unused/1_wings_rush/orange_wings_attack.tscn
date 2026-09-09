@@ -12,9 +12,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(600, 200)
 
-[node name="OrangeWingsAttack" unique_id=1160995327 node_paths=PackedStringArray("spawnpoints") instance=ExtResource("1_hd2qw")]
+[node name="OrangeWingsAttack" unique_id=1160995327 instance=ExtResource("1_hd2qw")]
 script = ExtResource("2_b5mfs")
-spawnpoints = [NodePath("Center"), NodePath("SideSwapper/Side")]
 
 [node name="Battlebox" parent="." index="0" unique_id=445257611]
 offset_right = 300.0

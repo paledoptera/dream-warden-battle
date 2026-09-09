@@ -78,14 +78,13 @@ scroll_offset = Vector2(213, 0)
 
 [node name="Camera2D" type="Camera2D" parent="." index="3" unique_id=2018025823]
 
-[node name="OrangeBulletSpawner" type="Node2D" parent="." index="4" unique_id=582303376 node_paths=PackedStringArray("track_bullets", "spawnpoints")]
+[node name="OrangeBulletSpawner" type="Node2D" parent="." index="4" unique_id=582303376 node_paths=PackedStringArray("track_bullets")]
 script = ExtResource("4_jvigc")
-track_bullets = NodePath("../TrackBullets")
 distance_interval = 100.0
-spawnpoints = [NodePath("../SpawnMarker1"), NodePath("../SpawnMarker2")]
 bullet = ExtResource("3_nu4q0")
 add_velocity_min = Vector2(-200, 0)
 add_velocity_max = Vector2(200, 0)
+track_bullets = NodePath("../TrackBullets")
 metadata/_custom_type_script = "uid://dm837u7nkploy"
 
 [node name="SpawnMarker1" type="Marker2D" parent="." index="5" unique_id=1828516284]

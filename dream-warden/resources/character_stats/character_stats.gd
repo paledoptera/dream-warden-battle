@@ -15,4 +15,4 @@ signal hp_changed(new_hp: int)
 @export var magic: int = 1
 @export_group("Misc")
 @export var character_id: StringName = "character"
-@export var status_effects: Array[bool]
+@export var status_effects: Array[StatusEffect]

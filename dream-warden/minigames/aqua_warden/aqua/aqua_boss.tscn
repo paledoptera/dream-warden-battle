@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://b7gbyko8v8bql"]
+
+[ext_resource type="Script" uid="uid://csgvuo8wv34sh" path="res://minigames/aqua_warden/aqua/boss.gd" id="1_n62ip"]
+[ext_resource type="PackedScene" uid="uid://daeern1c5gfgq" path="res://battle/enemies/warden/actor/res/model/warden_model.tscn" id="2_kkxv1"]
+[ext_resource type="Script" uid="uid://16h0y50oyjvy" path="res://battle/bullets/bullet_spawner_3d.gd" id="3_1ygx1"]
+[ext_resource type="PackedScene" uid="uid://ds4vcmkvdeqkj" path="res://minigames/aqua_warden/aqua/bullets/diamond_bullet_3d.tscn" id="4_locfk"]
+[ext_resource type="PackedScene" uid="uid://ckvgqgq0rec3h" path="res://minigames/aqua_warden/aqua/bullets/diamond_bullet_parryable_3d.tscn" id="5_s1sao"]
+
+[sub_resource type="Animation" id="Animation_yptke"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_8yviw"]
+resource_name = "new_animation"
+length = 3.0
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xpa20"]
+_data = {
+&"RESET": SubResource("Animation_yptke"),
+&"hover": SubResource("Animation_8yviw")
+}
+
+[node name="Boss" type="Node3D" unique_id=1593148642 node_paths=PackedStringArray("model")]
+script = ExtResource("1_n62ip")
+model = NodePath("warden")
+
+[node name="LookatBase" type="Node3D" parent="." unique_id=748067545]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19, 0)
+
+[node name="Targeter" type="Node3D" parent="." unique_id=1179034929]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.11935425, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1258161766]
+libraries/ = SubResource("AnimationLibrary_xpa20")
+autoplay = &"hover"
+
+[node name="warden" parent="." unique_id=1864175887 instance=ExtResource("2_kkxv1")]
+transform = Transform3D(0.124764584, -0.0019599588, -0.007413297, 0.0019634147, 0.12498458, 0, 0.0074123824, -0.000116443014, 0.12477998, 0, 0.071, 0)
+
+[node name="AttackTimer" type="Timer" parent="." unique_id=1109622163]
+wait_time = 2.0
+
+[node name="BulletTimer" type="Timer" parent="." unique_id=1984181938]
+one_shot = true
+autostart = true
+
+[node name="BulletSpawner3D" type="Node3D" parent="." unique_id=1180798683]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0.071, 0)
+script = ExtResource("3_1ygx1")
+bullet = Array[PackedScene]([ExtResource("4_locfk"), ExtResource("5_s1sao")])
+metadata/_custom_type_script = "uid://16h0y50oyjvy"
+
+[connection signal="timeout" from="BulletTimer" to="." method="_on_bullet_timer_timeout"]

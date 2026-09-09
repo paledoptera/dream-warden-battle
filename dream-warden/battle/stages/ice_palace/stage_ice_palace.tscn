@@ -317,7 +317,7 @@ texture_scale = Vector2(17.65, 17.65)
 polygon = PackedVector2Array(4, 155, 624, 162, 680, 404, -39, 399)
 uv = PackedVector2Array(-0.57136536, 1.2569513, 47.22325, 0.6776228, 46.96235, 48.12946, 0.8793793, 47.076134)
 
-[node name="Rangle" type="Node2D" parent="." unique_id=329384223]
+[node name="Rangle" type="Node2D" parent="." unique_id=329384223 groups=["actors"]]
 position = Vector2(185, 184)
 script = ExtResource("3_6dh1b")
 id = &"rangle"
@@ -329,7 +329,7 @@ animation = &"fight"
 autoplay = "idle"
 offset = Vector2(0, -35)
 
-[node name="Chutley" type="Node2D" parent="." unique_id=1274269982]
+[node name="Chutley" type="Node2D" parent="." unique_id=1274269982 groups=["actors"]]
 position = Vector2(140, 160)
 script = ExtResource("3_6dh1b")
 id = &"chutley"
@@ -340,12 +340,13 @@ sprite_frames = ExtResource("4_6dh1b")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="Fish" type="Node2D" parent="." unique_id=814108151]
-position = Vector2(207, 207)
+[node name="Fish" type="Node2D" parent="." unique_id=814108151 groups=["actors"]]
+position = Vector2(170, 237)
 script = ExtResource("3_6dh1b")
 id = &"fish"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Fish" unique_id=1482424476]
+position = Vector2(36, -32)
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("5_e4j6a")
 animation = &"idle"

@@ -218,8 +218,9 @@ _data = {
 &"laser": SubResource("Animation_0p7ws")
 }
 
-[node name="BrightHellAttack" type="Node2D" unique_id=2044970711 node_paths=PackedStringArray("laser_bullet", "warden")]
+[node name="BrightHellAttack" type="Node2D" unique_id=2044970711 node_paths=PackedStringArray("spawnpoints", "laser_bullet", "warden")]
 script = ExtResource("1_beqwq")
+spawnpoints = [NodePath("SideSwapper/Marker"), NodePath("SideSwapper/Marker2"), NodePath("SideSwapper/Marker3"), NodePath("SideSwapper/Marker4")]
 laser_bullet = NodePath("Battlebox/LaserBullet")
 warden = NodePath("WardenSprite")
 

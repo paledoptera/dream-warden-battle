@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://bbb0yt2rjiel5"]
+
+[ext_resource type="Texture2D" uid="uid://ddq6pu65n1i1g" path="res://battle/stages/dream_scape/res/layers/layer1.png" id="5_cratu"]
+[ext_resource type="Texture2D" uid="uid://bx52th3towfu2" path="res://battle/stages/dream_scape/res/layers/layer3.png" id="6_nn7w7"]
+[ext_resource type="Texture2D" uid="uid://1b6lgewhhjm1" path="res://battle/stages/dream_scape/res/layers/layer4.png" id="7_c0018"]
+[ext_resource type="PackedScene" uid="uid://kmi8dqcvidoa" path="res://battle/system/ui/effects/gonermaker_effect/gonermaker_effect.tscn" id="8_v16dq"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qw0i8"]
+blend_mode = 2
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_g2oqv"]
+blend_mode = 1
+
+[node name="Background" type="Node2D" unique_id=721451656]
+modulate = Color(0.30453858, 0.30453858, 0.30453858, 1)
+
+[node name="BaseBackground" type="Sprite2D" parent="." unique_id=483007132]
+scale = Vector2(2, 2)
+texture = ExtResource("5_cratu")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1592258586]
+modulate = Color(1, 1, 1, 0.40784314)
+material = SubResource("CanvasItemMaterial_qw0i8")
+scale = Vector2(2, 2)
+texture = ExtResource("6_nn7w7")
+centered = false
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=1294453408]
+modulate = Color(1, 1, 1, 0.08235294)
+material = SubResource("CanvasItemMaterial_g2oqv")
+scale = Vector2(2, 2)
+texture = ExtResource("7_c0018")
+centered = false
+
+[node name="GonermakerEffect" parent="." unique_id=715795192 instance=ExtResource("8_v16dq")]
+modulate = Color(1, 1, 1, 0.8117647)
+position = Vector2(320, 240)

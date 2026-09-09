@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://kmi8dqcvidoa"]
 
-[ext_resource type="Script" uid="uid://bxcjqgvgl1msl" path="res://scenes/fights/01_warden/res/gonermaker_effect.gd" id="1_3s1ry"]
-[ext_resource type="Texture2D" uid="uid://jm1dufjokaro" path="res://scenes/fights/01_warden/res/layers/layer5.png" id="2_bdhkg"]
+[ext_resource type="Script" uid="uid://bxcjqgvgl1msl" path="res://battle/stages/dream_scape/res/gonermaker_effect.gd" id="1_3s1ry"]
+[ext_resource type="Texture2D" uid="uid://jm1dufjokaro" path="res://battle/stages/dream_scape/res/layers/layer5.png" id="2_bdhkg"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_g4v7s"]
 blend_mode = 1

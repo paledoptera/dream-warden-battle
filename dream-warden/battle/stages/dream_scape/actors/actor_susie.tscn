@@ -1,9 +1,14 @@
 [gd_scene format=3 uid="uid://c6rjg52as2pkw"]
 
 [ext_resource type="Script" uid="uid://c0eum5nfaksrs" path="res://systems/animation/actor.gd" id="1_rsam7"]
+[ext_resource type="Shader" uid="uid://c16rfo3hutpax" path="res://common/palette_swap_shader.tres" id="2_3cfp6"]
 [ext_resource type="SpriteFrames" uid="uid://vwnv0psa61b6" path="res://battle/stages/dream_scape/actors/res/susie_frames.tres" id="2_u7kpl"]
 [ext_resource type="PackedScene" uid="uid://bp2185cc1j6v1" path="res://entities/dialogue/speech_bubble.tscn" id="3_3cfp6"]
 [ext_resource type="PackedScene" uid="uid://chcy6un0fnkhk" path="res://entities/dialogue/speech_bubble/bubble_tail_left.tscn" id="4_gp2ld"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vii0q"]
+shader = ExtResource("2_3cfp6")
+shader_parameter/color_count = 0
 
 [sub_resource type="Animation" id="Animation_6rqmn"]
 length = 0.001
@@ -73,6 +78,7 @@ script = ExtResource("1_rsam7")
 id = &"susie"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1765386356]
+material = SubResource("ShaderMaterial_vii0q")
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("2_u7kpl")
 animation = &"idle"

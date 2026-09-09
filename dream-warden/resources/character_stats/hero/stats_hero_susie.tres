@@ -1,71 +1,12 @@
 [gd_resource type="Resource" script_class="CharacterStatsHero" format=3 uid="uid://b43pqrbag27nj"]
 
-[ext_resource type="Script" uid="uid://bp3vktl4048ff" path="res://resources/items/equippables/equippable.gd" id="1_oh87s"]
-[ext_resource type="Script" uid="uid://cjlmox2rkhaa4" path="res://resources/character_stats/character_stats_hero.gd" id="2_e38ki"]
-[ext_resource type="Script" uid="uid://cto2fxwpogr36" path="res://resources/spells/spell.gd" id="3_cui78"]
-[ext_resource type="Script" uid="uid://d3xaygu7d8jdf" path="res://resources/spells/effects/check.gd" id="4_3bbcp"]
-[ext_resource type="Script" uid="uid://dcepdbft0i2j2" path="res://resources/spells/effects/spell_rudebuster.gd" id="5_cpjph"]
-[ext_resource type="Script" uid="uid://di3ljx2aw4xl7" path="res://resources/spells/effects/heal.gd" id="6_n3icf"]
-[ext_resource type="Script" uid="uid://dvetmwyvlw0vg" path="res://resources/spells/effects/unleash.gd" id="7_758j1"]
-
-[sub_resource type="Resource" id="Resource_xbtyo"]
-script = ExtResource("4_3bbcp")
-metadata/_custom_type_script = "uid://d3xaygu7d8jdf"
-
-[sub_resource type="Resource" id="Resource_jq4a0"]
-resource_name = "Check"
-script = ExtResource("3_cui78")
-title = &"[color=fa81fa]Check"
-description = "Consider
-strategy"
-spell_effect = SubResource("Resource_xbtyo")
-tp_cost = 0
-metadata/_custom_type_script = "uid://cto2fxwpogr36"
-
-[sub_resource type="Resource" id="Resource_sup8m"]
-script = ExtResource("5_cpjph")
-metadata/_custom_type_script = "uid://dcepdbft0i2j2"
-
-[sub_resource type="Resource" id="Resource_7bx4w"]
-resource_name = "Rude Buster"
-script = ExtResource("3_cui78")
-title = &"Rude Buster"
-description = "Hopeless
-attack"
-spell_effect = SubResource("Resource_sup8m")
-tp_cost = 50
-metadata/_custom_type_script = "uid://cto2fxwpogr36"
-
-[sub_resource type="Resource" id="Resource_fvjnl"]
-script = ExtResource("6_n3icf")
-metadata/_custom_type_script = "uid://di3ljx2aw4xl7"
-
-[sub_resource type="Resource" id="Resource_wxgg1"]
-resource_name = "BlazingHeal"
-script = ExtResource("3_cui78")
-title = &"BlazingHeal"
-description = "Desperate
-recovery"
-spell_effect = SubResource("Resource_fvjnl")
-metadata/_custom_type_script = "uid://cto2fxwpogr36"
-
-[sub_resource type="Resource" id="Resource_2ljn2"]
-script = ExtResource("7_758j1")
-metadata/_custom_type_script = "uid://dvetmwyvlw0vg"
-
-[sub_resource type="Resource" id="Resource_smtgx"]
-resource_name = "Unleash"
-script = ExtResource("3_cui78")
-title = &"Unleash"
-description = "Shine
-bright"
-spell_effect = SubResource("Resource_2ljn2")
-tp_cost = 0
-metadata/_custom_type_script = "uid://cto2fxwpogr36"
+[ext_resource type="Script" uid="uid://bibh1w77wdf3s" path="res://resources/usables/items/equippables/_item_equippable.gd" id="1_27wfh"]
+[ext_resource type="Script" uid="uid://cjlmox2rkhaa4" path="res://resources/character_stats/hero/character_stats_hero.gd" id="2_e38ki"]
+[ext_resource type="Script" uid="uid://cto2fxwpogr36" path="res://resources/usables/spells/spell.gd" id="3_cui78"]
+[ext_resource type="Script" uid="uid://j420j57sl5b5" path="res://resources/effects/status_effects/_status_effect.gd" id="4_iyres"]
 
 [resource]
 script = ExtResource("2_e38ki")
-spells = Array[ExtResource("3_cui78")]([SubResource("Resource_jq4a0"), SubResource("Resource_7bx4w"), SubResource("Resource_wxgg1"), SubResource("Resource_smtgx")])
 name = "Susie"
 color = Color(1, 0, 1, 1)
 hp_max = 460

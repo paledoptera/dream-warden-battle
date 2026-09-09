@@ -2,6 +2,7 @@ extends Node
 
 signal turn_started(index: int)
 signal turn_finished(index: int)
+signal reverse_action(index: int)
 signal all_turns_finished
 
 var index: int = 0
@@ -22,6 +23,7 @@ func build_queue() -> void:
 func play_turn():
 	if not active_character:
 		return
+	
 	var current_active = active_character
 	print("TURN START ", active_character)
 	turn_started.emit(index)
@@ -59,6 +61,11 @@ func goto_prev_turn():
 	turn_finished.emit(index)
 	var current_active = active_character
 	var new_index: int = (active_character.get_index() - 1) % get_child_count()
+	
 	index = new_index
 	active_character = get_child(new_index)
+	
+	if active_character.action:
+		reverse_action.emit(active_character.get_index())
+	
 	play_turn()

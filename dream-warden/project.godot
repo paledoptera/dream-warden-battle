@@ -44,6 +44,15 @@ window/vsync/vsync_mode=0
 
 enabled=PackedStringArray("res://addons/conductor/plugin.cfg")
 
+[file_customization]
+
+folder_colors={
+"res://battle/": "red",
+"res://minigames/": "yellow",
+"res://overworld/": "green",
+"res://screens/": "blue"
+}
+
 [global_group]
 
 orange_track=""

@@ -2,7 +2,7 @@ class_name SpellSelection extends Control
 
 var test: int
 @export var spells: Array[Spell]
-var hero: Hero
+#var hero: Hero
 
 
 func refresh() -> void:
@@ -37,7 +37,8 @@ func _on_selected_changed(current: int, previous: int):
 	
 #
 func _on_accepted() -> void:
-	var spell = spells[Menu.selected]
+	#var spell = spells[Menu.selected]
+	var spell = null
 	if spell.tp_cost > Party.tp:
 		return
 	

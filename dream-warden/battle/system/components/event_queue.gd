@@ -4,19 +4,20 @@ signal events_finished
 
 @export var queue: Array[BattleEvent]
 
-func add_event(event: BattleEvent, undo: bool = false):
+func add_event(event: BattleEvent, undo: bool):
 	queue.append(event)
 	
-	print("EVENT: ", event, " TYPE: ", event.action_type)
+	print("EVENT: ", event, " TYPE: ", event.action_type, " UNDO: ", undo, " CHARACTER: ", event.character)
 	
 	match event.action_type:
 		BattleEvent.Type.DEFEND:
-			if not undo:
+			if undo == false:
 				var tp_amount = event.data["tp"]
 				tp_amount = check_for_tp_overflow(tp_amount)
 				EventBus.battle_event.emit("tp_add",tp_amount)
 				event.data["tp"] = tp_amount
-			else:
+			elif undo == true:
+				print("FUCK")
 				var other_event = find_same_event(event)
 				EventBus.battle_event.emit("tp_sub",other_event.data["tp"])
 				queue.erase(event)
@@ -34,7 +35,7 @@ func add_event(event: BattleEvent, undo: bool = false):
 				queue.erase(other_event)
 				return
 		
-		BattleEvent.Type.ITEM:
+		BattleEvent.Type.ITEM, BattleEvent.Type.FIGHT, BattleEvent.Type.MERCY:
 			if undo:
 				var other_event = find_same_event(event)
 				queue.erase(event)
@@ -128,8 +129,8 @@ func sort_by_priority(a, b):
 
 func find_same_event(event:BattleEvent) -> BattleEvent:
 	for i in queue:
-		if i.name == event.name and \
-		i.data["party_member"] == event.data["party_member"]:
+		if i.action_type == event.action_type and \
+		i.character == event.character:
 			return i
 	
 	return null

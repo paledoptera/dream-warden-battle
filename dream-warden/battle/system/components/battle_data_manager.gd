@@ -12,7 +12,6 @@ func update() -> void:
 func get_opening_line() -> DialogueString:
 	update()
 	
-	var enemies = Party.enemy
 	var enemy: CharacterStatsEnemy
 	var string: DialogueString
 	
@@ -36,6 +35,39 @@ func get_opening_line() -> DialogueString:
 	return string
 
 
+func get_flavor_text() -> DialogueString:
+	update()
+	var enemy: CharacterStatsEnemy
+	var block: DialogueBlock
+	var string: DialogueString
+	
+	enemy = enemies[0]
+	block = enemy.flavor_text
+	
+	if not block:
+		return DialogueString.new("* It is known.")
+	
+	var attack_turn = wrapi(turn,0,block.text.size())
+	
+	if attack_turn < turn:
+		repetitions = floor(float(turn) / float(block.text.size()))
+	
+	match enemy.flavor_text_order:
+		enemy.Order.SEQUENTIAL:
+			pass
+			
+		enemy.Order.RANDOM:
+			block.text.shuffle()
+
+	if block.text[attack_turn]:
+		return block.text[attack_turn]
+	else:
+		if enemies.size() > 1:
+			string = DialogueString.new("* The enemies approach!")
+		else:
+			string = DialogueString.new("* The enemy approaches!")
+	return string
+
 func get_attack() -> AttackData:
 	update()
 	
@@ -46,10 +78,6 @@ func get_attack() -> AttackData:
 	attacks = attack_list.attacks
 	
 	var attack_turn = wrapi(turn,0,attacks.size())
-	
-	if attack_turn < turn:
-		repetitions = floor(float(turn) / float(attacks.size()))
-		print("REPITITIONS: ", repetitions)
 	
 	match attack_list.attack_order:
 		attack_list.Order.SEQUENTIAL:
@@ -64,9 +92,30 @@ func get_attack() -> AttackData:
 	else:
 		return AttackData.new()
 
-func get_dialogue() -> DialogueBlock:
-	return null
 
+func get_dialogue() -> DialogueBlock:
+	update()
+	var enemy: CharacterStatsEnemy
+	var arr: Array
+	var block: DialogueBlock
+	
+	enemy = enemies[0]
+	arr = enemy.dialogue
+	
+	var attack_turn = wrapi(turn,0,arr.size())
+
+	match enemy.dialogue_order:
+		enemy.Order.SEQUENTIAL:
+			pass
+			
+		enemy.Order.RANDOM:
+			arr.shuffle()
+	
+	if arr:
+		if arr[attack_turn]:
+			return arr[attack_turn]
+	
+	return null
 
 #
 #func get_attack() -> PackedScene:

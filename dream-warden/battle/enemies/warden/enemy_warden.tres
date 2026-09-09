@@ -5,8 +5,31 @@
 [ext_resource type="Script" uid="uid://bq7mxvnbwq8of" path="res://resources/dialogue_components/dialogue_block.gd" id="3_6d4yv"]
 [ext_resource type="Resource" uid="uid://cld6dkn35vrx6" path="res://battle/enemies/warden/data/flavor_opening_warden.tres" id="4_6d4yv"]
 [ext_resource type="Resource" uid="uid://c4be7nfmiusm8" path="res://battle/enemies/warden/data/flavor_warden.tres" id="4_c3qyi"]
-[ext_resource type="Script" uid="uid://bpvsxd6yo0sl4" path="res://resources/character_stats/character_stats_enemy.gd" id="4_dbtjp"]
+[ext_resource type="Script" uid="uid://bpvsxd6yo0sl4" path="res://battle/enemies/character_stats_enemy.gd" id="4_dbtjp"]
+[ext_resource type="Script" uid="uid://m17i7j602jax" path="res://resources/dialogue_components/dialogue_string.gd" id="4_vpqr3"]
+[ext_resource type="Script" uid="uid://cci227fj67d4u" path="res://resources/dialogue_components/markers/_dialogue_marker.gd" id="5_et424"]
 [ext_resource type="Resource" uid="uid://dxq13dosllqvn" path="res://battle/enemies/warden/data/mercy_fail_warden.tres" id="5_ysdyg"]
+[ext_resource type="AudioStream" uid="uid://c3m6sxg7kebei" path="res://shared/sound_effects/snd_text.wav" id="6_coiax"]
+[ext_resource type="Script" uid="uid://j420j57sl5b5" path="res://resources/effects/status_effects/_status_effect.gd" id="8_c3qyi"]
+
+[sub_resource type="Resource" id="Resource_vii0q"]
+script = ExtResource("4_vpqr3")
+text = "test"
+flag_value = null
+identifier = &"susie"
+metadata/_custom_type_script = "uid://m17i7j602jax"
+
+[sub_resource type="Resource" id="Resource_d1p73"]
+script = ExtResource("4_vpqr3")
+text = "test"
+flag_value = null
+identifier = &"warden"
+metadata/_custom_type_script = "uid://m17i7j602jax"
+
+[sub_resource type="Resource" id="Resource_vpqr3"]
+script = ExtResource("3_6d4yv")
+text = Array[ExtResource("4_vpqr3")]([SubResource("Resource_vii0q"), SubResource("Resource_d1p73")])
+metadata/_custom_type_script = "uid://bq7mxvnbwq8of"
 
 [resource]
 script = ExtResource("4_dbtjp")
@@ -15,6 +38,7 @@ check_text = ExtResource("2_lyorr")
 opening_line_singular = ExtResource("4_6d4yv")
 flavor_text_order = 1
 flavor_text = ExtResource("4_c3qyi")
+dialogue = Array[ExtResource("3_6d4yv")]([SubResource("Resource_vpqr3")])
 mercy_fail_text = ExtResource("5_ysdyg")
 unhittable = true
 name = "Dream Warden"

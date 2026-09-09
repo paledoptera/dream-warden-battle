@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c0r0lc0kwmgif"]
 
-[ext_resource type="PackedScene" uid="uid://dvutowjuoe1v3" path="res://scenes/fights/01_warden/scenes/background.tscn" id="1_2p5su"]
-[ext_resource type="PackedScene" uid="uid://bbb0yt2rjiel5" path="res://scenes/fights/01_warden/scenes/background_gonermaker.tscn" id="2_fuu2m"]
+[ext_resource type="PackedScene" uid="uid://dvutowjuoe1v3" path="res://battle/stages/dream_scape/scenes/background.tscn" id="1_2p5su"]
+[ext_resource type="PackedScene" uid="uid://bbb0yt2rjiel5" path="res://battle/stages/dream_scape/scenes/background_gonermaker.tscn" id="2_fuu2m"]
 [ext_resource type="PackedScene" uid="uid://c6rjg52as2pkw" path="res://battle/stages/dream_scape/actors/actor_susie.tscn" id="3_fuu2m"]
 [ext_resource type="PackedScene" uid="uid://btf3v6p22qrjq" path="res://battle/stages/dream_scape/actors/actor_warden.tscn" id="4_yc2n1"]
 [ext_resource type="Script" uid="uid://d126tu6ywvetb" path="res://systems/helper_components/start_music.gd" id="5_nohfa"]
