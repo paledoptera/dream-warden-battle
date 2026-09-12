@@ -9,6 +9,10 @@ func add_event(event: BattleEvent, undo: bool):
 	
 	print("EVENT: ", event, " TYPE: ", event.action_type, " UNDO: ", undo, " CHARACTER: ", event.character)
 	
+	
+	do_actor_animation(event, undo)
+	
+	
 	match event.action_type:
 		BattleEvent.Type.DEFEND:
 			if undo == false:
@@ -40,6 +44,9 @@ func add_event(event: BattleEvent, undo: bool):
 				var other_event = find_same_event(event)
 				queue.erase(event)
 				queue.erase(other_event)
+	
+	
+	
 
 
 func execute_events():
@@ -86,17 +93,31 @@ func execute_events():
 				continue
 			
 			BattleEvent.Type.MAGIC:
-				Dialogue.display_text(str("* ", hero_name, " used ", event.data["spell"].title, "!"))
-				await Dialogue.text_finished
+				print("DOING SPELL")
+				var spell = event.data["spell"]
+				spell.use(event.character, event.target)
+				
+				await spell.finished
+				
+				if not spell.handles_dialogue_box:
+					print("NEEDS DIALOGUE")
+					Dialogue.display_text(str("* ", hero_name, " used ", event.data["spell"].name, "!"))
+					await Dialogue.text_finished
 				continue
 			
 			BattleEvent.Type.ITEM:
-				Dialogue.display_text(str("* ", hero_name, " used ", event.data["item"].title, "!"))
+				Dialogue.display_text(str("* ", hero_name, " used ", event.data["item"].name, "!"))
 				await Dialogue.text_finished
+				Dialogue.clear_text.emit()
 				continue
 			
 			BattleEvent.Type.MERCY:
-				Dialogue.display_text(str("* ", hero_name, " tried to spare!"))
+				var enemy = Party.get_target_enemy(event.target)
+				if enemy.spareable:
+					Party.enemy.erase(enemy)
+				else:
+					print("ENEMY IS NOT SPAREABLE")
+					Dialogue.display_text(enemy.mercy_fail_text)
 				await Dialogue.text_finished
 				continue
 	
@@ -132,5 +153,21 @@ func find_same_event(event:BattleEvent) -> BattleEvent:
 		if i.action_type == event.action_type and \
 		i.character == event.character:
 			return i
-	
+
 	return null
+
+
+func do_actor_animation(event: BattleEvent, undo: bool) -> void:
+	
+	var party_member = Party.get_target_hero(event.character)
+	var action_name: StringName = "idle"
+	
+	if not undo:
+		match event.action_type:
+			BattleEvent.Type.FIGHT:
+				action_name = "fight_prepare"
+			BattleEvent.Type.DEFEND:
+				action_name = "defend"
+		
+	
+	EventBus.actor_do_action.emit(party_member.character_id, action_name)

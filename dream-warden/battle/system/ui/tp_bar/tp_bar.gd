@@ -12,7 +12,9 @@ func _update_tp(value: float) -> void:
 	else:
 		$Normal.visible = true
 		$Max.visible = false
-	
+
+func _ready() -> void:
+	Party.tp_changed.connect(_update_tp)
 
 func _process(delta: float) -> void:
 	tp_display = move_toward(tp_display,tp,10)

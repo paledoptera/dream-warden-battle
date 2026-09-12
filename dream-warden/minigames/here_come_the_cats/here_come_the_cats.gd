@@ -3,6 +3,12 @@ extends Node2D
 
 const CAT_COLLECTIBLE = preload("uid://c4xirgxvxcybl")
 
+func _init() -> void:
+	Party.enemy.clear()
+	Party.hero.clear()
+	Party.hero = [preload("uid://xcpu86gdep5b")] # hero_dess
+
+
 func spawn_cat_collectible() -> void:
 	
 	var chance = [false, false, true].pick_random()

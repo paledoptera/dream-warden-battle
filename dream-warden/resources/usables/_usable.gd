@@ -1,5 +1,7 @@
 @abstract class_name Usable extends Resource
 
+signal finished
+
 @export var name: StringName = "Usable"
 @export_multiline var description: String
 @export var effects: Array[Effect]
@@ -14,4 +16,8 @@ func use(user: int, target: int) -> void:
 			i.target = target
 		i.apply(user,target)
 		await i.effect_applied
+		print("EFFECT APPLIED")
 		continue
+	await Party.get_tree().physics_frame
+	print("FINISHED")
+	finished.emit()

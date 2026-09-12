@@ -10,12 +10,19 @@
 [ext_resource type="Script" uid="uid://d126tu6ywvetb" path="res://systems/helper_components/start_music.gd" id="8_2nkg0"]
 [ext_resource type="AudioStream" uid="uid://b16qa5ic5ugao" path="res://shared/music/mus_ice_palace.ogg" id="9_pjjrx"]
 
+[sub_resource type="Gradient" id="Gradient_axrom"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g4v7s"]
+gradient = SubResource("Gradient_axrom")
+fill_to = Vector2(0, 1)
+
 [sub_resource type="Animation" id="Animation_b7lin"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Visuals/VesselContainer:position")
+tracks/0/path = NodePath("VesselContainer:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -27,7 +34,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Visuals/VesselContainer:skew")
+tracks/1/path = NodePath("VesselContainer:skew")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -39,7 +46,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Visuals/VesselContainer/VesselRot:skew")
+tracks/2/path = NodePath("VesselContainer/VesselRot:skew")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -51,7 +58,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Visuals/VesselContainer/VesselRot/Vessel:skew")
+tracks/3/path = NodePath("VesselContainer/VesselRot/Vessel:skew")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -63,43 +70,43 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Visuals/NoelleFade:position")
+tracks/4/path = NodePath("../PhantomColdwater/WeirdGlitchEffect/ColorRect3:position")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-41.000004, -45.000004)]
+"values": [Vector2(-57, -34)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Visuals/NoelleFade:modulate")
+tracks/5/path = NodePath("../PhantomColdwater/WeirdGlitchEffect/ColorRect6:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Vector2(-30, -60)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Visuals/WeirdGlitchEffect:position")
+tracks/6/path = NodePath("../PhantomColdwater/WeirdGlitchEffect/ColorRect5:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [Vector2(-64, -72)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Visuals/WeirdGlitchEffect/ColorRect:position")
+tracks/7/path = NodePath("../PhantomColdwater/WeirdGlitchEffect/ColorRect:position")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -111,38 +118,26 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Visuals/WeirdGlitchEffect/ColorRect5:position")
+tracks/8/path = NodePath("../PhantomColdwater/NoelleFade:modulate")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-64, -72)]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Visuals/WeirdGlitchEffect/ColorRect6:position")
+tracks/9/path = NodePath("../PhantomColdwater/NoelleFade:position")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-30, -60)]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("Visuals/WeirdGlitchEffect/ColorRect3:position")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-57, -34)]
+"values": [Vector2(-41.000004, -45.000004)]
 }
 
 [sub_resource type="Animation" id="Animation_vr6dg"]
@@ -152,7 +147,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Visuals/VesselContainer:position")
+tracks/0/path = NodePath("VesselContainer:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -164,7 +159,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Visuals/VesselContainer:skew")
+tracks/1/path = NodePath("VesselContainer:skew")
 tracks/1/interp = 4
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -176,7 +171,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Visuals/VesselContainer/VesselRot:skew")
+tracks/2/path = NodePath("VesselContainer/VesselRot:skew")
 tracks/2/interp = 4
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -188,7 +183,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Visuals/VesselContainer/VesselRot/Vessel:skew")
+tracks/3/path = NodePath("VesselContainer/VesselRot/Vessel:skew")
 tracks/3/interp = 4
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -200,43 +195,43 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Visuals/NoelleFade:position")
-tracks/4/interp = 2
+tracks/4/path = NodePath("../PhantomColdwater/WeirdGlitchEffect/ColorRect3:position")
+tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.7666667, 2),
+"times": PackedFloat32Array(0, 0.8, 2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(-41.000004, -45.000004), Vector2(-41, -51.841), Vector2(-41.000004, -45.000004)]
+"values": [Vector2(-57, -34), Vector2(-52.625, -34), Vector2(-57, -34)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Visuals/NoelleFade:modulate")
+tracks/5/path = NodePath("../PhantomColdwater/WeirdGlitchEffect/ColorRect6:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.36666667, 0.8000001, 1.4000001, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0.03333336, 1.1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.84900004), Color(1, 1, 1, 1), Color(1, 1, 1, 0.837), Color(1, 1, 1, 1)]
+"values": [Vector2(-30, -60), Vector2(-30, -65.04), Vector2(-30, -60)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Visuals/WeirdGlitchEffect:position")
-tracks/6/interp = 2
+tracks/6/path = NodePath("../PhantomColdwater/WeirdGlitchEffect/ColorRect5:position")
+tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.73333335, 2),
+"times": PackedFloat32Array(0, 0.53333336, 2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0, 0), Vector2(0, -2), Vector2(0, 0)]
+"values": [Vector2(-64, -72), Vector2(-68.848, -72), Vector2(-64, -72)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Visuals/WeirdGlitchEffect/ColorRect:position")
+tracks/7/path = NodePath("../PhantomColdwater/WeirdGlitchEffect/ColorRect:position")
 tracks/7/interp = 2
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -248,38 +243,26 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Visuals/WeirdGlitchEffect/ColorRect5:position")
+tracks/8/path = NodePath("../PhantomColdwater/NoelleFade:modulate")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0, 0.53333336, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 0.36666667, 0.8000001, 1.4000001, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-64, -72), Vector2(-68.848, -72), Vector2(-64, -72)]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.84900004), Color(1, 1, 1, 1), Color(1, 1, 1, 0.837), Color(1, 1, 1, 1)]
 }
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Visuals/WeirdGlitchEffect/ColorRect6:position")
-tracks/9/interp = 1
+tracks/9/path = NodePath("../PhantomColdwater/NoelleFade:position")
+tracks/9/interp = 2
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(0.03333336, 1.1, 2),
+"times": PackedFloat32Array(0, 0.7666667, 2),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(-30, -60), Vector2(-30, -65.04), Vector2(-30, -60)]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("Visuals/WeirdGlitchEffect/ColorRect3:position")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0, 0.8, 2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(-57, -34), Vector2(-52.625, -34), Vector2(-57, -34)]
+"values": [Vector2(-41.000004, -45.000004), Vector2(-41, -51.841), Vector2(-41.000004, -45.000004)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cbydg"]
@@ -287,13 +270,6 @@ _data = {
 &"RESET": SubResource("Animation_b7lin"),
 &"dance": SubResource("Animation_vr6dg")
 }
-
-[sub_resource type="Gradient" id="Gradient_axrom"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_g4v7s"]
-gradient = SubResource("Gradient_axrom")
-fill_to = Vector2(0, 1)
 
 [node name="IcePalaceFight" type="Node2D" unique_id=2124086931 groups=["battle"]]
 
@@ -325,7 +301,7 @@ id = &"rangle"
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Rangle" unique_id=1495474628]
 scale = Vector2(2, 2)
 sprite_frames = ExtResource("3_a1yq5")
-animation = &"fight"
+animation = &"idle"
 autoplay = "idle"
 offset = Vector2(0, -35)
 
@@ -352,88 +328,90 @@ sprite_frames = ExtResource("5_e4j6a")
 animation = &"idle"
 autoplay = "idle"
 
-[node name="IcePalaceBoss" type="Node2D" parent="." unique_id=968285758]
-position = Vector2(536, 168.99998)
+[node name="PhantomColdwater" type="Node2D" parent="." unique_id=866523865]
+position = Vector2(481, 120)
 script = ExtResource("3_6dh1b")
-id = &"icepalaceboss"
+id = &"phantomcoldwater"
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="IcePalaceBoss" unique_id=1751063435]
-libraries/ = SubResource("AnimationLibrary_cbydg")
-autoplay = &"dance"
+[node name="NoelleFade" type="TextureRect" parent="PhantomColdwater" unique_id=1667981524]
+clip_children = 1
+offset_left = -41.000004
+offset_top = -45.000004
+offset_right = 22.999996
+offset_bottom = -6.000004
+scale = Vector2(2.4, 2.4)
+texture = SubResource("GradientTexture2D_g4v7s")
+expand_mode = 1
 
-[node name="Visuals" type="Node2D" parent="IcePalaceBoss" unique_id=578605054]
+[node name="Noelle" type="Sprite2D" parent="PhantomColdwater/NoelleFade" unique_id=1706538036]
+position = Vector2(15.581533, 19.531307)
+texture = ExtResource("5_6b8kr")
+flip_h = true
+
+[node name="WeirdGlitchEffect" type="Node2D" parent="PhantomColdwater" unique_id=1581237470]
+modulate = Color(1, 1, 1, 0.596)
+show_behind_parent = true
+position = Vector2(45, 42)
 scale = Vector2(2, 2)
 
-[node name="WeirdGlitchEffect" type="Node2D" parent="IcePalaceBoss/Visuals" unique_id=1581237470]
-modulate = Color(1, 1, 1, 0.596)
-
-[node name="ColorRect" type="ColorRect" parent="IcePalaceBoss/Visuals/WeirdGlitchEffect" unique_id=914130811]
+[node name="ColorRect" type="ColorRect" parent="PhantomColdwater/WeirdGlitchEffect" unique_id=914130811]
 offset_left = -29.0
 offset_top = -54.0
 offset_right = -9.0
 offset_bottom = -10.0
 color = Color(0, 0, 0, 0.5019608)
 
-[node name="ColorRect3" type="ColorRect" parent="IcePalaceBoss/Visuals/WeirdGlitchEffect" unique_id=1557455035]
+[node name="ColorRect3" type="ColorRect" parent="PhantomColdwater/WeirdGlitchEffect" unique_id=1557455035]
 offset_left = -57.0
 offset_top = -34.0
 offset_right = -9.0
 offset_bottom = -25.0
 color = Color(0, 0, 0, 0.5019608)
 
-[node name="ColorRect4" type="ColorRect" parent="IcePalaceBoss/Visuals/WeirdGlitchEffect" unique_id=1559774593]
+[node name="ColorRect4" type="ColorRect" parent="PhantomColdwater/WeirdGlitchEffect" unique_id=1559774593]
 offset_left = -45.0
 offset_top = -66.0
 offset_right = -26.0
 offset_bottom = -12.0
 color = Color(0, 0, 0, 0.5019608)
 
-[node name="ColorRect5" type="ColorRect" parent="IcePalaceBoss/Visuals/WeirdGlitchEffect" unique_id=932546708]
+[node name="ColorRect5" type="ColorRect" parent="PhantomColdwater/WeirdGlitchEffect" unique_id=932546708]
 offset_left = -64.0
 offset_top = -72.0
 offset_right = -34.0
 offset_bottom = -53.0
 color = Color(0, 0, 0, 0.5019608)
 
-[node name="ColorRect6" type="ColorRect" parent="IcePalaceBoss/Visuals/WeirdGlitchEffect" unique_id=338505215]
+[node name="ColorRect6" type="ColorRect" parent="PhantomColdwater/WeirdGlitchEffect" unique_id=338505215]
 offset_left = -30.0
 offset_top = -60.0
 offset_right = -20.0
 offset_bottom = -12.0
 color = Color(0, 0, 0, 0.5019608)
 
-[node name="ColorRect2" type="ColorRect" parent="IcePalaceBoss/Visuals/WeirdGlitchEffect" unique_id=1843215998]
+[node name="ColorRect2" type="ColorRect" parent="PhantomColdwater/WeirdGlitchEffect" unique_id=1843215998]
 offset_left = -40.0
 offset_top = -41.0
 offset_right = -3.0
 offset_bottom = 6.0
 color = Color(0, 0, 0, 0.5019608)
 
-[node name="NoelleFade" type="TextureRect" parent="IcePalaceBoss/Visuals" unique_id=1667981524]
-clip_children = 1
-offset_left = -41.000004
-offset_top = -45.000004
-offset_right = 22.999996
-offset_bottom = -6.000004
-scale = Vector2(1.2, 1.2)
-texture = SubResource("GradientTexture2D_g4v7s")
-expand_mode = 1
+[node name="IcePalaceBoss" type="Node2D" parent="." unique_id=968285758]
+position = Vector2(536, 168.99998)
+script = ExtResource("3_6dh1b")
+id = &"icepalaceboss"
 
-[node name="Noelle" type="Sprite2D" parent="IcePalaceBoss/Visuals/NoelleFade" unique_id=1706538036]
-position = Vector2(15.581533, 19.531307)
-texture = ExtResource("5_6b8kr")
-flip_h = true
-
-[node name="VesselContainer" type="Node2D" parent="IcePalaceBoss/Visuals" unique_id=1159907228]
+[node name="VesselContainer" type="Node2D" parent="IcePalaceBoss" unique_id=1159907228]
 rotation = -1.5707964
+scale = Vector2(2, 1.9999998)
 skew = -0.7557276
 
-[node name="VesselRot" type="Node2D" parent="IcePalaceBoss/Visuals/VesselContainer" unique_id=232909373]
+[node name="VesselRot" type="Node2D" parent="IcePalaceBoss/VesselContainer" unique_id=232909373]
 rotation = -0.06632251
 scale = Vector2(1, 0.753)
 skew = 0.55676
 
-[node name="Vessel" type="Sprite2D" parent="IcePalaceBoss/Visuals/VesselContainer/VesselRot" unique_id=689928774]
+[node name="Vessel" type="Sprite2D" parent="IcePalaceBoss/VesselContainer/VesselRot" unique_id=689928774]
 rotation = 1.5707964
 scale = Vector2(4.071, 2)
 skew = 0.28274333
@@ -443,3 +421,8 @@ texture = ExtResource("6_sh803")
 script = ExtResource("8_2nkg0")
 song = ExtResource("9_pjjrx")
 metadata/_custom_type_script = "uid://d126tu6ywvetb"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1751063435]
+root_node = NodePath("../IcePalaceBoss")
+libraries/ = SubResource("AnimationLibrary_cbydg")
+autoplay = &"dance"

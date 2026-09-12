@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://btn1vhu2dcufw"]
+
+[ext_resource type="PackedScene" uid="uid://jhaejpx46ycp" path="res://battle/system/ui/tp_bar/tp_bar.tscn" id="1_v57e7"]
+[ext_resource type="Texture2D" uid="uid://cq77kmeiyvhrc" path="res://battle/gimmicks/darkness/res/tp_bar_dark.png" id="2_ehy5r"]
+[ext_resource type="Texture2D" uid="uid://25dbl7sapysi" path="res://battle/gimmicks/darkness/res/tp_bar_progress_dark.png" id="3_ndokw"]
+
+[node name="TPBar" unique_id=1921588265 instance=ExtResource("1_v57e7")]
+
+[node name="Bar" parent="Normal" parent_id_path=PackedInt32Array(840135610) index="0" unique_id=38333860]
+texture = ExtResource("2_ehy5r")
+
+[node name="Progress" parent="Normal" parent_id_path=PackedInt32Array(840135610) index="5" unique_id=754681068]
+texture_progress = ExtResource("3_ndokw")

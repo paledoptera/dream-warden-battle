@@ -8,4 +8,4 @@ class_name AttackEvent extends Resource
 @export var damage_formula: DamageFormula = DamageFormula.new()
 
 func get_damage() -> int:
-	return damage_formula.get_damage(damage)
+	return damage_formula.calculate(damage,attacker,target)

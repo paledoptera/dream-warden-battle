@@ -17,11 +17,18 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
+	
 	if not visible:
 		return
 	
 	if Dialogue.active and visible_ratio < 1.0:
 		visible_characters += 1
+		if not text:
+			return
+		
+		if not visible:
+			visible = true
+		
 		if self in Dialogue.current_boxes and not Dialogue.current.talksound_oneshot:
 			var c := text[visible_characters - 1].to_ascii_buffer()[0]
 			if is_letter_or_number(c):
@@ -33,8 +40,9 @@ func _process(_delta: float) -> void:
 func hide_text() -> void:
 	visible_characters = 0
 	clear_effects()
+	text = ""
 	visible = false
-
+	
 func clear_effects() -> void:
 	for i in effects:
 		if i:
@@ -43,15 +51,17 @@ func clear_effects() -> void:
 
 func refresh() -> void:
 	clear_everything()
+	
 	if Dialogue.current.identifier != identifier:
 		if self in Dialogue.current_boxes:
 			Dialogue.current_boxes.erase(self)
-			visible = false
+			hide()
 			return
 	else:
 		if self not in Dialogue.current_boxes:
 			Dialogue.current_boxes.append(self)
-			visible = true
+			show()
+	
 	start_dialogue()
 	
 

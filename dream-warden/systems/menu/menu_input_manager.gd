@@ -27,10 +27,10 @@ func open_menu(menu: Control) -> void:
 	
 	_change_menu_state(menu,true)
 	
-	if menus[menu].selected_option != menus[menu].default_option:
+	if menus[menu].keep_selected:
 		_focus_indexed_option(menu,menus[menu].selected_option)
 	else:
-		_focus_first_control(menu)
+		_focus_indexed_option(menu,menus[menu].default_option)
 	
 	menu_opened.emit()
 
@@ -71,12 +71,14 @@ func _change_menu_state(menu: Control, enabled: bool) -> void:
 
 func _focus_first_control(menu: Control) -> void:
 	var first := _find_first_focusable(menu)
-
+	
 	if first:
 		first.grab_focus()
 
 func _focus_indexed_option(menu: Control, index: int = 0) -> void:
 	var options = Tools.find_children_in_group(menu, "menu_option", true)
+	if options[index] is RPGMenuButton:
+		options[index].soundless_focus = true
 	options[index].grab_focus()
 
 func _find_first_focusable(node: Node) -> Control:

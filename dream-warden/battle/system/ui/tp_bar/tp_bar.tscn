@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://coalpkjadmxxt" path="res://battle/system/ui/tp_bar/res/tp_bar_progress_white.png" id="5_munie"]
 [ext_resource type="Texture2D" uid="uid://eppakrra8st8" path="res://battle/system/ui/tp_bar/res/tp_bar_full.png" id="6_risqd"]
 
-[node name="TPBar" type="Node2D" unique_id=1921588265]
+[node name="TPBar" type="Node2D" unique_id=1921588265 groups=["tp_bar"]]
 script = ExtResource("1_1qr6m")
 
 [node name="Text" type="Sprite2D" parent="." unique_id=357834085]

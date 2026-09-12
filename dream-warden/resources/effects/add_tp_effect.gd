@@ -4,3 +4,4 @@ class_name AddTPEffect extends Effect
 
 func apply(_user: int, _target: int) -> void:
 	Party.tp += amount
+	effect_applied.emit()

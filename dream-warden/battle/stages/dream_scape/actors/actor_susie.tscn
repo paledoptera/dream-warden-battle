@@ -4,11 +4,9 @@
 [ext_resource type="Shader" uid="uid://c16rfo3hutpax" path="res://common/palette_swap_shader.tres" id="2_3cfp6"]
 [ext_resource type="SpriteFrames" uid="uid://vwnv0psa61b6" path="res://battle/stages/dream_scape/actors/res/susie_frames.tres" id="2_u7kpl"]
 [ext_resource type="PackedScene" uid="uid://bp2185cc1j6v1" path="res://entities/dialogue/speech_bubble.tscn" id="3_3cfp6"]
+[ext_resource type="Texture2D" uid="uid://brxbt6tkj7gs2" path="res://battle/stages/dream_scape/actors/res/susie_palette.png" id="3_gp2ld"]
+[ext_resource type="Texture2D" uid="uid://b6l1w0d3biye3" path="res://battle/stages/dream_scape/actors/res/susie_palette_alt.png" id="4_d7hko"]
 [ext_resource type="PackedScene" uid="uid://chcy6un0fnkhk" path="res://entities/dialogue/speech_bubble/bubble_tail_left.tscn" id="4_gp2ld"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_vii0q"]
-shader = ExtResource("2_3cfp6")
-shader_parameter/color_count = 0
 
 [sub_resource type="Animation" id="Animation_6rqmn"]
 length = 0.001
@@ -35,6 +33,88 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [&"idle"]
+}
+
+[sub_resource type="Animation" id="Animation_666mb"]
+resource_name = "defend"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"defend"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2, 0.2666667, 0.33333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_gp2ld"]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"fight"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.20000002),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_d7hko"]
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"fight_prepare"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_jq4a0"]
@@ -70,12 +150,25 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_k8j1w"]
 _data = {
 &"RESET": SubResource("Animation_6rqmn"),
+&"defend": SubResource("Animation_666mb"),
+&"fight": SubResource("Animation_gp2ld"),
+&"fight_prepare": SubResource("Animation_d7hko"),
 &"idle": SubResource("Animation_jq4a0")
 }
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vii0q"]
+shader = ExtResource("2_3cfp6")
+shader_parameter/original_palette = ExtResource("3_gp2ld")
+shader_parameter/new_palette = ExtResource("4_d7hko")
+shader_parameter/color_count = 13
 
 [node name="ActorSusie" type="Node2D" unique_id=2112924183 groups=["actors"]]
 script = ExtResource("1_rsam7")
 id = &"susie"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2074579776]
+libraries/ = SubResource("AnimationLibrary_k8j1w")
+autoplay = &"idle"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1765386356]
 material = SubResource("ShaderMaterial_vii0q")
@@ -83,10 +176,6 @@ scale = Vector2(2, 2)
 sprite_frames = ExtResource("2_u7kpl")
 animation = &"idle"
 offset = Vector2(0, -27)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2074579776]
-libraries/ = SubResource("AnimationLibrary_k8j1w")
-autoplay = &"idle"
 
 [node name="SpeechBubble" parent="." unique_id=151941393 instance=ExtResource("3_3cfp6")]
 offset_left = 54.0

@@ -1,11 +1,13 @@
 class_name RPGMenuButton extends Control
 
+signal hovered(index: int)
 signal selected(index: int)
 signal blocked
 
 @export var disabled: bool = false
 var menu_sounds:= MenuSounds.new()
 var menu: MenuConfigResource
+var soundless_focus: bool = false
 
 
 func _ready() -> void:
@@ -13,8 +15,13 @@ func _ready() -> void:
 	focus_exited.connect(_on_focus_exited)
 
 func _on_focus_entered() -> void:
-	Sound.play(menu_sounds.move)
+	if soundless_focus:
+		soundless_focus = false
+	else:
+		Sound.play(menu_sounds.move)
+	
 	menu.selected_option = get_index()
+	hovered.emit(get_index())
 
 
 func _on_focus_exited() -> void:

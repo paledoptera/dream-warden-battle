@@ -5,6 +5,7 @@ class_name AddStatusEffect extends Effect
 
 func apply(_user: int, target: int) -> void:
 	add_status(target)
+	effect_applied.emit()
 
 func add_status(target: int) -> void:
 	var status_inst = status.duplicate(true)

@@ -15,6 +15,12 @@ func _ready() -> void:
 	_update_hp()
 	
 	name = hero.name
+	%LabelName.text = name.to_upper()
+	%LabelName.scale = hero.ui_name_scale
+	%Icon.texture = hero.icons
+	var healthbar_color = StyleBoxFlat.new()
+	healthbar_color.bg_color = hero.color
+	%HealthBar.add_theme_stylebox_override("fill", healthbar_color)
 
 
 func open() -> void:

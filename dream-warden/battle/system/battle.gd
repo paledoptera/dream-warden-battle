@@ -21,28 +21,37 @@ var action_menu: ActionMenu
 var waiting_on_minigame: bool = false
 var minigame: Node
 var attack_scenes: Array[Node]
+var gimmicks: Array[String]
+var soul_bearer: StringName
 
-static func start(enemies: Array[CharacterStats], stage: PackedScene, party: Array[CharacterStats] = Party.active_party, soul_bearer: StringName = "") -> Node:
+static func start(fight_data: FightData) -> Node:
 	var scene = SceneLoader.change_scene(SCENE)
+	scene.gimmicks = fight_data.gimmicks
 	
 	Party.enemy.clear()
-	Party.enemy = enemies
+	Party.enemy = fight_data.enemies
 	
-	if party != Party.hero:
+	if fight_data.custom_party and fight_data.party:
 		Party.hero.clear()
-		Party.hero = party
+		Party.hero = fight_data.party
 	
-	if soul_bearer == "":
-		Party.soul_bearer = Party.hero[0].character_id
-	else:
-		Party.soul_bearer = soul_bearer
+	scene.soul_bearer = fight_data.soul_bearer
 	
-	var stage_inst = stage.instantiate()
+	var stage_inst = fight_data.stage.instantiate()
+	
 	scene.add_child(stage_inst)
 	
 	return scene
 
 func _ready() -> void:
+	Flags.battle = Flags.BattleFlags.new()
+	
+	if soul_bearer == "":
+		Flags.battle.soul_bearer = Party.hero[0].character_id
+	else:
+		Flags.battle.soul_bearer = soul_bearer
+	
+	%GimmickHandler.initialize_gimmicks(gimmicks)
 	
 	turn_state_changed.connect(_on_turn_state_changed)
 	
@@ -52,11 +61,11 @@ func _ready() -> void:
 	$TurnQueue.reverse_action.connect(reverse_action)
 	%CharacterStatusManager.reposition_action_menu.connect(_reposition_action_menu)
 	
+	
 	EventBus.battle_event.connect(battle_event)
 	EventBus.enter_fight_minigame.connect(fight_minigame_start)
 	EventBus.hero_attack.connect(hero_attack)
 	
-	Party.tp_changed.connect(%TPBar._update_tp)
 
 func check_turn(index: int) -> void:
 	await get_tree().physics_frame
@@ -83,6 +92,7 @@ func _on_turn_state_changed(value: TurnState):
 		TurnState.PLAYER:
 			await get_tree().process_frame
 			turn += 1
+			_reset_actor_anims()
 			start_flavor_text()
 			open_action_menu()
 			refresh_queue()
@@ -92,21 +102,26 @@ func _on_turn_state_changed(value: TurnState):
 		
 		TurnState.ACTION:
 			Dialogue.clear_text.emit()
+			await get_tree().physics_frame
+			%DialogueBox.visible = true
 			%EventQueue.execute_events()
 			await %EventQueue.events_finished
 			await get_tree().process_frame
 			if waiting_on_minigame:
+				Dialogue.clear_text.emit()
 				await EventBus.end_fight_minigame
 			
 			turn_state = TurnState.ENEMY
 		
 		TurnState.ENEMY:
+			Dialogue.clear_text.emit()
+			await get_tree().physics_frame
 			print("enemy phase")
 			
 			# check if dead
 				# end battle
 			
-			var dialogue = %BattleDataManager.get_dialogue()
+			var dialogue = %DataManager.get_dialogue()
 			if dialogue:
 				Dialogue.display_text(dialogue)
 				await Dialogue.text_finished
@@ -117,12 +132,13 @@ func _on_turn_state_changed(value: TurnState):
 
 func _reposition_action_menu(index: int) -> void:
 	action_menu.stats_tab = %CharacterStatusManager.get_child(index)
+	action_menu.party_member = index
 
 
 func _on_action_selected(action_type: int, option: int, target: int) -> void:
-	var event: BattleEvent = get_action_data(action_type, option, target)
+	var character = $TurnQueue.active_character.get_index()
+	var event: BattleEvent = get_action_data(action_type, option, target, character)
 	$TurnQueue.active_character.action = event
-	event.character = $TurnQueue.active_character.get_index()
 	%EventQueue.add_event(event, false)
 
 	$TurnQueue.active_character.turn_finished.emit()
@@ -136,6 +152,7 @@ func _on_action_cancel_turn() -> void:
 func open_action_menu() -> void:
 	action_menu = ActionMenu.spawn()
 	add_child(action_menu)
+	
 	_reposition_action_menu(0)
 	action_menu.action_cancelled.connect(_on_action_cancel_turn)
 	action_menu.action_selected.connect(_on_action_selected)
@@ -147,24 +164,28 @@ func close_action_menu() -> void:
 	action_menu = null
 
 
-func get_action_data(action_type: int, option: int, target: int) -> BattleEvent:
+func get_action_data(action_type: int, option: int, target: int, character: int) -> BattleEvent:
 	var event = BattleEvent.new()
 	
 	print("ACTION TYPE: ", action_type, " option: ", option, " target: ", target)
 	event.action_type = action_type as BattleEvent.Type
 	event.option = option
 	event.target = target
+	event.character = character
 	print(" EVENT", event.action_type)
 	
 	match event.action_type:
 		BattleEvent.Type.DEFEND:
-			event.data["tp"] = 20.0
+			event.data["tp"] = Flags.battle.defend_tp
 			event.priority = 2
 			
 		BattleEvent.Type.FIGHT:
 			event.priority = 0
 			
 		BattleEvent.Type.MAGIC:
+			var spell = Party.get_target_hero(character).spells[option]
+			event.data["tp"] = spell.tp_cost
+			event.data["spell"] = spell
 			event.priority = 1
 			
 		BattleEvent.Type.ITEM:
@@ -264,14 +285,29 @@ func _start_minigame(new_minigame: PackedScene, parent: Node = null) -> Node:
 
 func hero_attack(event: AttackEvent):
 	print("HERO ATTACKS! ")
+	
 	var final_damage = event.get_damage()
 	print(event, event.target, event.damage)
+	
 	var damage_number = FloatingText.initialize_text(str(final_damage),Color.WHITE)
+	
+	if event.target.on_hit_gimmick != "":
+		match event.target.on_hit_gimmick:
+			"block":
+				damage_number = FloatingText.initialize_sprite(preload("uid://dypyfakfdgag2"),Vector2.ZERO,Color.WHITE)
+
+	
+	if event.target.soundbank.has("damaged"):
+		Sound.play(event.target.soundbank["damaged"])
+	
 	EventBus.actor_trigger_damage_number.emit(event.target.character_id,damage_number)
+	
 
 
 func enemy_attack(parent_node: Node) -> void:
-	var attack = %BattleDataManager.get_attack()
+	var attack = %DataManager.get_attack()
+	
+	%UIAnimations.play("attack_fade")
 	
 	if not attack.scene:
 		return
@@ -290,12 +326,16 @@ func enemy_attack(parent_node: Node) -> void:
 	add_child(main_attack_scene)
 	main_attack_scene.global_position = $Helpers/AttackPos.global_position
 	
+	
+	
 	if attack.length:
 		await get_tree().create_timer(attack.length).timeout
 	else:
 		await EventBus.attack_area_end
 	
 	await animate_soul_transition(main_attack_scene,true)
+	
+	%UIAnimations.play_backwards("attack_fade")
 	
 	turn_state = TurnState.PLAYER
 	
@@ -313,11 +353,15 @@ func start_flavor_text() -> void:
 	var dialogue_line: DialogueString
 	
 	if turn == 0:
-		dialogue_line = %BattleDataManager.get_opening_line()
+		dialogue_line = %DataManager.get_opening_line()
 	else:
-		dialogue_line = %BattleDataManager.get_flavor_text()
+		dialogue_line = %DataManager.get_flavor_text()
 	
 	if not dialogue_line:
 		dialogue_line = DialogueString.new("* It is known.")
 	
 	Dialogue.display_text(dialogue_line)
+
+func _reset_actor_anims() -> void:
+	for i in Party.hero:
+		EventBus.actor_do_action.emit(i.character_id, "idle")

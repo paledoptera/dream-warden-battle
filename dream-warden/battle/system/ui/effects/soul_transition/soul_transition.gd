@@ -92,7 +92,8 @@ func destroy() -> void:
 	queue_free()
 
 func get_start_point() -> Vector2:
-	var actor_name = Party.soul_bearer
+	var actor_name = Flags.battle.soul_bearer
+	print("SOUL BEARER = ", actor_name)
 	var actors = get_tree().get_nodes_in_group("actors")
 	
 	for i in actors:

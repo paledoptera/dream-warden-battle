@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://clltp64t44fr4" path="res://battle/system/battle.gd" id="1_obv46"]
 [ext_resource type="Script" uid="uid://cwtgrjmq8jiy" path="res://battle/system/components/turn_queue.gd" id="2_obv46"]
+[ext_resource type="Script" uid="uid://btjh6mim1oqgu" path="res://battle/system/gimmick_handler.gd" id="2_vii0q"]
 [ext_resource type="Script" uid="uid://k3lwlefinvbw" path="res://battle/system/components/fighter.gd" id="3_r6df0"]
 [ext_resource type="PackedScene" uid="uid://c0oopy8rd7aua" path="res://battle/system/ui/action_panel/action_panel.tscn" id="4_k6ceo"]
 [ext_resource type="Script" uid="uid://cqgqqn8on2o56" path="res://battle/system/components/event_queue.gd" id="4_t33rp"]
@@ -32,7 +33,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Battle/TPBar:position")
+tracks/1/path = NodePath("Battle/TPBarPivot:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -76,7 +77,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Battle/TPBar:position")
+tracks/1/path = NodePath("Battle/TPBarPivot:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -96,6 +97,10 @@ _data = {
 [node name="Battle" type="CanvasLayer" unique_id=1416402505]
 script = ExtResource("1_obv46")
 
+[node name="GimmickHandler" type="Node" parent="." unique_id=499076582]
+unique_name_in_owner = true
+script = ExtResource("2_vii0q")
+
 [node name="TurnQueue" type="Node" parent="." unique_id=888930780]
 unique_name_in_owner = true
 script = ExtResource("2_obv46")
@@ -113,7 +118,7 @@ script = ExtResource("3_r6df0")
 unique_name_in_owner = true
 script = ExtResource("4_t33rp")
 
-[node name="BattleDataManager" type="Node" parent="." unique_id=2095664746]
+[node name="DataManager" type="Node" parent="." unique_id=2095664746]
 unique_name_in_owner = true
 script = ExtResource("5_uhooo")
 metadata/_custom_type_script = "uid://cq8b2sfdp7v82"
@@ -161,9 +166,11 @@ tab_size = 2
 effect_offset = Vector2(30, 15)
 metadata/_edit_use_anchors_ = true
 
-[node name="TPBar" parent="." unique_id=1921588265 instance=ExtResource("10_d1p73")]
-unique_name_in_owner = true
+[node name="TPBarPivot" type="Node2D" parent="." unique_id=168803083]
 position = Vector2(50, 137)
+
+[node name="TPBar" parent="TPBarPivot" unique_id=1921588265 instance=ExtResource("10_d1p73")]
+unique_name_in_owner = true
 
 [node name="Helpers" type="Node2D" parent="." unique_id=1926037317]
 
@@ -186,8 +193,8 @@ offset_right = 640.0
 offset_bottom = 480.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 0.64705884)
+color = Color(0, 0, 0, 0)
 
-[connection signal="turn_number_changed" from="." to="BattleDataManager" method="_on_battle_turn_number_changed"]
+[connection signal="turn_number_changed" from="." to="DataManager" method="_on_battle_turn_number_changed"]
 [connection signal="turn_finished" from="TurnQueue" to="ActionPanel/CharacterStatusManager" method="_on_turn_queue_turn_finished"]
 [connection signal="turn_started" from="TurnQueue" to="ActionPanel/CharacterStatusManager" method="_on_turn_queue_turn_started"]

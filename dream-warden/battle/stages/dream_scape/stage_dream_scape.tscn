@@ -117,7 +117,7 @@ offset_bottom = 480.0
 color = Color(0, 0, 0, 1)
 
 [node name="ActorSusie" parent="." unique_id=2112924183 instance=ExtResource("3_fuu2m")]
-position = Vector2(135, 228)
+position = Vector2(152.067, 228)
 
 [node name="ActorWarden" parent="." unique_id=1608169694 instance=ExtResource("4_yc2n1")]
 position = Vector2(448, 189)

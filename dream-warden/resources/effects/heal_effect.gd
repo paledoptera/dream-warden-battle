@@ -4,6 +4,8 @@ class_name HealEffect extends Effect
 
 func apply(_user: int, target: int) -> void:
 	heal(target)
+	await Party.get_tree().physics_frame
+	effect_applied.emit()
 
 
 func heal(target: int) -> void:

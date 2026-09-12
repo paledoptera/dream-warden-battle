@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CharacterStatsHero" format=3 uid="uid://xcpu86gdep5b"]
+
+[ext_resource type="Script" uid="uid://bibh1w77wdf3s" path="res://resources/usables/items/equippables/_item_equippable.gd" id="1_1mjja"]
+[ext_resource type="Script" uid="uid://cjlmox2rkhaa4" path="res://resources/character_stats/hero/character_stats_hero.gd" id="2_f0g1o"]
+[ext_resource type="Texture2D" uid="uid://d2pff4hydm2e5" path="res://battle/heroes/dess/res/action_icons.png" id="2_o2431"]
+[ext_resource type="Script" uid="uid://cto2fxwpogr36" path="res://resources/usables/spells/spell.gd" id="3_o2431"]
+[ext_resource type="Script" uid="uid://j420j57sl5b5" path="res://resources/effects/status_effects/_status_effect.gd" id="4_ihjch"]
+
+[resource]
+script = ExtResource("2_f0g1o")
+icons = ExtResource("2_o2431")
+name = "Dess"
+color = Color(1, 0.41568628, 0, 1)
+hp_max = 460
+hp = 460
+attack = 40
+defense = 2
+magic = 5
+character_id = &"susie"
+metadata/_custom_type_script = "uid://cjlmox2rkhaa4"

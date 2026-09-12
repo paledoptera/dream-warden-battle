@@ -1,0 +1,122 @@
+[gd_scene format=3 uid="uid://c07tlvvfu114o"]
+
+[ext_resource type="Script" uid="uid://by1fj36ltgbbb" path="res://systems/menu/buttons/soul_selectable_button.gd" id="1_asxpk"]
+[ext_resource type="Script" uid="uid://cc5k140pvhkn2" path="res://systems/menu/rpg_menu_button.gd" id="1_ybpr2"]
+[ext_resource type="FontVariation" uid="uid://72sk30ahlloh" path="res://shared/theme/fonts/default_textbox.tres" id="2_asxpk"]
+[ext_resource type="FontFile" uid="uid://drsujjxp7k8ca" path="res://shared/theme/fonts/DeterminationSansWebRegular-369X.ttf" id="3_5ofbj"]
+[ext_resource type="Texture2D" uid="uid://cmg2825l7r7m5" path="res://battle/system/ui/action_panel/enemy_selection/no_mercy.png" id="4_jontc"]
+
+[sub_resource type="Theme" id="Theme_7rakj"]
+default_font = ExtResource("2_asxpk")
+default_font_size = 32
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hjkca"]
+content_margin_left = 80.0
+content_margin_top = 15.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4buc0"]
+bg_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_48ydb"]
+bg_color = Color(0, 1, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yf5fn"]
+bg_color = Color(1, 0.3137255, 0.1254902, 1)
+
+[node name="Enemy" type="Control" unique_id=54619766 groups=["menu_option"]]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_asxpk")
+offset = Vector2(64, 32)
+metadata/_custom_type_script = "uid://cc5k140pvhkn2"
+
+[node name="Label" type="RichTextLabel" parent="." unique_id=918907504 groups=["menu_option"]]
+custom_minimum_size = Vector2(100, 40)
+clip_contents = false
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 40.0
+focus_mode = 2
+theme = SubResource("Theme_7rakj")
+theme_override_colors/font_shadow_color = Color(0.05490196, 0.07450981, 1, 0.49803922)
+theme_override_constants/shadow_outline_size = 0
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_fonts/normal_font = ExtResource("2_asxpk")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hjkca")
+bbcode_enabled = true
+text = "Enemy"
+scroll_active = false
+script = ExtResource("1_ybpr2")
+
+[node name="HP" type="ProgressBar" parent="." unique_id=101720231]
+layout_mode = 0
+offset_left = 420.0
+offset_top = 20.0
+offset_right = 500.0
+offset_bottom = 36.0
+theme_override_styles/background = SubResource("StyleBoxFlat_4buc0")
+theme_override_styles/fill = SubResource("StyleBoxFlat_48ydb")
+value = 100.0
+show_percentage = false
+
+[node name="Label" type="RichTextLabel" parent="HP" unique_id=234384643]
+clip_contents = false
+layout_mode = 0
+offset_left = 4.0
+offset_top = -16.0
+offset_right = 44.0
+offset_bottom = 24.0
+scale = Vector2(2, 0.97)
+theme_override_fonts/normal_font = ExtResource("3_5ofbj")
+text = "HP"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Number" type="RichTextLabel" parent="HP" unique_id=259299541]
+clip_contents = false
+layout_mode = 0
+offset_left = 2.0
+offset_right = 42.0
+offset_bottom = 40.0
+scale = Vector2(1.9, 1)
+text = "100%"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Mercy" type="ProgressBar" parent="." unique_id=1625201667]
+layout_mode = 0
+offset_left = 520.0
+offset_top = 20.0
+offset_right = 600.0
+offset_bottom = 36.0
+theme_override_styles/background = SubResource("StyleBoxFlat_g4v7s")
+theme_override_styles/fill = SubResource("StyleBoxFlat_yf5fn")
+value = 100.0
+show_percentage = false
+
+[node name="Label" type="RichTextLabel" parent="Mercy" unique_id=6734670]
+clip_contents = false
+layout_mode = 0
+offset_left = 4.0
+offset_top = -16.0
+offset_right = 44.0
+offset_bottom = 24.0
+scale = Vector2(2, 0.97)
+theme_override_fonts/normal_font = ExtResource("3_5ofbj")
+text = "MERCY"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="Mercy" unique_id=433429757]
+position = Vector2(40, 8.507)
+scale = Vector2(5, 1.07)
+texture = ExtResource("4_jontc")

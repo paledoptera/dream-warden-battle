@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cp0mv55bepw51" path="res://battle/system/ui/action_panel/hero_selection/hero_selection.gd" id="1_v42ql"]
 [ext_resource type="PackedScene" uid="uid://djm1xryym7g5i" path="res://battle/system/ui/action_panel/hero_selection/hero_option.tscn" id="2_v42ql"]
-[ext_resource type="Script" uid="uid://cc5k140pvhkn2" path="res://common/rpg_menu_button.gd" id="3_svpqt"]
+[ext_resource type="Script" uid="uid://cc5k140pvhkn2" path="res://systems/menu/rpg_menu_button.gd" id="3_svpqt"]
 [ext_resource type="Texture2D" uid="uid://wy7dhu8gvr8c" path="res://battle/soul/soul/res/soul.png" id="5_5qhq5"]
 
 [node name="HeroSelection" type="Control" unique_id=1693749241]
@@ -17,20 +17,14 @@ offset_right = 640.0
 offset_bottom = 141.0
 
 [node name="Hero1" parent="Options" unique_id=1560841954 instance=ExtResource("2_v42ql")]
-custom_minimum_size = Vector2(100, 28)
-clip_contents = false
 layout_mode = 2
 script = ExtResource("3_svpqt")
 
-[node name="Hero2" parent="Options" unique_id=1968759438 instance=ExtResource("2_v42ql")]
-custom_minimum_size = Vector2(100, 28)
-clip_contents = false
+[node name="Hero2" parent="Options" unique_id=1145105293 instance=ExtResource("2_v42ql")]
 layout_mode = 2
 script = ExtResource("3_svpqt")
 
-[node name="Hero3" parent="Options" unique_id=1125367461 instance=ExtResource("2_v42ql")]
-custom_minimum_size = Vector2(100, 28)
-clip_contents = false
+[node name="Hero3" parent="Options" unique_id=1085177317 instance=ExtResource("2_v42ql")]
 layout_mode = 2
 script = ExtResource("3_svpqt")
 
@@ -38,3 +32,7 @@ script = ExtResource("3_svpqt")
 modulate = Color(1, 0, 0, 1)
 position = Vector2(64, 29)
 texture = ExtResource("5_5qhq5")
+
+[connection signal="selected" from="Options/Hero1" to="." method="_on_enemy_selected"]
+[connection signal="selected" from="Options/Hero2" to="." method="_on_enemy_selected"]
+[connection signal="selected" from="Options/Hero3" to="." method="_on_enemy_selected"]

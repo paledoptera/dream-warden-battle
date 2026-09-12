@@ -4,7 +4,8 @@ class_name DamageEffect extends Effect
 
 func apply(_user: int, target: int) -> void:
 	damage(target)
-
+	await Party.get_tree().physics_frame
+	effect_applied.emit()
 
 func damage(target: int) -> void:
 	match target:

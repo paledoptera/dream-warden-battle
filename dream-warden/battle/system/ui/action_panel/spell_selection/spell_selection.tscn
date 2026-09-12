@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://um2a64cmuqm6"]
 
 [ext_resource type="Script" uid="uid://dhp880u4rgwtq" path="res://battle/system/ui/action_panel/spell_selection/spell_selection.gd" id="1_fknub"]
+[ext_resource type="PackedScene" uid="uid://b6itcf27xot2w" path="res://battle/system/ui/action_panel/spell_selection/spell_option.tscn" id="2_ujxr8"]
 [ext_resource type="FontVariation" uid="uid://72sk30ahlloh" path="res://shared/theme/fonts/default_textbox.tres" id="3_qhuar"]
 [ext_resource type="Texture2D" uid="uid://wy7dhu8gvr8c" path="res://battle/soul/soul/res/soul.png" id="4_6ywbq"]
-[ext_resource type="Script" uid="uid://cc5k140pvhkn2" path="res://common/rpg_menu_button.gd" id="4_g0cnk"]
 
 [sub_resource type="Theme" id="Theme_7rakj"]
 default_font = ExtResource("3_qhuar")
@@ -18,82 +18,24 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_fknub")
 
-[node name="Options" type="GridContainer" parent="." unique_id=1699270379]
+[node name="Options" type="GridContainer" parent="." unique_id=1699270379 groups=["options_parent"]]
 layout_mode = 0
 offset_top = -4.0
 offset_right = 460.0
 offset_bottom = 96.0
 columns = 2
 
-[node name="Option1" type="RichTextLabel" parent="Options" unique_id=151941393 groups=["menu_option"]]
-custom_minimum_size = Vector2(228, 28)
-clip_contents = false
+[node name="Spell1" parent="Options" unique_id=947396992 instance=ExtResource("2_ujxr8")]
 layout_mode = 2
-theme = SubResource("Theme_7rakj")
-theme_override_fonts/normal_font = ExtResource("3_qhuar")
-theme_override_font_sizes/normal_font_size = 32
-theme_override_font_sizes/bold_font_size = 32
-theme_override_font_sizes/bold_italics_font_size = 32
-theme_override_font_sizes/italics_font_size = 32
-theme_override_font_sizes/mono_font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
-bbcode_enabled = true
-text = "Spell1"
-scroll_active = false
-script = ExtResource("4_g0cnk")
 
-[node name="Option2" type="RichTextLabel" parent="Options" unique_id=2078893534 groups=["menu_option"]]
-custom_minimum_size = Vector2(228, 28)
-clip_contents = false
+[node name="Spell2" parent="Options" unique_id=1522136388 instance=ExtResource("2_ujxr8")]
 layout_mode = 2
-theme = SubResource("Theme_7rakj")
-theme_override_fonts/normal_font = ExtResource("3_qhuar")
-theme_override_font_sizes/normal_font_size = 32
-theme_override_font_sizes/bold_font_size = 32
-theme_override_font_sizes/bold_italics_font_size = 32
-theme_override_font_sizes/italics_font_size = 32
-theme_override_font_sizes/mono_font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
-bbcode_enabled = true
-text = "Spell2"
-scroll_active = false
-script = ExtResource("4_g0cnk")
 
-[node name="Option3" type="RichTextLabel" parent="Options" unique_id=1431091085 groups=["menu_option"]]
-custom_minimum_size = Vector2(228, 28)
-clip_contents = false
+[node name="Spell3" parent="Options" unique_id=165684252 instance=ExtResource("2_ujxr8")]
 layout_mode = 2
-theme = SubResource("Theme_7rakj")
-theme_override_fonts/normal_font = ExtResource("3_qhuar")
-theme_override_font_sizes/normal_font_size = 32
-theme_override_font_sizes/bold_font_size = 32
-theme_override_font_sizes/bold_italics_font_size = 32
-theme_override_font_sizes/italics_font_size = 32
-theme_override_font_sizes/mono_font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
-bbcode_enabled = true
-text = "Spell3"
-fit_content = true
-scroll_active = false
-script = ExtResource("4_g0cnk")
 
-[node name="Option4" type="RichTextLabel" parent="Options" unique_id=1776980224 groups=["menu_option"]]
-custom_minimum_size = Vector2(228, 28)
-clip_contents = false
+[node name="Spell4" parent="Options" unique_id=1743250773 instance=ExtResource("2_ujxr8")]
 layout_mode = 2
-theme = SubResource("Theme_7rakj")
-theme_override_fonts/normal_font = ExtResource("3_qhuar")
-theme_override_font_sizes/normal_font_size = 32
-theme_override_font_sizes/bold_font_size = 32
-theme_override_font_sizes/bold_italics_font_size = 32
-theme_override_font_sizes/italics_font_size = 32
-theme_override_font_sizes/mono_font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
-bbcode_enabled = true
-text = "Spell4"
-fit_content = true
-scroll_active = false
-script = ExtResource("4_g0cnk")
 
 [node name="Description" type="RichTextLabel" parent="." unique_id=1079294880]
 custom_minimum_size = Vector2(100, 40)
@@ -139,7 +81,16 @@ text = "
 99% TP"
 scroll_active = false
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1258073754]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1258073754 groups=["soul"]]
 modulate = Color(1, 0, 0, 1)
 position = Vector2(16, 29)
 texture = ExtResource("4_6ywbq")
+
+[connection signal="hovered" from="Options/Spell1" to="." method="_on_selected_changed"]
+[connection signal="selected" from="Options/Spell1" to="." method="_on_selected"]
+[connection signal="hovered" from="Options/Spell2" to="." method="_on_selected_changed"]
+[connection signal="selected" from="Options/Spell2" to="." method="_on_selected"]
+[connection signal="hovered" from="Options/Spell3" to="." method="_on_selected_changed"]
+[connection signal="selected" from="Options/Spell3" to="." method="_on_selected"]
+[connection signal="hovered" from="Options/Spell4" to="." method="_on_selected_changed"]
+[connection signal="selected" from="Options/Spell4" to="." method="_on_selected"]

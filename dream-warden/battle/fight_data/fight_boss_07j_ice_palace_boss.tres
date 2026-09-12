@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="FightData" format=3 uid="uid://c0veukur2qvwk"]
+
+[ext_resource type="Script" uid="uid://doj56elw7dew4" path="res://resources/character_stats/character_stats.gd" id="1_jlprv"]
+[ext_resource type="Resource" uid="uid://drqjfytfhj3kc" path="res://battle/enemies/ice_palace_boss/enemy_ice_palace_boss.tres" id="2_weyxr"]
+[ext_resource type="Resource" uid="uid://b7i2gw0h2pu35" path="res://resources/character_stats/hero/hero_07j_rangle.tres" id="3_5yec7"]
+[ext_resource type="Resource" uid="uid://bay7e6p8cy1fe" path="res://resources/character_stats/hero/hero_07j_chutley.tres" id="4_ldsme"]
+[ext_resource type="Resource" uid="uid://232nf3wslcjx" path="res://resources/character_stats/hero/hero_07j_fish.tres" id="5_bqd86"]
+[ext_resource type="Script" uid="uid://eu75wsnnxg4b" path="res://battle/fight_data/_fight_data.gd" id="6_3bb8l"]
+[ext_resource type="PackedScene" uid="uid://ux5c4buxxlkh" path="res://battle/stages/ice_palace/stage_ice_palace.tscn" id="7_r5aqo"]
+
+[resource]
+script = ExtResource("6_3bb8l")
+enemies = Array[ExtResource("1_jlprv")]([ExtResource("2_weyxr")])
+stage = ExtResource("7_r5aqo")
+custom_party = true
+party = Array[ExtResource("1_jlprv")]([ExtResource("3_5yec7"), ExtResource("4_ldsme"), ExtResource("5_bqd86")])
+soul_bearer = &"fish"
+metadata/_custom_type_script = "uid://eu75wsnnxg4b"

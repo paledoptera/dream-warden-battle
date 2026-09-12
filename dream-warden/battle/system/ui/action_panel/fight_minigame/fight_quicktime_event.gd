@@ -69,11 +69,16 @@ func press() -> bool:
 func do_attack() -> void:
 	
 	var party_member = Party.hero[index]
+	var enemy_target = Party.enemy[target]
 	var attack_event = AttackEvent.new()
 	
 	attack_event.attacker = party_member
-	attack_event.damage = party_member.attack
-	attack_event.target = Party.enemy[target]
+	attack_event.damage = accuracy
+	attack_event.target = enemy_target
+	attack_event.damage_formula = PartyAttackFormula.new()
+	
+	var tp_gain = (float(accuracy)/150.0) * Flags.battle.attack_tp
+	Party.tp += tp_gain
 	
 	EventBus.actor_do_action.emit(party_member.character_id, "fight")
 	await get_tree().create_timer(0.4).timeout

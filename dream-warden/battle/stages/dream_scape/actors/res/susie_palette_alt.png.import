@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://25dbl7sapysi"
-path="res://.godot/imported/tp_bar_progress_dark.png-e40028608edc91962880aa565e5e48c2.ctex"
+uid="uid://b6l1w0d3biye3"
+path="res://.godot/imported/susie_palette_alt.png-7e7ae0c390b11a58c8a488a2b17f6057.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://battle/system/ui/tp_bar/res/tp_bar_progress_dark.png"
-dest_files=["res://.godot/imported/tp_bar_progress_dark.png-e40028608edc91962880aa565e5e48c2.ctex"]
+source_file="res://battle/stages/dream_scape/actors/res/susie_palette_alt.png"
+dest_files=["res://.godot/imported/susie_palette_alt.png-7e7ae0c390b11a58c8a488a2b17f6057.ctex"]
 
 [params]
 

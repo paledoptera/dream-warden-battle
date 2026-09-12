@@ -41,7 +41,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/UpperPanel/Clock/Cat/Eyes:position")
+tracks/0/path = NodePath("UI/UpperPanel/Clock/Cat/Eyes:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -53,7 +53,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/UpperPanel/Clock/Cat/Tail:rotation")
+tracks/1/path = NodePath("UI/UpperPanel/Clock/Cat/Tail:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -82,7 +82,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/UpperPanel/Clock/Cat/Eyes:position")
+tracks/0/path = NodePath("UI/UpperPanel/Clock/Cat/Eyes:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -94,7 +94,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/UpperPanel/Clock/Cat/Tail:rotation")
+tracks/1/path = NodePath("UI/UpperPanel/Clock/Cat/Tail:rotation")
 tracks/1/interp = 4
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -438,7 +438,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/LowerPanel:position")
+tracks/0/path = NodePath("UI/LowerPanel:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -462,7 +462,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/UpperPanel:position")
+tracks/2/path = NodePath("UI/UpperPanel:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -474,7 +474,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CanvasLayer/UpperPanel/Clock:position")
+tracks/3/path = NodePath("UI/UpperPanel/Clock:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -486,7 +486,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("CanvasLayer/UpperPanel/Clock/Cat:scale")
+tracks/4/path = NodePath("UI/UpperPanel/Clock/Cat:scale")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -495,13 +495,25 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(2, 2)]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Fade:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_wfeub"]
 resource_name = "start"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/LowerPanel:position")
+tracks/0/path = NodePath("UI/LowerPanel:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -525,7 +537,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/UpperPanel:position")
+tracks/2/path = NodePath("UI/UpperPanel:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -537,7 +549,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CanvasLayer/UpperPanel/Clock:position")
+tracks/3/path = NodePath("UI/UpperPanel/Clock:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -549,7 +561,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("CanvasLayer/UpperPanel/Clock/Cat:scale")
+tracks/4/path = NodePath("UI/UpperPanel/Clock/Cat:scale")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -557,6 +569,18 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1, 1, 0.5, 1),
 "update": 0,
 "values": [Vector2(2, 2), Vector2(1.5, 3), Vector2(3, 1.5), Vector2(2, 2)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Fade:color")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.10000001),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_v4cn4"]
@@ -568,28 +592,28 @@ _data = {
 [node name="HereComesTheCats" type="Node2D" unique_id=175424421]
 script = ExtResource("1_wfeub")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1547504540]
+[node name="UI" type="CanvasLayer" parent="." unique_id=1547504540]
 layer = -1
 
-[node name="Parallax2D" type="Parallax2D" parent="CanvasLayer" unique_id=1104802484]
+[node name="Background" type="Parallax2D" parent="UI" unique_id=1104802484]
 z_index = -4096
 repeat_size = Vector2(524, 0)
 autoscroll = Vector2(-200, 0)
 repeat_times = 7
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Parallax2D" unique_id=582813695]
+[node name="Sprite2D" type="Sprite2D" parent="UI/Background" unique_id=582813695]
 position = Vector2(317, 240)
 scale = Vector2(2, 2)
 texture = ExtResource("2_hmtnl")
 
-[node name="ColorRect" type="TextureRect" parent="CanvasLayer" unique_id=1374985276]
+[node name="ColorRect" type="TextureRect" parent="UI" unique_id=1374985276]
 z_index = -10
 material = SubResource("CanvasItemMaterial_5vjsp")
 offset_right = 638.0
 offset_bottom = 480.0
 texture = SubResource("GradientTexture2D_dxg3j")
 
-[node name="ColorRect2" type="TextureRect" parent="CanvasLayer" unique_id=1333814054]
+[node name="ColorRect2" type="TextureRect" parent="UI" unique_id=1333814054]
 modulate = Color(1, 1, 1, 0.05490196)
 z_index = -11
 material = SubResource("CanvasItemMaterial_e8jcs")
@@ -597,14 +621,14 @@ offset_right = 638.0
 offset_bottom = 480.0
 texture = SubResource("GradientTexture2D_dxg3j")
 
-[node name="LowerPanel" type="ColorRect" parent="CanvasLayer" unique_id=1110783948]
+[node name="LowerPanel" type="ColorRect" parent="UI" unique_id=1110783948]
 z_index = 20
 offset_top = 441.0
 offset_right = 640.0
 offset_bottom = 479.99976
 color = Color(0, 0, 0, 1)
 
-[node name="BottomDivider" type="Panel" parent="CanvasLayer/LowerPanel" unique_id=323421690]
+[node name="BottomDivider" type="Panel" parent="UI/LowerPanel" unique_id=323421690]
 custom_minimum_size = Vector2(640, 3)
 layout_mode = 0
 offset_top = 36.0
@@ -612,14 +636,14 @@ offset_right = 640.0
 offset_bottom = 39.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_y8ppo")
 
-[node name="TopDivider" type="Panel" parent="CanvasLayer/LowerPanel" unique_id=1896769192]
+[node name="TopDivider" type="Panel" parent="UI/LowerPanel" unique_id=1896769192]
 custom_minimum_size = Vector2(640, 2)
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 2.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_y8ppo")
 
-[node name="Character1" parent="CanvasLayer/LowerPanel" unique_id=1838573815 instance=ExtResource("19_hesta")]
+[node name="Character1" parent="UI/LowerPanel" unique_id=1838573815 instance=ExtResource("19_hesta")]
 layout_mode = 0
 anchors_preset = 0
 anchor_right = 0.0
@@ -631,13 +655,13 @@ offset_bottom = 42.0
 grow_horizontal = 1
 grow_vertical = 1
 
-[node name="UpperPanel" type="ColorRect" parent="CanvasLayer" unique_id=204006526]
+[node name="UpperPanel" type="ColorRect" parent="UI" unique_id=204006526]
 z_index = 20
 offset_right = 640.0
 offset_bottom = 39.0
 color = Color(0, 0, 0, 1)
 
-[node name="BottomDivider" type="Panel" parent="CanvasLayer/UpperPanel" unique_id=670886750]
+[node name="BottomDivider" type="Panel" parent="UI/UpperPanel" unique_id=670886750]
 custom_minimum_size = Vector2(640, 3)
 layout_mode = 0
 offset_top = 36.0
@@ -645,89 +669,89 @@ offset_right = 640.0
 offset_bottom = 39.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_y8ppo")
 
-[node name="TopDivider" type="Panel" parent="CanvasLayer/UpperPanel" unique_id=891980289]
+[node name="TopDivider" type="Panel" parent="UI/UpperPanel" unique_id=891980289]
 custom_minimum_size = Vector2(640, 2)
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 2.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_y8ppo")
 
-[node name="Clock" type="Node2D" parent="CanvasLayer/UpperPanel" unique_id=1068317958]
+[node name="Clock" type="Node2D" parent="UI/UpperPanel" unique_id=1068317958]
 
-[node name="ClockContainer" type="Node2D" parent="CanvasLayer/UpperPanel/Clock" unique_id=2146033802]
+[node name="ClockContainer" type="Node2D" parent="UI/UpperPanel/Clock" unique_id=2146033802]
 position = Vector2(320, 14)
 scale = Vector2(3, 2)
 script = ExtResource("4_slmdl")
 
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/UpperPanel/Clock/ClockContainer" unique_id=1180355190]
+[node name="Sprite2D" type="Sprite2D" parent="UI/UpperPanel/Clock/ClockContainer" unique_id=1180355190]
 texture = ExtResource("5_fxwvx")
 
-[node name="ConductedTimer" type="Node" parent="CanvasLayer/UpperPanel/Clock/ClockContainer" unique_id=1016020100]
+[node name="ConductedTimer" type="Node" parent="UI/UpperPanel/Clock/ClockContainer" unique_id=1016020100]
 script = ExtResource("6_px3a1")
 round_start_beat = true
 autostart = true
 metadata/_custom_type_script = "uid://dsk3wv1yb4rho"
 
-[node name="Cat" type="Sprite2D" parent="CanvasLayer/UpperPanel/Clock" unique_id=1606735769]
+[node name="Cat" type="Sprite2D" parent="UI/UpperPanel/Clock" unique_id=1606735769]
 position = Vector2(320, 59)
 scale = Vector2(2, 2)
 texture = ExtResource("7_eed83")
 
-[node name="Eyes" type="Node2D" parent="CanvasLayer/UpperPanel/Clock/Cat" unique_id=391041696]
+[node name="Eyes" type="Node2D" parent="UI/UpperPanel/Clock/Cat" unique_id=391041696]
 position = Vector2(0, -12)
 scale = Vector2(0.5, 0.5)
 
-[node name="Left" type="ColorRect" parent="CanvasLayer/UpperPanel/Clock/Cat/Eyes" unique_id=967712699]
+[node name="Left" type="ColorRect" parent="UI/UpperPanel/Clock/Cat/Eyes" unique_id=967712699]
 offset_left = -10.0
 offset_top = -8.0
 offset_right = -6.0
 offset_bottom = 4.0
 color = Color(0, 0, 0, 1)
 
-[node name="Right" type="ColorRect" parent="CanvasLayer/UpperPanel/Clock/Cat/Eyes" unique_id=225505670]
+[node name="Right" type="ColorRect" parent="UI/UpperPanel/Clock/Cat/Eyes" unique_id=225505670]
 offset_left = 6.0
 offset_top = -8.0
 offset_right = 10.0
 offset_bottom = 4.0
 color = Color(0, 0, 0, 1)
 
-[node name="Tail" type="Sprite2D" parent="CanvasLayer/UpperPanel/Clock/Cat" unique_id=763279266]
+[node name="Tail" type="Sprite2D" parent="UI/UpperPanel/Clock/Cat" unique_id=763279266]
 z_index = -1
 position = Vector2(0, -0.5)
 texture = ExtResource("8_id2aw")
 offset = Vector2(0, 24)
 flip_v = true
 
-[node name="ConductedTimer" type="Node" parent="CanvasLayer/UpperPanel/Clock" unique_id=1019462133]
+[node name="ConductedTimer" type="Node" parent="UI/UpperPanel/Clock" unique_id=1019462133]
 script = ExtResource("6_px3a1")
 round_start_beat = true
 autostart = true
 metadata/_custom_type_script = "uid://dsk3wv1yb4rho"
 
-[node name="ConductorMusic" type="Node" parent="CanvasLayer/UpperPanel/Clock" unique_id=1358821576]
+[node name="ConductorMusic" type="Node" parent="UI/UpperPanel/Clock" unique_id=1358821576]
 script = ExtResource("9_ipnle")
 
-[node name="ConductedAnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/UpperPanel/Clock/ConductorMusic" unique_id=944897495]
+[node name="ConductedAnimationPlayer" type="AnimationPlayer" parent="UI/UpperPanel/Clock/ConductorMusic" unique_id=944897495]
 root_node = NodePath("../../../../..")
 libraries/ = SubResource("AnimationLibrary_y8ppo")
 script = ExtResource("10_q223y")
 round_start_beat = true
 metadata/_custom_type_script = "uid://cee2638n8ojsx"
 
-[node name="CustomLyrics" type="Node2D" parent="CanvasLayer" unique_id=1717309864 node_paths=PackedStringArray("text")]
+[node name="CustomLyrics" type="Node2D" parent="UI" unique_id=1717309864 node_paths=PackedStringArray("text")]
 material = SubResource("CanvasItemMaterial_wfeub")
 position = Vector2(0, 375)
 script = ExtResource("3_q223y")
 text = NodePath("DialogueBox2")
 
-[node name="Gradient" type="TextureRect" parent="CanvasLayer/CustomLyrics" unique_id=1617504707]
+[node name="Gradient" type="TextureRect" parent="UI/CustomLyrics" unique_id=1617504707]
 z_index = -1
 offset_top = -60.0
 offset_right = 640.0
 offset_bottom = 104.0
 texture = SubResource("GradientTexture2D_g4v7s")
 
-[node name="DialogueBox2" parent="CanvasLayer/CustomLyrics" unique_id=151941393 instance=ExtResource("4_y8ppo")]
+[node name="DialogueBox2" parent="UI/CustomLyrics" unique_id=151941393 instance=ExtResource("4_y8ppo")]
 use_parent_material = true
 offset_top = 11.0
 offset_right = 640.0
@@ -744,10 +768,10 @@ tab_size = 2
 horizontal_alignment = 1
 script = null
 
-[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="CanvasLayer/CustomLyrics" unique_id=1262929793]
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="UI/CustomLyrics" unique_id=1262929793]
 volume_db = -80.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=219995603]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI" unique_id=219995603]
 root_node = NodePath("../CustomLyrics")
 libraries/ = SubResource("AnimationLibrary_hesta")
 autoplay = &"lyrics"
@@ -880,5 +904,18 @@ anchor_mode = 0
 libraries/ = SubResource("AnimationLibrary_v4cn4")
 autoplay = &"start"
 
-[connection signal="timeout" from="CanvasLayer/UpperPanel/Clock/ClockContainer/ConductedTimer" to="CanvasLayer/UpperPanel/Clock/ClockContainer" method="_on_conducted_timer_timeout"]
+[node name="Fade" type="ColorRect" parent="." unique_id=525804897]
+z_index = 4096
+custom_minimum_size = Vector2(1200, 480)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -309.0
+offset_right = 891.0
+offset_bottom = 480.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="timeout" from="UI/UpperPanel/Clock/ClockContainer/ConductedTimer" to="UI/UpperPanel/Clock/ClockContainer" method="_on_conducted_timer_timeout"]
 [connection signal="timeout" from="TheCat/CatCollectibleTimer" to="." method="_on_cat_collectible_timer_timeout"]

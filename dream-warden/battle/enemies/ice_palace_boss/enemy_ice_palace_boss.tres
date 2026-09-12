@@ -7,8 +7,12 @@
 [ext_resource type="Script" uid="uid://emdpqbj1xvm7" path="res://battle/system/resources/attack_block.gd" id="2_hsrht"]
 [ext_resource type="Script" uid="uid://cci227fj67d4u" path="res://resources/dialogue_components/markers/_dialogue_marker.gd" id="4_c25d6"]
 [ext_resource type="Script" uid="uid://m17i7j602jax" path="res://resources/dialogue_components/dialogue_string.gd" id="5_n6pv2"]
+[ext_resource type="Resource" uid="uid://dyv0nkkdce1ge" path="res://battle/fight_data/new_resource.tres" id="5_rkvk0"]
 [ext_resource type="AudioStream" uid="uid://c3m6sxg7kebei" path="res://shared/sound_effects/snd_text.wav" id="6_rkvk0"]
+[ext_resource type="Script" uid="uid://qf5ag5dlrsbc" path="res://resources/dialogue_components/markers/sprite_marker.gd" id="7_kstoy"]
+[ext_resource type="Texture2D" uid="uid://pl1h77urjfpv" path="res://battle/stages/ice_palace/res/final boss.png" id="8_yvhy5"]
 [ext_resource type="Script" uid="uid://j420j57sl5b5" path="res://resources/effects/status_effects/_status_effect.gd" id="9_c25d6"]
+[ext_resource type="Script" uid="uid://b8tmchw2csyvn" path="res://resources/dialogue_components/markers/gradient_marker.gd" id="9_yvhy5"]
 
 [sub_resource type="Resource" id="Resource_37nmq"]
 script = ExtResource("1_8xdrs")
@@ -20,6 +24,53 @@ script = ExtResource("2_hsrht")
 attacks = Array[ExtResource("1_8xdrs")]([SubResource("Resource_37nmq")])
 metadata/_custom_type_script = "uid://emdpqbj1xvm7"
 
+[sub_resource type="Resource" id="Resource_vii0q"]
+script = ExtResource("7_kstoy")
+texture = ExtResource("8_yvhy5")
+offset = Vector2(8, 14)
+start_char = 39
+metadata/_custom_type_script = "uid://qf5ag5dlrsbc"
+
+[sub_resource type="Gradient" id="Gradient_xrkpq"]
+colors = PackedColorArray(0, 0.41568628, 0, 1, 1, 1, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_yvhy5"]
+gradient = SubResource("Gradient_xrkpq")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Resource" id="Resource_kstoy"]
+script = ExtResource("9_yvhy5")
+texture = SubResource("GradientTexture2D_yvhy5")
+start_char = 40
+end_char = 50
+metadata/_custom_type_script = "uid://b8tmchw2csyvn"
+
+[sub_resource type="Gradient" id="Gradient_yvhy5"]
+colors = PackedColorArray(0.6862745, 1, 1, 1, 0.19236705, 0.42222902, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ub6ia"]
+gradient = SubResource("Gradient_yvhy5")
+fill_to = Vector2(0, 1)
+
+[sub_resource type="Resource" id="Resource_xv5al"]
+script = ExtResource("9_yvhy5")
+texture = SubResource("GradientTexture2D_ub6ia")
+start_char = 58
+metadata/_custom_type_script = "uid://b8tmchw2csyvn"
+
+[sub_resource type="Resource" id="Resource_xd1jr"]
+script = ExtResource("5_n6pv2")
+text = "* Ice Palace Boss - 20 AT 50 DEF
+* The . Final boss of the Ice Palace"
+markers = Array[ExtResource("4_c25d6")]([SubResource("Resource_vii0q"), SubResource("Resource_kstoy"), SubResource("Resource_xv5al")])
+flag_value = null
+metadata/_custom_type_script = "uid://m17i7j602jax"
+
+[sub_resource type="Resource" id="Resource_hphc3"]
+script = ExtResource("1_3b2i2")
+text = Array[ExtResource("5_n6pv2")]([SubResource("Resource_xd1jr")])
+metadata/_custom_type_script = "uid://bq7mxvnbwq8of"
+
 [sub_resource type="Resource" id="Resource_2c8ds"]
 script = ExtResource("5_n6pv2")
 text = "* It's the boss of the ice palace"
@@ -29,7 +80,9 @@ metadata/_custom_type_script = "uid://m17i7j602jax"
 [resource]
 script = ExtResource("1_gstsc")
 attack_list = SubResource("Resource_vtipj")
+check_text = SubResource("Resource_hphc3")
 opening_line_singular = SubResource("Resource_2c8ds")
+mercy_fail_text = ExtResource("5_rkvk0")
 name = "Ice Palace Boss"
 hp_max = 2000
 hp = 2000

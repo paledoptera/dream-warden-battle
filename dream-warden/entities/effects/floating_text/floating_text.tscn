@@ -133,6 +133,7 @@ script = ExtResource("1_1frxc")
 [node name="Container" type="Node2D" parent="." unique_id=1294977984]
 
 [node name="Sprite2D" type="Sprite2D" parent="Container" unique_id=593545790]
+offset = Vector2(-43, 0)
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Container" unique_id=1944854665]
 offset_right = 221.0
@@ -145,7 +146,6 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 6
 theme_override_fonts/normal_font = ExtResource("2_2r1al")
 theme_override_font_sizes/normal_font_size = 14
-text = "999"
 scroll_active = false
 horizontal_alignment = 1
 

@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://b6itcf27xot2w"]
+
+[ext_resource type="Script" uid="uid://by1fj36ltgbbb" path="res://systems/menu/buttons/soul_selectable_button.gd" id="1_c5upn"]
+[ext_resource type="FontVariation" uid="uid://72sk30ahlloh" path="res://shared/theme/fonts/default_textbox.tres" id="2_yt0on"]
+
+[sub_resource type="Theme" id="Theme_7rakj"]
+default_font = ExtResource("2_yt0on")
+default_font_size = 32
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fe7gu"]
+content_margin_left = 28.0
+content_margin_top = 15.0
+
+[node name="Spell" type="Control" unique_id=947396992 groups=["menu_option"]]
+custom_minimum_size = Vector2(228, 28)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_c5upn")
+offset = Vector2(16, 33)
+metadata/_custom_type_script = "uid://cc5k140pvhkn2"
+
+[node name="Label" type="RichTextLabel" parent="." unique_id=1392277722]
+custom_minimum_size = Vector2(228, 28)
+clip_contents = false
+layout_mode = 0
+offset_right = 228.0
+offset_bottom = 28.0
+theme = SubResource("Theme_7rakj")
+theme_override_fonts/normal_font = ExtResource("2_yt0on")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
+bbcode_enabled = true
+text = "Spell"
+scroll_active = false

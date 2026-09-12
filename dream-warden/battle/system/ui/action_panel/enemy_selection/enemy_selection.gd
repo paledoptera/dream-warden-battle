@@ -3,10 +3,13 @@ class_name EnemySelection extends Control
 signal target_chosen(target: int)
 
 @export var options_parent: Node
+
 var selected: int = 0
-#
 
 func _ready() -> void:
+	refresh()
+
+func refresh() -> void:
 	var enemies = Party.enemy.duplicate_deep()
 	
 	for i in range($Options.get_child_count()):
@@ -18,10 +21,12 @@ func _ready() -> void:
 			continue
 		
 		option.add_to_group("menu_option")
-		option.text = enemies[i].name
+		option.get_node("Label").text = enemies[i].name
 		option.get_node("HP").value = enemies[i].hp
 		option.get_node("HP").max_value = enemies[i].hp_max
+		print("HP = ", enemies[i].hp, " / ", enemies[i].hp_max)
 
 
 func _on_enemy_selected(index: int) -> void:
+	print("TARGET INDEX: ", index)
 	target_chosen.emit(index)

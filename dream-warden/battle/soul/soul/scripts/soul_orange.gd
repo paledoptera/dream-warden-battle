@@ -20,6 +20,8 @@ var buffer: float = 0.33
 var distance: float = 0.0
 
 func _ready() -> void:
+	super()
+	
 	direction = direction.normalized()
 	look_at(global_position + direction)
 	rotate(deg_to_rad(-90))

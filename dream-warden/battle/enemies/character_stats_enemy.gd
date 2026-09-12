@@ -13,9 +13,7 @@ enum Order { RANDOM, SEQUENTIAL }
 @export var dialogue_order := Order.RANDOM
 @export var dialogue : Array[DialogueBlock]
 @export var mercy_fail_text: DialogueBlock
-@export_group("Data")
-@export var soundbank: Dictionary[StringName, AudioStream]
-@export var next_phase: PackedScene
 @export_group("Interactions")
 ## Attacks to this enemy will always miss
 @export var unhittable: bool = false
+@export var spareable: bool = false

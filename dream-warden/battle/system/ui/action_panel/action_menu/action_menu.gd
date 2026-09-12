@@ -7,6 +7,7 @@ signal menu_closed
 signal action_selected(action: int, option: int, target: int)
 signal action_cancelled
 
+var party_member: int = 0
 var action: int = 0
 var option: int = 0
 var target: int = 0
@@ -36,8 +37,12 @@ func _on_action_selected(selected_action: int) -> void:
 	
 	match action:
 		0:
+			$ChooseEnemy.refresh()
 			%MenuInputManager.open_menu($ChooseEnemy)
+			
 		1:
+			$ChooseSpell.index = party_member
+			$ChooseSpell.refresh()
 			%MenuInputManager.open_menu($ChooseSpell)
 		2:
 			%MenuInputManager.open_menu($ChooseItem)
@@ -47,14 +52,26 @@ func _on_action_selected(selected_action: int) -> void:
 			actions_finalized()
 
 func _on_option_selected(selected_option: int) -> void:
-	if action == 0 or action == 4:
-		option = -1
-		return
-
+	
+	option = selected_option
+	
+	match action:
+		0, 4:
+			option = -1
+			return
+		1: # magic
+			var spell: Spell = Party.hero[party_member].spells[option]
+			if spell.target == Enums.Target.HERO:
+				%MenuInputManager.open_menu($ChooseHero)
+			elif spell.target == Enums.Target.ENEMY:
+				%MenuInputManager.open_menu($ChooseEnemy)
+			
 func _on_target_selected(selected_target: int) -> void:
-	target = 0
+	target = selected_target
 	
 	if action == 0 or action == 3:
+		actions_finalized()
+	if action == 1:
 		actions_finalized()
 
 

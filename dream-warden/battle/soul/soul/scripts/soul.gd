@@ -5,7 +5,13 @@ class_name Soul extends CharacterBody2D
 @export var speed_mult: float = 1.0
 var i_frames = 0.0
 var last_position: Vector2
+var soul_speed: float = 0.0
 var current_speed: float
+
+func _ready() -> void:
+	soul_speed = Flags.battle.soul_speed
+	Flags.battle.soul_speed_changed.connect(_on_soul_speed_changed)
+	
 
 func _physics_process(delta: float) -> void:
 	last_position = global_position
@@ -13,7 +19,7 @@ func _physics_process(delta: float) -> void:
 	var direction_x := Input.get_axis("left", "right")
 	var direction_y := Input.get_axis("up", "down")
 	
-	current_speed = Party.soul_speed * speed_mult
+	current_speed = soul_speed * speed_mult
 	
 	# "focus mode"
 	if Input.is_action_pressed("cancel"):
@@ -69,3 +75,6 @@ func hurt(damage: int, ignore_iframes: bool = false):
 	
 	EventBus.damage_player.emit(damage)
 	i_frames = 40.0
+
+func _on_soul_speed_changed(value: float):
+	soul_speed = value

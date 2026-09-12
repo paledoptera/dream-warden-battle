@@ -1,4 +1,4 @@
 class_name DamageFormula extends Resource
 
-func get_damage(value: float) -> float:
+static func calculate(value: int, attacker: CharacterStats, target: CharacterStats) -> int:
 	return value

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="FightData" format=3 uid="uid://blfmq23jgwm5h"]
+
+[ext_resource type="Script" uid="uid://bpvsxd6yo0sl4" path="res://battle/enemies/character_stats_enemy.gd" id="1_0lf5t"]
+[ext_resource type="Resource" uid="uid://dsnpoy8ro5it6" path="res://battle/enemies/warden/enemy_warden.tres" id="2_4vvbq"]
+[ext_resource type="Script" uid="uid://cjlmox2rkhaa4" path="res://resources/character_stats/hero/character_stats_hero.gd" id="3_pjdq4"]
+[ext_resource type="Resource" uid="uid://b43pqrbag27nj" path="res://resources/character_stats/hero/hero_susie.tres" id="4_ltmdw"]
+[ext_resource type="Script" uid="uid://eu75wsnnxg4b" path="res://battle/fight_data/_fight_data.gd" id="5_bumf3"]
+[ext_resource type="PackedScene" uid="uid://c0r0lc0kwmgif" path="res://battle/stages/dream_scape/stage_dream_scape.tscn" id="6_wodl0"]
+
+[resource]
+script = ExtResource("5_bumf3")
+enemies = Array[ExtResource("1_0lf5t")]([ExtResource("2_4vvbq")])
+stage = ExtResource("6_wodl0")
+gimmicks = Array[String](["darkness"])
+custom_party = true
+party = Array[ExtResource("3_pjdq4")]([ExtResource("4_ltmdw")])
+soul_bearer = &"susie"
+metadata/_custom_type_script = "uid://eu75wsnnxg4b"

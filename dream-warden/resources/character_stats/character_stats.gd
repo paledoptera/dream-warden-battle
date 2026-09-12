@@ -16,3 +16,7 @@ signal hp_changed(new_hp: int)
 @export_group("Misc")
 @export var character_id: StringName = "character"
 @export var status_effects: Array[StatusEffect]
+@export_group("Gimmicks")
+@export var on_hit_gimmick: StringName = ""
+@export_group("Data")
+@export var soundbank: Dictionary[StringName, AudioStream]

@@ -11,6 +11,7 @@
 [ext_resource type="Resource" uid="uid://dxq13dosllqvn" path="res://battle/enemies/warden/data/mercy_fail_warden.tres" id="5_ysdyg"]
 [ext_resource type="AudioStream" uid="uid://c3m6sxg7kebei" path="res://shared/sound_effects/snd_text.wav" id="6_coiax"]
 [ext_resource type="Script" uid="uid://j420j57sl5b5" path="res://resources/effects/status_effects/_status_effect.gd" id="8_c3qyi"]
+[ext_resource type="AudioStream" uid="uid://bgh3gudh630m1" path="res://shared/sound_effects/snd_ward_deflect.wav" id="11_et424"]
 
 [sub_resource type="Resource" id="Resource_vii0q"]
 script = ExtResource("4_vpqr3")
@@ -48,4 +49,8 @@ attack = 0
 defense = 0
 magic = 0
 character_id = &"warden"
+on_hit_gimmick = &"block"
+soundbank = Dictionary[StringName, AudioStream]({
+&"damaged": ExtResource("11_et424")
+})
 metadata/_custom_type_script = "uid://bpvsxd6yo0sl4"
