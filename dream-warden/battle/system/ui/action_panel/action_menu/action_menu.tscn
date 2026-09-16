@@ -15,8 +15,13 @@
 [ext_resource type="PackedScene" uid="uid://bfe6w1e1the6h" path="res://battle/system/ui/action_panel/item_selection/item_selection.tscn" id="13_pd8e8"]
 [ext_resource type="PackedScene" uid="uid://um2a64cmuqm6" path="res://battle/system/ui/action_panel/spell_selection/spell_selection.tscn" id="14_muots"]
 
+[sub_resource type="Resource" id="Resource_4l27y"]
+script = ExtResource("10_gnp6a")
+metadata/_custom_type_script = "uid://bqfyrxl6u2sc6"
+
 [sub_resource type="Resource" id="Resource_gnp6a"]
 script = ExtResource("3_h6lge")
+menu_sounds = SubResource("Resource_4l27y")
 keep_selected = true
 keep_open = true
 metadata/_custom_type_script = "uid://c1qllnsyyxqjy"
@@ -537,7 +542,6 @@ texture = ExtResource("3_7qgeg")
 offset = Vector2(-0.5, 0.5)
 
 [node name="LinesLeft" type="AnimatedSprite2D" parent="FrameLower" unique_id=889316789]
-modulate = Color(1, 0, 1, 1)
 position = Vector2(-83, 20)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 autoplay = "default"
@@ -545,7 +549,6 @@ frame_progress = 0.5859281
 offset = Vector2(0.5, 0)
 
 [node name="LinesRight" type="AnimatedSprite2D" parent="FrameLower" unique_id=1952733054]
-modulate = Color(1, 0, 1, 1)
 position = Vector2(82, 20)
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 autoplay = "default"
@@ -679,4 +682,5 @@ offset_bottom = 361.0
 [connection signal="selected" from="ChooseAction/Defend" to="." method="_on_action_selected"]
 [connection signal="target_chosen" from="ChooseEnemy" to="." method="_on_target_selected"]
 [connection signal="target_chosen" from="ChooseHero" to="." method="_on_target_selected"]
+[connection signal="option_chosen" from="ChooseItem" to="." method="_on_option_selected"]
 [connection signal="option_chosen" from="ChooseSpell" to="." method="_on_option_selected"]

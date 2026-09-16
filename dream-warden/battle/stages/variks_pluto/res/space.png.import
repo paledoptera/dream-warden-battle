@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgvrdljc3pllm"
-path="res://.godot/imported/goofy_threat.png-14993dc2a73142ec62bc4be0b7f4c290.ctex"
+uid="uid://b2oa3p1x3rfbk"
+path="res://.godot/imported/space.png-4200418679077091261fa77cb691fcbf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/dialogue/portraits/susie/goofy_threat.png"
-dest_files=["res://.godot/imported/goofy_threat.png-14993dc2a73142ec62bc4be0b7f4c290.ctex"]
+source_file="res://battle/stages/variks_pluto/res/space.png"
+dest_files=["res://.godot/imported/space.png-4200418679077091261fa77cb691fcbf.ctex"]
 
 [params]
 

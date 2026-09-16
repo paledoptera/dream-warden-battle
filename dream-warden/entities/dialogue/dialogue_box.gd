@@ -33,6 +33,7 @@ func _process(_delta: float) -> void:
 			var c := text[visible_characters - 1].to_ascii_buffer()[0]
 			if is_letter_or_number(c):
 				Sound.play(talksound) 
+		
 		#if visible_ratio >= 1.0 and !Dialogue.current.require_input:
 			#check_if_text_finished(false)
 

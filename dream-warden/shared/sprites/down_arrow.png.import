@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cerarap2ghpsc"
-path="res://.godot/imported/mad.png-d2f28a5d139affb0844f9aea54bbdb4b.ctex"
+uid="uid://c4ikhyexhqs04"
+path="res://.godot/imported/down_arrow.png-ec396d9250447fb10e93d45a6c126709.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/dialogue/portraits/susie/mad.png"
-dest_files=["res://.godot/imported/mad.png-d2f28a5d139affb0844f9aea54bbdb4b.ctex"]
+source_file="res://shared/sprites/down_arrow.png"
+dest_files=["res://.godot/imported/down_arrow.png-ec396d9250447fb10e93d45a6c126709.ctex"]
 
 [params]
 

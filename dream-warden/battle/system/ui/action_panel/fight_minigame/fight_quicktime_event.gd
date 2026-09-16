@@ -81,6 +81,9 @@ func do_attack() -> void:
 	Party.tp += tp_gain
 	
 	EventBus.actor_do_action.emit(party_member.character_id, "fight")
+	if party_member.attack_effect:
+		EventBus.actor_trigger_effect.emit(enemy_target.character_id,party_member.attack_effect)
+
 	await get_tree().create_timer(0.4).timeout
 	EventBus.hero_attack.emit(attack_event)
 

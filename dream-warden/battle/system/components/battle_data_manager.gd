@@ -47,10 +47,10 @@ func get_flavor_text() -> DialogueString:
 	if not block:
 		return DialogueString.new("* It is known.")
 	
-	var attack_turn = wrapi(turn,0,block.text.size())
+	var attack_turn = wrapi(enemy.turn,0,block.text.size())
 	
-	if attack_turn < turn:
-		repetitions = floor(float(turn) / float(block.text.size()))
+	if attack_turn < enemy.turn:
+		repetitions = floor(float(enemy.turn) / float(block.text.size()))
 	
 	match enemy.flavor_text_order:
 		enemy.Order.SEQUENTIAL:
@@ -73,11 +73,13 @@ func get_attack() -> AttackData:
 	
 	var attack_list: AttackList
 	var attacks: Array
+	var enemy: CharacterStatsEnemy
 	
 	attack_list = enemies[0].attack_list
 	attacks = attack_list.attacks
+	enemy = enemies[0]
 	
-	var attack_turn = wrapi(turn,0,attacks.size())
+	var attack_turn = wrapi(enemy.turn,0,attacks.size())
 	
 	match attack_list.attack_order:
 		attack_list.Order.SEQUENTIAL:
@@ -102,7 +104,7 @@ func get_dialogue() -> DialogueBlock:
 	enemy = enemies[0]
 	arr = enemy.dialogue
 	
-	var attack_turn = wrapi(turn,0,arr.size())
+	var attack_turn = wrapi(enemy.turn,0,arr.size())
 
 	match enemy.dialogue_order:
 		enemy.Order.SEQUENTIAL:
@@ -132,4 +134,8 @@ func get_dialogue() -> DialogueBlock:
 
 
 func _on_battle_turn_number_changed(val: int) -> void:
+	print("test")
+	for i in enemies:
+		i.turn += 1
+	
 	turn = val

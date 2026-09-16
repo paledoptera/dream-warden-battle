@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="FightData" format=3 uid="uid://cq5a5r316rwbs"]
+
+[ext_resource type="Script" uid="uid://doj56elw7dew4" path="res://resources/character_stats/character_stats.gd" id="1_cliu0"]
+[ext_resource type="Resource" uid="uid://ckyj6n6a3mgmh" path="res://battle/enemies/varik/enemy_varik.tres" id="2_vqxaq"]
+[ext_resource type="Resource" uid="uid://b5dbn2p4hiq7k" path="res://resources/character_stats/hero/hero_08j_kris.tres" id="3_vqxaq"]
+[ext_resource type="PackedScene" uid="uid://bqwcxd83vpeni" path="res://battle/stages/variks_pluto/stage_variks_pluto.tscn" id="5_vqxaq"]
+[ext_resource type="Script" uid="uid://eu75wsnnxg4b" path="res://battle/fight_data/_fight_data.gd" id="6_odfme"]
+
+[resource]
+script = ExtResource("6_odfme")
+enemies = Array[ExtResource("1_cliu0")]([ExtResource("2_vqxaq")])
+stage = ExtResource("5_vqxaq")
+custom_party = true
+party = Array[ExtResource("1_cliu0")]([ExtResource("3_vqxaq")])
+soul_bearer = &"kris"
+metadata/_custom_type_script = "uid://eu75wsnnxg4b"

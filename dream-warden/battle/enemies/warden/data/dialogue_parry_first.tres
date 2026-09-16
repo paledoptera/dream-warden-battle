@@ -1,0 +1,64 @@
+[gd_resource type="Resource" script_class="DialogueBlock" format=3 uid="uid://l45gqd1n64o4"]
+
+[ext_resource type="Script" uid="uid://bq7mxvnbwq8of" path="res://resources/dialogue_components/dialogue_block.gd" id="1_hjh8r"]
+[ext_resource type="Script" uid="uid://m17i7j602jax" path="res://resources/dialogue_components/dialogue_string.gd" id="2_qpcjc"]
+[ext_resource type="Script" uid="uid://cci227fj67d4u" path="res://resources/dialogue_components/markers/_dialogue_marker.gd" id="3_64t6s"]
+[ext_resource type="AudioStream" uid="uid://c3m6sxg7kebei" path="res://shared/sound_effects/snd_text.wav" id="4_3gl3w"]
+
+[sub_resource type="Resource" id="Resource_dcenf"]
+script = ExtResource("2_qpcjc")
+text = "What the hell are
+you doing?!"
+flag_value = null
+identifier = &"susie"
+metadata/_custom_type_script = "uid://m17i7j602jax"
+
+[sub_resource type="Resource" id="Resource_gep48"]
+script = ExtResource("2_qpcjc")
+text = "That thing is made of like,
+reflective stuff!"
+flag_value = null
+identifier = &"susie"
+metadata/_custom_type_script = "uid://m17i7j602jax"
+
+[sub_resource type="Resource" id="Resource_qh312"]
+script = ExtResource("2_qpcjc")
+text = "Glowing bright would probably just,
+make it sparkle!"
+flag_value = null
+identifier = &"susie"
+metadata/_custom_type_script = "uid://m17i7j602jax"
+
+[sub_resource type="Resource" id="Resource_bl4l3"]
+script = ExtResource("2_qpcjc")
+text = "We have to break it's
+damn energy shield first."
+flag_value = null
+identifier = &"susie"
+metadata/_custom_type_script = "uid://m17i7j602jax"
+
+[sub_resource type="Resource" id="Resource_3xo8i"]
+script = ExtResource("2_qpcjc")
+text = "...Hey, wait."
+flag_value = null
+identifier = &"susie"
+metadata/_custom_type_script = "uid://m17i7j602jax"
+
+[sub_resource type="Resource" id="Resource_3cc7s"]
+script = ExtResource("2_qpcjc")
+text = "I have an idea."
+flag_value = null
+identifier = &"susie"
+metadata/_custom_type_script = "uid://m17i7j602jax"
+
+[sub_resource type="Resource" id="Resource_4hrry"]
+script = ExtResource("2_qpcjc")
+text = "Let me try..."
+flag_value = null
+identifier = &"susie"
+metadata/_custom_type_script = "uid://m17i7j602jax"
+
+[resource]
+script = ExtResource("1_hjh8r")
+text = Array[ExtResource("2_qpcjc")]([SubResource("Resource_dcenf"), SubResource("Resource_gep48"), SubResource("Resource_qh312"), SubResource("Resource_bl4l3"), SubResource("Resource_3xo8i"), SubResource("Resource_3cc7s"), SubResource("Resource_4hrry")])
+metadata/_custom_type_script = "uid://bq7mxvnbwq8of"

@@ -10,8 +10,6 @@ blend_mode = 1
 script = ExtResource("1_3s1ry")
 gonermaker_template = NodePath("Sprite2D")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=1577496048]
-
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1011987409]
 modulate = Color(1, 1, 1, 0)
 material = SubResource("CanvasItemMaterial_g4v7s")

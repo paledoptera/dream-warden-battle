@@ -1,5 +1,8 @@
 class_name RudeBusterEffect extends Effect
 
+var buster_timer: SceneTreeTimer
+var animation_finished: bool = false
+
 func apply(user: int, target: int) -> void:
 	##var target = Battle.get_target_enemy()
 	var hero = Party.get_target_hero(user)
@@ -10,10 +13,13 @@ func apply(user: int, target: int) -> void:
 	var final_string = string % hero.name
 	
 	Dialogue.display_text(final_string)
+	EventBus.actor_do_action.emit(hero.character_id, "rude_buster")
+	buster_timer = Global.get_tree().create_timer(3.0)
 	await Dialogue.text_finished
 	Dialogue.clear_text.emit()
-	
-	await Global.get_tree().create_timer(1.0).timeout
+	if buster_timer:
+		if buster_timer.time_left > 0.0:
+			await buster_timer.timeout
 	enemy.hp -= damage
 	
 	effect_applied.emit()

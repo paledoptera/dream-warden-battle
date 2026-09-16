@@ -28,9 +28,6 @@ func refresh() -> void:
 
 #
 func _on_selected_changed(current: int):
-	
-	print("TEST")
-	
 	$Sprite2D.global_position = $Options.get_child(current).global_position+Vector2(16.0,33.0)
 	var spell = spells[current]
 	

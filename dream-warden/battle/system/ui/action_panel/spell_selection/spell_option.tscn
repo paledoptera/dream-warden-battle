@@ -36,3 +36,4 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
 bbcode_enabled = true
 text = "Spell"
 scroll_active = false
+autowrap_mode = 0

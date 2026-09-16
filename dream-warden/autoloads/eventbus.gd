@@ -9,5 +9,6 @@ signal actor_do_action(id: StringName, action: StringName)
 signal world_event(event: StringName)
 signal play_animation(anim_name: StringName)
 signal actor_trigger_damage_number(id: StringName, floating_text: FloatingText)
+signal actor_trigger_effect(id: StringName, effect: PackedScene)
 signal damage_player(amount: int)
 signal battle_ended

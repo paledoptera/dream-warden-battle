@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bibh1w77wdf3s" path="res://resources/usables/items/equippables/_item_equippable.gd" id="1_12oxr"]
 [ext_resource type="Texture2D" uid="uid://c1ovxwjuc4om1" path="res://battle/heroes/susie/res/action_icons.png" id="2_4bs62"]
+[ext_resource type="PackedScene" uid="uid://cjxlqkhxch11f" path="res://battle/effects/susie_strike.tscn" id="2_lxjn0"]
 [ext_resource type="Script" uid="uid://cjlmox2rkhaa4" path="res://resources/character_stats/hero/character_stats_hero.gd" id="3_f0vu2"]
 [ext_resource type="Script" uid="uid://cto2fxwpogr36" path="res://resources/usables/spells/spell.gd" id="4_jj3rp"]
 [ext_resource type="Script" uid="uid://btrgo1tokswmg" path="res://resources/effects/_effect.gd" id="5_4bs62"]
@@ -20,7 +21,7 @@ resource_name = "Check"
 script = ExtResource("4_jj3rp")
 tp_cost = 0
 handles_dialogue_box = true
-name = &"Check"
+name = &"[color=ff80ff]Check"
 description = "Consider
 strategy"
 effects = Array[ExtResource("5_4bs62")]([SubResource("Resource_4bs62")])
@@ -52,8 +53,8 @@ resource_name = "BlazingHeal"
 script = ExtResource("4_jj3rp")
 tp_cost = 32
 name = &"BlazingHeal"
-description = "Heal
-injuries"
+description = "Desperate
+heal"
 effects = Array[ExtResource("5_4bs62")]([SubResource("Resource_lxjn0")])
 metadata/_custom_type_script = "uid://cto2fxwpogr36"
 
@@ -64,7 +65,7 @@ metadata/_custom_type_script = "uid://dvetmwyvlw0vg"
 [sub_resource type="Resource" id="Resource_e5mry"]
 resource_name = "Unleash"
 script = ExtResource("4_jj3rp")
-tp_cost = 100
+tp_cost = 80
 handles_dialogue_box = true
 name = &"Unleash"
 description = "Shine
@@ -77,6 +78,7 @@ metadata/_custom_type_script = "uid://cto2fxwpogr36"
 script = ExtResource("3_f0vu2")
 spells = Array[ExtResource("4_jj3rp")]([SubResource("Resource_12oxr"), SubResource("Resource_uykay"), SubResource("Resource_jj3rp"), SubResource("Resource_e5mry")])
 icons = ExtResource("2_4bs62")
+attack_effect = ExtResource("2_lxjn0")
 name = "Susie"
 color = Color(1, 0, 1, 1)
 hp_max = 460

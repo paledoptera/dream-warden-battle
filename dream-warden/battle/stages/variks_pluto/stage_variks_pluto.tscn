@@ -1,0 +1,150 @@
+[gd_scene format=3 uid="uid://bqwcxd83vpeni"]
+
+[ext_resource type="Texture2D" uid="uid://b2oa3p1x3rfbk" path="res://battle/stages/variks_pluto/res/space.png" id="1_1tw1t"]
+[ext_resource type="Texture2D" uid="uid://dqhuo3egfwy87" path="res://battle/stages/variks_pluto/res/gyro_background.png" id="4_v76nv"]
+[ext_resource type="Script" uid="uid://d126tu6ywvetb" path="res://systems/helper_components/start_music.gd" id="5_hlvx1"]
+[ext_resource type="AudioStream" uid="uid://cnm37tkchiefi" path="res://shared/music/mus_brother_varik.ogg" id="6_1tw1t"]
+[ext_resource type="Script" uid="uid://c0eum5nfaksrs" path="res://systems/animation/actor.gd" id="7_467ci"]
+[ext_resource type="ArrayMesh" uid="uid://b7uv1xs2msgih" path="res://battle/stages/variks_pluto/res/pluto.obj" id="7_blua8"]
+[ext_resource type="Texture2D" uid="uid://kxhpdhysleqm" path="res://battle/stages/variks_pluto/res/pluto.png" id="8_467ci"]
+[ext_resource type="Texture2D" uid="uid://bipnwcg0aw6qf" path="res://battle/stages/variks_pluto/res/actor_kris.png" id="8_hlvx1"]
+[ext_resource type="Texture2D" uid="uid://crf7bdef8fgh7" path="res://battle/stages/variks_pluto/res/actor_varik.png" id="9_467ci"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1tw1t"]
+blend_mode = 1
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_g4v7s"]
+viewport_path = NodePath("Backgrounds/SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g4v7s"]
+shading_mode = 0
+albedo_texture = ExtResource("8_467ci")
+uv1_scale = Vector3(0.98, 0.98, 0.98)
+texture_filter = 0
+
+[sub_resource type="GDScript" id="GDScript_viea4"]
+resource_name = "pluto"
+script/source = "extends MeshInstance3D
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	rotate_x(0.01)
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h575o"]
+atlas = ExtResource("8_hlvx1")
+region = Rect2(0, 0, 45, 35)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idq46"]
+atlas = ExtResource("8_hlvx1")
+region = Rect2(45, 0, 45, 35)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h575o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_idq46")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 3.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_blua8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_467ci")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="VariksPluto" type="Node2D" unique_id=740638500]
+
+[node name="Backgrounds" type="Node2D" parent="." unique_id=503421779]
+z_index = -10
+z_as_relative = false
+
+[node name="Parallax2D" type="Parallax2D" parent="Backgrounds" unique_id=66941890]
+repeat_size = Vector2(0, 480)
+autoscroll = Vector2(0, 20)
+repeat_times = 2
+
+[node name="TextureRect" type="TextureRect" parent="Backgrounds/Parallax2D" unique_id=1431430993]
+modulate = Color(0.26657522, 0.2665752, 0.2665752, 1)
+offset_right = 320.0
+offset_bottom = 240.0
+scale = Vector2(2, 2)
+texture = ExtResource("1_1tw1t")
+
+[node name="Parallax2D2" type="Parallax2D" parent="Backgrounds" unique_id=1677431689]
+repeat_size = Vector2(470.5, 236)
+autoscroll = Vector2(20, -10)
+repeat_times = 3
+
+[node name="TextureRect2" type="TextureRect" parent="Backgrounds/Parallax2D2" unique_id=1701243648]
+modulate = Color(0.32172796, 0.32172796, 0.32172796, 1)
+material = SubResource("CanvasItemMaterial_1tw1t")
+offset_right = 320.0
+offset_bottom = 240.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_v76nv")
+
+[node name="TextureRect" type="TextureRect" parent="Backgrounds" unique_id=1617275459]
+offset_right = 640.0
+offset_bottom = 480.0
+texture = SubResource("ViewportTexture_g4v7s")
+
+[node name="SubViewport" type="SubViewport" parent="Backgrounds" unique_id=100827777]
+transparent_bg = true
+size = Vector2i(640, 480)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Backgrounds/SubViewport" unique_id=1412152154]
+transform = Transform3D(1.165, 0, 0, 0, 1.165, 0, 0, 0, 1.165, 0, -0.15, -3.147)
+mesh = ExtResource("7_blua8")
+surface_material_override/0 = SubResource("StandardMaterial3D_g4v7s")
+script = SubResource("GDScript_viea4")
+
+[node name="Camera3D" type="Camera3D" parent="Backgrounds/SubViewport" unique_id=1742613781]
+transform = Transform3D(1, 0, 0, 0, 0.8571673, -0.5150381, 0, 0.5150381, 0.8571673, 0, 0.135, -1.729)
+projection = 2
+fov = 97.4
+size = 0.04
+
+[node name="StartMusic" type="Node" parent="." unique_id=352780567]
+script = ExtResource("5_hlvx1")
+song = ExtResource("6_1tw1t")
+
+[node name="Kris" type="Node2D" parent="." unique_id=76926956 groups=["actors"]]
+position = Vector2(146, 232)
+script = ExtResource("7_467ci")
+id = &"kris"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Kris" unique_id=627886334]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.48796302
+offset = Vector2(9, 0)
+
+[node name="Varik" type="Node2D" parent="." unique_id=1558887460 groups=["actors"]]
+position = Vector2(146, 232)
+script = ExtResource("7_467ci")
+id = &"varik"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Varik" unique_id=1693553022]
+position = Vector2(317, -46)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_blua8")
+animation = &"idle"
+offset = Vector2(9, 0)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=343992376]
+limit_left = 0
+limit_top = 0

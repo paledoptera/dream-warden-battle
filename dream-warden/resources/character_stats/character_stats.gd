@@ -10,7 +10,7 @@ signal hp_changed(new_hp: int)
 	set(value):
 		hp = clampi(value,0,hp_max)
 		hp_changed.emit(hp)
-@export var attack: int = 1
+@export var attack: int = 5
 @export var defense: int = 1
 @export var magic: int = 1
 @export_group("Misc")

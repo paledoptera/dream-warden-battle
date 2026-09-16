@@ -426,3 +426,7 @@ metadata/_custom_type_script = "uid://d126tu6ywvetb"
 root_node = NodePath("../IcePalaceBoss")
 libraries/ = SubResource("AnimationLibrary_cbydg")
 autoplay = &"dance"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=290120339]
+limit_left = 0
+limit_top = 0

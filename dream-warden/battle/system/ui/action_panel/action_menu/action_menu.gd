@@ -7,7 +7,10 @@ signal menu_closed
 signal action_selected(action: int, option: int, target: int)
 signal action_cancelled
 
-var party_member: int = 0
+var party_member: int = 0:
+	set(value):
+		party_member = value
+		%FrameLower.modulate = Party.hero[party_member].color
 var action: int = 0
 var option: int = 0
 var target: int = 0
@@ -19,6 +22,7 @@ static func spawn() -> ActionMenu:
 	return new_menu
 
 func _ready() -> void:
+	
 	$MenuInputManager.open_menu($ChooseAction)
 
 func _process(delta: float) -> void:
@@ -45,6 +49,7 @@ func _on_action_selected(selected_action: int) -> void:
 			$ChooseSpell.refresh()
 			%MenuInputManager.open_menu($ChooseSpell)
 		2:
+			$ChooseItem.refresh()
 			%MenuInputManager.open_menu($ChooseItem)
 		3:
 			%MenuInputManager.open_menu($ChooseEnemy)
@@ -65,14 +70,17 @@ func _on_option_selected(selected_option: int) -> void:
 				%MenuInputManager.open_menu($ChooseHero)
 			elif spell.target == Enums.Target.ENEMY:
 				%MenuInputManager.open_menu($ChooseEnemy)
+		2:
+			var item: Item = PlayerInventory.items[option]
+			if item.target == Enums.Target.HERO:
+				%MenuInputManager.open_menu($ChooseHero)
+			elif item.target == Enums.Target.ENEMY:
+				%MenuInputManager.open_menu($ChooseEnemy)
 			
 func _on_target_selected(selected_target: int) -> void:
 	target = selected_target
 	
-	if action == 0 or action == 3:
-		actions_finalized()
-	if action == 1:
-		actions_finalized()
+	actions_finalized()
 
 
 func actions_finalized() -> void:

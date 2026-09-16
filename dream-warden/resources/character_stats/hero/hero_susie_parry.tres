@@ -1,0 +1,74 @@
+[gd_resource type="Resource" script_class="CharacterStatsHero" format=3 uid="uid://cejx8k37iiy3"]
+
+[ext_resource type="Script" uid="uid://bibh1w77wdf3s" path="res://resources/usables/items/equippables/_item_equippable.gd" id="1_iwlu6"]
+[ext_resource type="PackedScene" uid="uid://cjxlqkhxch11f" path="res://battle/effects/susie_strike.tscn" id="2_0kkr8"]
+[ext_resource type="Texture2D" uid="uid://c1ovxwjuc4om1" path="res://battle/heroes/susie/res/action_icons.png" id="3_fa73u"]
+[ext_resource type="Script" uid="uid://cjlmox2rkhaa4" path="res://resources/character_stats/hero/character_stats_hero.gd" id="4_tp0su"]
+[ext_resource type="Script" uid="uid://cto2fxwpogr36" path="res://resources/usables/spells/spell.gd" id="5_umfk6"]
+[ext_resource type="Script" uid="uid://btrgo1tokswmg" path="res://resources/effects/_effect.gd" id="6_hm6py"]
+[ext_resource type="Script" uid="uid://d3xaygu7d8jdf" path="res://resources/effects/spells/check_effect.gd" id="7_1om5p"]
+[ext_resource type="Script" uid="uid://dcepdbft0i2j2" path="res://resources/effects/spells/rude_buster_effect.gd" id="8_3q5lc"]
+[ext_resource type="Script" uid="uid://wrd5a758xsyj" path="res://resources/effects/heal_effect.gd" id="9_vxrs3"]
+[ext_resource type="Script" uid="uid://j420j57sl5b5" path="res://resources/effects/status_effects/_status_effect.gd" id="11_kklax"]
+
+[sub_resource type="Resource" id="Resource_4bs62"]
+script = ExtResource("7_1om5p")
+metadata/_custom_type_script = "uid://d3xaygu7d8jdf"
+
+[sub_resource type="Resource" id="Resource_iwlu6"]
+resource_name = "Check"
+script = ExtResource("5_umfk6")
+tp_cost = 0
+handles_dialogue_box = true
+name = &"[color=ff80ff]Check"
+description = "Useless
+analysis"
+effects = Array[ExtResource("6_hm6py")]([SubResource("Resource_4bs62")])
+target = 1
+metadata/_custom_type_script = "uid://cto2fxwpogr36"
+
+[sub_resource type="Resource" id="Resource_f0vu2"]
+script = ExtResource("8_3q5lc")
+metadata/_custom_type_script = "uid://dcepdbft0i2j2"
+
+[sub_resource type="Resource" id="Resource_0kkr8"]
+resource_name = "Fate Buster"
+script = ExtResource("5_umfk6")
+tp_cost = 32
+handles_dialogue_box = true
+name = &"[shake]Fate Buster"
+description = "Shatter
+fate"
+effects = Array[ExtResource("6_hm6py")]([SubResource("Resource_f0vu2")])
+target = 1
+metadata/_custom_type_script = "uid://cto2fxwpogr36"
+
+[sub_resource type="Resource" id="Resource_tp0su"]
+script = ExtResource("9_vxrs3")
+amount = 999
+metadata/_custom_type_script = "uid://wrd5a758xsyj"
+
+[sub_resource type="Resource" id="Resource_fa73u"]
+resource_name = "ShiningHeal"
+script = ExtResource("5_umfk6")
+tp_cost = 20
+name = &"ShiningHeal"
+description = "Heal
+wounds"
+effects = Array[ExtResource("6_hm6py")]([SubResource("Resource_tp0su")])
+metadata/_custom_type_script = "uid://cto2fxwpogr36"
+
+[resource]
+script = ExtResource("4_tp0su")
+spells = Array[ExtResource("5_umfk6")]([SubResource("Resource_iwlu6"), SubResource("Resource_0kkr8"), SubResource("Resource_fa73u")])
+icons = ExtResource("3_fa73u")
+attack_effect = ExtResource("2_0kkr8")
+name = "Susie"
+color = Color(1, 0, 1, 1)
+hp_max = 460
+hp = 460
+attack = 40
+defense = 2
+magic = 5
+character_id = &"susie"
+metadata/_custom_type_script = "uid://cjlmox2rkhaa4"

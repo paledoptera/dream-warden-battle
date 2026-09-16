@@ -14,3 +14,8 @@ func _unhandled_key_input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("3"):
 		SceneLoader.change_scene(preload("uid://ddmjcvocbt7r1"))
+	
+	if event.is_action_pressed("4"):
+		Battle.start(
+			preload("uid://cq5a5r316rwbs") #fight_boss_08j_varik
+		)

@@ -1,0 +1,233 @@
+[gd_scene format=3 uid="uid://c62hq17spl1ac"]
+
+[ext_resource type="Script" uid="uid://c0eum5nfaksrs" path="res://systems/animation/actor.gd" id="1_63dkk"]
+[ext_resource type="Shader" uid="uid://c16rfo3hutpax" path="res://common/palette_swap_shader.tres" id="2_g28l5"]
+[ext_resource type="Texture2D" uid="uid://b6l1w0d3biye3" path="res://battle/stages/dream_scape/actors/res/susie_palette_alt.png" id="3_8a46t"]
+[ext_resource type="Texture2D" uid="uid://brxbt6tkj7gs2" path="res://battle/stages/dream_scape/actors/res/susie_palette.png" id="4_he8gx"]
+[ext_resource type="SpriteFrames" uid="uid://vwnv0psa61b6" path="res://battle/stages/dream_scape/actors/res/susie_frames.tres" id="5_oh2l2"]
+[ext_resource type="PackedScene" uid="uid://bp2185cc1j6v1" path="res://entities/dialogue/speech_bubble.tscn" id="6_b0lx5"]
+[ext_resource type="PackedScene" uid="uid://chcy6un0fnkhk" path="res://entities/dialogue/speech_bubble/bubble_tail_left.tscn" id="7_v0bvc"]
+[ext_resource type="PackedScene" uid="uid://bwjdk6fcn3tnv" path="res://battle/effects/black_hole_effect.tscn" id="8_cdv3t"]
+
+[sub_resource type="Animation" id="Animation_6rqmn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:animation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Effects/BlackHoleEffect/SubViewport/CPUParticles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_bo4hi"]
+resource_name = "unleash"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Effects/BlackHoleEffect/SubViewport/CPUParticles2D:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 1.7666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_666mb"]
+resource_name = "defend"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"defend"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.2, 0.2666667, 0.33333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_gp2ld"]
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"fight"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.06666667, 0.13333334, 0.20000002),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="Animation" id="Animation_d7hko"]
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"fight_prepare"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_jq4a0"]
+resource_name = "idle"
+length = 0.8
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_k8j1w"]
+_data = {
+&"RESET": SubResource("Animation_6rqmn"),
+&"axe_powerup": SubResource("Animation_bo4hi"),
+&"defend": SubResource("Animation_666mb"),
+&"fight": SubResource("Animation_gp2ld"),
+&"fight_prepare": SubResource("Animation_d7hko"),
+&"idle": SubResource("Animation_jq4a0")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vii0q"]
+shader = ExtResource("2_g28l5")
+shader_parameter/original_palette = ExtResource("4_he8gx")
+shader_parameter/new_palette = ExtResource("3_8a46t")
+shader_parameter/color_count = 13
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_d7hko"]
+viewport_path = NodePath("SubViewport")
+
+[node name="ActorSusie" type="Node2D" unique_id=2112924183 groups=["actors"]]
+script = ExtResource("1_63dkk")
+id = &"susie"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2074579776]
+libraries/ = SubResource("AnimationLibrary_k8j1w")
+autoplay = &"idle"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1765386356]
+material = SubResource("ShaderMaterial_vii0q")
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("5_oh2l2")
+animation = &"idle"
+offset = Vector2(0, -27)
+
+[node name="SpeechBubble" parent="." unique_id=151941393 instance=ExtResource("6_b0lx5")]
+offset_left = 54.0
+offset_top = -14.0
+offset_right = 154.0
+offset_bottom = 30.0
+offset_transform_position_ratio = Vector2(0, -0.5)
+text = "test"
+identifier = &"susie"
+
+[node name="Tail" parent="SpeechBubble" unique_id=719384932 instance=ExtResource("7_v0bvc")]
+layout_mode = 1
+
+[node name="Effects" type="Node2D" parent="." unique_id=979952779]
+
+[node name="BlackHoleEffect" parent="Effects" unique_id=157096845 instance=ExtResource("8_cdv3t")]
+z_index = -1
+
+[node name="TextureRect" parent="Effects/BlackHoleEffect" index="1" unique_id=829109461]
+texture = SubResource("ViewportTexture_d7hko")
+
+[editable path="Effects/BlackHoleEffect"]

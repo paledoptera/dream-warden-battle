@@ -7,7 +7,6 @@
 [ext_resource type="Script" uid="uid://cto4ulidgj8p7" path="res://minigames/here_come_the_cats/scripts/custom_lyrics.gd" id="3_q223y"]
 [ext_resource type="Texture2D" uid="uid://dlp2h35d5k6dh" path="res://minigames/here_come_the_cats/res/rat.png" id="4_fxwvx"]
 [ext_resource type="Script" uid="uid://clserw2almu6" path="res://minigames/here_come_the_cats/scripts/death_clock.gd" id="4_slmdl"]
-[ext_resource type="PackedScene" uid="uid://ca3d2dgphgx5j" path="res://entities/dialogue/dialogue_box.tscn" id="4_y8ppo"]
 [ext_resource type="Texture2D" uid="uid://xm17fnbg34j5" path="res://minigames/here_come_the_cats/res/death_clock.png" id="5_fxwvx"]
 [ext_resource type="AudioStream" uid="uid://5y5wc8tatwl2" path="res://shared/music/mus_no_cats.ogg" id="5_lij5d"]
 [ext_resource type="Texture2D" uid="uid://cnu10gcbu8uua" path="res://minigames/here_come_the_cats/res/tail_piece.png" id="5_px3a1"]
@@ -15,8 +14,10 @@
 [ext_resource type="Script" uid="uid://dsk3wv1yb4rho" path="res://addons/conductor/conducted_timer.gd" id="6_px3a1"]
 [ext_resource type="Texture2D" uid="uid://cxausjt3vm24q" path="res://minigames/here_come_the_cats/res/cat_clock.png" id="7_eed83"]
 [ext_resource type="Texture2D" uid="uid://bn0hbqnd1u3kf" path="res://minigames/here_come_the_cats/res/cat_clock_tail.png" id="8_id2aw"]
+[ext_resource type="Texture2D" uid="uid://dro2iyj0k5iun" path="res://minigames/here_come_the_cats/res/cat_clock_eyes.png" id="8_v4cn4"]
 [ext_resource type="Script" uid="uid://dop1cmuo2m6mk" path="res://minigames/here_come_the_cats/scripts/conductor_music.gd" id="9_ipnle"]
 [ext_resource type="Script" uid="uid://cee2638n8ojsx" path="res://addons/conductor/conducted_animation_player.gd" id="10_q223y"]
+[ext_resource type="FontVariation" uid="uid://72sk30ahlloh" path="res://shared/theme/fonts/default_textbox.tres" id="12_wfeub"]
 [ext_resource type="Texture2D" uid="uid://brwxby16hh63c" path="res://minigames/here_come_the_cats/res/tail_point.png" id="18_wfeub"]
 [ext_resource type="PackedScene" uid="uid://evdoduytwa6e" path="res://battle/system/scenes/stats_tab.tscn" id="19_hesta"]
 
@@ -65,14 +66,26 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Enemies/Cat:position")
+tracks/2/path = NodePath("UI/UpperPanel/Clock/Cat/EyeSprite:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(602, 162)]
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("UI/UpperPanel/Clock/Cat/EyeSprite:flip_h")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_dfqgm"]
@@ -86,10 +99,10 @@ tracks/0/path = NodePath("UI/UpperPanel/Clock/Cat/Eyes:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.4, 1, 1.4000001, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.4, 1, 1.4000001, 2, 2.4, 3, 3.4, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(2.5, -12), Vector2(-1.5, -12), Vector2(-1.5, -12), Vector2(1.5, -12), Vector2(1.5, -12)]
+"values": [Vector2(2.5, -12), Vector2(-1.5, -12), Vector2(-1.5, -12), Vector2(1.5, -12), Vector2(2.5, -12), Vector2(-1.5, -12), Vector2(-1.5, -12), Vector2(1.5, -12), Vector2(1.5, -12)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -98,22 +111,34 @@ tracks/1/path = NodePath("UI/UpperPanel/Clock/Cat/Tail:rotation")
 tracks/1/interp = 4
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.40000004, 1, 1.4000001, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.40000004, 1, 1.4000001, 2, 2.4, 3, 3.4, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [-0.17453292519943295, 0.17453292519943295, 0.17453292519943295, -0.17453292519943295, -0.17453292519943295]
+"values": [-0.17453292519943295, 0.17453292519943295, 0.17453292519943295, -0.17453292519943295, -0.17453292519943295, 0.17453292519943295, 0.17453292519943295, -0.17453292519943295, -0.17453292519943295]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Enemies/Cat:position")
-tracks/2/interp = 2
+tracks/2/path = NodePath("UI/UpperPanel/Clock/Cat/EyeSprite:modulate")
+tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.10000001, 0.23333335, 0.40000004, 0.96666676, 1.1666666, 1.3666668, 1.5000001, 1.7333335, 1.9000001),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.13333334, 0.90000004, 1, 1.1333333, 1.9000001, 2, 2.1333334, 2.9, 3, 3.1333332, 3.9),
+"transitions": PackedFloat32Array(1, 0.20306318, 0, 1, 0.20306318, 0, 1, 0.20306318, 0, 1, 0.20306318, 0),
 "update": 0,
-"values": [Vector2(602, 162), Vector2(584, 169), Vector2(584, 158), Vector2(593, 154), Vector2(596, 165), Vector2(605, 174), Vector2(616, 177), Vector2(632, 176), Vector2(629, 163), Vector2(614, 163)]
+"values": [Color(2.4061394, 2.4061394, 2.4061394, 1), Color(1, 1, 1, 1), Color(0.5689727, 0.56897277, 0.5689727, 1), Color(2.4061394, 2.4061394, 2.4061394, 1), Color(1, 1, 1, 1), Color(0.5689727, 0.56897277, 0.5689727, 1), Color(2.4061394, 2.4061394, 2.4061394, 1), Color(1, 1, 1, 1), Color(0.5689727, 0.56897277, 0.5689727, 1), Color(2.4061394, 2.4061394, 2.4061394, 1), Color(1, 1, 1, 1), Color(0.5689727, 0.56897277, 0.5689727, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("UI/UpperPanel/Clock/Cat/EyeSprite:flip_h")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y8ppo"]
@@ -134,6 +159,10 @@ gradient = SubResource("Gradient_q223y")
 fill_from = Vector2(0, 1)
 fill_to = Vector2(0, 0)
 
+[sub_resource type="Theme" id="Theme_7rakj"]
+default_font = ExtResource("12_wfeub")
+default_font_size = 32
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v4cn4"]
 content_margin_left = 30.0
 content_margin_top = 15.0
@@ -143,7 +172,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("DialogueBox2:text")
+tracks/0/path = NodePath("../DialogueBox2:text")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -200,6 +229,18 @@ tracks/4/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../DialogueBox2:visible_ratio")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_p8yqf"]
 resource_name = "lyrics"
@@ -222,16 +263,14 @@ tracks/0/use_blend = true
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("DialogueBox2:text")
+tracks/1/path = NodePath("../DialogueBox2:text")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(7.7333336, 7.766667, 13.400001, 17.066668, 20.733334, 23.566668, 27.2, 30.9, 34.266666, 39.3, 41.166668),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(7.7333336, 7.766667, 11.233334, 13.400001, 15.566667, 17.066668, 19.033333, 20.733334, 23.566668, 27.2, 30.9, 34.266666, 39.3, 41.166668),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": ["", "[shake]I know it's somewhere...", "If you're looking for the old house,", "Call me on a Sunday, baby, 
-tell me to stay.", "Walk me off a cliff as you
-float in the air,", "And I'll fall straight down,
+"values": ["", "[shake]I know it's somewhere...", "[shake][color=red]Somewhere...", "[wave]If you're looking for the old house,", "[wave]This is the way.", "[wave]Call me on a Sunday, baby,", "[wave]Tell me to stay.", "Walk me off a cliff as you", "And I'll fall straight down,
 while I reach for your hair.", "You should've been the rainstorm,
 I'd have been dirt.", "We'd have washed away and
 sunk deep in the earth.", "But, no, I was a dog,
@@ -286,12 +325,34 @@ tracks/5/keys = {
 "update": 0,
 "values": [0.0, 0.42760566, -0.23387411976723976, 0.0, 0.0]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("../DialogueBox2:visible_ratio")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(7.7333336, 10.233334, 10.833333, 11.233334, 11.866667, 12.3, 13, 13.4, 15.4, 15.533334, 15.566668, 16.9, 17.033335, 17.066668, 18.866665, 19.000002, 19.033333, 20.433334, 20.7, 20.733334, 21.633333, 21.966667, 22.2, 22.466667, 22.566668),
+"transitions": PackedFloat32Array(1, 1, -2, 1, 1, -2, 1, 0.59460354, 1, 0, 0.5176324, 1, 0, 1, 1, 0, 0.49999997, 1, 0, 1, 1, -2, 0.26794344, 1, 0.5176324),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 0.7550231, 0.7550231, 1.0, 1.0, 0.0]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_hesta"]
 _data = {
 &"RESET": SubResource("Animation_0uhk3"),
 &"lyrics": SubResource("Animation_p8yqf")
 }
+
+[sub_resource type="GDScript" id="GDScript_v4cn4"]
+resource_name = "lyrics"
+script/source = "extends RichTextLabel
+
+@export var other_box: RichTextLabel
+
+func _process(delta: float) -> void:
+	other_box.text = text
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4v7s"]
 size = Vector2(184, 490)
@@ -697,6 +758,10 @@ position = Vector2(320, 59)
 scale = Vector2(2, 2)
 texture = ExtResource("7_eed83")
 
+[node name="EyeSprite" type="Sprite2D" parent="UI/UpperPanel/Clock/Cat" unique_id=753145563]
+position = Vector2(0, -12.999998)
+texture = ExtResource("8_v4cn4")
+
 [node name="Eyes" type="Node2D" parent="UI/UpperPanel/Clock/Cat" unique_id=391041696]
 position = Vector2(0, -12)
 scale = Vector2(0.5, 0.5)
@@ -742,31 +807,42 @@ metadata/_custom_type_script = "uid://cee2638n8ojsx"
 material = SubResource("CanvasItemMaterial_wfeub")
 position = Vector2(0, 375)
 script = ExtResource("3_q223y")
-text = NodePath("DialogueBox2")
+text = NodePath("../DialogueBox2")
 
 [node name="Gradient" type="TextureRect" parent="UI/CustomLyrics" unique_id=1617504707]
-z_index = -1
+z_index = -2
 offset_top = -60.0
 offset_right = 640.0
 offset_bottom = 104.0
 texture = SubResource("GradientTexture2D_g4v7s")
 
-[node name="DialogueBox2" parent="UI/CustomLyrics" unique_id=151941393 instance=ExtResource("4_y8ppo")]
+[node name="DialogueBox3" type="RichTextLabel" parent="UI/CustomLyrics" unique_id=1445375659]
+z_index = -1
 use_parent_material = true
+custom_minimum_size = Vector2(640, 115)
+clip_contents = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 offset_top = 11.0
 offset_right = 640.0
 offset_bottom = 126.0
+grow_horizontal = 2
+grow_vertical = 2
 offset_transform_position = Vector2(114, 0)
-theme_override_colors/font_shadow_color = Color(0.05490196, 0.07450981, 1, 0.49803922)
-theme_override_constants/shadow_outline_size = 0
-theme_override_constants/shadow_offset_x = 1
-theme_override_constants/shadow_offset_y = 1
+theme = SubResource("Theme_7rakj")
+theme_override_colors/default_color = Color(0.8993676, 0.43587258, 7.70092e-07, 0.6627451)
+theme_override_constants/outline_size = 4
+theme_override_fonts/normal_font = ExtResource("12_wfeub")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxEmpty_v4cn4")
 bbcode_enabled = true
-text = ""
+scroll_active = false
 tab_size = 2
-horizontal_alignment = 1
-script = null
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="UI/CustomLyrics" unique_id=1262929793]
 volume_db = -80.0
@@ -775,6 +851,34 @@ volume_db = -80.0
 root_node = NodePath("../CustomLyrics")
 libraries/ = SubResource("AnimationLibrary_hesta")
 autoplay = &"lyrics"
+
+[node name="DialogueBox2" type="RichTextLabel" parent="UI" unique_id=151941393 node_paths=PackedStringArray("other_box")]
+use_parent_material = true
+custom_minimum_size = Vector2(640, 115)
+clip_contents = false
+offset_top = 386.0
+offset_right = 640.0
+offset_bottom = 501.0
+offset_transform_position = Vector2(114, 0)
+theme = SubResource("Theme_7rakj")
+theme_override_colors/default_color = Color(1, 0.4762376, 0.64978695, 1)
+theme_override_colors/font_outline_color = Color(0.48026747, 0.00021509633, 0.49889094, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/normal_font = ExtResource("12_wfeub")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_v4cn4")
+bbcode_enabled = true
+scroll_active = false
+autowrap_mode = 0
+tab_size = 2
+visible_characters = 0
+visible_ratio = 0.0
+script = SubResource("GDScript_v4cn4")
+other_box = NodePath("../CustomLyrics/DialogueBox3")
 
 [node name="Bounds" type="StaticBody2D" parent="." unique_id=35075466]
 

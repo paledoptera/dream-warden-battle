@@ -17,3 +17,4 @@ enum Order { RANDOM, SEQUENTIAL }
 ## Attacks to this enemy will always miss
 @export var unhittable: bool = false
 @export var spareable: bool = false
+var turn: int = 0

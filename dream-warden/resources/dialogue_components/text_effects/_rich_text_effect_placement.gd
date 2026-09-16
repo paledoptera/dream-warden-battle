@@ -80,7 +80,9 @@ func get_text_rect(start_char,end_char) -> Rect2:
 	var text_rect = Rect2(top_left_corner,text_rect_size)
 	return text_rect
 
+
 func _dialogue_clear() -> void:
+	print("CLEARED")
 	if element:
 		element.queue_free()
 	queue_free()

@@ -68,10 +68,10 @@ tracks/1/path = NodePath("Gonermaker:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 20.933334, 21.400002),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 7.5666666, 20.933334, 21.400002),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Color(0.8494162, 0.8494162, 0.8494162, 0.49400002), Color(0.8509804, 0.8509804, 0.8509804, 0.49411765), Color(1.3025384, 0.77833474, 1.2490308, 0.163)]
+"values": [Color(0.8509804, 0.8509804, 0.8509804, 0), Color(0.69759625, 0.7446096, 0.74468106, 1), Color(0.69803923, 0.74509805, 0.74509805, 1), Color(1.3025384, 0.77833474, 1.2490308, 0.163)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -91,6 +91,9 @@ _data = {
 &"RESET": SubResource("Animation_4ofhw"),
 &"background_change": SubResource("Animation_6pysv")
 }
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_7c5ry"]
+viewport_path = NodePath("SubViewport")
 
 [node name="Dreamscape" type="Node2D" unique_id=740638500]
 
@@ -119,9 +122,19 @@ color = Color(0, 0, 0, 1)
 [node name="ActorSusie" parent="." unique_id=2112924183 instance=ExtResource("3_fuu2m")]
 position = Vector2(152.067, 228)
 
+[node name="TextureRect" parent="ActorSusie/Effects/BlackHoleEffect" parent_id_path=PackedInt32Array(2112924183, 157096845) index="1" unique_id=829109461]
+texture = SubResource("ViewportTexture_7c5ry")
+
+[node name="Camera2D" parent="ActorSusie" index="7" unique_id=483526853]
+limit_left = 0
+limit_top = 0
+
 [node name="ActorWarden" parent="." unique_id=1608169694 instance=ExtResource("4_yc2n1")]
 position = Vector2(448, 189)
 
 [node name="StartMusic" type="Node" parent="." unique_id=352780567]
 script = ExtResource("5_nohfa")
 song = ExtResource("6_7c5ry")
+
+[editable path="ActorSusie"]
+[editable path="ActorSusie/Effects/BlackHoleEffect"]

@@ -3,6 +3,8 @@ class_name Battle extends CanvasLayer
 signal turn_state_changed
 signal turn_number_changed(val: int)
 signal action_reversed
+signal story_updated
+
 
 const SCENE = preload("uid://cxu6vtdp70cut")
 
@@ -23,10 +25,16 @@ var minigame: Node
 var attack_scenes: Array[Node]
 var gimmicks: Array[String]
 var soul_bearer: StringName
+var story_battle_controller: StoryBattleController
 
 static func start(fight_data: FightData) -> Node:
-	var scene = SceneLoader.change_scene(SCENE)
+	var stage = SceneLoader.change_scene(fight_data.stage)
+
+	
+	var scene = SCENE.instantiate()
+	stage.add_child(scene)
 	scene.gimmicks = fight_data.gimmicks
+
 	
 	Party.enemy.clear()
 	Party.enemy = fight_data.enemies
@@ -37,9 +45,8 @@ static func start(fight_data: FightData) -> Node:
 	
 	scene.soul_bearer = fight_data.soul_bearer
 	
-	var stage_inst = fight_data.stage.instantiate()
-	
-	scene.add_child(stage_inst)
+	if fight_data.story_controller:
+		scene.story_battle_controller = fight_data.story_controller
 	
 	return scene
 
@@ -65,6 +72,7 @@ func _ready() -> void:
 	EventBus.battle_event.connect(battle_event)
 	EventBus.enter_fight_minigame.connect(fight_minigame_start)
 	EventBus.hero_attack.connect(hero_attack)
+	EventBus.damage_player.connect(_damage_player)
 	
 
 func check_turn(index: int) -> void:
@@ -92,6 +100,7 @@ func _on_turn_state_changed(value: TurnState):
 		TurnState.PLAYER:
 			await get_tree().process_frame
 			turn += 1
+			await update_story_battle(0)
 			_reset_actor_anims()
 			start_flavor_text()
 			open_action_menu()
@@ -110,6 +119,7 @@ func _on_turn_state_changed(value: TurnState):
 			if waiting_on_minigame:
 				Dialogue.clear_text.emit()
 				await EventBus.end_fight_minigame
+			await update_story_battle(1)
 			
 			turn_state = TurnState.ENEMY
 		
@@ -127,6 +137,7 @@ func _on_turn_state_changed(value: TurnState):
 				await Dialogue.text_finished
 				Dialogue.clear_text.emit()
 
+			await update_story_battle(2)
 			# do dialogue / cutscenes
 			enemy_attack(self) # do attack
 
@@ -189,6 +200,8 @@ func get_action_data(action_type: int, option: int, target: int, character: int)
 			event.priority = 1
 			
 		BattleEvent.Type.ITEM:
+			var item = PlayerInventory.items[option]
+			event.data["item"] = item
 			event.priority = 1
 			
 		BattleEvent.Type.MERCY:
@@ -235,6 +248,14 @@ func battle_event(event: StringName, value: Variant) -> void:
 		
 		"tp_sub":
 			Party.tp -= value
+		
+		"replace_tp_bar":
+			var tp_bar = Tools.find_child_in_group(self,"tp_bar",true)
+			var new_tp_bar = value.instantiate()
+			tp_bar.get_parent().add_child(new_tp_bar)
+			tp_bar.queue_free()
+			
+			
 
 		#"spell_prepare":
 			#var current_spell = value
@@ -295,13 +316,12 @@ func hero_attack(event: AttackEvent):
 		match event.target.on_hit_gimmick:
 			"block":
 				damage_number = FloatingText.initialize_sprite(preload("uid://dypyfakfdgag2"),Vector2.ZERO,Color.WHITE)
-
+				EventBus.actor_trigger_effect.emit(event.target.character_id,preload("uid://b4xygtpfrykyi"))
 	
 	if event.target.soundbank.has("damaged"):
 		Sound.play(event.target.soundbank["damaged"])
 	
 	EventBus.actor_trigger_damage_number.emit(event.target.character_id,damage_number)
-	
 
 
 func enemy_attack(parent_node: Node) -> void:
@@ -333,7 +353,11 @@ func enemy_attack(parent_node: Node) -> void:
 	else:
 		await EventBus.attack_area_end
 	
+	
+	
+	
 	await animate_soul_transition(main_attack_scene,true)
+	
 	
 	%UIAnimations.play_backwards("attack_fade")
 	
@@ -365,3 +389,30 @@ func start_flavor_text() -> void:
 func _reset_actor_anims() -> void:
 	for i in Party.hero:
 		EventBus.actor_do_action.emit(i.character_id, "idle")
+
+
+func _damage_player(value: int) -> void:
+	Sound.play(preload("uid://cpo81emadro0k"))
+	var target = Party.hero.pick_random()
+	var damage = EnemyBulletFormula.calculate(value,Party.enemy[0],target)
+	
+	target.hp -= damage
+	
+	var damage_number = FloatingText.initialize_text(str(damage),Color.WHITE)
+	EventBus.actor_trigger_damage_number.emit(target.character_id,damage_number)
+
+func update_story_battle(state: int = 0) -> void:
+	if not story_battle_controller:
+		return
+	
+	match state:
+		0:
+			story_battle_controller.player_turn_start()
+		1:
+			story_battle_controller.player_turn_end()
+		2:
+			story_battle_controller.enemy_turn_start()
+	
+	await story_battle_controller.finished
+	
+	return

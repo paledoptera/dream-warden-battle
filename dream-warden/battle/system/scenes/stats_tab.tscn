@@ -213,21 +213,26 @@ value = 460.0
 show_percentage = false
 metadata/_edit_use_anchors_ = true
 
-[node name="StatusEffects" type="Node2D" parent="Background/Stats" unique_id=1184815845]
+[node name="StatusEffects" type="Node2D" parent="Background" unique_id=1184815845]
+position = Vector2(0, 39)
 
-[node name="PrismShield" type="Node2D" parent="Background/Stats/StatusEffects" unique_id=137099897]
+[node name="PrismShield" type="Node2D" parent="Background/StatusEffects" unique_id=137099897]
 visible = false
 script = ExtResource("8_pyn4v")
 
-[node name="Sheild1" type="Sprite2D" parent="Background/Stats/StatusEffects/PrismShield" unique_id=1707846151]
+[node name="Sheild1" type="Sprite2D" parent="Background/StatusEffects/PrismShield" unique_id=1707846151]
 position = Vector2(113, -25)
 texture = ExtResource("9_3xyj7")
 
-[node name="Sheild2" type="Sprite2D" parent="Background/Stats/StatusEffects/PrismShield" unique_id=1674945630]
+[node name="Sheild2" type="Sprite2D" parent="Background/StatusEffects/PrismShield" unique_id=1674945630]
 position = Vector2(122, -25)
 texture = ExtResource("9_3xyj7")
 
-[node name="ColorRect" type="ColorRect" parent="Background/Stats/StatusEffects/PrismShield" unique_id=1426924378]
+[node name="Sheild3" type="Sprite2D" parent="Background/StatusEffects/PrismShield" unique_id=709716821]
+position = Vector2(130, -25)
+texture = ExtResource("9_3xyj7")
+
+[node name="ColorRect" type="ColorRect" parent="Background/StatusEffects/PrismShield" unique_id=1426924378]
 offset_left = 128.0
 offset_top = -17.0
 offset_right = 204.0

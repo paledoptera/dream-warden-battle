@@ -1,0 +1,231 @@
+[gd_scene format=3 uid="uid://b4xygtpfrykyi"]
+
+[ext_resource type="Texture2D" uid="uid://ba66g21tajhqc" path="res://battle/effects/block.png" id="7_0qlik"]
+
+[sub_resource type="Animation" id="Animation_r35kl"]
+resource_name = "block"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AttackBlockerContainer/AttackBlocker/BlockSprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.100000024, 0.9333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AttackBlockerContainer/AttackBlocker/BlockSprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.13333333, 1),
+"transitions": PackedFloat32Array(1, 1.231144, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(3, 3), Vector2(4, 4)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AttackBlockerContainer/AttackBlocker/CounterBlock:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 0.8000001),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.29803923), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AttackBlockerContainer/AttackBlocker/CounterBlock/Sprite2D:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.13333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AttackBlockerContainer/AttackBlocker/CounterBlock/Sprite2D:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.75, 0.75)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AttackBlockerContainer/AttackBlocker/BlockSprite/Sprite2D:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.33333328, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AttackBlockerContainer/AttackBlocker:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.13333333, 0.29999998, 1),
+"transitions": PackedFloat32Array(2, 0.5, -2, 1),
+"update": 0,
+"values": [Vector2(0.1, 0.5), Vector2(1.2, 1), Vector2(1, 1), Vector2(1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AttackBlockerContainer/AttackBlocker:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.20000002, 0.5333333),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.45895782, 0.77664757, 0.8198382, 0.29700002), Color(0.45767742, 0.77602017, 0.81970006, 1), Color(0.45767742, 0.77602017, 0.81970006, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("AttackBlockerContainer:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.13333333, 0.19999999, 0.26666668, 0.5666666, 0.6333333, 1),
+"transitions": PackedFloat32Array(11.313706, 1, 1, 1, 0.43527532, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1.8247963, 1.8247963, 1.8247963, 1), Color(1, 1, 1, 0.68200004), Color(1, 1, 1, 1), Color(1, 1, 1, 0.47300002), Color(1.8247963, 1.8247963, 1.8247963, 1), Color(1, 1, 1, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = false
+tracks/9/path = NodePath("AttackBlockerContainer:skew")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.13333333, 0.16666669, 0.23333335, 0.29999998, 0.33333328, 0.46666673, 0.5333333, 0.79999995),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0.0, 0.0, -0.01745329251994329, 0.08726646259971647, 0.00872664625997164, 0.0, 0.08726646259971647, 0.00872664625997164, 0.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = false
+tracks/10/path = NodePath("AttackBlockerContainer/AttackBlocker:skew")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.16666669, 0.26666668, 0.29999998, 0.3666667, 0.46666673),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0.26179945, 0.26179945, 0.26179945, 0.18151425, 0.27576202, 0.26179945]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("AttackBlockerContainer/AttackBlocker/BlockBlast:modulate")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.13333333, 0.6333333),
+"transitions": PackedFloat32Array(1, 0.5, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.554), Color(1, 1, 1, 0)]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("AttackBlockerContainer/AttackBlocker/BlockBlast:scale")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0.06666666, 1),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(7, 7)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v7v0u"]
+_data = {
+&"block": SubResource("Animation_r35kl")
+}
+
+[node name="ShieldBlockEffect" type="Node2D" unique_id=312367948]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2038955998]
+libraries/ = SubResource("AnimationLibrary_v7v0u")
+autoplay = &"block"
+
+[node name="AttackBlockerContainer" type="Node2D" parent="." unique_id=541133819]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(19, 0)
+
+[node name="AttackBlocker" type="Node2D" parent="AttackBlockerContainer" unique_id=752194910]
+modulate = Color(0.45767742, 0.77602017, 0.81970006, 1)
+position = Vector2(-23, 0)
+rotation = 1.5707964
+skew = 0.26179945
+
+[node name="BlockSprite" type="Sprite2D" parent="AttackBlockerContainer/AttackBlocker" unique_id=1780297835]
+modulate = Color(1, 1, 1, 0)
+rotation = 1.5707964
+scale = Vector2(4, 4)
+texture = ExtResource("7_0qlik")
+
+[node name="Sprite2D" type="Sprite2D" parent="AttackBlockerContainer/AttackBlocker/BlockSprite" unique_id=1917340442]
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(0.6666667, 0.6666666)
+texture = ExtResource("7_0qlik")
+
+[node name="Sprite2D2" type="Sprite2D" parent="AttackBlockerContainer/AttackBlocker/BlockSprite/Sprite2D" unique_id=143808185]
+scale = Vector2(0.75, 0.7500001)
+texture = ExtResource("7_0qlik")
+
+[node name="Sprite2D3" type="Sprite2D" parent="AttackBlockerContainer/AttackBlocker/BlockSprite/Sprite2D" unique_id=518059190]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_0qlik")
+
+[node name="Sprite2D4" type="Sprite2D" parent="AttackBlockerContainer/AttackBlocker/BlockSprite/Sprite2D" unique_id=1245582189]
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("7_0qlik")
+
+[node name="Sprite2D5" type="Sprite2D" parent="AttackBlockerContainer/AttackBlocker/BlockSprite/Sprite2D" unique_id=318794676]
+scale = Vector2(0.375, 0.37500006)
+texture = ExtResource("7_0qlik")
+
+[node name="CounterBlock" type="Sprite2D" parent="AttackBlockerContainer/AttackBlocker" unique_id=1246836097]
+modulate = Color(1, 1, 1, 0)
+rotation = 1.5707964
+scale = Vector2(4, 4)
+texture = ExtResource("7_0qlik")
+
+[node name="Sprite2D" type="Sprite2D" parent="AttackBlockerContainer/AttackBlocker/CounterBlock" unique_id=2143012712]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("7_0qlik")
+
+[node name="BlockBlast" type="Sprite2D" parent="AttackBlockerContainer/AttackBlocker" unique_id=1912180483]
+modulate = Color(1, 1, 1, 0)
+rotation = 1.5707964
+scale = Vector2(7, 7)
+texture = ExtResource("7_0qlik")
+
+[node name="CounterBlock2" type="Sprite2D" parent="AttackBlockerContainer/AttackBlocker/BlockBlast" unique_id=1854554004]
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("7_0qlik")

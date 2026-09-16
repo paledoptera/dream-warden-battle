@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://bwjdk6fcn3tnv"]
+
+[sub_resource type="Curve" id="Curve_0s8a0"]
+_limits = [0.0, 5.0, 0.0, 1.0]
+_data = [Vector2(1e-05, 0), 0.0, 0.0, 0, 0, Vector2(0.45891473, 3.5897436), 3.0290236, 3.0290236, 0, 0, Vector2(0.62945735, 0.29304028), 0.0, 0.0, 0, 0, Vector2(1, 0), 1.5180498, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_57qmd"]
+curve = SubResource("Curve_0s8a0")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_g4v7s"]
+particle_flag_align_y = true
+particle_flag_inherit_emitter_scale = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 75.0
+emission_ring_radius = 86.55
+emission_ring_inner_radius = 17.35
+emission_ring_cone_angle = 90.0
+gravity = Vector3(0, 0, 0)
+damping_min = 1.0
+damping_max = 1.0
+use_scale_3d = true
+scale_3d_min = Vector3(1, 0.1, 1)
+scale_3d_max = Vector3(1, 5, 1)
+scale_curve = SubResource("CurveTexture_57qmd")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fcnqv"]
+shading_mode = 0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_d0u6y"]
+material = SubResource("StandardMaterial3D_fcnqv")
+radial_segments = 4
+rings = 0
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_g4v7s"]
+viewport_path = NodePath("SubViewport")
+
+[node name="BlackHoleEffect" type="Node2D" unique_id=157096845]
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1324262312]
+own_world_3d = true
+transparent_bg = true
+scaling_3d_mode = 5
+canvas_item_default_texture_filter = 0
+gui_disable_input = true
+oversampling = false
+size = Vector2i(400, 400)
+
+[node name="CPUParticles2D" type="GPUParticles3D" parent="SubViewport" unique_id=291997578]
+emitting = false
+amount = 64
+lifetime = 1.5
+speed_scale = 2.0
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_g4v7s")
+draw_pass_1 = SubResource("CylinderMesh_d0u6y")
+
+[node name="GPUParticlesAttractorSphere3D" type="GPUParticlesAttractorSphere3D" parent="SubViewport/CPUParticles2D" unique_id=1516041372]
+strength = 128.0
+attenuation = 0.16961814
+radius = 100.0
+
+[node name="Camera3D" type="Camera3D" parent="SubViewport" unique_id=1193958847]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 160.40405)
+projection = 1
+size = 200.0
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=829109461]
+offset_right = 100.0
+offset_bottom = 100.0
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(-0.5, -0.5)
+offset_transform_visual_only = false
+texture = SubResource("ViewportTexture_g4v7s")
+stretch_mode = 2

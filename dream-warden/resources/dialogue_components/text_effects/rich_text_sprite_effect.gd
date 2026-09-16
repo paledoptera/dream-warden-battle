@@ -23,7 +23,7 @@ func place_element() -> void:
 
 func _process(delta: float) -> void:
 	if sprite:
-		if rtl.visible_characters >= start_char:
+		if rtl.visible_characters >= start_char or rtl.visible_ratio == 1.0:
 			sprite.visible = true
 		else:
 			sprite.visible = false

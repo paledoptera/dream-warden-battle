@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://tb82vfmmdaxq"]
+
+[ext_resource type="Script" uid="uid://kvjtkks4abvd" path="res://battle/fight_data/story_battle_controller.gd" id="1_qrm3h"]
+
+[node name="StoryBattleController" type="Node" unique_id=2026474887]
+script = ExtResource("1_qrm3h")

@@ -21,7 +21,8 @@ func _ready() -> void:
 	var healthbar_color = StyleBoxFlat.new()
 	healthbar_color.bg_color = hero.color
 	%HealthBar.add_theme_stylebox_override("fill", healthbar_color)
-
+	
+	%FrameUpper.self_modulate = hero.color
 
 func open() -> void:
 	$AnimationPlayer.play("open")

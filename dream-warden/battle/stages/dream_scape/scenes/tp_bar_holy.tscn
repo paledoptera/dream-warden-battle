@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://coalpkjadmxxt" path="res://battle/system/ui/tp_bar/res/tp_bar_progress_white.png" id="5_d2u81"]
 [ext_resource type="Texture2D" uid="uid://blb1o33wkxce3" path="res://battle/system/ui/tp_bar/res/tp_bar_progress_bright.png" id="6_vaa44"]
 [ext_resource type="Texture2D" uid="uid://bivdiuyw1iqsi" path="res://battle/system/ui/tp_bar/res/tp_max.png" id="7_a7veg"]
-[ext_resource type="Texture2D" uid="uid://eppakrra8st8" path="res://battle/system/ui/tp_bar/res/tp_bar_full.png" id="8_lhibw"]
 
 [sub_resource type="Gradient" id="Gradient_vaa44"]
 offsets = PackedFloat32Array(0, 0.87278104, 1)
@@ -79,7 +78,7 @@ _data = {
 &"shake": SubResource("Animation_u2g6s")
 }
 
-[node name="TPBar" type="Node2D" unique_id=1921588265]
+[node name="TPBar" type="Node2D" unique_id=1921588265 groups=["tp_bar"]]
 script = ExtResource("1_vaa44")
 
 [node name="Normal" type="Node2D" parent="." unique_id=840135610]
@@ -156,7 +155,7 @@ position = Vector2(-30, 10)
 texture = ExtResource("7_a7veg")
 
 [node name="MaxBar" type="Sprite2D" parent="Max" unique_id=1515877083]
-texture = ExtResource("8_lhibw")
+texture = ExtResource("6_vaa44")
 offset = Vector2(0.5, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1549136857]

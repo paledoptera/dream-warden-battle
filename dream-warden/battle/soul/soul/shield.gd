@@ -11,7 +11,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("confirm"):
-		Battle.tp -= 5
+		Party.tp -= 5
 		Sound.play(preload("res://shared/sound_effects/snd_heavyswing.wav"),1.0,randf_range(1.0,1.5))
 		$AnimationPlayer.stop()
 		$AnimationPlayer.play("slash")
@@ -26,7 +26,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	
 	var bullet: Bullet = area
 	if bullet.attackable:
-		Battle.tp += bullet.graze_points
+		Party.tp += bullet.graze_points
 		Sound.play(preload("res://shared/sound_effects/snd_paperbreak.wav"),1.0,randf_range(1.0,1.5))
 		Sound.play(preload("res://shared/sound_effects/snd_wingslash.wav"),0.5,randf_range(1.0,1.5))
 		bullet.destroy()

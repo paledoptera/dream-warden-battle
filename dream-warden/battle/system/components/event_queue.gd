@@ -39,7 +39,16 @@ func add_event(event: BattleEvent, undo: bool):
 				queue.erase(other_event)
 				return
 		
-		BattleEvent.Type.ITEM, BattleEvent.Type.FIGHT, BattleEvent.Type.MERCY:
+		BattleEvent.Type.ITEM:
+			if not undo:
+				PlayerInventory.items.erase(event.data["item"])
+			else:
+				var other_event = find_same_event(event)
+				PlayerInventory.items.insert(0,other_event.data["item"])
+				queue.erase(event)
+				queue.erase(other_event)
+		
+		BattleEvent.Type.FIGHT, BattleEvent.Type.MERCY:
 			if undo:
 				var other_event = find_same_event(event)
 				queue.erase(event)
@@ -106,9 +115,11 @@ func execute_events():
 				continue
 			
 			BattleEvent.Type.ITEM:
+				print("USING ITEM")
+				var item = event.data["item"]
+				item.use(event.character, event.target)
 				Dialogue.display_text(str("* ", hero_name, " used ", event.data["item"].name, "!"))
 				await Dialogue.text_finished
-				Dialogue.clear_text.emit()
 				continue
 			
 			BattleEvent.Type.MERCY:
@@ -168,6 +179,8 @@ func do_actor_animation(event: BattleEvent, undo: bool) -> void:
 				action_name = "fight_prepare"
 			BattleEvent.Type.DEFEND:
 				action_name = "defend"
+			BattleEvent.Type.MAGIC:
+				action_name = "magic_prepare"
 		
 	
 	EventBus.actor_do_action.emit(party_member.character_id, action_name)

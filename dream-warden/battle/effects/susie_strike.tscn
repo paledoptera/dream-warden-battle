@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://cjxlqkhxch11f"]
+
+[ext_resource type="Texture2D" uid="uid://bj2xjsqitnbte" path="res://battle/effects/susie_strike.png" id="1_cimo8"]
+[ext_resource type="Script" uid="uid://cgqo3t5ehncki" path="res://battle/effects/oneshot_effect.gd" id="2_0lje0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbxok"]
+atlas = ExtResource("1_cimo8")
+region = Rect2(0, 0, 43, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g42tq"]
+atlas = ExtResource("1_cimo8")
+region = Rect2(43, 0, 43, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kj5or"]
+atlas = ExtResource("1_cimo8")
+region = Rect2(86, 0, 43, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wfbak"]
+atlas = ExtResource("1_cimo8")
+region = Rect2(129, 0, 43, 44)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4hjri"]
+atlas = ExtResource("1_cimo8")
+region = Rect2(172, 0, 43, 44)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dncch"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lbxok")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g42tq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kj5or")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wfbak")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4hjri")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="SusieStrike" type="AnimatedSprite2D" unique_id=2058897889]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_dncch")
+autoplay = "default"
+frame = 4
+frame_progress = 1.0
+script = ExtResource("2_0lje0")

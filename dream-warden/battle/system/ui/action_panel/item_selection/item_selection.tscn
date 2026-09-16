@@ -2,13 +2,16 @@
 
 [ext_resource type="Script" uid="uid://vmmg0ihtx7q5" path="res://battle/system/ui/action_panel/item_selection/item_selection.gd" id="1_kl5i1"]
 [ext_resource type="FontVariation" uid="uid://72sk30ahlloh" path="res://shared/theme/fonts/default_textbox.tres" id="2_8m8o7"]
+[ext_resource type="PackedScene" uid="uid://b6itcf27xot2w" path="res://battle/system/ui/action_panel/spell_selection/spell_option.tscn" id="2_vjk7o"]
 [ext_resource type="Texture2D" uid="uid://wy7dhu8gvr8c" path="res://battle/soul/soul/res/soul.png" id="3_m5m6n"]
+[ext_resource type="Texture2D" uid="uid://c4ikhyexhqs04" path="res://shared/sprites/down_arrow.png" id="4_oovoq"]
+[ext_resource type="Script" uid="uid://docr85knwxrgu" path="res://battle/system/ui/action_panel/item_selection/arrow.gd" id="5_nnjt0"]
 
-[sub_resource type="Theme" id="Theme_7rakj"]
+[sub_resource type="Theme" id="Theme_dv3bw"]
 default_font = ExtResource("2_8m8o7")
 default_font_size = 32
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fe7gu"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hp48b"]
 content_margin_left = 28.0
 content_margin_top = 15.0
 
@@ -17,121 +20,65 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_kl5i1")
 
-[node name="Options" type="Node2D" parent="." unique_id=14856207]
+[node name="ItemContainer" type="Control" parent="." unique_id=165616939]
+custom_minimum_size = Vector2(466, 98)
+clip_contents = true
+anchors_preset = 0
+offset_top = 14.0
+offset_right = 466.0
+offset_bottom = 112.0
 
-[node name="Option1" type="RichTextLabel" parent="Options" unique_id=151941393 groups=["menu_option"]]
-custom_minimum_size = Vector2(100, 40)
-offset_top = -4.0
-offset_right = 640.0
-offset_bottom = 47.0
-theme = SubResource("Theme_7rakj")
-theme_override_fonts/normal_font = ExtResource("2_8m8o7")
-theme_override_font_sizes/normal_font_size = 32
-theme_override_font_sizes/bold_font_size = 32
-theme_override_font_sizes/bold_italics_font_size = 32
-theme_override_font_sizes/italics_font_size = 32
-theme_override_font_sizes/mono_font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
-bbcode_enabled = true
-text = "Item1"
-scroll_active = false
+[node name="Options" type="GridContainer" parent="ItemContainer" unique_id=1948943997 groups=["options_parent"]]
+layout_mode = 0
+offset_top = -18.0
+offset_right = 460.0
+offset_bottom = 170.0
+columns = 2
 
-[node name="Option2" type="RichTextLabel" parent="Options" unique_id=2078893534 groups=["menu_option"]]
-custom_minimum_size = Vector2(100, 40)
-offset_left = 232.0
-offset_top = -4.0
-offset_right = 872.0
-offset_bottom = 47.0
-theme = SubResource("Theme_7rakj")
-theme_override_fonts/normal_font = ExtResource("2_8m8o7")
-theme_override_font_sizes/normal_font_size = 32
-theme_override_font_sizes/bold_font_size = 32
-theme_override_font_sizes/bold_italics_font_size = 32
-theme_override_font_sizes/italics_font_size = 32
-theme_override_font_sizes/mono_font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
-bbcode_enabled = true
-text = "Item2"
-scroll_active = false
+[node name="Item1" parent="ItemContainer/Options" unique_id=947396992 instance=ExtResource("2_vjk7o")]
+layout_mode = 2
 
-[node name="Option3" type="RichTextLabel" parent="Options" unique_id=1431091085 groups=["menu_option"]]
-custom_minimum_size = Vector2(100, 40)
-offset_top = 28.0
-offset_right = 640.0
-offset_bottom = 79.0
-theme = SubResource("Theme_7rakj")
-theme_override_fonts/normal_font = ExtResource("2_8m8o7")
-theme_override_font_sizes/normal_font_size = 32
-theme_override_font_sizes/bold_font_size = 32
-theme_override_font_sizes/bold_italics_font_size = 32
-theme_override_font_sizes/italics_font_size = 32
-theme_override_font_sizes/mono_font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
-bbcode_enabled = true
-text = "Item3"
-scroll_active = false
+[node name="Item2" parent="ItemContainer/Options" unique_id=9759978 instance=ExtResource("2_vjk7o")]
+layout_mode = 2
 
-[node name="Option4" type="RichTextLabel" parent="Options" unique_id=1776980224 groups=["menu_option"]]
-custom_minimum_size = Vector2(100, 40)
-offset_left = 232.0
-offset_top = 28.0
-offset_right = 872.0
-offset_bottom = 79.0
-theme = SubResource("Theme_7rakj")
-theme_override_fonts/normal_font = ExtResource("2_8m8o7")
-theme_override_font_sizes/normal_font_size = 32
-theme_override_font_sizes/bold_font_size = 32
-theme_override_font_sizes/bold_italics_font_size = 32
-theme_override_font_sizes/italics_font_size = 32
-theme_override_font_sizes/mono_font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
-bbcode_enabled = true
-text = "Item4"
-scroll_active = false
+[node name="Item3" parent="ItemContainer/Options" unique_id=930465982 instance=ExtResource("2_vjk7o")]
+layout_mode = 2
 
-[node name="Option5" type="RichTextLabel" parent="Options" unique_id=360646135 groups=["menu_option"]]
-custom_minimum_size = Vector2(100, 40)
-offset_top = 60.0
-offset_right = 640.0
-offset_bottom = 111.0
-theme = SubResource("Theme_7rakj")
-theme_override_fonts/normal_font = ExtResource("2_8m8o7")
-theme_override_font_sizes/normal_font_size = 32
-theme_override_font_sizes/bold_font_size = 32
-theme_override_font_sizes/bold_italics_font_size = 32
-theme_override_font_sizes/italics_font_size = 32
-theme_override_font_sizes/mono_font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
-bbcode_enabled = true
-text = "Item5"
-scroll_active = false
+[node name="Item4" parent="ItemContainer/Options" unique_id=623427666 instance=ExtResource("2_vjk7o")]
+layout_mode = 2
 
-[node name="Option6" type="RichTextLabel" parent="Options" unique_id=164722673 groups=["menu_option"]]
-custom_minimum_size = Vector2(100, 40)
-offset_left = 232.0
-offset_top = 60.0
-offset_right = 872.0
-offset_bottom = 111.0
-theme = SubResource("Theme_7rakj")
-theme_override_fonts/normal_font = ExtResource("2_8m8o7")
-theme_override_font_sizes/normal_font_size = 32
-theme_override_font_sizes/bold_font_size = 32
-theme_override_font_sizes/bold_italics_font_size = 32
-theme_override_font_sizes/italics_font_size = 32
-theme_override_font_sizes/mono_font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
-bbcode_enabled = true
-text = "Item6"
-scroll_active = false
+[node name="Item5" parent="ItemContainer/Options" unique_id=58854021 instance=ExtResource("2_vjk7o")]
+layout_mode = 2
 
-[node name="Description" type="RichTextLabel" parent="." unique_id=1079294880]
+[node name="Item6" parent="ItemContainer/Options" unique_id=147411730 instance=ExtResource("2_vjk7o")]
+layout_mode = 2
+
+[node name="Item7" parent="ItemContainer/Options" unique_id=1386853659 instance=ExtResource("2_vjk7o")]
+layout_mode = 2
+
+[node name="Item8" parent="ItemContainer/Options" unique_id=1273726956 instance=ExtResource("2_vjk7o")]
+layout_mode = 2
+
+[node name="Item9" parent="ItemContainer/Options" unique_id=1156480485 instance=ExtResource("2_vjk7o")]
+layout_mode = 2
+
+[node name="Item10" parent="ItemContainer/Options" unique_id=1153072129 instance=ExtResource("2_vjk7o")]
+layout_mode = 2
+
+[node name="Item11" parent="ItemContainer/Options" unique_id=1321050883 instance=ExtResource("2_vjk7o")]
+layout_mode = 2
+
+[node name="Item12" parent="ItemContainer/Options" unique_id=1580788848 instance=ExtResource("2_vjk7o")]
+layout_mode = 2
+
+[node name="Description" type="RichTextLabel" parent="." unique_id=2052039885]
 custom_minimum_size = Vector2(100, 40)
 layout_mode = 0
 offset_left = 460.0
 offset_top = -4.0
 offset_right = 1100.0
 offset_bottom = 107.0
-theme = SubResource("Theme_7rakj")
+theme = SubResource("Theme_dv3bw")
 theme_override_colors/default_color = Color(0.49803922, 0.49803922, 0.49803922, 1)
 theme_override_fonts/normal_font = ExtResource("2_8m8o7")
 theme_override_font_sizes/normal_font_size = 32
@@ -139,13 +86,13 @@ theme_override_font_sizes/bold_font_size = 32
 theme_override_font_sizes/bold_italics_font_size = 32
 theme_override_font_sizes/italics_font_size = 32
 theme_override_font_sizes/mono_font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hp48b")
 bbcode_enabled = true
-text = "Nice
-item"
+text = "Consider
+strategy"
 scroll_active = false
 
-[node name="TPCost" type="RichTextLabel" parent="." unique_id=264706061]
+[node name="TPCost" type="RichTextLabel" parent="." unique_id=2082467226]
 visible = false
 custom_minimum_size = Vector2(100, 40)
 layout_mode = 0
@@ -153,7 +100,7 @@ offset_left = 460.0
 offset_top = -4.0
 offset_right = 1100.0
 offset_bottom = 107.0
-theme = SubResource("Theme_7rakj")
+theme = SubResource("Theme_dv3bw")
 theme_override_colors/default_color = Color(0.9843137, 0.62352943, 0.25882354, 1)
 theme_override_fonts/normal_font = ExtResource("2_8m8o7")
 theme_override_font_sizes/normal_font_size = 32
@@ -161,14 +108,45 @@ theme_override_font_sizes/bold_font_size = 32
 theme_override_font_sizes/bold_italics_font_size = 32
 theme_override_font_sizes/italics_font_size = 32
 theme_override_font_sizes/mono_font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_hp48b")
 bbcode_enabled = true
 text = "
 
 99% TP"
 scroll_active = false
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1258073754]
+[node name="Heart" type="Sprite2D" parent="." unique_id=1258073754 groups=["soul"]]
 modulate = Color(1, 0, 0, 1)
 position = Vector2(16, 29)
 texture = ExtResource("3_m5m6n")
+
+[node name="Arrow" type="Sprite2D" parent="." unique_id=2054542160]
+position = Vector2(460, 86)
+texture = ExtResource("4_oovoq")
+centered = false
+script = ExtResource("5_nnjt0")
+
+[connection signal="hovered" from="ItemContainer/Options/Item1" to="." method="_on_selected_changed"]
+[connection signal="selected" from="ItemContainer/Options/Item1" to="." method="_on_selected"]
+[connection signal="hovered" from="ItemContainer/Options/Item2" to="." method="_on_selected_changed"]
+[connection signal="selected" from="ItemContainer/Options/Item2" to="." method="_on_selected"]
+[connection signal="hovered" from="ItemContainer/Options/Item3" to="." method="_on_selected_changed"]
+[connection signal="selected" from="ItemContainer/Options/Item3" to="." method="_on_selected"]
+[connection signal="hovered" from="ItemContainer/Options/Item4" to="." method="_on_selected_changed"]
+[connection signal="selected" from="ItemContainer/Options/Item4" to="." method="_on_selected"]
+[connection signal="hovered" from="ItemContainer/Options/Item5" to="." method="_on_selected_changed"]
+[connection signal="selected" from="ItemContainer/Options/Item5" to="." method="_on_selected"]
+[connection signal="hovered" from="ItemContainer/Options/Item6" to="." method="_on_selected_changed"]
+[connection signal="selected" from="ItemContainer/Options/Item6" to="." method="_on_selected"]
+[connection signal="hovered" from="ItemContainer/Options/Item7" to="." method="_on_selected_changed"]
+[connection signal="selected" from="ItemContainer/Options/Item7" to="." method="_on_selected"]
+[connection signal="hovered" from="ItemContainer/Options/Item8" to="." method="_on_selected_changed"]
+[connection signal="selected" from="ItemContainer/Options/Item8" to="." method="_on_selected"]
+[connection signal="hovered" from="ItemContainer/Options/Item9" to="." method="_on_selected_changed"]
+[connection signal="selected" from="ItemContainer/Options/Item9" to="." method="_on_selected"]
+[connection signal="hovered" from="ItemContainer/Options/Item10" to="." method="_on_selected_changed"]
+[connection signal="selected" from="ItemContainer/Options/Item10" to="." method="_on_selected"]
+[connection signal="hovered" from="ItemContainer/Options/Item11" to="." method="_on_selected_changed"]
+[connection signal="selected" from="ItemContainer/Options/Item11" to="." method="_on_selected"]
+[connection signal="hovered" from="ItemContainer/Options/Item12" to="." method="_on_selected_changed"]
+[connection signal="selected" from="ItemContainer/Options/Item12" to="." method="_on_selected"]

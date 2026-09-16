@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dpebc8cywm13k"
-path="res://.godot/imported/sad.png-6eecac5e364ad72f7f13b2aa73dfe17c.ctex"
+uid="uid://crf7bdef8fgh7"
+path="res://.godot/imported/actor_varik.png-551708fdc0df3866d3981de4d32c1b98.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/dialogue/portraits/susie/sad.png"
-dest_files=["res://.godot/imported/sad.png-6eecac5e364ad72f7f13b2aa73dfe17c.ctex"]
+source_file="res://battle/stages/variks_pluto/res/actor_varik.png"
+dest_files=["res://.godot/imported/actor_varik.png-551708fdc0df3866d3981de4d32c1b98.ctex"]
 
 [params]
 

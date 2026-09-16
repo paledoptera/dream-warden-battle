@@ -3,6 +3,7 @@ extends Resource
 
 @export_multiline var text : String = "* Nothing happened."
 @export var require_input: bool = true
+@export var is_skippable: bool = true
 @export var auto_skip: bool = false
 @export var talksound: AudioStream = preload("res://shared/sound_effects/snd_text.wav")
 @export var talksound_oneshot: bool = false

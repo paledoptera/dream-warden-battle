@@ -1,0 +1,120 @@
+[gd_resource type="Resource" script_class="CharacterStatsEnemy" format=3 uid="uid://781molbb62mr"]
+
+[ext_resource type="Script" uid="uid://caqnjjh4u2r54" path="res://battle/system/resources/attack.gd" id="1_t6gcq"]
+[ext_resource type="PackedScene" uid="uid://cgpsbpg4xrt5s" path="res://battle/enemies/warden/attacks/parry/0_rings/rings_attack.tscn" id="2_vgoan"]
+[ext_resource type="PackedScene" uid="uid://6pjv2tpw0t0c" path="res://battle/enemies/warden/attacks/parry/1_charge/charge_attack.tscn" id="3_gep48"]
+[ext_resource type="Script" uid="uid://bq7mxvnbwq8of" path="res://resources/dialogue_components/dialogue_block.gd" id="3_n04j5"]
+[ext_resource type="PackedScene" uid="uid://cfs3vvke5udle" path="res://battle/enemies/warden/attacks/parry/2_shocker/shocker_attack.tscn" id="4_dcenf"]
+[ext_resource type="Script" uid="uid://emdpqbj1xvm7" path="res://battle/system/resources/attack_block.gd" id="5_v8w7x"]
+[ext_resource type="Resource" uid="uid://cld6dkn35vrx6" path="res://battle/enemies/warden/data/flavor_opening_warden.tres" id="6_vgoan"]
+[ext_resource type="Script" uid="uid://m17i7j602jax" path="res://resources/dialogue_components/dialogue_string.gd" id="7_dcenf"]
+[ext_resource type="Script" uid="uid://bpvsxd6yo0sl4" path="res://battle/enemies/character_stats_enemy.gd" id="7_gep48"]
+[ext_resource type="Script" uid="uid://cci227fj67d4u" path="res://resources/dialogue_components/markers/_dialogue_marker.gd" id="8_v8w7x"]
+[ext_resource type="Texture2D" uid="uid://cerarap2ghpsc" path="res://entities/dialogue/portraits/susie/susie_mad.png" id="9_ol0gw"]
+[ext_resource type="Script" uid="uid://j420j57sl5b5" path="res://resources/effects/status_effects/_status_effect.gd" id="9_v8w7x"]
+[ext_resource type="AudioStream" uid="uid://q2o6ubr8kajn" path="res://shared/sound_effects/snd_txt_susie.wav" id="10_t0i6s"]
+[ext_resource type="AudioStream" uid="uid://c3m6sxg7kebei" path="res://shared/sound_effects/snd_text.wav" id="11_gep48"]
+[ext_resource type="AudioStream" uid="uid://cl0ssn0jta65n" path="res://shared/sound_effects/snd_ward_hit.wav" id="14_dcenf"]
+
+[sub_resource type="Resource" id="Resource_t0i6s"]
+resource_name = "rings"
+script = ExtResource("1_t6gcq")
+scene = ExtResource("2_vgoan")
+length = 6.5
+metadata/_custom_type_script = "uid://caqnjjh4u2r54"
+
+[sub_resource type="Resource" id="Resource_7hgqr"]
+resource_name = "charge"
+script = ExtResource("1_t6gcq")
+scene = ExtResource("3_gep48")
+length = 12.0
+metadata/_custom_type_script = "uid://caqnjjh4u2r54"
+
+[sub_resource type="Resource" id="Resource_h4cnr"]
+resource_name = "shocker"
+script = ExtResource("1_t6gcq")
+scene = ExtResource("4_dcenf")
+length = 12.0
+metadata/_custom_type_script = "uid://caqnjjh4u2r54"
+
+[sub_resource type="Resource" id="Resource_ol0gw"]
+script = ExtResource("5_v8w7x")
+attack_order = 1
+attacks = Array[ExtResource("1_t6gcq")]([SubResource("Resource_t0i6s"), SubResource("Resource_7hgqr"), SubResource("Resource_h4cnr")])
+metadata/_custom_type_script = "uid://emdpqbj1xvm7"
+
+[sub_resource type="Resource" id="Resource_vgoan"]
+resource_name = "dumbass"
+script = ExtResource("7_dcenf")
+text = "* What are you doing, dumbass?!
+* Attack!!"
+talksound = ExtResource("10_t0i6s")
+portrait = ExtResource("9_ol0gw")
+flag_value = null
+metadata/_custom_type_script = "uid://m17i7j602jax"
+
+[sub_resource type="Resource" id="Resource_t6gcq"]
+script = ExtResource("3_n04j5")
+text = Array[ExtResource("7_dcenf")]([SubResource("Resource_vgoan")])
+metadata/_custom_type_script = "uid://bq7mxvnbwq8of"
+
+[sub_resource type="Resource" id="Resource_vtluq"]
+resource_name = "attack"
+script = ExtResource("7_dcenf")
+text = "* It's shield is down, attack!"
+talksound = ExtResource("10_t0i6s")
+portrait = ExtResource("9_ol0gw")
+flag_value = null
+metadata/_custom_type_script = "uid://m17i7j602jax"
+
+[sub_resource type="Resource" id="Resource_xw5ds"]
+resource_name = "empowered"
+script = ExtResource("7_dcenf")
+text = "* The lighting has changed!
+* Susie's MAGIC was empowered!"
+flag_value = null
+metadata/_custom_type_script = "uid://m17i7j602jax"
+
+[sub_resource type="Resource" id="Resource_a7klq"]
+resource_name = "glows"
+script = ExtResource("7_dcenf")
+text = "* Susie's axe glows!"
+flag_value = null
+metadata/_custom_type_script = "uid://m17i7j602jax"
+
+[sub_resource type="Resource" id="Resource_v8w7x"]
+script = ExtResource("3_n04j5")
+text = Array[ExtResource("7_dcenf")]([SubResource("Resource_vtluq"), SubResource("Resource_xw5ds"), SubResource("Resource_a7klq")])
+metadata/_custom_type_script = "uid://bq7mxvnbwq8of"
+
+[sub_resource type="Resource" id="Resource_ab2x1"]
+resource_name = "dumbass"
+script = ExtResource("7_dcenf")
+text = "* What are you doing, dumbass?!
+* Attack!!"
+talksound = ExtResource("10_t0i6s")
+portrait = ExtResource("9_ol0gw")
+flag_value = null
+metadata/_custom_type_script = "uid://m17i7j602jax"
+
+[sub_resource type="Resource" id="Resource_pd7h7"]
+script = ExtResource("3_n04j5")
+text = Array[ExtResource("7_dcenf")]([SubResource("Resource_ab2x1")])
+metadata/_custom_type_script = "uid://bq7mxvnbwq8of"
+
+[resource]
+script = ExtResource("7_gep48")
+attack_list = SubResource("Resource_ol0gw")
+check_text = SubResource("Resource_t6gcq")
+opening_line_singular = ExtResource("6_vgoan")
+flavor_text_order = 1
+flavor_text = SubResource("Resource_v8w7x")
+mercy_fail_text = SubResource("Resource_pd7h7")
+name = "Dream Warden"
+hp_max = 4000
+hp = 4000
+character_id = &"warden"
+soundbank = Dictionary[StringName, AudioStream]({
+&"damaged": ExtResource("14_dcenf")
+})
+metadata/_custom_type_script = "uid://bpvsxd6yo0sl4"

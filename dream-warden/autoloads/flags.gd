@@ -16,10 +16,12 @@ class BattleFlags:
 	var defend_tp: int = DEFAULT_DEFEND_TP
 	var attack_tp: int = DEFAULT_ATTACK_TP
 
-
+class StoryFlags:
+	var dream_warden_phase: int = 0
 
 
 var battle = BattleFlags.new()
+var story = StoryFlags.new()
 var hard_mode: bool = false
 var in_battle: bool = false
 

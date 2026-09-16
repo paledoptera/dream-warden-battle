@@ -25,6 +25,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	if event.is_action("confirm") and event.is_pressed():
 		check_if_text_finished()
+	
+	if event.is_action("cancel") and event.is_pressed():
+		skip_text()
 
 func display_text(dialogue: Variant):
 	queue.clear()
@@ -63,6 +66,16 @@ func check_if_text_finished() -> void:
 			break
 	if finished:
 		goto_next()
+
+func skip_text() -> void:
+	if not current:
+		return
+	
+	if not current.is_skippable:
+		return
+		
+	for i in current_boxes:
+		i.visible_ratio = 1.0
 
 func goto_next(hide: bool = true) -> void:
 	if queue.size() > 0:

@@ -6,6 +6,7 @@ var animated_element: Variant
 func _ready() -> void:
 	EventBus.actor_do_action.connect(_do_action)
 	EventBus.actor_trigger_damage_number.connect(_trigger_damage_number)
+	EventBus.actor_trigger_effect.connect(_trigger_effect)
 	
 	
 	for i in get_children():
@@ -31,4 +32,9 @@ func _trigger_damage_number(actor_id: StringName, damage_number: FloatingText):
 	print(actor_id, " TOOK DAMAGE!")
 	
 	add_child(damage_number)
+
+func _trigger_effect(actor_id: StringName, effect: PackedScene):
+	if actor_id != id:
+		return
 	
+	add_child(effect.instantiate())
