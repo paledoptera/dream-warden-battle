@@ -22,6 +22,7 @@ static func spawn() -> ActionMenu:
 	return new_menu
 
 func _ready() -> void:
+	$ChooseEnemy.refresh()
 	
 	$MenuInputManager.open_menu($ChooseAction)
 
@@ -41,7 +42,7 @@ func _on_action_selected(selected_action: int) -> void:
 	
 	match action:
 		0:
-			$ChooseEnemy.refresh()
+			
 			%MenuInputManager.open_menu($ChooseEnemy)
 			
 		1:

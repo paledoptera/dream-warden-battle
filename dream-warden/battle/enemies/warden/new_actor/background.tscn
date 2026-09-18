@@ -1,0 +1,211 @@
+[gd_scene format=3 uid="uid://bnt1otq3uwm3j"]
+
+[ext_resource type="Script" uid="uid://d3l2uiddgos5w" path="res://warden/background.gd" id="1_djrh6"]
+[ext_resource type="Texture2D" uid="uid://dtpupihy55u0e" path="res://warden/assets/back_buldings_032021.png" id="2_3ljtq"]
+[ext_resource type="Shader" uid="uid://q4ctqj424uqs" path="res://warden/shaders/background_warp.gdshader" id="2_srtji"]
+[ext_resource type="Texture2D" uid="uid://bgx4e1265uhoh" path="res://warden/assets/warden_background_grit.png" id="3_djrh6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_iy3d5"]
+shader = ExtResource("2_srtji")
+shader_parameter/scroll_speed = Vector2(0.12, 0)
+shader_parameter/wave_factor = Vector2(4, 4.56)
+shader_parameter/wave_multiplier = Vector2(1, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_djrh6"]
+shader = ExtResource("2_srtji")
+shader_parameter/scroll_speed = Vector2(0, 0)
+shader_parameter/wave_factor = Vector2(0, 7)
+shader_parameter/wave_multiplier = Vector2(0.04, 0)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_57kav"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="Animation" id="Animation_3ljtq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubViewport/BackFoundation032021:material:shader_parameter/scroll_speed")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.12, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SubViewport/BackFoundation032021:material:shader_parameter/wave_factor")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4, 4.56)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SubViewport/BackFoundation032021:material:shader_parameter/wave_multiplier")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SubViewport/BackBuldings032021:material:shader_parameter/wave_multiplier")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.04, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SubViewport/BackBuldings032021:material:shader_parameter/wave_factor")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 7)]
+}
+
+[sub_resource type="Animation" id="Animation_djrh6"]
+resource_name = "environment_hit"
+length = 2.0333333
+step = 0.0333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubViewport/BackFoundation032021:material:shader_parameter/scroll_speed")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.43333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0.12, 0), Vector2(0.12, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SubViewport/BackFoundation032021:material:shader_parameter/wave_factor")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.021211198, 0.033333335, 0.12633188, 0.3, 0.4, 2),
+"transitions": PackedFloat32Array(1, 1, 0.15389292, 0.03349294, 0.17677681, 0.10881889, 0.09473245),
+"update": 0,
+"values": [Vector2(12.761522, 3.3943946), Vector2(12.761522, 3.3943946), Vector2(558.03, 157.47), Vector2(558.03, 236.35), Vector2(558.03, 157.47), Vector2(701.632, -1.41), Vector2(4, 4.56)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SubViewport/BackFoundation032021:material:shader_parameter/wave_multiplier")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.021211198, 0.033333335, 0.12633188, 0.3, 0.4, 2),
+"transitions": PackedFloat32Array(1, 1, 0.307786, 0.03349294, 0.14358725, 0.10153159, 0.09473245),
+"update": 0,
+"values": [Vector2(9.303022, 0.1339603), Vector2(9.303022, 0.1339603), Vector2(82.7, -5.91), Vector2(558.03, 236.35), Vector2(82.7, -5.91), Vector2(0, -1.564), Vector2(1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SubViewport/BackBuldings032021:material:shader_parameter/wave_multiplier")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.099999994, 0.26666668, 0.4, 2),
+"transitions": PackedFloat32Array(1, 1, 0.09473233, 0.14358735, 0.124999955),
+"update": 0,
+"values": [Vector2(-2.31, 0.2), Vector2(1550.81, 0), Vector2(1550.81, 0), Vector2(-0.018, 1.144), Vector2(-2.31, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SubViewport/BackBuldings032021:material:shader_parameter/wave_factor")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.09724846, 0.26666668, 0.4, 1.9666667),
+"transitions": PackedFloat32Array(1, 1, 0.0625, 0.022097131, 1),
+"update": 0,
+"values": [Vector2(0.7, 2.12), Vector2(0.7, 241.27), Vector2(0.7, 241.27), Vector2(474.66, 66.984), Vector2(0.7, 2.12)]
+}
+
+[sub_resource type="Animation" id="Animation_50lva"]
+resource_name = "fight_start"
+length = 6.0666666
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubViewport/BackBuldings032021:material:shader_parameter/wave_factor")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(0.9999994, 1),
+"update": 0,
+"values": [Vector2(0, 7), Vector2(0, 7.56)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SubViewport/BackBuldings032021:material:shader_parameter/wave_multiplier")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(1.0717732, 1),
+"update": 0,
+"values": [Vector2(0.12, 0), Vector2(71.59, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_50lva"]
+_data = {
+&"RESET": SubResource("Animation_3ljtq"),
+&"environment_hit": SubResource("Animation_djrh6"),
+&"fight_start": SubResource("Animation_50lva")
+}
+
+[node name="Background" type="Node2D" unique_id=1519029660]
+script = ExtResource("1_djrh6")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=2065471616]
+
+[node name="Camera2D" type="Camera2D" parent="SubViewport" unique_id=904118618]
+scale = Vector2(0.69, 0.69)
+
+[node name="BackFoundation032021" type="Sprite2D" parent="SubViewport" unique_id=820272008]
+texture_filter = 1
+material = SubResource("ShaderMaterial_iy3d5")
+scale = Vector2(0.69, 0.69)
+texture = ExtResource("3_djrh6")
+
+[node name="BackBuldings032021" type="Sprite2D" parent="SubViewport" unique_id=1858540491]
+material = SubResource("ShaderMaterial_djrh6")
+scale = Vector2(0.68, 0.68)
+texture = ExtResource("2_3ljtq")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=579829130]
+texture_filter = 5
+texture_repeat = 1
+texture = SubResource("ViewportTexture_57kav")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=460597117]
+libraries/ = SubResource("AnimationLibrary_50lva")

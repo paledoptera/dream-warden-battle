@@ -10,9 +10,13 @@
 [ext_resource type="AudioStream" uid="uid://bun2rw867aemc" path="res://shared/sound_effects/mus_sfx_sparkles.wav" id="4_cpu7v"]
 [ext_resource type="PackedScene" uid="uid://chcy6un0fnkhk" path="res://entities/dialogue/speech_bubble/bubble_tail_left.tscn" id="4_gp2ld"]
 [ext_resource type="AudioStream" uid="uid://deumykwy3p4tn" path="res://shared/sound_effects/snd_great_shine.ogg" id="5_31tun"]
+[ext_resource type="AudioStream" uid="uid://cnr6p7wqb885q" path="res://shared/sound_effects/snd_criticalswing.wav" id="7_ihvnj"]
 [ext_resource type="Texture2D" uid="uid://b6l1w0d3biye3" path="res://battle/stages/dream_scape/actors/res/susie_palette_alt.png" id="8_cpu7v"]
+[ext_resource type="AudioStream" uid="uid://byuvhlkeo5bfw" path="res://shared/sound_effects/snd_chargeshot_fire.wav" id="8_cx3p3"]
 [ext_resource type="PackedScene" uid="uid://bwjdk6fcn3tnv" path="res://battle/effects/black_hole_effect.tscn" id="8_d7hko"]
+[ext_resource type="AudioStream" uid="uid://m1eaafedpsl2" path="res://shared/sound_effects/snd_ward_charge.wav" id="9_a8p8i"]
 [ext_resource type="Texture2D" uid="uid://brxbt6tkj7gs2" path="res://battle/stages/dream_scape/actors/res/susie_palette.png" id="9_blpqr"]
+[ext_resource type="AudioStream" uid="uid://65t1in2v3vu5" path="res://shared/sound_effects/snd_ward_hardhit.wav" id="10_ot1f3"]
 
 [sub_resource type="Animation" id="Animation_6rqmn"]
 length = 0.001
@@ -99,6 +103,54 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AudioStreamPlayer2:volume_db")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("ColorRect:color")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Camera2D:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Camera2D:limit_top")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_bo4hi"]
@@ -342,6 +394,172 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3]
 }
 
+[sub_resource type="Animation" id="Animation_d2qmm"]
+resource_name = "jump_attack"
+length = 3.7
+step = 0.0667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.40000004, 0.53333336, 2.7333333, 2.8000002, 3.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [&"rude_buster", &"jump_attack", &"fight", &"jump_attack", &"fight", &"jump_attack", &"idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.13333334, 0.40000004, 0.46666667, 0.53333336, 0.6, 0.6666667, 0.73333335, 0.8, 0.8666667, 0.9333334, 1, 1.0666667, 1.1333334, 1.2, 1.2666668, 1.3333334, 1.4, 1.4666667, 1.5333334, 1.6, 1.6666666, 1.7333335, 1.8000001, 1.8666667, 1.9333335, 2, 2.0666666, 2.1333334, 2.2, 2.266667, 2.3333335, 2.4, 2.4666667, 2.5333335, 2.6000001, 2.6666667, 2.7333336, 2.8, 3.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [5, 0, 0, 1, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 2, 3, 1, 0, 0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedSprite2D:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.06666667, 0.20000002, 0.4, 0.53333336, 0.6, 0.6666667, 0.73333335, 0.8000001, 0.86666673, 0.9333334, 1.0666667, 2.7333336, 2.8, 3.5333333),
+"transitions": PackedFloat32Array(0.5, 1, 0, 0, 1, 1, 1, 1, 1, 1, 0, 0, 0.29730165, 0.5),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(113, -170.69), Vector2(205.395, -163.725), Vector2(214.08, -122.93), Vector2(222.655, -120.965), Vector2(219.92, -120.965), Vector2(219.92, -120.965), Vector2(222.655, -120.965), Vector2(219.92, -120.965), Vector2(221, -120.965), Vector2(220, -120.965), Vector2(220, -120.965), Vector2(205.395, -163.725), Vector2(0, 0)]
+}
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer3")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("7_ihvnj")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("8_cx3p3")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("9_a8p8i")
+}],
+"times": PackedFloat32Array(0, 0.4, 1.2666667)
+}
+tracks/3/use_blend = true
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer2")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("10_ot1f3")
+}],
+"times": PackedFloat32Array(0.4)
+}
+tracks/4/use_blend = true
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioStreamPlayer2:volume_db")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-6.0]
+}
+tracks/6/type = "audio"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_31tun")
+}],
+"times": PackedFloat32Array(2.2)
+}
+tracks/6/use_blend = true
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("AudioStreamPlayer:pitch_scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(2.1333334),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("ColorRect:color")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.46666667, 0.8000001, 2.2, 2.4666667),
+"transitions": PackedFloat32Array(1, 0, 1, 5.8563395, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 0.16078432), Color(1, 1, 1, 0), Color(1, 1, 1, 0.16078432), Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Camera2D:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(260, -100)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Camera2D:zoom")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.3, 1.3)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Camera2D:limit_top")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(-2, 1),
+"update": 0,
+"values": [0, -200]
+}
+
 [sub_resource type="Animation" id="Animation_cpu7v"]
 resource_name = "spell_prepare"
 length = 0.6333
@@ -373,7 +591,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_blpqr"]
 resource_name = "rude_buster"
-length = 1.5332999999999999
+length = 1.5333
 step = 0.0667
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -406,17 +624,34 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(1, 1.4),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
 "method": &"play_rudebuster_sound"
+}, {
+"args": [],
+"method": &"play_rudebuster_hit_sound"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.93333334),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"spawn_rudebuster_animation"
 }]
 }
 
 [sub_resource type="Animation" id="Animation_2he3u"]
 resource_name = "shock"
-length = 0.39999999999999997
+length = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -462,6 +697,7 @@ _data = {
 &"fight": SubResource("Animation_gp2ld"),
 &"fight_prepare": SubResource("Animation_d7hko"),
 &"idle": SubResource("Animation_jq4a0"),
+&"jump_attack": SubResource("Animation_d2qmm"),
 &"magic_prepare": SubResource("Animation_cpu7v"),
 &"rude_buster": SubResource("Animation_blpqr"),
 &"shock": SubResource("Animation_2he3u")
@@ -478,6 +714,7 @@ shader_parameter/white_flash = 0.0
 viewport_path = NodePath("SubViewport")
 
 [node name="ActorSusie" type="Node2D" unique_id=2112924183 groups=["actors"]]
+z_index = 1
 script = ExtResource("1_cpu7v")
 id = &"susie"
 
@@ -523,6 +760,15 @@ volume_db = -6.0
 pitch_scale = 0.9
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=483526853]
+limit_top = 0
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=343611364]
+z_index = 4096
+offset_right = 2000.0
+offset_bottom = 999.0
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(-0.5, -0.5)
+color = Color(1, 1, 1, 0)
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 

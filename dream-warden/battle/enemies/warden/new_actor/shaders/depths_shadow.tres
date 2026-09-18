@@ -1,0 +1,17 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://kw23kjd0qf8y"]
+
+[ext_resource type="Shader" uid="uid://bg8n01dqydf7p" path="res://battle/enemies/warden/new_actor/shaders/depths_shadow.gdshader" id="1_r7e5p"]
+
+[sub_resource type="Gradient" id="Gradient_r7e5p"]
+offsets = PackedFloat32Array(0, 0.54651165)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_u8hw4"]
+gradient = SubResource("Gradient_r7e5p")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[resource]
+shader = ExtResource("1_r7e5p")
+shader_parameter/scroll_speed = Vector2(0.05, 0)
+shader_parameter/viniet = SubResource("GradientTexture2D_u8hw4")

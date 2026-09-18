@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://bxr0vym0d4gf"]
+
+[ext_resource type="Texture2D" uid="uid://bx022acfi080k" path="res://battle/effects/rude_buster.png" id="1_kyyhb"]
+[ext_resource type="Script" uid="uid://dfd2x8hudwgbt" path="res://battle/effects/rude_buster_animation/rude_buster_afterimage.gd" id="2_h1dnf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2b6k"]
+atlas = ExtResource("1_kyyhb")
+region = Rect2(0, 0, 43, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjuvx"]
+atlas = ExtResource("1_kyyhb")
+region = Rect2(43, 0, 43, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i5hjo"]
+atlas = ExtResource("1_kyyhb")
+region = Rect2(86, 0, 43, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljhsy"]
+atlas = ExtResource("1_kyyhb")
+region = Rect2(129, 0, 43, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddowe"]
+atlas = ExtResource("1_kyyhb")
+region = Rect2(172, 0, 43, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dbmky"]
+atlas = ExtResource("1_kyyhb")
+region = Rect2(215, 0, 43, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kk870"]
+atlas = ExtResource("1_kyyhb")
+region = Rect2(258, 0, 43, 62)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2b6k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wjuvx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i5hjo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ljhsy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ddowe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dbmky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kk870")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 30.0
+}]
+
+[sub_resource type="Animation" id="Animation_lo63n"]
+resource_name = "new_animation"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1wa06"]
+_data = {
+&"new_animation": SubResource("Animation_lo63n")
+}
+
+[node name="Afterimage" type="AnimatedSprite2D" unique_id=1305279208]
+self_modulate = Color(1, 1, 1, 0.16862746)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+autoplay = "default"
+frame_progress = 0.70525366
+script = ExtResource("2_h1dnf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=547773015]
+libraries/ = SubResource("AnimationLibrary_1wa06")

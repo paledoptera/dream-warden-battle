@@ -5,19 +5,8 @@ var circles: Array
 @export var stage: Node3D
 @export var background: Node3D
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	if not Battle.fight_scene:
-		return
-	Battle.fight_scene.action_panel.hide_health()
-	return
-	#bottom_panel.hide_health()
-
-	Global.battle.tp_bar.slide_left()
-	await get_tree().create_timer(0.2).timeout
-	Global.battle.aqua_hud.slide_up()
-	
-
+	Party.tp = 0.0
 
 func shift_horizontal(input: float = 0.0) -> void:
 	circles.clear()

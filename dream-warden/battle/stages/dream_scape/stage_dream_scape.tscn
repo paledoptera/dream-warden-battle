@@ -127,10 +127,9 @@ texture = SubResource("ViewportTexture_7c5ry")
 
 [node name="Camera2D" parent="ActorSusie" index="7" unique_id=483526853]
 limit_left = 0
-limit_top = 0
 
-[node name="ActorWarden" parent="." unique_id=1608169694 instance=ExtResource("4_yc2n1")]
-position = Vector2(448, 189)
+[node name="ActorWarden" parent="." unique_id=813338678 instance=ExtResource("4_yc2n1")]
+position = Vector2(442, 162)
 
 [node name="StartMusic" type="Node" parent="." unique_id=352780567]
 script = ExtResource("5_nohfa")

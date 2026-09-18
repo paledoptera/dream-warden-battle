@@ -268,7 +268,7 @@ func hurt(p_damage: int, ignore_iframes: bool = false) -> void:
 	if not ignore_iframes:
 		if invulnerable:
 			return
-	Battle.damage_hero(5 * p_damage)
+	Party.hero[0].hp -= 5 * p_damage
 	invulnerable_state()
 
 func invulnerable_state()-> void:
@@ -287,7 +287,7 @@ func _on_attack_area_entered(area: Area3D) -> void:
 	if area is Bullet3D and area.parryable and is_attacking:
 		if area.parry_break_sfx:
 			Sound.play(area.parry_break_sfx)
-		Battle.tp += area.parry_points
+		Party.tp += area.parry_points
 		area.destroy()
 
 

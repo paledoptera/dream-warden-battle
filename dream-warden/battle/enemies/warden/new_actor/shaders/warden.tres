@@ -1,0 +1,17 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bx564va2cpvrk"]
+
+[ext_resource type="Shader" uid="uid://b1k2fsc6b0xsi" path="res://warden/shaders/warden.gdshader" id="1_l1w65"]
+[ext_resource type="Texture2D" uid="uid://bhqfkyyjdhfip" path="res://warden/assets/IMAGE_DEPTHS.png" id="2_as6m3"]
+[ext_resource type="Texture2D" uid="uid://clvcdx5vu1arc" path="res://warden/assets/warden_warden_color_1.png" id="2_v04vl"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_l1w65")
+shader_parameter/depths = ExtResource("2_as6m3")
+shader_parameter/warden_color = ExtResource("2_v04vl")
+shader_parameter/depth_layer_1_primary = Color(3.657937e-06, 0.9042061, 0.88037145, 1)
+shader_parameter/depth_layer_1_background = Color(0, 0.32588637, 0.7776474, 1)
+shader_parameter/depth_layer_2_primary = Color(0, 0.7958345, 0.43299553, 1)
+shader_parameter/depth_layer_2_background = Color(0, 0.36647156, 0.7464712, 1)
+shader_parameter/outline_color = Color(0, 0.5217167, 0.6519553, 1)
+shader_parameter/scroll_speed = 0.36

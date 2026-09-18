@@ -61,6 +61,8 @@ func _refresh() -> void:
 func check_if_text_finished() -> void:
 	var finished = true
 	for i in current_boxes:
+		if not i:
+			continue
 		if i.visible_ratio < 1.0 or not current.require_input:
 			finished = false
 			break
@@ -75,6 +77,8 @@ func skip_text() -> void:
 		return
 		
 	for i in current_boxes:
+		if not i:
+			continue
 		i.visible_ratio = 1.0
 
 func goto_next(hide: bool = true) -> void:

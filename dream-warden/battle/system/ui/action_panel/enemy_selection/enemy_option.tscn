@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c07tlvvfu114o"]
 
-[ext_resource type="Script" uid="uid://by1fj36ltgbbb" path="res://systems/menu/buttons/soul_selectable_button.gd" id="1_asxpk"]
+[ext_resource type="Script" uid="uid://bjssf4jiq8gwe" path="res://battle/system/ui/action_panel/enemy_selection/enemy_option.gd" id="1_asxpk"]
 [ext_resource type="Script" uid="uid://cc5k140pvhkn2" path="res://systems/menu/rpg_menu_button.gd" id="1_ybpr2"]
 [ext_resource type="FontVariation" uid="uid://72sk30ahlloh" path="res://shared/theme/fonts/default_textbox.tres" id="2_asxpk"]
 [ext_resource type="FontFile" uid="uid://drsujjxp7k8ca" path="res://shared/theme/fonts/DeterminationSansWebRegular-369X.ttf" id="3_5ofbj"]
@@ -65,7 +65,6 @@ offset_right = 500.0
 offset_bottom = 36.0
 theme_override_styles/background = SubResource("StyleBoxFlat_4buc0")
 theme_override_styles/fill = SubResource("StyleBoxFlat_48ydb")
-value = 100.0
 show_percentage = false
 
 [node name="Label" type="RichTextLabel" parent="HP" unique_id=234384643]

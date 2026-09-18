@@ -1,0 +1,251 @@
+[gd_scene format=3 uid="uid://dy2gem51jab0k"]
+
+[ext_resource type="Script" uid="uid://bo4n0mrv7lfpl" path="res://battle/effects/rude_buster_animation/rude_buster_animation.gd" id="1_g2b6k"]
+[ext_resource type="Texture2D" uid="uid://bx022acfi080k" path="res://battle/effects/rude_buster.png" id="1_kjb0h"]
+[ext_resource type="PackedScene" uid="uid://dudvs5splg43r" path="res://battle/effects/rude_buster_animation/rude_buster_explosion_arm.tscn" id="2_1ff0r"]
+
+[sub_resource type="Curve2D" id="Curve2D_1ff0r"]
+_data = {
+"points": PackedVector2Array(0, 0, 100, 50, 0, 0)
+}
+point_count = 1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2b6k"]
+atlas = ExtResource("1_kjb0h")
+region = Rect2(0, 0, 43, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjuvx"]
+atlas = ExtResource("1_kjb0h")
+region = Rect2(43, 0, 43, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i5hjo"]
+atlas = ExtResource("1_kjb0h")
+region = Rect2(86, 0, 43, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ljhsy"]
+atlas = ExtResource("1_kjb0h")
+region = Rect2(129, 0, 43, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddowe"]
+atlas = ExtResource("1_kjb0h")
+region = Rect2(172, 0, 43, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dbmky"]
+atlas = ExtResource("1_kjb0h")
+region = Rect2(215, 0, 43, 62)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kk870"]
+atlas = ExtResource("1_kjb0h")
+region = Rect2(258, 0, 43, 62)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2b6k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wjuvx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i5hjo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ljhsy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ddowe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dbmky")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kk870")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 30.0
+}]
+
+[sub_resource type="Animation" id="Animation_6xiyc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path2D/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Path2D/PathFollow2D/Buster:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Path2D/PathFollow2D/Explosion:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_n7jb0"]
+resource_name = "rude_buster"
+length = 1.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Path2D/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.43333334),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.03, 0.03, 1.0]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Path2D/PathFollow2D/Buster")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"default", 1.0, false],
+"method": &"play"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Path2D/PathFollow2D/Buster:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.033333335, 0.06666667, 0.1, 0.13333334, 0.43333334, 0.46666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 0, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.13333334), Color(1, 1, 1, 0.5254902), Color(1, 1, 1, 0.67058825), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Path2D/PathFollow2D/Explosion:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.43333337, 0.4666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/4/type = "animation"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Path2D/PathFollow2D/Explosion/Arm1/AnimationPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": PackedStringArray("RESET", "explosion"),
+"times": PackedFloat32Array(0, 0.46666667)
+}
+tracks/5/type = "animation"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Path2D/PathFollow2D/Explosion/Arm2/AnimationPlayer")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"clips": PackedStringArray("explosion"),
+"times": PackedFloat32Array(0.4666667)
+}
+tracks/6/type = "animation"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Path2D/PathFollow2D/Explosion/Arm3/AnimationPlayer")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"clips": PackedStringArray("explosion"),
+"times": PackedFloat32Array(0.4666667)
+}
+tracks/7/type = "animation"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Path2D/PathFollow2D/Explosion/Arm4/AnimationPlayer")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"clips": PackedStringArray("explosion"),
+"times": PackedFloat32Array(0.4666667)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rx1fe"]
+_data = {
+&"RESET": SubResource("Animation_6xiyc"),
+&"rude_buster": SubResource("Animation_n7jb0")
+}
+
+[node name="RudeBusterAnimation" type="Node2D" unique_id=1510433149]
+z_index = 4096
+script = ExtResource("1_g2b6k")
+
+[node name="Path2D" type="Path2D" parent="." unique_id=617341870]
+curve = SubResource("Curve2D_1ff0r")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D" unique_id=2069345712]
+rotation = 0.19739556
+
+[node name="Buster" type="AnimatedSprite2D" parent="Path2D/PathFollow2D" unique_id=270692632]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+frame_progress = 0.41502553
+
+[node name="Explosion" type="Node2D" parent="Path2D/PathFollow2D" unique_id=1854466832]
+visible = false
+rotation = 0.30805275
+
+[node name="Arm1" parent="Path2D/PathFollow2D/Explosion" unique_id=1454263923 instance=ExtResource("2_1ff0r")]
+
+[node name="Arm2" parent="Path2D/PathFollow2D/Explosion" unique_id=734904495 instance=ExtResource("2_1ff0r")]
+rotation = 2.3561945
+
+[node name="Arm3" parent="Path2D/PathFollow2D/Explosion" unique_id=703860974 instance=ExtResource("2_1ff0r")]
+rotation = 3.9269907
+
+[node name="Arm4" parent="Path2D/PathFollow2D/Explosion" unique_id=1578393398 instance=ExtResource("2_1ff0r")]
+rotation = -0.7853982
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=849919959]
+libraries/ = SubResource("AnimationLibrary_rx1fe")
+autoplay = &"rude_buster"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=220460057]
+position = Vector2(156, 17)
+
+[editable path="Path2D/PathFollow2D/Explosion/Arm1"]
+[editable path="Path2D/PathFollow2D/Explosion/Arm2"]
+[editable path="Path2D/PathFollow2D/Explosion/Arm3"]
+[editable path="Path2D/PathFollow2D/Explosion/Arm4"]

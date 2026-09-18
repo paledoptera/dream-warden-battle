@@ -2,12 +2,13 @@ class_name Actor extends Node2D
 
 @export var id: StringName = "actor"
 var animated_element: Variant
+var target: Node2D ## This is for animations like enemy targetting etc
 
 func _ready() -> void:
 	EventBus.actor_do_action.connect(_do_action)
 	EventBus.actor_trigger_damage_number.connect(_trigger_damage_number)
 	EventBus.actor_trigger_effect.connect(_trigger_effect)
-	
+	EventBus.actor_set_target.connect(_set_target)
 	
 	for i in get_children():
 		if i is AnimationPlayer:
@@ -38,3 +39,20 @@ func _trigger_effect(actor_id: StringName, effect: PackedScene):
 		return
 	
 	add_child(effect.instantiate())
+
+func _set_target(actor_id: StringName, target_id: StringName):
+	if actor_id != id:
+		return
+	
+	var new_target
+	
+	for i in get_tree().get_nodes_in_group("actors"):
+		if i is not Actor:
+			continue
+		
+		if i.id == target_id:
+			new_target = i
+			break
+	
+	if new_target:
+		target = new_target

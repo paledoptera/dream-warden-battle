@@ -151,6 +151,9 @@ func _on_action_selected(action_type: int, option: int, target: int) -> void:
 	var event: BattleEvent = get_action_data(action_type, option, target, character)
 	$TurnQueue.active_character.action = event
 	%EventQueue.add_event(event, false)
+	
+	EventBus.actor_set_target.emit(Party.get_target_hero(event.character).character_id,Party.get_target_enemy(event.target).character_id)
+	
 
 	$TurnQueue.active_character.turn_finished.emit()
 	pass # Replace with function body.
@@ -254,6 +257,9 @@ func battle_event(event: StringName, value: Variant) -> void:
 			var new_tp_bar = value.instantiate()
 			tp_bar.get_parent().add_child(new_tp_bar)
 			tp_bar.queue_free()
+		
+		"slide_out":
+			%UIAnimations.play("end")
 			
 			
 
@@ -317,9 +323,13 @@ func hero_attack(event: AttackEvent):
 			"block":
 				damage_number = FloatingText.initialize_sprite(preload("uid://dypyfakfdgag2"),Vector2.ZERO,Color.WHITE)
 				EventBus.actor_trigger_effect.emit(event.target.character_id,preload("uid://b4xygtpfrykyi"))
-	
+	else:
+		event.target.hp -= final_damage
+		EventBus.actor_do_action.emit(event.target.character_id,"hurt")
+		
 	if event.target.soundbank.has("damaged"):
 		Sound.play(event.target.soundbank["damaged"])
+	
 	
 	EventBus.actor_trigger_damage_number.emit(event.target.character_id,damage_number)
 

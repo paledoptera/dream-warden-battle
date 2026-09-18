@@ -49,10 +49,11 @@ var selected: int = 1:
 
 
 func _ready() -> void:
-	Battle.tp_changed.connect(_update_tp)
+	Party.tp_changed.connect(_update_tp)
 	
 
 func _update_tp(value: float) -> void:
+	print("TP = ", value)
 	if not active:
 		scale_effect += (value - tp)/50
 	if value < 100.0 and not draining_tp:
@@ -64,7 +65,7 @@ func _update_tp(value: float) -> void:
 
 
 func _process(delta: float) -> void:
-	tp = lerp(tp,int(Battle.tp),0.33)
+	tp = lerp(tp,int(Party.tp),0.33)
 	
 	if active:
 		active_anim()
@@ -79,11 +80,11 @@ func _process(delta: float) -> void:
 
 func select_process() -> void:
 	if draining_tp:
-		Battle.tp -= 0.5
-		$Active/TP.value = Battle.tp
-		$Active/TP/TPNum.text = str(int(Battle.tp))
-		Battle.tp = max(Battle.tp,0.0)
-		if Battle.tp == 0:
+		Party.tp -= 0.5
+		$Active/TP.value = Party.tp 
+		$Active/TP/TPNum.text = str(int(Party.tp ))
+		Party.tp = max(Party.tp ,0.0)
+		if Party.tp == 0:
 			draining_tp = false
 			active = false
 
@@ -91,17 +92,16 @@ func action() -> void:
 	action_done.emit(selected)
 	match selected:
 		0:
-			Battle.heal_hero(150.0)
-			Battle.tp = 0.0
+			Party.hero[0].hp += 150.0
+			Party.tp = 0.0
 			active = false
 		1:
 			Sound.play(preload("uid://b1b6o1bp1u6f1"))
-			Battle.tp = 0.0
+			Party.tp = 0.0
 			active = false
 			await get_tree().create_timer(0.3).timeout
-			Battle.damage_enemy(150.0)
+			Party.enemy[0].hp -= 150.0
 			Sound.play(preload("uid://dvuvxfskkh7fn"))
-			Sound.play(Battle.enemies[0].soundbank["damage"])
 			
 			
 		2:

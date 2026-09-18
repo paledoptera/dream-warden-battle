@@ -97,6 +97,26 @@ height = 0.015
 cap_top = false
 cap_bottom = false
 
+[sub_resource type="Animation" id="Animation_w8tmd"]
+resource_name = "new_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6666667),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_371rc"]
+_data = {
+&"start": SubResource("Animation_w8tmd")
+}
+
 [node name="AquaAttack" type="SubViewportContainer" unique_id=1205939739 node_paths=PackedStringArray("player", "stage", "background")]
 top_level = true
 custom_minimum_size = Vector2(640, 480)
@@ -196,5 +216,14 @@ position = Vector2(320, 461)
 [node name="Healthbar" parent="." unique_id=1233966322 instance=ExtResource("20_bopvf")]
 modulate = Color(1, 1, 1, 0)
 position = Vector2(169, 254)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=290960657]
+libraries/ = SubResource("AnimationLibrary_371rc")
+autoplay = &"start"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=206534601]
+custom_minimum_size = Vector2(1000, 1000)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
 
 [editable path="SubViewport/Stage/Player"]

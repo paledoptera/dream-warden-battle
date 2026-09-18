@@ -59,6 +59,34 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 0.64705884)]
 }
 
+[sub_resource type="Animation" id="Animation_vii0q"]
+resource_name = "start"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Battle/ActionPanel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.25, 0.25),
+"update": 0,
+"values": [Vector2(0, 365), Vector2(0, 519)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Battle/TPBarPivot:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(0.25, 0.25),
+"update": 0,
+"values": [Vector2(50, 137), Vector2(-13, 137)]
+}
+
 [sub_resource type="Animation" id="Animation_bm74x"]
 resource_name = "start"
 length = 0.4
@@ -91,6 +119,7 @@ tracks/1/keys = {
 _data = {
 &"RESET": SubResource("Animation_4uv82"),
 &"attack_fade": SubResource("Animation_yqp5e"),
+&"end": SubResource("Animation_vii0q"),
 &"start": SubResource("Animation_bm74x")
 }
 

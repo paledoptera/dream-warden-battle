@@ -1,5 +1,5 @@
 ## Soul Selectable Button
-extends RPGMenuButton
+class_name SoulSelectableButton extends RPGMenuButton
 
 @export var offset: Vector2
 

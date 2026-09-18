@@ -6,8 +6,8 @@ signal tp_changed(value: float)
 
 var tp: float = 0.0:
 	set(value):
-		tp_changed.emit(value)
-		tp = value
+		tp = clampf(value,0.0,100.0)
+		tp_changed.emit(tp)
 
 
 var hero: Array[CharacterStats] = [preload("uid://b43pqrbag27nj")]:
