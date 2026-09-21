@@ -47,8 +47,8 @@ func display_text(dialogue: Variant):
 	_refresh()
 	
 	if current.flag:
-		if Flags.get_flag(Dialogue.current.flag) != null:
-			Flags.set_flag(Dialogue.current.flag,Dialogue.current.flag_value)
+		if Flags.get_flag(Dialogue.current.flag, Dialogue.current.flag_class) != null:
+			Flags.set_flag(Dialogue.current.flag,Dialogue.current.flag_value, Dialogue.current.flag_class)
 	
 	active = true
 

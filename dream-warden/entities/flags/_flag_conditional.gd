@@ -1,12 +1,13 @@
 @abstract class_name FlagConditional extends Node
 
 @export var flag: StringName
+@export var flag_class: StringName = ""
 @export var value: Variant
 @export var one_shot: bool = false
 
 
 func _ready() -> void:
-	if Flags.get_flag(flag) == null:
+	if Flags.get_flag(flag, flag_class) == null:
 		queue_free()
 	
 	await get_tree().physics_frame
@@ -15,14 +16,13 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if one_shot:
-		queue_free()
 		return
 	
 	check_flag()
 
 
 func check_flag():
-	if Flags.get_flag(flag) == value:
+	if Flags.get_flag(flag, flag_class) == value:
 		flag_equals_value()
 	else:
 		flag_not_value()

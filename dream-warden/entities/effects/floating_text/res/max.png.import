@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4xrv6mg0tq3f"
-path="res://.godot/imported/Tween.png-295fff38d860ecf032619b751ca0dc97.ctex"
+uid="uid://dxq5r7hqpxns6"
+path="res://.godot/imported/max.png-89c112c7972b66cefcb56a45169ab4ff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/conductor/icons/Tween.png"
-dest_files=["res://.godot/imported/Tween.png-295fff38d860ecf032619b751ca0dc97.ctex"]
+source_file="res://entities/effects/floating_text/res/max.png"
+dest_files=["res://.godot/imported/max.png-89c112c7972b66cefcb56a45169ab4ff.ctex"]
 
 [params]
 

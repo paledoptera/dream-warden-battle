@@ -152,7 +152,7 @@ func _on_action_selected(action_type: int, option: int, target: int) -> void:
 	$TurnQueue.active_character.action = event
 	%EventQueue.add_event(event, false)
 	
-	EventBus.actor_set_target.emit(Party.get_target_hero(event.character).character_id,Party.get_target_enemy(event.target).character_id)
+	Actors.set_target(Party.get_target_hero(event.character).character_id,Party.get_target_enemy(event.target).character_id)
 	
 
 	$TurnQueue.active_character.turn_finished.emit()
@@ -318,20 +318,28 @@ func hero_attack(event: AttackEvent):
 	
 	var damage_number = FloatingText.initialize_text(str(final_damage),Color.WHITE)
 	
-	if event.target.on_hit_gimmick != "":
+	if event.miss:
+		damage_number = FloatingText.initialize_sprite(preload("uid://dvedn6n1rnunx"),Vector2(0.0,0.0),Color.WHITE)
+	elif event.target.on_hit_gimmick != "":
 		match event.target.on_hit_gimmick:
 			"block":
 				damage_number = FloatingText.initialize_sprite(preload("uid://dypyfakfdgag2"),Vector2.ZERO,Color.WHITE)
-				EventBus.actor_trigger_effect.emit(event.target.character_id,preload("uid://b4xygtpfrykyi"))
+				Actors.trigger_effect(event.target.character_id,preload("uid://b4xygtpfrykyi"))
+		if event.target.soundbank.has("damaged"):
+			Sound.play(event.target.soundbank["damaged"])
 	else:
 		event.target.hp -= final_damage
-		EventBus.actor_do_action.emit(event.target.character_id,"hurt")
+		Actors.do_action(event.target.character_id,"hurt")
+		if event.target.soundbank.has("damaged"):
+			Sound.play(event.target.soundbank["damaged"])
+	
+	
+	Actors.trigger_damage_number(event.target.character_id,damage_number)
 		
-	if event.target.soundbank.has("damaged"):
-		Sound.play(event.target.soundbank["damaged"])
+
 	
 	
-	EventBus.actor_trigger_damage_number.emit(event.target.character_id,damage_number)
+	
 
 
 func enemy_attack(parent_node: Node) -> void:
@@ -398,7 +406,7 @@ func start_flavor_text() -> void:
 
 func _reset_actor_anims() -> void:
 	for i in Party.hero:
-		EventBus.actor_do_action.emit(i.character_id, "idle")
+		Actors.do_action(i.character_id, "idle")
 
 
 func _damage_player(value: int) -> void:
@@ -409,7 +417,7 @@ func _damage_player(value: int) -> void:
 	target.hp -= damage
 	
 	var damage_number = FloatingText.initialize_text(str(damage),Color.WHITE)
-	EventBus.actor_trigger_damage_number.emit(target.character_id,damage_number)
+	Actors.trigger_damage_number(target.character_id,damage_number)
 
 func update_story_battle(state: int = 0) -> void:
 	if not story_battle_controller:

@@ -16,7 +16,7 @@ func player_turn_end() -> void:
 		await Dialogue.text_finished
 		Dialogue.clear_text.emit()
 		EventBus.battle_event.emit("slide_out",null)
-		EventBus.actor_do_action.emit("susie", "jump_attack")
+		Actors.do_action("susie", "jump_attack")
 		await Global.get_tree().create_timer(3.0).timeout
 		SceneLoader.change_scene(preload("uid://dbi6lj71m2qh8"))
 		return

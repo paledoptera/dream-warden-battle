@@ -30,8 +30,8 @@ Party="*uid://duxnc3sxwe5uq"
 Flags="*uid://4sgii74kfv0r"
 Dialogue="*uid://dy45sx7dln5l8"
 PlayerInventory="*uid://br10nbojxuoc5"
-Conductor="*uid://c5rvmkaorxynb"
 SceneLoader="*uid://binypt512cdek"
+Actors="*uid://drjfl7xpcapwk"
 
 [display]
 
@@ -42,7 +42,7 @@ window/vsync/vsync_mode=0
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/conductor/plugin.cfg")
+enabled=PackedStringArray("res://addons/godot_midi/plugin.cfg")
 
 [file_customization]
 

@@ -225,8 +225,8 @@ laser_bullet = NodePath("Battlebox/LaserBullet")
 warden = NodePath("WardenSprite")
 
 [node name="Battlebox" parent="." unique_id=445257611 instance=ExtResource("2_4wmd4")]
-offset_left = -75.0
-offset_right = 175.0
+offset_left = -66.0
+offset_right = 184.0
 
 [node name="LaserBullet" parent="Battlebox" unique_id=64823786 instance=ExtResource("3_3fjtm")]
 position = Vector2(356, 75)

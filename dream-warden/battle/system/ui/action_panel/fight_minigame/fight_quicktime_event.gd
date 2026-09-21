@@ -37,7 +37,7 @@ func move() -> void:
 	hitmarker_pos = int($HitMarker.position.x)
 
 func check() -> bool:
-	if hitmarker.position.x < 70.0:
+	if hitmarker.position.x < 65.0:
 		$HitMarker.visible = false
 		return false
 	
@@ -66,23 +66,32 @@ func press() -> bool:
 
 
 
-func do_attack() -> void:
+func do_attack(miss: bool = false) -> void:
 	
 	var party_member = Party.hero[index]
 	var enemy_target = Party.enemy[target]
 	var attack_event = AttackEvent.new()
 	
+	
 	attack_event.attacker = party_member
-	attack_event.damage = accuracy
 	attack_event.target = enemy_target
-	attack_event.damage_formula = PartyAttackFormula.new()
+	attack_event.miss = miss
 	
-	var tp_gain = (float(accuracy)/150.0) * Flags.battle.attack_tp
-	Party.tp += tp_gain
+	if not miss:
+		attack_event.damage = accuracy
+		attack_event.damage_formula = PartyAttackFormula.new()
 	
-	EventBus.actor_do_action.emit(party_member.character_id, "fight")
-	if party_member.attack_effect:
-		EventBus.actor_trigger_effect.emit(enemy_target.character_id,party_member.attack_effect)
+		var tp_gain = (float(accuracy)/150.0) * Flags.battle.attack_tp
+		Party.tp += tp_gain
+		
+		if party_member.attack_effect:
+			Actors.trigger_effect(enemy_target.character_id,party_member.attack_effect)
+	else:
+		attack_event.damage = 0
+		
+	
+	Actors.do_action(party_member.character_id, "fight")
+	
 
 	await get_tree().create_timer(0.4).timeout
 	EventBus.hero_attack.emit(attack_event)
@@ -108,4 +117,4 @@ func get_hit_accuracy() -> void:
 
 func finished() -> void:
 	var party_member = Party.hero[index]
-	EventBus.actor_do_action.emit(party_member.character_id, "idle")
+	Actors.do_action(party_member.character_id, "idle")

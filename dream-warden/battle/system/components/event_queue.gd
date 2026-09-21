@@ -96,6 +96,7 @@ func execute_events():
 	# Executing actions
 	for event in final_queue:
 		var hero_name = Party.hero[event.character].name
+		var hero_id = Party.hero[event.character].character_id
 		
 		match event.action_type:
 			BattleEvent.Type.DEFEND:
@@ -103,8 +104,13 @@ func execute_events():
 			
 			BattleEvent.Type.MAGIC:
 				print("DOING SPELL")
-				var spell = event.data["spell"]
+				var spell: Spell = event.data["spell"]
 				spell.use(event.character, event.target)
+				
+				if not spell.handles_actor_anim:
+					Actors.do_action(hero_id,"magic")
+				
+				Actors.queue_action(hero_id,"idle")
 				
 				await spell.finished
 				
@@ -112,6 +118,8 @@ func execute_events():
 					print("NEEDS DIALOGUE")
 					Dialogue.display_text(str("* ", hero_name, " used ", event.data["spell"].name, "!"))
 					await Dialogue.text_finished
+				
+				
 				continue
 			
 			BattleEvent.Type.ITEM:
@@ -120,6 +128,7 @@ func execute_events():
 				item.use(event.character, event.target)
 				Dialogue.display_text(str("* ", hero_name, " used ", event.data["item"].name, "!"))
 				await Dialogue.text_finished
+				Actors.do_action(hero_id,"idle")
 				continue
 			
 			BattleEvent.Type.MERCY:
@@ -130,6 +139,7 @@ func execute_events():
 					print("ENEMY IS NOT SPAREABLE")
 					Dialogue.display_text(enemy.mercy_fail_text)
 				await Dialogue.text_finished
+				Actors.do_action(hero_id,"idle")
 				continue
 	
 	# Executing FIGHT
@@ -148,6 +158,7 @@ func execute_events():
 	
 	await get_tree().physics_frame
 	events_finished.emit()
+	
 	print("EVENTS FINISHED")
 	queue.clear()
 
@@ -183,4 +194,4 @@ func do_actor_animation(event: BattleEvent, undo: bool) -> void:
 				action_name = "magic_prepare"
 		
 	
-	EventBus.actor_do_action.emit(party_member.character_id, action_name)
+	Actors.do_action(party_member.character_id, action_name)

@@ -15,6 +15,7 @@ text = "* Hey! Focus, dumbass!"
 talksound = ExtResource("5_jfdu4")
 portrait = ExtResource("4_t60ow")
 flag = &"mercy_disabled"
+flag_class = &"battle"
 flag_value = true
 metadata/_custom_type_script = "uid://m17i7j602jax"
 

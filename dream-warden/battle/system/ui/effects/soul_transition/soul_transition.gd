@@ -78,6 +78,7 @@ func _process(delta: float) -> void:
 		outline_new.size = battlebox.size
 		outline_new.scale = battlebox.scale
 		outline_new.rotation = battlebox.rotation
+		outline_new.global_position = battlebox.global_position
 		
 		outline_new.pivot_offset_ratio = Vector2(0.0,0.0)
 		outline_new.offset_transform_enabled = true

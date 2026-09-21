@@ -10,7 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://b5aj420514og6" path="res://battle/system/ui/action_panel/action_menu/res/action_menu.png" id="6_h6lge"]
 [ext_resource type="Script" uid="uid://bljd14fjpthyl" path="res://battle/system/ui/action_panel/action_menu/action_menu_button.gd" id="8_p3njl"]
 [ext_resource type="Script" uid="uid://bqfyrxl6u2sc6" path="res://systems/menu/menu_sounds.gd" id="10_gnp6a"]
+[ext_resource type="Script" uid="uid://c62dt16xomasv" path="res://battle/system/ui/action_panel/action_menu/items_check.gd" id="11_8uc4c"]
 [ext_resource type="PackedScene" uid="uid://cnthh51l1n1ux" path="res://battle/system/ui/action_panel/enemy_selection/enemy_selection.tscn" id="11_dtnmw"]
+[ext_resource type="Script" uid="uid://pdxyaj8th4bo" path="res://battle/system/ui/action_panel/action_menu/flag_mercy_enabled.gd" id="11_muots"]
 [ext_resource type="PackedScene" uid="uid://c4bcqpaoppovb" path="res://battle/system/ui/action_panel/hero_selection/hero_selection.tscn" id="12_26p1q"]
 [ext_resource type="PackedScene" uid="uid://bfe6w1e1the6h" path="res://battle/system/ui/action_panel/item_selection/item_selection.tscn" id="13_pd8e8"]
 [ext_resource type="PackedScene" uid="uid://um2a64cmuqm6" path="res://battle/system/ui/action_panel/spell_selection/spell_selection.tscn" id="14_muots"]
@@ -613,6 +615,9 @@ hframes = 6
 vframes = 3
 frame = 2
 
+[node name="ItemsCheck" type="Node" parent="ChooseAction/Item" unique_id=423339308]
+script = ExtResource("11_8uc4c")
+
 [node name="Mercy" type="Control" parent="ChooseAction" unique_id=500288773 groups=["menu_option"]]
 custom_minimum_size = Vector2(31, 26)
 layout_mode = 2
@@ -627,6 +632,13 @@ centered = false
 hframes = 6
 vframes = 3
 frame = 3
+
+[node name="FlagMercyDisabled" type="Node" parent="ChooseAction/Mercy" unique_id=411476185 node_paths=PackedStringArray("sprite")]
+script = ExtResource("11_muots")
+sprite = NodePath("../Sprite2D")
+flag = &"mercy_disabled"
+flag_class = &"battle"
+value = true
 
 [node name="Defend" type="Control" parent="ChooseAction" unique_id=1737760909 groups=["menu_option"]]
 custom_minimum_size = Vector2(31, 26)

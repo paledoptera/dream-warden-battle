@@ -3,56 +3,54 @@ class_name Actor extends Node2D
 @export var id: StringName = "actor"
 var animated_element: Variant
 var target: Node2D ## This is for animations like enemy targetting etc
+var action_queue: Array[StringName]
 
 func _ready() -> void:
-	EventBus.actor_do_action.connect(_do_action)
-	EventBus.actor_trigger_damage_number.connect(_trigger_damage_number)
-	EventBus.actor_trigger_effect.connect(_trigger_effect)
-	EventBus.actor_set_target.connect(_set_target)
-	
 	for i in get_children():
 		if i is AnimationPlayer:
 			animated_element = i
+			i.animation_finished.connect(_action_finished)
 			break
 		elif i is AnimatedSprite2D:
 			animated_element = i
 			break
 
 
-func _do_action(actor_id: StringName, action: StringName):
-	if actor_id != id:
-		return
-	
+func _enter_tree() -> void:
+	Actors.add_actor(id,self)
+
+
+func _exit_tree() -> void:
+	Actors.remove_actor(id)
+
+
+func do_action(action: StringName):
 	if animated_element:
 		animated_element.play(action)
 
-func _trigger_damage_number(actor_id: StringName, damage_number: FloatingText):
-	if actor_id != id:
-		return
-	
-	print(actor_id, " TOOK DAMAGE!")
-	
+
+func queue_action(action: StringName):
+	print("ACTION QUEUED", action)
+	action_queue.append(action)
+	print("ACTION QUEUE: ", action_queue)
+
+
+func trigger_damage_number(damage_number: FloatingText):
 	add_child(damage_number)
 
-func _trigger_effect(actor_id: StringName, effect: PackedScene):
-	if actor_id != id:
-		return
-	
+
+func trigger_effect(effect: PackedScene):
 	add_child(effect.instantiate())
 
-func _set_target(actor_id: StringName, target_id: StringName):
-	if actor_id != id:
-		return
-	
-	var new_target
-	
-	for i in get_tree().get_nodes_in_group("actors"):
-		if i is not Actor:
-			continue
-		
-		if i.id == target_id:
-			new_target = i
-			break
-	
+
+func set_target(new_target: Actor):
 	if new_target:
 		target = new_target
+
+
+func _action_finished(action_name: StringName):
+	if not action_queue or not animated_element:
+		print("ACTION QUEUE: ", action_queue)
+		return
+	
+	animated_element.play(action_queue.pop_front())

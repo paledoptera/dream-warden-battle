@@ -13,7 +13,7 @@ func apply(user: int, target: int) -> void:
 	var final_string = string % hero.name
 	
 	Dialogue.display_text(final_string)
-	EventBus.actor_do_action.emit(hero.character_id, "rude_buster")
+	Actors.do_action(hero.character_id, "rude_buster")
 	buster_timer = Global.get_tree().create_timer(3.0)
 	show_damage_number(damage, enemy)
 	await Dialogue.text_finished
@@ -30,7 +30,7 @@ func apply(user: int, target: int) -> void:
 
 func show_damage_number(damage: float, enemy: CharacterStats) -> void:
 	await Global.get_tree().create_timer(1.4).timeout
-	EventBus.actor_do_action.emit(enemy.character_id, "hurt_hard")
+	Actors.do_action(enemy.character_id, "hurt_hard")
 	var damage_number = FloatingText.initialize_text(str(int(damage)),Color.WHITE)
-	EventBus.actor_trigger_damage_number.emit(enemy.character_id,damage_number)
+	Actors.trigger_damage_number(enemy.character_id,damage_number)
 	

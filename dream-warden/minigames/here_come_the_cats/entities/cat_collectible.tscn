@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://c4xirgxvxcybl"]
 
-[ext_resource type="Script" uid="uid://cee2638n8ojsx" path="res://addons/conductor/conducted_animation_player.gd" id="1_p17kw"]
 [ext_resource type="Script" uid="uid://ib5pagys2p55" path="res://minigames/here_come_the_cats/entities/cat_collectible.gd" id="1_u8e0e"]
 [ext_resource type="Texture2D" uid="uid://cwocy40exfd64" path="res://minigames/here_come_the_cats/res/cat_collectible.png" id="2_u8e0e"]
+[ext_resource type="Script" uid="uid://lmwp8k10f2p4" path="res://minigames/here_come_the_cats/beat_synced_animation_player.gd" id="2_xhn3y"]
 
 [sub_resource type="Animation" id="Animation_xhn3y"]
 length = 0.001
@@ -72,13 +72,12 @@ radius = 45.0
 [node name="Area2D" type="Area2D" unique_id=1679971219]
 script = ExtResource("1_u8e0e")
 
-[node name="ConductedAnimationPlayer" type="AnimationPlayer" parent="." unique_id=905898501]
+[node name="BeatSyncedAnimationPlayer" type="AnimationPlayer" parent="." unique_id=865445933]
 root_node = NodePath("../Sprite2D")
 libraries/ = SubResource("AnimationLibrary_wahq0")
 autoplay = &"dance"
-script = ExtResource("1_p17kw")
-round_start_beat = true
-metadata/_custom_type_script = "uid://cee2638n8ojsx"
+script = ExtResource("2_xhn3y")
+metadata/_custom_type_script = "uid://lmwp8k10f2p4"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1911153504]
 scale = Vector2(2, 2)

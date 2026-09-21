@@ -23,6 +23,7 @@ static func spawn() -> ActionMenu:
 
 func _ready() -> void:
 	$ChooseEnemy.refresh()
+	%MenuInputManager.menus[$ChooseAction].keep_selected = true
 	
 	$MenuInputManager.open_menu($ChooseAction)
 
@@ -85,6 +86,7 @@ func _on_target_selected(selected_target: int) -> void:
 
 
 func actions_finalized() -> void:
+	%MenuInputManager.menus[$ChooseAction].keep_selected = false
 	%MenuInputManager.close_all_menus()
 	action_selected.emit(action,option,target)
 

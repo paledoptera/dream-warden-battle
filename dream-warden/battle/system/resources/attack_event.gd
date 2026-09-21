@@ -6,6 +6,8 @@ class_name AttackEvent extends Resource
 @export_group("Attack Data")
 @export var damage: int = 0
 @export var damage_formula: DamageFormula = DamageFormula.new()
+@export_group("Misc")
+@export var miss: bool = false
 
 func get_damage() -> int:
 	return damage_formula.calculate(damage,attacker,target)

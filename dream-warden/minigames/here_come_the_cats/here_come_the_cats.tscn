@@ -2,8 +2,6 @@
 
 [ext_resource type="Script" uid="uid://dnn0h0cjtutoq" path="res://minigames/here_come_the_cats/here_come_the_cats.gd" id="1_wfeub"]
 [ext_resource type="Texture2D" uid="uid://dr1tov7e3jh2d" path="res://minigames/here_come_the_cats/res/tvs_background.png" id="2_hmtnl"]
-[ext_resource type="PackedScene" uid="uid://w4vad3six4bp" path="res://battle/soul/soul/soul_orange.tscn" id="2_wfeub"]
-[ext_resource type="Texture2D" uid="uid://bfrxgpoav0m5" path="res://minigames/here_come_the_cats/res/dess2.png" id="3_hmtnl"]
 [ext_resource type="Script" uid="uid://cto4ulidgj8p7" path="res://minigames/here_come_the_cats/scripts/custom_lyrics.gd" id="3_q223y"]
 [ext_resource type="Texture2D" uid="uid://dlp2h35d5k6dh" path="res://minigames/here_come_the_cats/res/rat.png" id="4_fxwvx"]
 [ext_resource type="Script" uid="uid://clserw2almu6" path="res://minigames/here_come_the_cats/scripts/death_clock.gd" id="4_slmdl"]
@@ -11,15 +9,18 @@
 [ext_resource type="AudioStream" uid="uid://5y5wc8tatwl2" path="res://shared/music/mus_no_cats.ogg" id="5_lij5d"]
 [ext_resource type="Texture2D" uid="uid://cnu10gcbu8uua" path="res://minigames/here_come_the_cats/res/tail_piece.png" id="5_px3a1"]
 [ext_resource type="Texture2D" uid="uid://bupy4x870qjs8" path="res://minigames/here_come_the_cats/res/cat.png" id="6_eed83"]
-[ext_resource type="Script" uid="uid://dsk3wv1yb4rho" path="res://addons/conductor/conducted_timer.gd" id="6_px3a1"]
 [ext_resource type="Texture2D" uid="uid://cxausjt3vm24q" path="res://minigames/here_come_the_cats/res/cat_clock.png" id="7_eed83"]
 [ext_resource type="Texture2D" uid="uid://bn0hbqnd1u3kf" path="res://minigames/here_come_the_cats/res/cat_clock_tail.png" id="8_id2aw"]
 [ext_resource type="Texture2D" uid="uid://dro2iyj0k5iun" path="res://minigames/here_come_the_cats/res/cat_clock_eyes.png" id="8_v4cn4"]
-[ext_resource type="Script" uid="uid://dop1cmuo2m6mk" path="res://minigames/here_come_the_cats/scripts/conductor_music.gd" id="9_ipnle"]
-[ext_resource type="Script" uid="uid://cee2638n8ojsx" path="res://addons/conductor/conducted_animation_player.gd" id="10_q223y"]
+[ext_resource type="Texture2D" uid="uid://y4khasidqi8c" path="res://minigames/here_come_the_cats/res/cat_clock_eyes_white.png" id="9_hesta"]
 [ext_resource type="FontVariation" uid="uid://72sk30ahlloh" path="res://shared/theme/fonts/default_textbox.tres" id="12_wfeub"]
+[ext_resource type="Script" uid="uid://d01i7b7547qb3" path="res://minigames/here_come_the_cats/songsyncedanimationplayer.gd" id="15_odm7m"]
 [ext_resource type="Texture2D" uid="uid://brwxby16hh63c" path="res://minigames/here_come_the_cats/res/tail_point.png" id="18_wfeub"]
 [ext_resource type="PackedScene" uid="uid://evdoduytwa6e" path="res://battle/system/scenes/stats_tab.tscn" id="19_hesta"]
+[ext_resource type="Texture2D" uid="uid://chwlnfewit2ru" path="res://minigames/here_come_the_cats/res/dess.png" id="21_hesta"]
+[ext_resource type="PackedScene" uid="uid://cr5wivx86lx7o" path="res://battle/soul/soul/soul_red.tscn" id="21_odm7m"]
+[ext_resource type="Script" uid="uid://lmwp8k10f2p4" path="res://minigames/here_come_the_cats/beat_synced_animation_player.gd" id="21_pr80w"]
+[ext_resource type="Script" uid="uid://d126tu6ywvetb" path="res://systems/helper_components/start_music.gd" id="22_odm7m"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5vjsp"]
 blend_mode = 3
@@ -66,26 +67,38 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("UI/UpperPanel/Clock/Cat/EyeSprite:modulate")
+tracks/2/path = NodePath("UI/UpperPanel/Clock/Cat/EyeSprite:flip_h")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
+"update": 1,
+"values": [false]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("UI/UpperPanel/Clock/Cat/EyeSprite:flip_h")
+tracks/3/path = NodePath("UI/UpperPanel/Clock/Cat/EyeSpriteWhite:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("UI/UpperPanel/Clock/ClockContainer:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(320, 14)]
 }
 
 [sub_resource type="Animation" id="Animation_dfqgm"]
@@ -119,26 +132,38 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("UI/UpperPanel/Clock/Cat/EyeSprite:modulate")
+tracks/2/path = NodePath("UI/UpperPanel/Clock/Cat/EyeSprite:flip_h")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.13333334, 0.90000004, 1, 1.1333333, 1.9000001, 2, 2.1333334, 2.9, 3, 3.1333332, 3.9),
-"transitions": PackedFloat32Array(1, 0.20306318, 0, 1, 0.20306318, 0, 1, 0.20306318, 0, 1, 0.20306318, 0),
-"update": 0,
-"values": [Color(2.4061394, 2.4061394, 2.4061394, 1), Color(1, 1, 1, 1), Color(0.5689727, 0.56897277, 0.5689727, 1), Color(2.4061394, 2.4061394, 2.4061394, 1), Color(1, 1, 1, 1), Color(0.5689727, 0.56897277, 0.5689727, 1), Color(2.4061394, 2.4061394, 2.4061394, 1), Color(1, 1, 1, 1), Color(0.5689727, 0.56897277, 0.5689727, 1), Color(2.4061394, 2.4061394, 2.4061394, 1), Color(1, 1, 1, 1), Color(0.5689727, 0.56897277, 0.5689727, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("UI/UpperPanel/Clock/Cat/EyeSprite:flip_h")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("UI/UpperPanel/Clock/Cat/EyeSpriteWhite:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.43333334, 1, 1.1, 1.4333334, 2),
+"transitions": PackedFloat32Array(0.40612632, 1.8025012, 1, 1, 1.8025012, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("UI/UpperPanel/Clock/ClockContainer:position")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.56666666, 1, 1.4333334, 1.9666667),
+"transitions": PackedFloat32Array(-2, -2, 1, -2, 1),
+"update": 0,
+"values": [Vector2(320, 14), Vector2(320, 16.7), Vector2(320, 15), Vector2(320, 16.7), Vector2(320, 14)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y8ppo"]
@@ -566,7 +591,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(0, 0, 0, 1)]
+"values": [Color(0, 0, 0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_wfeub"]
@@ -747,12 +772,6 @@ script = ExtResource("4_slmdl")
 [node name="Sprite2D" type="Sprite2D" parent="UI/UpperPanel/Clock/ClockContainer" unique_id=1180355190]
 texture = ExtResource("5_fxwvx")
 
-[node name="ConductedTimer" type="Node" parent="UI/UpperPanel/Clock/ClockContainer" unique_id=1016020100]
-script = ExtResource("6_px3a1")
-round_start_beat = true
-autostart = true
-metadata/_custom_type_script = "uid://dsk3wv1yb4rho"
-
 [node name="Cat" type="Sprite2D" parent="UI/UpperPanel/Clock" unique_id=1606735769]
 position = Vector2(320, 59)
 scale = Vector2(2, 2)
@@ -761,6 +780,10 @@ texture = ExtResource("7_eed83")
 [node name="EyeSprite" type="Sprite2D" parent="UI/UpperPanel/Clock/Cat" unique_id=753145563]
 position = Vector2(0, -12.999998)
 texture = ExtResource("8_v4cn4")
+
+[node name="EyeSpriteWhite" type="Sprite2D" parent="UI/UpperPanel/Clock/Cat" unique_id=263283675]
+position = Vector2(0, -12.999998)
+texture = ExtResource("9_hesta")
 
 [node name="Eyes" type="Node2D" parent="UI/UpperPanel/Clock/Cat" unique_id=391041696]
 position = Vector2(0, -12)
@@ -787,21 +810,12 @@ texture = ExtResource("8_id2aw")
 offset = Vector2(0, 24)
 flip_v = true
 
-[node name="ConductedTimer" type="Node" parent="UI/UpperPanel/Clock" unique_id=1019462133]
-script = ExtResource("6_px3a1")
-round_start_beat = true
-autostart = true
-metadata/_custom_type_script = "uid://dsk3wv1yb4rho"
-
-[node name="ConductorMusic" type="Node" parent="UI/UpperPanel/Clock" unique_id=1358821576]
-script = ExtResource("9_ipnle")
-
-[node name="ConductedAnimationPlayer" type="AnimationPlayer" parent="UI/UpperPanel/Clock/ConductorMusic" unique_id=944897495]
-root_node = NodePath("../../../../..")
+[node name="BeatSyncedAnimationPlayer" type="AnimationPlayer" parent="UI/UpperPanel/Clock" unique_id=1366013344]
+root_node = NodePath("../../../..")
 libraries/ = SubResource("AnimationLibrary_y8ppo")
-script = ExtResource("10_q223y")
-round_start_beat = true
-metadata/_custom_type_script = "uid://cee2638n8ojsx"
+autoplay = &"clock"
+script = ExtResource("21_pr80w")
+metadata/_custom_type_script = "uid://lmwp8k10f2p4"
 
 [node name="CustomLyrics" type="Node2D" parent="UI" unique_id=1717309864 node_paths=PackedStringArray("text")]
 material = SubResource("CanvasItemMaterial_wfeub")
@@ -847,10 +861,12 @@ tab_size = 2
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="UI/CustomLyrics" unique_id=1262929793]
 volume_db = -80.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="UI" unique_id=219995603]
+[node name="SongSyncedAnimationPlayer" type="AnimationPlayer" parent="UI" unique_id=219995603]
 root_node = NodePath("../CustomLyrics")
 libraries/ = SubResource("AnimationLibrary_hesta")
 autoplay = &"lyrics"
+speed_scale = 0.0
+script = ExtResource("15_odm7m")
 
 [node name="DialogueBox2" type="RichTextLabel" parent="UI" unique_id=151941393 node_paths=PackedStringArray("other_box")]
 use_parent_material = true
@@ -898,63 +914,7 @@ shape = SubResource("RectangleShape2D_y8ppo")
 position = Vector2(158.5, 492)
 shape = SubResource("RectangleShape2D_y8ppo")
 
-[node name="Player" parent="." unique_id=443094051 instance=ExtResource("2_wfeub")]
-position = Vector2(216, 243)
-direction = Vector2(1, 0)
-
-[node name="Dess" type="Sprite2D" parent="Player" unique_id=1592751513]
-z_index = -1
-position = Vector2(-1, 0)
-rotation = 1.5707964
-scale = Vector2(2, 2)
-texture = ExtResource("3_hmtnl")
-offset = Vector2(0, -3)
-
-[node name="Mouse" type="Sprite2D" parent="Player/Dess" unique_id=1979054937]
-show_behind_parent = true
-position = Vector2(3, 19.5)
-texture = ExtResource("4_fxwvx")
-
-[node name="Tail1" type="Sprite2D" parent="Player/Dess/Mouse" unique_id=298822532]
-position = Vector2(-22.5, 1)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_px3a1")
-
-[node name="Tail2" type="Sprite2D" parent="Player/Dess/Mouse" unique_id=682298154]
-position = Vector2(-31.5, 1)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_px3a1")
-
-[node name="Tail3" type="Sprite2D" parent="Player/Dess/Mouse" unique_id=114003555]
-position = Vector2(-40.5, 1)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_px3a1")
-
-[node name="Tail4" type="Sprite2D" parent="Player/Dess/Mouse" unique_id=1664336467]
-position = Vector2(-49.5, 0.99999994)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("5_px3a1")
-
-[node name="Tail5" type="Sprite2D" parent="Player/Dess/Mouse" unique_id=407652530]
-position = Vector2(-58, 5.5000005)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("18_wfeub")
-offset = Vector2(-0.75, -1.765)
-flip_h = true
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Player/Dess/Mouse" unique_id=897521418]
-libraries/ = SubResource("AnimationLibrary_pr80w")
-autoplay = &"tail"
-speed_scale = 0.5
-
 [node name="TheCat" type="Node2D" parent="." unique_id=759219582]
-
-[node name="CatCollectibleTimer" type="Node" parent="TheCat" unique_id=1788963305]
-script = ExtResource("6_px3a1")
-wait_beats = 4.0
-round_start_beat = true
-autostart = true
-metadata/_custom_type_script = "uid://dsk3wv1yb4rho"
 
 [node name="Cat" type="Sprite2D" parent="TheCat" unique_id=984586568]
 z_index = -1
@@ -1019,7 +979,65 @@ offset_right = 891.0
 offset_bottom = 480.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0, 0, 1)
+color = Color(0, 0, 0, 0)
 
-[connection signal="timeout" from="UI/UpperPanel/Clock/ClockContainer/ConductedTimer" to="UI/UpperPanel/Clock/ClockContainer" method="_on_conducted_timer_timeout"]
-[connection signal="timeout" from="TheCat/CatCollectibleTimer" to="." method="_on_cat_collectible_timer_timeout"]
+[node name="StartMusic" type="Node" parent="." unique_id=1465770231]
+script = ExtResource("22_odm7m")
+song = ExtResource("5_lij5d")
+bpm = 138.979
+enable_rhythm_tracking = true
+metadata/_custom_type_script = "uid://d126tu6ywvetb"
+
+[node name="SoulRed" parent="." unique_id=324958496 instance=ExtResource("21_odm7m")]
+visible = false
+position = Vector2(216, 243)
+speed_mult = 2.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="SoulRed" unique_id=1420151052]
+remote_path = NodePath("../../Dess")
+update_rotation = false
+update_scale = false
+
+[node name="Dess" type="Sprite2D" parent="." unique_id=1592751513]
+z_index = -1
+position = Vector2(216, 243)
+scale = Vector2(2, 2)
+texture = ExtResource("21_hesta")
+offset = Vector2(1.435, -0.993)
+
+[node name="Mouse" type="Sprite2D" parent="Dess" unique_id=1979054937]
+show_behind_parent = true
+position = Vector2(3, 19.5)
+texture = ExtResource("4_fxwvx")
+
+[node name="Tail1" type="Sprite2D" parent="Dess/Mouse" unique_id=298822532]
+position = Vector2(-22.5, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_px3a1")
+
+[node name="Tail2" type="Sprite2D" parent="Dess/Mouse" unique_id=682298154]
+position = Vector2(-31.5, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_px3a1")
+
+[node name="Tail3" type="Sprite2D" parent="Dess/Mouse" unique_id=114003555]
+position = Vector2(-40.5, 1)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_px3a1")
+
+[node name="Tail4" type="Sprite2D" parent="Dess/Mouse" unique_id=1664336467]
+position = Vector2(-49.5, 0.99999994)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_px3a1")
+
+[node name="Tail5" type="Sprite2D" parent="Dess/Mouse" unique_id=407652530]
+position = Vector2(-58, 5.5000005)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("18_wfeub")
+offset = Vector2(-0.75, -1.765)
+flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Dess/Mouse" unique_id=897521418]
+libraries/ = SubResource("AnimationLibrary_pr80w")
+autoplay = &"tail"
+speed_scale = 0.5

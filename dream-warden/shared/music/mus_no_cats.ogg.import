@@ -12,7 +12,7 @@ dest_files=["res://.godot/imported/mus_no_cats.ogg-5f7c2efb11b545b3d3d477a411b07
 
 [params]
 
-loop=true
+loop=false
 loop_offset=13.81
 bpm=138.98
 beat_count=0

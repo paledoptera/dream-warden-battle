@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ja2ldl5lc7lp"
-path="res://.godot/imported/Conductor.png-0501a1ab1b88d869930582fbbb2cc280.ctex"
+uid="uid://y4khasidqi8c"
+path="res://.godot/imported/cat_clock_eyes_white.png-5bbebddef3db85d67417d938d97f5fe0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://addons/conductor/icons/Conductor.png"
-dest_files=["res://.godot/imported/Conductor.png-0501a1ab1b88d869930582fbbb2cc280.ctex"]
+source_file="res://minigames/here_come_the_cats/res/cat_clock_eyes_white.png"
+dest_files=["res://.godot/imported/cat_clock_eyes_white.png-5bbebddef3db85d67417d938d97f5fe0.ctex"]
 
 [params]
 

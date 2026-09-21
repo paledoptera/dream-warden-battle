@@ -14,6 +14,7 @@ extends Resource
 @export var markers: Array[DialogueMarker]
 @export_group("Flags")
 @export var flag: StringName = ""
+@export var flag_class: StringName = ""
 @export var flag_value: Variant
 @export_group("Identifier")
 @export var identifier: StringName = ""

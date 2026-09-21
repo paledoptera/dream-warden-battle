@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://be7m3uwg5tqnp"]
+
+[ext_resource type="Script" uid="uid://d126tu6ywvetb" path="res://systems/helper_components/start_music.gd" id="1_pts6d"]
+[ext_resource type="AudioStream" uid="uid://5y5wc8tatwl2" path="res://shared/music/mus_no_cats.ogg" id="2_rb038"]
+[ext_resource type="AudioStream" uid="uid://b2asscyml5jh5" path="res://shared/sound_effects/snd_break1.wav" id="3_rb038"]
+
+[node name="RhythmGame" type="Node2D" unique_id=149820515]
+
+[node name="StartMusic" type="Node" parent="." unique_id=1342367818]
+script = ExtResource("1_pts6d")
+song = ExtResource("2_rb038")
+bpm = 138.979
+start_position = 144.0
+enable_rhythm_tracking = true
+metadata/_custom_type_script = "uid://d126tu6ywvetb"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=234116714]
+stream = ExtResource("3_rb038")

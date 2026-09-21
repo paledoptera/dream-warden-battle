@@ -61,6 +61,8 @@ func _process(delta: float) -> void:
 	if not active:
 		return
 	
+	var event_disabled = -1
+	
 	for ind in quicktimes.keys():
 
 		var quicktime_event = quicktimes[ind]
@@ -71,8 +73,17 @@ func _process(delta: float) -> void:
 		quicktime_event.move()
 		
 		if not quicktime_event.check():
-			quicktime_event.active = false
-			check_if_finished()
+			print("SHIT")
+			event_disabled = ind
+			
+	
+	if event_disabled != -1:
+		print("SHIT")
+		quicktimes[event_disabled].active = false
+		quicktimes[event_disabled].do_attack(true)
+		quicktimes.erase(event_disabled)
+		check_if_finished()
+		print("QUICKTIMES: ", quicktimes)
 		
 
 
@@ -98,7 +109,6 @@ func press() -> void:
 func check_if_finished() -> void:
 	if quicktimes:
 		return
-	
 	
 	await get_tree().create_timer(1.666).timeout
 	EventBus.end_fight_minigame.emit()
