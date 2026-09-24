@@ -25,9 +25,11 @@ func change_state(state: State, new_action: StringName = "init"):
 		action.disconnect(current_state.action)
 		if current_state.events:
 			current_state.perform_events(current_state.events.exit)
+		current_state.state_exited.emit()
 		
 	current_state = state
 	state_entered.emit(current_state,new_action)
+	current_state.state_entered.emit()
 	action.connect(current_state.action)
 	if current_state.events:
 		current_state.perform_events(current_state.events.enter)

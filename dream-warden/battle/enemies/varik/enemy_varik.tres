@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CharacterStatsEnemy" format=3 uid="uid://ckyj6n6a3mgmh"]
 
-[ext_resource type="Script" uid="uid://caqnjjh4u2r54" path="res://battle/system/resources/attack.gd" id="1_uwjcw"]
+[ext_resource type="Script" uid="uid://caqnjjh4u2r54" path="res://battle/system/resources/attack_data.gd" id="1_uwjcw"]
 [ext_resource type="PackedScene" uid="uid://cuwui318cvb75" path="res://battle/enemies/warden/attacks/normal/0_wings/wings_attack.tscn" id="2_yy0jl"]
 [ext_resource type="Script" uid="uid://emdpqbj1xvm7" path="res://battle/system/resources/attack_block.gd" id="3_jty3r"]
 [ext_resource type="Script" uid="uid://bq7mxvnbwq8of" path="res://dialogue/components/dialogue_block.gd" id="4_vx40t"]

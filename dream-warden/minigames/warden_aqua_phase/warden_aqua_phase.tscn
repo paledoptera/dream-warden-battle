@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://c4x45003hs5wp"]
 
 [ext_resource type="Script" uid="uid://c64id8yupdkre" path="res://minigames/warden_aqua_phase/warden_aqua_phase.gd" id="1_ehlbo"]
-[ext_resource type="Script" uid="uid://bv7uj1vntr6a3" path="res://systems/state_machine/state_machine.gd" id="2_fy1dn"]
+[ext_resource type="Script" uid="uid://bv7uj1vntr6a3" path="res://common/state_machine/state_machine.gd" id="2_fy1dn"]
 [ext_resource type="Texture2D" uid="uid://ckbcskxqr2kn5" path="res://minigames/aqua/res/background_clouds/clouds1.png" id="2_h22cb"]
-[ext_resource type="Script" uid="uid://ghsf1gi1h2ug" path="res://systems/state_machine/state.gd" id="3_gauxr"]
+[ext_resource type="Script" uid="uid://ghsf1gi1h2ug" path="res://common/state_machine/state.gd" id="3_gauxr"]
 [ext_resource type="Texture2D" uid="uid://83voviduke7x" path="res://minigames/aqua/res/background_clouds/clouds2.png" id="3_tj8vx"]
 [ext_resource type="Texture2D" uid="uid://dtuq56o77spqu" path="res://minigames/aqua/res/background_clouds/clouds11.png" id="4_gg5og"]
 [ext_resource type="Texture2D" uid="uid://dpg2evgv6coae" path="res://minigames/aqua/res/background_clouds/clouds12.png" id="5_fy1dn"]
@@ -24,7 +24,7 @@
 [ext_resource type="PackedScene" uid="uid://ux4ri7rax77c" path="res://minigames/aqua/scenes/ui.tscn" id="22_ek7n0"]
 [ext_resource type="PackedScene" uid="uid://cwty8nuggskw3" path="res://minigames/aqua/scenes/healthbar.tscn" id="23_cek8k"]
 [ext_resource type="Texture2D" uid="uid://wy7dhu8gvr8c" path="res://battle/soul/soul/res/soul.png" id="24_h22cb"]
-[ext_resource type="Script" uid="uid://d126tu6ywvetb" path="res://systems/helper_components/start_music.gd" id="26_fy1dn"]
+[ext_resource type="Script" uid="uid://d126tu6ywvetb" path="res://shared/scripts/start_music.gd" id="26_fy1dn"]
 [ext_resource type="Texture2D" uid="uid://ujiov6tf756j" path="res://minigames/aqua/res/susie_land.png" id="26_gg5og"]
 [ext_resource type="AudioStream" uid="uid://c7kshb1y1x6g3" path="res://shared/music/wip3_mix.ogg" id="27_gauxr"]
 
@@ -169,6 +169,7 @@ projection = 1
 remote_path = NodePath("../../../../../PlayerViewport/SubViewport/Camera3D")
 
 [node name="Boss" parent="BossViewport/SubViewport" unique_id=1593148642 instance=ExtResource("21_t6d2q")]
+unique_name_in_owner = true
 
 [node name="Node2D" type="Node2D" parent="BossViewport" unique_id=349809151]
 
@@ -223,3 +224,5 @@ texture = ExtResource("26_gg5og")
 script = ExtResource("26_fy1dn")
 song = ExtResource("27_gauxr")
 metadata/_custom_type_script = "uid://d126tu6ywvetb"
+
+[connection signal="attack_started" from="BossViewport/SubViewport/Boss" to="." method="_on_boss_attack_started"]

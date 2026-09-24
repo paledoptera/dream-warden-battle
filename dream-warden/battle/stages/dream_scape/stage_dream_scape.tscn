@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bbb0yt2rjiel5" path="res://battle/stages/dream_scape/scenes/background_gonermaker.tscn" id="2_fuu2m"]
 [ext_resource type="PackedScene" uid="uid://c6rjg52as2pkw" path="res://battle/stages/dream_scape/actors/actor_susie.tscn" id="3_fuu2m"]
 [ext_resource type="PackedScene" uid="uid://btf3v6p22qrjq" path="res://battle/stages/dream_scape/actors/actor_warden.tscn" id="4_yc2n1"]
-[ext_resource type="Script" uid="uid://d126tu6ywvetb" path="res://systems/helper_components/start_music.gd" id="5_nohfa"]
+[ext_resource type="Script" uid="uid://d126tu6ywvetb" path="res://shared/scripts/start_music.gd" id="5_nohfa"]
 [ext_resource type="AudioStream" uid="uid://c7kshb1y1x6g3" path="res://shared/music/wip3_mix.ogg" id="6_7c5ry"]
 
 [sub_resource type="Animation" id="Animation_4ofhw"]

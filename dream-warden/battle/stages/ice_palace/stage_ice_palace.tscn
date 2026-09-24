@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://ux5c4buxxlkh"]
 
 [ext_resource type="Texture2D" uid="uid://dni58cch6mwsi" path="res://battle/stages/ice_palace/res/ice-texture-background-the-textured-cold-frosty-surface-of-crushed-ice-photo.jpg" id="1_4xyt8"]
-[ext_resource type="Script" uid="uid://c0eum5nfaksrs" path="res://systems/animation/actor.gd" id="3_6dh1b"]
+[ext_resource type="Script" uid="uid://c0eum5nfaksrs" path="res://shared/actors/actor.gd" id="3_6dh1b"]
 [ext_resource type="SpriteFrames" uid="uid://bge5eg02oc13v" path="res://battle/stages/ice_palace/actors/rangle_frames.tres" id="3_a1yq5"]
 [ext_resource type="SpriteFrames" uid="uid://d1heye7wbytj7" path="res://battle/stages/ice_palace/actors/chutley_frames.tres" id="4_6dh1b"]
 [ext_resource type="Texture2D" uid="uid://bhecgn16x7t7" path="res://battle/stages/ice_palace/res/noelle.png" id="5_6b8kr"]
 [ext_resource type="SpriteFrames" uid="uid://cqri1omo853jl" path="res://battle/stages/ice_palace/actors/fish_frames.tres" id="5_e4j6a"]
 [ext_resource type="Texture2D" uid="uid://baabv66yi7i04" path="res://battle/enemies/ice_palace_boss/actor/res/ice_palace_boss.png" id="6_sh803"]
-[ext_resource type="Script" uid="uid://d126tu6ywvetb" path="res://systems/helper_components/start_music.gd" id="8_2nkg0"]
+[ext_resource type="Script" uid="uid://d126tu6ywvetb" path="res://shared/scripts/start_music.gd" id="8_2nkg0"]
 [ext_resource type="AudioStream" uid="uid://b16qa5ic5ugao" path="res://shared/music/mus_ice_palace.ogg" id="9_pjjrx"]
 
 [sub_resource type="Gradient" id="Gradient_axrom"]

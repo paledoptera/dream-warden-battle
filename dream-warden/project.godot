@@ -45,17 +45,6 @@ window/vsync/vsync_mode=0
 
 enabled=PackedStringArray()
 
-[file_customization]
-
-folder_colors={
-"res://battle/": "red",
-"res://dialogue/": "purple",
-"res://minigames/": "yellow",
-"res://overworld/": "green",
-"res://party/": "pink",
-"res://screens/": "blue"
-}
-
 [global_group]
 
 orange_track=""
@@ -69,6 +58,7 @@ action_menu=""
 options_parent=""
 actors=""
 aqua_lilypad=""
+player=""
 
 [gui]
 

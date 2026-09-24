@@ -1,5 +1,7 @@
 class_name State extends Node
 
+signal state_entered
+signal state_exited
 signal change_state(state: State, string_action: StringName)
 signal event(string: StringName)
 

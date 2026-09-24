@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bfvcov74o2a8f"]
+
+[ext_resource type="Script" uid="uid://cbombr5evs34s" path="res://minigames/warden_aqua_phase/entities/attacks/att3d_heavy_lasers_1/att_3d_heavy_lasers_1.gd" id="1_i58nf"]
+[ext_resource type="Script" uid="uid://16h0y50oyjvy" path="res://minigames/warden_aqua_phase/entities/bullets/scripts/bullet_spawner_3d.gd" id="2_rrm3l"]
+[ext_resource type="PackedScene" uid="uid://dmlaifxf3g148" path="res://minigames/warden_aqua_phase/entities/bullets/laser.tscn" id="3_k8sh7"]
+
+[node name="Attack3DLasers" type="Node3D" unique_id=273713936]
+script = ExtResource("1_i58nf")
+
+[node name="BulletSpawner3D" type="Node3D" parent="." unique_id=700165433]
+script = ExtResource("2_rrm3l")
+bullet = Array[PackedScene]([ExtResource("3_k8sh7")])
+metadata/_custom_type_script = "uid://16h0y50oyjvy"
+
+[node name="Timer" type="Timer" parent="." unique_id=1183751331]
+wait_time = 0.1
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

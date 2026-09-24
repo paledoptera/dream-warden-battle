@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="CharacterStatsEnemy" format=3 uid="uid://781molbb62mr"]
 
-[ext_resource type="Script" uid="uid://caqnjjh4u2r54" path="res://battle/system/resources/attack.gd" id="1_t6gcq"]
+[ext_resource type="Script" uid="uid://caqnjjh4u2r54" path="res://battle/system/resources/attack_data.gd" id="1_t6gcq"]
 [ext_resource type="PackedScene" uid="uid://cgpsbpg4xrt5s" path="res://battle/enemies/warden/attacks/parry/0_rings/rings_attack.tscn" id="2_vgoan"]
 [ext_resource type="PackedScene" uid="uid://6pjv2tpw0t0c" path="res://battle/enemies/warden/attacks/parry/1_charge/charge_attack.tscn" id="3_gep48"]
 [ext_resource type="Script" uid="uid://bq7mxvnbwq8of" path="res://dialogue/components/dialogue_block.gd" id="3_n04j5"]

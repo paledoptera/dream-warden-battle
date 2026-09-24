@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cp0mv55bepw51" path="res://battle/system/ui/action_panel/hero_selection/hero_selection.gd" id="1_v42ql"]
 [ext_resource type="PackedScene" uid="uid://djm1xryym7g5i" path="res://battle/system/ui/action_panel/hero_selection/hero_option.tscn" id="2_v42ql"]
-[ext_resource type="Script" uid="uid://cc5k140pvhkn2" path="res://systems/menu/rpg_menu_button.gd" id="3_svpqt"]
+[ext_resource type="Script" uid="uid://cc5k140pvhkn2" path="res://shared/scripts/menu/rpg_menu_button.gd" id="3_svpqt"]
 [ext_resource type="Texture2D" uid="uid://wy7dhu8gvr8c" path="res://battle/soul/soul/res/soul.png" id="5_5qhq5"]
 
 [node name="HeroSelection" type="Control" unique_id=1693749241]

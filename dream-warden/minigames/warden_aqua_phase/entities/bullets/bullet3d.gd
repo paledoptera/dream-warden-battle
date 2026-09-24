@@ -38,7 +38,11 @@ func _physics_process(delta: float) -> void:
 	if time >= life_time:
 		if life_time != -1.0:
 			queue_free()
-	global_position += velocity * delta
+	
+	var rot = global_rotation.y
+	var final_velocity = velocity.rotated(Vector3.UP,rot)
+	
+	global_position += final_velocity * delta
 
 func _on_area_entered(area: Area3D) -> void:
 	if area is AquaPlayer:

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://gdyqtg1saae8"]
+
+[ext_resource type="Script" uid="uid://b2qj1km35bgxc" path="res://minigames/warden_aqua_phase/entities/attacks/att3d_light_diamonds_1/att3d_light_diamonds_1.gd" id="1_ajpsw"]
+[ext_resource type="Script" uid="uid://16h0y50oyjvy" path="res://minigames/warden_aqua_phase/entities/bullets/scripts/bullet_spawner_3d.gd" id="2_wbb6w"]
+[ext_resource type="PackedScene" uid="uid://ds4vcmkvdeqkj" path="res://minigames/warden_aqua_phase/entities/bullets/diamond_bullet_3d.tscn" id="3_rcntg"]
+
+[node name="Attack3DDiamonds1" type="Node3D" unique_id=273713936]
+script = ExtResource("1_ajpsw")
+
+[node name="BulletSpawner3D" type="Node3D" parent="." unique_id=2123245893]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08013873, 0)
+script = ExtResource("2_wbb6w")
+bullet = Array[PackedScene]([ExtResource("3_rcntg")])
+
+[node name="Timer" type="Timer" parent="." unique_id=1692637535]
+wait_time = 0.4
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

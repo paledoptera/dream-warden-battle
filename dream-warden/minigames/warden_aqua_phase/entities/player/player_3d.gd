@@ -3,6 +3,7 @@ extends Area3D
 const JUMP_SPEED: float = 2.0
 const GRAV_SPEED: float = 1.8
 
+var current_lilypad: Node3D
 var internal_position: Vector3
 var y_position: float = 0.0
 var y_velocity: float = 0.0
@@ -114,6 +115,7 @@ func update_position(new_lilypad: Node3D, time: float, edge_only: bool = false):
 	is_rolling = true
 	await get_tree().create_timer(time).timeout
 	is_rolling = false
+	current_lilypad = new_lilypad
 	
 
 func animate(anim_name: StringName, speed_scale: float = 1.0,restart_anim: bool = false):
@@ -164,16 +166,6 @@ func animate_soul_afterimage() -> void:
 	get_owner().add_child(aqua_afterimage)
 	aqua_afterimage.global_position = sprite_soul.global_position
 	#aqua_afterimage.global_position = aqua_afterimage.global_position.move_toward(marker.global_position,0.5)
-	
-	if afterimage_anim == 0:
-		var susie_afterimage = preload("uid://c17qdpeqluwmg").instantiate()
-		get_owner().add_child(susie_afterimage)
-		susie_afterimage.global_position = sprite.global_position
-		#susie_afterimage.global_position = susie_afterimage.global_position.move_toward(marker.global_position,0.5)
-		susie_afterimage.animation = sprite.animation
-		susie_afterimage.frame = sprite.frame
-		susie_afterimage.offset = sprite.offset
-		susie_afterimage.flip_h = sprite.flip_h
 	
 	afterimage_anim += 1
 	afterimage_anim = wrap(afterimage_anim,0,2)

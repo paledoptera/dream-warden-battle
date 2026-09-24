@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dmlaifxf3g148"]
 
-[ext_resource type="Script" uid="uid://c22p8j5iuqiot" path="res://minigames/aqua/bullets/bullet3d.gd" id="1_nkj7g"]
+[ext_resource type="Script" uid="uid://c22p8j5iuqiot" path="res://minigames/warden_aqua_phase/entities/bullets/bullet3d.gd" id="1_nkj7g"]
 [ext_resource type="AudioStream" uid="uid://cmh148tm0uus4" path="res://shared/sound_effects/snd_ward_lazer.wav" id="2_yec63"]
 [ext_resource type="AudioStream" uid="uid://b70kayoafopci" path="res://shared/sound_effects/snd_ward_target.wav" id="3_pwirg"]
 [ext_resource type="Texture2D" uid="uid://b4hf6puuqnkqd" path="res://minigames/aqua/res/sigil1.png" id="4_jr8jo"]
@@ -226,6 +226,7 @@ libraries/ = SubResource("AnimationLibrary_nbrov")
 autoplay = &"laser"
 
 [node name="Sigil" type="Sprite3D" parent="." unique_id=805832418]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
 offset = Vector2(1, -2)
 pixel_size = 0.004
 axis = 1

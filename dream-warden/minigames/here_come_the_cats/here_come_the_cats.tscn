@@ -20,7 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://chwlnfewit2ru" path="res://minigames/here_come_the_cats/res/dess.png" id="21_hesta"]
 [ext_resource type="PackedScene" uid="uid://cr5wivx86lx7o" path="res://battle/soul/soul/soul_red.tscn" id="21_odm7m"]
 [ext_resource type="Script" uid="uid://lmwp8k10f2p4" path="res://common/music/beat_synced_animation_player.gd" id="21_pr80w"]
-[ext_resource type="Script" uid="uid://d126tu6ywvetb" path="res://systems/helper_components/start_music.gd" id="22_odm7m"]
+[ext_resource type="Script" uid="uid://d126tu6ywvetb" path="res://shared/scripts/start_music.gd" id="22_odm7m"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5vjsp"]
 blend_mode = 3

@@ -2,9 +2,9 @@
 
 [ext_resource type="Texture2D" uid="uid://b2oa3p1x3rfbk" path="res://battle/stages/variks_pluto/res/space.png" id="1_1tw1t"]
 [ext_resource type="Texture2D" uid="uid://dqhuo3egfwy87" path="res://battle/stages/variks_pluto/res/gyro_background.png" id="4_v76nv"]
-[ext_resource type="Script" uid="uid://d126tu6ywvetb" path="res://systems/helper_components/start_music.gd" id="5_hlvx1"]
+[ext_resource type="Script" uid="uid://d126tu6ywvetb" path="res://shared/scripts/start_music.gd" id="5_hlvx1"]
 [ext_resource type="AudioStream" uid="uid://cnm37tkchiefi" path="res://shared/music/mus_brother_varik.ogg" id="6_1tw1t"]
-[ext_resource type="Script" uid="uid://c0eum5nfaksrs" path="res://systems/animation/actor.gd" id="7_467ci"]
+[ext_resource type="Script" uid="uid://c0eum5nfaksrs" path="res://shared/actors/actor.gd" id="7_467ci"]
 [ext_resource type="ArrayMesh" uid="uid://b7uv1xs2msgih" path="res://battle/stages/variks_pluto/res/pluto.obj" id="7_blua8"]
 [ext_resource type="Texture2D" uid="uid://kxhpdhysleqm" path="res://battle/stages/variks_pluto/res/pluto.png" id="8_467ci"]
 [ext_resource type="Texture2D" uid="uid://bipnwcg0aw6qf" path="res://battle/stages/variks_pluto/res/actor_kris.png" id="8_hlvx1"]

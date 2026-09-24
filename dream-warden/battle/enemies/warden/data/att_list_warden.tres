@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="AttackList" format=3 uid="uid://counr7nqw075t"]
 
-[ext_resource type="Script" uid="uid://caqnjjh4u2r54" path="res://battle/system/resources/attack.gd" id="1_yolso"]
+[ext_resource type="Script" uid="uid://caqnjjh4u2r54" path="res://battle/system/resources/attack_data.gd" id="1_yolso"]
 [ext_resource type="PackedScene" uid="uid://cuwui318cvb75" path="res://battle/enemies/warden/attacks/normal/0_wings/wings_attack.tscn" id="2_yolso"]
 [ext_resource type="PackedScene" uid="uid://q3t3r8c6t065" path="res://battle/enemies/warden/attacks/normal/1_zaps/zap_attack.tscn" id="3_sr53u"]
 [ext_resource type="PackedScene" uid="uid://cp8jvyn2dnnpv" path="res://battle/enemies/warden/attacks/normal/2_revolve/revolve_attack.tscn" id="4_3b7m7"]

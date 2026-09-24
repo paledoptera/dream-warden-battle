@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://djm1xryym7g5i"]
 
-[ext_resource type="Script" uid="uid://by1fj36ltgbbb" path="res://systems/menu/buttons/soul_selectable_button.gd" id="1_lkhdx"]
+[ext_resource type="Script" uid="uid://by1fj36ltgbbb" path="res://shared/scripts/menu/buttons/soul_selectable_button.gd" id="1_lkhdx"]
 [ext_resource type="FontVariation" uid="uid://72sk30ahlloh" path="res://shared/theme/fonts/default_textbox.tres" id="1_llkih"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4buc0"]

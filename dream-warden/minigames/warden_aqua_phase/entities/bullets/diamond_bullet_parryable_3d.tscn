@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ckvgqgq0rec3h"]
 
-[ext_resource type="Script" uid="uid://c22p8j5iuqiot" path="res://minigames/aqua/bullets/bullet3d.gd" id="1_mjgeh"]
-[ext_resource type="ArrayMesh" uid="uid://cibj4dobxoyna" path="res://minigames/aqua/bullets/res/diamond_bullet_3d.obj" id="2_jtsu2"]
+[ext_resource type="Script" uid="uid://c22p8j5iuqiot" path="res://minigames/warden_aqua_phase/entities/bullets/bullet3d.gd" id="1_mjgeh"]
+[ext_resource type="ArrayMesh" uid="uid://cibj4dobxoyna" path="res://minigames/warden_aqua_phase/entities/bullets/res/diamond_bullet_3d.obj" id="2_jtsu2"]
 [ext_resource type="PackedScene" uid="uid://c0xwsompqseq2" path="res://minigames/aqua/effects/strike_particle.tscn" id="2_t6s22"]
 [ext_resource type="AudioStream" uid="uid://b2asscyml5jh5" path="res://shared/sound_effects/snd_break1.wav" id="3_jsu2h"]
 [ext_resource type="Texture2D" uid="uid://cx63rcsaytrqg" path="res://battle/enemies/warden/attacks/normal/2_revolve/res/circle.png" id="3_t6s22"]

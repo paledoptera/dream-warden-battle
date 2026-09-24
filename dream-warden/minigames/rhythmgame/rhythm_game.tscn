@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://be7m3uwg5tqnp"]
 
-[ext_resource type="Script" uid="uid://d126tu6ywvetb" path="res://systems/helper_components/start_music.gd" id="1_pts6d"]
+[ext_resource type="Script" uid="uid://d126tu6ywvetb" path="res://shared/scripts/start_music.gd" id="1_pts6d"]
 [ext_resource type="AudioStream" uid="uid://5y5wc8tatwl2" path="res://shared/music/mus_no_cats.ogg" id="2_rb038"]
 [ext_resource type="AudioStream" uid="uid://b2asscyml5jh5" path="res://shared/sound_effects/snd_break1.wav" id="3_rb038"]
 

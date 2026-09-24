@@ -10,6 +10,7 @@
 [node name="LilypadLayer1" type="Node2D" parent="." index="1" unique_id=1253045355]
 modulate = Color(0, 1, 1, 1)
 script = ExtResource("2_3lo5n")
+travel_time = 0.3
 
 [node name="1" type="Sprite2D" parent="LilypadLayer1" index="0" unique_id=605589266 groups=["aqua_lilypad"]]
 position = Vector2(-4.371139e-06, 100)

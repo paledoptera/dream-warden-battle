@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c07tlvvfu114o"]
 
 [ext_resource type="Script" uid="uid://bjssf4jiq8gwe" path="res://battle/system/ui/action_panel/enemy_selection/enemy_option.gd" id="1_asxpk"]
-[ext_resource type="Script" uid="uid://cc5k140pvhkn2" path="res://systems/menu/rpg_menu_button.gd" id="1_ybpr2"]
+[ext_resource type="Script" uid="uid://cc5k140pvhkn2" path="res://shared/scripts/menu/rpg_menu_button.gd" id="1_ybpr2"]
 [ext_resource type="FontVariation" uid="uid://72sk30ahlloh" path="res://shared/theme/fonts/default_textbox.tres" id="2_asxpk"]
 [ext_resource type="FontFile" uid="uid://drsujjxp7k8ca" path="res://shared/theme/fonts/DeterminationSansWebRegular-369X.ttf" id="3_5ofbj"]
 [ext_resource type="Texture2D" uid="uid://cmg2825l7r7m5" path="res://battle/system/ui/action_panel/enemy_selection/no_mercy.png" id="4_jontc"]

@@ -11,7 +11,9 @@ var carousel: AquaCarousel
 
 func _ready() -> void:
 	Fader.fade_out(0.5,Color.WHITE,Tween.EaseType.EASE_OUT,Tween.TransitionType.TRANS_CUBIC)
-	change_carousel(CAROUSEL_6_MIDDLE)
+	change_carousel(CAROUSEL_6)
+	%Boss.player = %Player3D
+	%Boss.look_target = %Player3D
 
 func _process(delta: float) -> void:
 	var player_xz_position = Vector3(%Player3D.global_position.x,0.0,%Player3D.global_position.z)
@@ -51,6 +53,7 @@ func change_carousel(new_carousel: PackedScene):
 		layers.append(layer)
 	
 	%CarouselAnimator.update_carousel(lilypads)
+	%Player3D.update_position(%CarouselAnimator.get_child(0),0.3)
 	
 
 func _on_current_lilypad_changed(lilypad: AquaLilypad, last_lilypad: AquaLilypad):
@@ -68,3 +71,19 @@ func _on_current_lilypad_changed(lilypad: AquaLilypad, last_lilypad: AquaLilypad
 	var lilypad_ind = lilypads.find(lilypad)
 	%Player3D.update_position(%CarouselAnimator.display_lilypads[lilypad_ind],carousel.current_layer.travel_time, lilypad.edge_only)
 	%CarouselAnimator.update_current_lilypad(lilypad)
+	
+
+
+func _on_boss_attack_started(attackdata3d: AttackData3D) -> void:
+	var attack_scene = attackdata3d.scene.instantiate()
+
+	match attackdata3d.layer:
+		AttackData3D.Layer.PLAYER:
+			$PlayerViewport/SubViewport.add_child(attack_scene)
+		AttackData3D.Layer.BOSS:
+			$BossViewport/SubViewport.add_child(attack_scene)
+	
+	attack_scene.boss = %Boss
+	attack_scene.carousel_animator = %CarouselAnimator
+	attack_scene.carousel = carousel
+	attack_scene.start(attackdata3d.length)

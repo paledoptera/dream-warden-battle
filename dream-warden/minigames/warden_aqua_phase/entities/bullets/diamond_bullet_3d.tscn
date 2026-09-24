@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ds4vcmkvdeqkj"]
 
-[ext_resource type="Script" uid="uid://c22p8j5iuqiot" path="res://minigames/aqua/bullets/bullet3d.gd" id="1_io0ng"]
-[ext_resource type="ArrayMesh" uid="uid://cibj4dobxoyna" path="res://minigames/aqua/bullets/res/diamond_bullet_3d.obj" id="3_63xd1"]
+[ext_resource type="Script" uid="uid://c22p8j5iuqiot" path="res://minigames/warden_aqua_phase/entities/bullets/bullet3d.gd" id="1_io0ng"]
+[ext_resource type="ArrayMesh" uid="uid://cibj4dobxoyna" path="res://minigames/warden_aqua_phase/entities/bullets/res/diamond_bullet_3d.obj" id="3_63xd1"]
 [ext_resource type="Texture2D" uid="uid://cx63rcsaytrqg" path="res://battle/enemies/warden/attacks/normal/2_revolve/res/circle.png" id="3_pcwl8"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_g4v7s"]
@@ -18,9 +18,9 @@ albedo_color = Color(0, 0, 0, 1)
 collision_layer = 2
 script = ExtResource("1_io0ng")
 destructible = true
-velocity = Vector3(0, 0, 0.25)
+velocity = Vector3(0, 0, -0.25)
 life_time = 1.0
-linear_acceleration = 3.0
+linear_acceleration = 2.0
 metadata/_custom_type_script = "uid://c22p8j5iuqiot"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2111607229]

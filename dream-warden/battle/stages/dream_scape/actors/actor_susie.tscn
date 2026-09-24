@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c6rjg52as2pkw"]
 
 [ext_resource type="Script" uid="uid://bhctx6177kicy" path="res://battle/stages/dream_scape/actors/actor_susie.gd" id="1_cpu7v"]
-[ext_resource type="Shader" uid="uid://c16rfo3hutpax" path="res://common/palette_swap_shader.tres" id="2_3cfp6"]
+[ext_resource type="Shader" uid="uid://c16rfo3hutpax" path="res://common/shaders/palette_swap_shader.tres" id="2_3cfp6"]
 [ext_resource type="AudioStream" uid="uid://cr7mpvdds2p0q" path="res://shared/sound_effects/snd_chargeshot_charge.wav" id="2_7bvo0"]
 [ext_resource type="SpriteFrames" uid="uid://vwnv0psa61b6" path="res://battle/stages/dream_scape/actors/res/susie_frames.tres" id="2_u7kpl"]
 [ext_resource type="PackedScene" uid="uid://bp2185cc1j6v1" path="res://dialogue/entities/speech_bubble/speech_bubble.tscn" id="3_3cfp6"]
