@@ -109,8 +109,7 @@ func execute_events():
 				
 				if not spell.handles_actor_anim:
 					Actors.do_action(hero_id,"magic")
-				
-				Actors.queue_action(hero_id,"idle")
+					Actors.queue_action(hero_id,"idle")
 				
 				await spell.finished
 				

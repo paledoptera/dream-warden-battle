@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://bxjxssil0jpvo" path="res://battle/stages/dream_scape/actors/actor_warden.gd" id="1_njm8p"]
 [ext_resource type="PackedScene" uid="uid://daeern1c5gfgq" path="res://battle/enemies/warden/new_actor/warden_model.tscn" id="1_w3vvi"]
-[ext_resource type="PackedScene" uid="uid://bp2185cc1j6v1" path="res://entities/dialogue/speech_bubble.tscn" id="2_c8khq"]
+[ext_resource type="PackedScene" uid="uid://bp2185cc1j6v1" path="res://dialogue/entities/speech_bubble/speech_bubble.tscn" id="2_c8khq"]
 [ext_resource type="AudioStream" uid="uid://cl0ssn0jta65n" path="res://shared/sound_effects/snd_ward_hit.wav" id="2_swf16"]
 [ext_resource type="AudioStream" uid="uid://65t1in2v3vu5" path="res://shared/sound_effects/snd_ward_hardhit.wav" id="3_2hdd2"]
-[ext_resource type="PackedScene" uid="uid://tmloumrdebm2" path="res://entities/dialogue/speech_bubble/bubble_tail_right.tscn" id="3_41c81"]
-[ext_resource type="Texture2D" uid="uid://clm2bs5ii4mr6" path="res://entities/dialogue/speech_bubble/tail_small.png" id="4_h3mnu"]
+[ext_resource type="PackedScene" uid="uid://tmloumrdebm2" path="res://dialogue/entities/speech_bubble/bubble_tail_right.tscn" id="3_41c81"]
+[ext_resource type="Texture2D" uid="uid://clm2bs5ii4mr6" path="res://dialogue/entities/speech_bubble/tail_small.png" id="4_h3mnu"]
 [ext_resource type="AudioStream" uid="uid://b1s3p8d6nyfuf" path="res://shared/sound_effects/snd_ward_hiss.wav" id="4_kwrkg"]
 
 [sub_resource type="Animation" id="Animation_swf16"]

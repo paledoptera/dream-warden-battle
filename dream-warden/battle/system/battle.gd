@@ -8,6 +8,12 @@ signal story_updated
 
 const SCENE = preload("uid://cxu6vtdp70cut")
 
+const STAGE = {
+	"dream_scape" = preload("uid://c0r0lc0kwmgif"),
+	"ice_palace" = preload("uid://ux5c4buxxlkh"),
+	"variks_pluto" = preload("uid://bqwcxd83vpeni")
+}
+
 enum TurnState {PLAYER, ACTION, ENEMY}
 
 var turn_state: TurnState:

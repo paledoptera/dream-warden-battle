@@ -1,24 +1,370 @@
 [gd_scene format=3 uid="uid://bo0085uf4akr6"]
 
 [ext_resource type="Script" uid="uid://bxlyfvptktigk" path="res://screens/title_screen/title_screen.gd" id="1_4rvf0"]
+[ext_resource type="Texture2D" uid="uid://brl5dhq873ijb" path="res://screens/title_screen/wet fat mike belly.png" id="2_alfmu"]
+[ext_resource type="Script" uid="uid://clqvwknmd31e5" path="res://systems/menu/menu_input_manager.gd" id="2_jrv5w"]
+[ext_resource type="PackedScene" uid="uid://bbb0yt2rjiel5" path="res://battle/stages/dream_scape/scenes/background_gonermaker.tscn" id="2_yvje3"]
+[ext_resource type="Script" uid="uid://by1fj36ltgbbb" path="res://systems/menu/buttons/soul_selectable_button.gd" id="3_8eykq"]
+[ext_resource type="Script" uid="uid://d126tu6ywvetb" path="res://systems/helper_components/start_music.gd" id="3_fjwv1"]
+[ext_resource type="AudioStream" uid="uid://c7si5enlp24hs" path="res://shared/sound_effects/snd_menumove.wav" id="3_rgfbv"]
+[ext_resource type="FontVariation" uid="uid://72sk30ahlloh" path="res://shared/theme/fonts/default_textbox.tres" id="4_bgok2"]
+[ext_resource type="Script" uid="uid://bqfyrxl6u2sc6" path="res://systems/menu/menu_sounds.gd" id="4_ijpes"]
+[ext_resource type="AudioStream" uid="uid://bsglwqfv4882s" path="res://shared/music/mus_cognitive_dissonance.mp3" id="4_jtisy"]
+[ext_resource type="AudioStream" uid="uid://dbxc1pv4kqsht" path="res://shared/sound_effects/snd_select.wav" id="5_hjto8"]
+[ext_resource type="Script" uid="uid://c1qllnsyyxqjy" path="res://systems/menu/menu_config.gd" id="6_yvje3"]
+[ext_resource type="Texture2D" uid="uid://wy7dhu8gvr8c" path="res://battle/soul/soul/res/soul.png" id="8_v01p7"]
+[ext_resource type="FontFile" uid="uid://hry6ocb5d2ai" path="res://shared/theme/fonts/PROPHECYTYPE.ttf" id="9_hjto8"]
+[ext_resource type="Texture2D" uid="uid://bneqlcokt00xw" path="res://shared/sprites/depth_blue.png" id="9_ijpes"]
 
-[node name="TitleScreen" type="Node2D" unique_id=373349920]
+[sub_resource type="Resource" id="Resource_bgok2"]
+script = ExtResource("4_ijpes")
+metadata/_custom_type_script = "uid://bqfyrxl6u2sc6"
+
+[sub_resource type="Resource" id="Resource_8eykq"]
+script = ExtResource("6_yvje3")
+menu_sounds = SubResource("Resource_bgok2")
+metadata/_custom_type_script = "uid://c1qllnsyyxqjy"
+
+[sub_resource type="Theme" id="Theme_7rakj"]
+default_font = ExtResource("4_bgok2")
+default_font_size = 32
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fe7gu"]
+content_margin_left = 28.0
+content_margin_top = 15.0
+
+[node name="TitleScreen" type="Node" unique_id=2102249253]
 script = ExtResource("1_4rvf0")
 
+[node name="Background2" parent="." unique_id=721451656 instance=ExtResource("2_yvje3")]
+modulate = Color(0, 1, 1, 0.42352942)
+
+[node name="MenuInputManager" type="Node" parent="." unique_id=525626993 node_paths=PackedStringArray("menus")]
+script = ExtResource("2_jrv5w")
+menus = {
+NodePath("../Options"): SubResource("Resource_8eykq")
+}
+metadata/_custom_type_script = "uid://clqvwknmd31e5"
+
+[node name="Background" type="Sprite2D" parent="." unique_id=2001027072]
+modulate = Color(1, 1, 1, 0.16078432)
+texture = ExtResource("2_alfmu")
+centered = false
+
+[node name="Title" type="RichTextLabel" parent="." unique_id=104037793]
+modulate = Color(0.8326685, 0.8326685, 0.8326685, 1)
+clip_children = 1
+custom_minimum_size = Vector2(228, 28)
+clip_contents = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_7rakj")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 0)
+theme_override_fonts/normal_font = ExtResource("9_hjto8")
+theme_override_font_sizes/normal_font_size = 86
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
+bbcode_enabled = true
+text = "[wave]VS. Dream Warden"
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="Parallax2D" type="Parallax2D" parent="Title" unique_id=985767168]
+repeat_size = Vector2(256, 256)
+autoscroll = Vector2(-50, -50)
+repeat_times = 5
+
+[node name="Sprite2D" type="Sprite2D" parent="Title/Parallax2D" unique_id=1339572597]
+scale = Vector2(2, 2)
+texture = ExtResource("9_ijpes")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Title/Parallax2D" unique_id=963626908]
+scale = Vector2(2, 2)
+texture = ExtResource("9_ijpes")
+
+[node name="ColorRect" type="ColorRect" parent="Title/Parallax2D" unique_id=1360569317]
+custom_minimum_size = Vector2(256, 256)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0.9666667, 1, 0.5254902)
+
+[node name="SelectFight" type="RichTextLabel" parent="." unique_id=814736686]
+custom_minimum_size = Vector2(228, 28)
+clip_contents = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 61.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_7rakj")
+theme_override_fonts/normal_font = ExtResource("4_bgok2")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
+bbcode_enabled = true
+text = "Select a fight"
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="Options" type="VBoxContainer" parent="." unique_id=1668206618 groups=["options_parent"]]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 19.0
+offset_top = 96.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DreamWarden" type="Control" parent="Options" unique_id=947396992 groups=["menu_option"]]
+custom_minimum_size = Vector2(228, 28)
+layout_mode = 2
+focus_mode = 2
+script = ExtResource("3_8eykq")
+offset = Vector2(16, 33)
+metadata/_custom_type_script = "uid://cc5k140pvhkn2"
+
+[node name="Label" type="RichTextLabel" parent="Options/DreamWarden" unique_id=1392277722]
+custom_minimum_size = Vector2(228, 28)
+clip_contents = false
+layout_mode = 0
+offset_right = 228.0
+offset_bottom = 28.0
+theme = SubResource("Theme_7rakj")
+theme_override_fonts/normal_font = ExtResource("4_bgok2")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
+bbcode_enabled = true
+text = "Dream Warden"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="DreamWardenParry" type="Control" parent="Options" unique_id=568731779 groups=["menu_option"]]
+modulate = Color(0.48, 0.48, 0.48, 1)
+custom_minimum_size = Vector2(228, 28)
+layout_mode = 2
+focus_mode = 2
+script = ExtResource("3_8eykq")
+offset = Vector2(16, 33)
+disabled = true
+metadata/_custom_type_script = "uid://cc5k140pvhkn2"
+
+[node name="Label" type="RichTextLabel" parent="Options/DreamWardenParry" unique_id=1278062032]
+custom_minimum_size = Vector2(228, 28)
+clip_contents = false
+layout_mode = 0
+offset_right = 228.0
+offset_bottom = 28.0
+theme = SubResource("Theme_7rakj")
+theme_override_fonts/normal_font = ExtResource("4_bgok2")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
+bbcode_enabled = true
+text = "Dream Warden (Parry phase)"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="DreamWardenAqua" type="Control" parent="Options" unique_id=1672452524 groups=["menu_option"]]
+custom_minimum_size = Vector2(228, 28)
+layout_mode = 2
+focus_mode = 2
+script = ExtResource("3_8eykq")
+offset = Vector2(16, 33)
+metadata/_custom_type_script = "uid://cc5k140pvhkn2"
+
+[node name="Label" type="RichTextLabel" parent="Options/DreamWardenAqua" unique_id=673204509]
+custom_minimum_size = Vector2(228, 28)
+clip_contents = false
+layout_mode = 0
+offset_right = 228.0
+offset_bottom = 28.0
+theme = SubResource("Theme_7rakj")
+theme_override_fonts/normal_font = ExtResource("4_bgok2")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
+bbcode_enabled = true
+text = "Dream Warden (Aqua phase)"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="DreamWardenFinal" type="Control" parent="Options" unique_id=2116385091 groups=["menu_option"]]
+custom_minimum_size = Vector2(228, 28)
+layout_mode = 2
+focus_mode = 2
+script = ExtResource("3_8eykq")
+offset = Vector2(16, 33)
+disabled = true
+metadata/_custom_type_script = "uid://cc5k140pvhkn2"
+
+[node name="Label" type="RichTextLabel" parent="Options/DreamWardenFinal" unique_id=406329295]
+custom_minimum_size = Vector2(228, 28)
+clip_contents = false
+layout_mode = 0
+offset_right = 228.0
+offset_bottom = 28.0
+theme = SubResource("Theme_7rakj")
+theme_override_colors/default_color = Color(0.42, 0.42, 0.42, 1)
+theme_override_fonts/normal_font = ExtResource("4_bgok2")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
+bbcode_enabled = true
+text = "Dream Warden (Final phase)"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Bonus1IcePalaceBoss" type="Control" parent="Options" unique_id=963312132 groups=["menu_option"]]
+modulate = Color(0.73, 0.9325, 1, 1)
+custom_minimum_size = Vector2(228, 28)
+layout_mode = 2
+focus_mode = 2
+script = ExtResource("3_8eykq")
+offset = Vector2(16, 33)
+metadata/_custom_type_script = "uid://cc5k140pvhkn2"
+
+[node name="Label" type="RichTextLabel" parent="Options/Bonus1IcePalaceBoss" unique_id=1894537188]
+custom_minimum_size = Vector2(228, 28)
+clip_contents = false
+layout_mode = 0
+offset_right = 228.0
+offset_bottom = 28.0
+theme = SubResource("Theme_7rakj")
+theme_override_fonts/normal_font = ExtResource("4_bgok2")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
+bbcode_enabled = true
+text = "Bonus 1 - Ice Palace Boss"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Bonus2BrotherVarik" type="Control" parent="Options" unique_id=1632734780 groups=["menu_option"]]
+modulate = Color(1, 0.73, 0.73449993, 1)
+custom_minimum_size = Vector2(228, 28)
+layout_mode = 2
+focus_mode = 2
+script = ExtResource("3_8eykq")
+offset = Vector2(16, 33)
+metadata/_custom_type_script = "uid://cc5k140pvhkn2"
+
+[node name="Label" type="RichTextLabel" parent="Options/Bonus2BrotherVarik" unique_id=1148363744]
+custom_minimum_size = Vector2(228, 28)
+clip_contents = false
+layout_mode = 0
+offset_right = 228.0
+offset_bottom = 28.0
+theme = SubResource("Theme_7rakj")
+theme_override_fonts/normal_font = ExtResource("4_bgok2")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
+bbcode_enabled = true
+text = "Bonus 2 - Brother Varik"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="Bonus3HereComeTheCats" type="Control" parent="Options" unique_id=178200329 groups=["menu_option"]]
+modulate = Color(1, 1, 0.73, 1)
+custom_minimum_size = Vector2(228, 28)
+layout_mode = 2
+focus_mode = 2
+script = ExtResource("3_8eykq")
+offset = Vector2(16, 33)
+metadata/_custom_type_script = "uid://cc5k140pvhkn2"
+
+[node name="Label" type="RichTextLabel" parent="Options/Bonus3HereComeTheCats" unique_id=1137781369]
+custom_minimum_size = Vector2(228, 28)
+clip_contents = false
+layout_mode = 0
+offset_right = 228.0
+offset_bottom = 28.0
+theme = SubResource("Theme_7rakj")
+theme_override_fonts/normal_font = ExtResource("4_bgok2")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
+bbcode_enabled = true
+text = "Bonus 3 - Here Come The Cats"
+scroll_active = false
+autowrap_mode = 0
+
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1820192820]
+visible = false
 offset_left = 49.0
 offset_top = 47.0
 offset_right = 296.0
 offset_bottom = 168.0
 scale = Vector2(2, 2)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/outline_size = 4
 bbcode_enabled = true
 text = "Press 1 to enter Warden Fight
 
 
 
 
-[color=#303030]Press 2 to enter Ice Palace Boss
+[color=#306060]Press 2 to enter Ice Palace Boss
 Press 3 to enter HERE COME THE CATS
 Press 4 to enter Brother Varik"
 fit_content = true
 scroll_active = false
+
+[node name="StartMusic" type="Node" parent="." unique_id=1035462912]
+script = ExtResource("3_fjwv1")
+song = ExtResource("4_jtisy")
+metadata/_custom_type_script = "uid://d126tu6ywvetb"
+
+[node name="Soul" type="Sprite2D" parent="." unique_id=1608488927 groups=["soul"]]
+modulate = Color(1, 0, 0, 1)
+position = Vector2(64, 65)
+texture = ExtResource("8_v01p7")
+
+[connection signal="selected" from="Options/DreamWarden" to="." method="_on_option_selected"]
+[connection signal="selected" from="Options/DreamWardenParry" to="." method="_on_option_selected"]
+[connection signal="selected" from="Options/DreamWardenAqua" to="." method="_on_option_selected"]
+[connection signal="selected" from="Options/DreamWardenFinal" to="." method="_on_option_selected"]
+[connection signal="selected" from="Options/Bonus1IcePalaceBoss" to="." method="_on_option_selected"]
+[connection signal="selected" from="Options/Bonus2BrotherVarik" to="." method="_on_option_selected"]
+[connection signal="selected" from="Options/Bonus3HereComeTheCats" to="." method="_on_option_selected"]

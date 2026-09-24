@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://c3baha85ndj6f" path="res://battle/soul/battlebox.tscn" id="1_8tkeh"]
 [ext_resource type="Script" uid="uid://q4ttaombsumi" path="res://battle/enemies/warden/attacks/parry/2_shocker/shocker_attack.gd" id="1_uoh3s"]
 [ext_resource type="PackedScene" uid="uid://dxp2dj0rfpq0l" path="res://battle/soul/soul/soul_parry.tscn" id="2_lweat"]
-[ext_resource type="Texture2D" uid="uid://uc3mluq7bs2f" path="res://minigames/aqua_warden/aqua/dreamwardensprite.png" id="3_qbm3s"]
+[ext_resource type="Texture2D" uid="uid://uc3mluq7bs2f" path="res://minigames/aqua/dreamwardensprite.png" id="3_qbm3s"]
 [ext_resource type="Script" uid="uid://bcmlmcjn7wnkt" path="res://battle/bullets/pellet_spawner_mega.gd" id="4_jnu58"]
 [ext_resource type="PackedScene" uid="uid://o4i3coiv8dpu" path="res://battle/bullets/generic/diamond_bullet.tscn" id="6_uoh3s"]
 [ext_resource type="AudioStream" uid="uid://v580w6b4i5we" path="res://shared/sound_effects/mus_sfx_a_bullet.wav" id="7_84tqa"]

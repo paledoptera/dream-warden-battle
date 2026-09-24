@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bp2185cc1j6v1"]
+
+[ext_resource type="FontVariation" uid="uid://72sk30ahlloh" path="res://shared/theme/fonts/default_textbox.tres" id="1_r5816"]
+[ext_resource type="FontFile" uid="uid://b25q3wkn04r5i" path="res://shared/theme/fonts/battle_dialogue.ttf" id="2_21tcr"]
+[ext_resource type="Texture2D" uid="uid://c3v8ps6rvmwom" path="res://dialogue/entities/speech_bubble/bubble.png" id="2_aamsi"]
+[ext_resource type="Script" uid="uid://d0eplf0adb5j3" path="res://dialogue/entities/box/dialogue_box.gd" id="4_aamsi"]
+
+[sub_resource type="Theme" id="Theme_7rakj"]
+default_font = ExtResource("1_r5816")
+default_font_size = 32
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hjcc2"]
+texture = ExtResource("2_aamsi")
+texture_margin_left = 10.0
+texture_margin_top = 10.0
+texture_margin_right = 10.0
+texture_margin_bottom = 10.0
+
+[node name="SpeechBubble" type="RichTextLabel" unique_id=151941393]
+z_index = 10
+custom_minimum_size = Vector2(100, 40)
+clip_contents = false
+offset_right = 100.0
+offset_bottom = 40.0
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(-0.5, -0.5)
+focus_mode = 0
+mouse_filter = 2
+theme = SubResource("Theme_7rakj")
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("2_21tcr")
+theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxTexture_hjcc2")
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+script = ExtResource("4_aamsi")

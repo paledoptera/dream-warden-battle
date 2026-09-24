@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ib5pagys2p55" path="res://minigames/here_come_the_cats/entities/cat_collectible.gd" id="1_u8e0e"]
 [ext_resource type="Texture2D" uid="uid://cwocy40exfd64" path="res://minigames/here_come_the_cats/res/cat_collectible.png" id="2_u8e0e"]
-[ext_resource type="Script" uid="uid://lmwp8k10f2p4" path="res://minigames/here_come_the_cats/beat_synced_animation_player.gd" id="2_xhn3y"]
+[ext_resource type="Script" uid="uid://lmwp8k10f2p4" path="res://common/music/beat_synced_animation_player.gd" id="2_xhn3y"]
 
 [sub_resource type="Animation" id="Animation_xhn3y"]
 length = 0.001

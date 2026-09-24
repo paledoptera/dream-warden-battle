@@ -8,7 +8,7 @@
 [ext_resource type="FontFile" uid="uid://dln4jdnfh0rd6" path="res://shared/theme/fonts/hp_numbers/hp_numbers.png" id="6_2oa7j"]
 [ext_resource type="Script" uid="uid://di3pjvm6ep82r" path="res://battle/system/ui/action_panel/action_menu/label_hp.gd" id="7_6bqg4"]
 [ext_resource type="Script" uid="uid://bvlkg3a6cpko6" path="res://battle/system/ui/action_panel/action_menu/prism_shield.gd" id="8_pyn4v"]
-[ext_resource type="Texture2D" uid="uid://drpiotfiw68u2" path="res://minigames/aqua_warden/aqua/res/sheild_icon.png" id="9_3xyj7"]
+[ext_resource type="Texture2D" uid="uid://drpiotfiw68u2" path="res://minigames/aqua/res/sheild_icon.png" id="9_3xyj7"]
 [ext_resource type="Texture2D" uid="uid://cysinl1ouo4d5" path="res://battle/system/ui/action_panel/action_menu/res/frame_upper.png" id="10_jdypi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_81ejl"]

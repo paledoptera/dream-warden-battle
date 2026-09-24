@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="DialogueBlock" format=3 uid="uid://dgabaq3y26n6k"]
 
-[ext_resource type="Script" uid="uid://bq7mxvnbwq8of" path="res://resources/dialogue_components/dialogue_block.gd" id="1_jv6cp"]
-[ext_resource type="Script" uid="uid://m17i7j602jax" path="res://resources/dialogue_components/dialogue_string.gd" id="2_uj0k5"]
-[ext_resource type="Script" uid="uid://cci227fj67d4u" path="res://resources/dialogue_components/markers/_dialogue_marker.gd" id="3_lqvot"]
-[ext_resource type="Script" uid="uid://qf5ag5dlrsbc" path="res://resources/dialogue_components/markers/sprite_marker.gd" id="4_2v5xt"]
+[ext_resource type="Script" uid="uid://bq7mxvnbwq8of" path="res://dialogue/components/dialogue_block.gd" id="1_jv6cp"]
+[ext_resource type="Script" uid="uid://m17i7j602jax" path="res://dialogue/components/dialogue_string.gd" id="2_uj0k5"]
+[ext_resource type="Script" uid="uid://cci227fj67d4u" path="res://dialogue/components/markers/_dialogue_marker.gd" id="3_lqvot"]
+[ext_resource type="Script" uid="uid://qf5ag5dlrsbc" path="res://dialogue/components/markers/sprite_marker.gd" id="4_2v5xt"]
 [ext_resource type="Texture2D" uid="uid://hyejkaa6oq2y" path="res://shared/theme/fonts/custom_characters/infinity.png" id="5_hyemv"]
 [ext_resource type="AudioStream" uid="uid://c3m6sxg7kebei" path="res://shared/sound_effects/snd_text.wav" id="6_fqdsb"]
-[ext_resource type="Script" uid="uid://b8tmchw2csyvn" path="res://resources/dialogue_components/markers/gradient_marker.gd" id="7_0tkp6"]
+[ext_resource type="Script" uid="uid://b8tmchw2csyvn" path="res://dialogue/components/markers/gradient_marker.gd" id="7_0tkp6"]
 
 [sub_resource type="Resource" id="Resource_kpjfp"]
 script = ExtResource("4_2v5xt")
@@ -18,17 +18,16 @@ metadata/_custom_type_script = "uid://qf5ag5dlrsbc"
 
 [sub_resource type="Resource" id="Resource_jv6cp"]
 script = ExtResource("2_uj0k5")
-text = "* DREAM WARDEN - AT 50 DF .
-* The guardian of the prophecy."
+text = "* DREAM WARDEN - AT 80 DF .
+* The enforcer of the prophecy."
 markers = Array[ExtResource("3_lqvot")]([SubResource("Resource_kpjfp")])
 flag_value = null
 metadata/_custom_type_script = "uid://m17i7j602jax"
 
 [sub_resource type="Resource" id="Resource_uj0k5"]
 script = ExtResource("2_uj0k5")
-text = "* The core is surrounded by an
-	unbreakable LIGHT shield...
-* Strike the shield to gain TP."
+text = "* It's CORE is surrounded by an
+	indestructible LIGHT shield..."
 flag_value = null
 metadata/_custom_type_script = "uid://m17i7j602jax"
 
@@ -49,20 +48,13 @@ metadata/_custom_type_script = "uid://b8tmchw2csyvn"
 
 [sub_resource type="Resource" id="Resource_lqvot"]
 script = ExtResource("2_uj0k5")
-text = "* Then, use \"UNLEASH\" to reveal
-	the WEAK POINT!"
+text = "* Gather TP, then, use \"UNLEASH\" to 
+	reveal it's WEAK POINT!"
 markers = Array[ExtResource("3_lqvot")]([SubResource("Resource_l4ra8")])
-flag_value = null
-metadata/_custom_type_script = "uid://m17i7j602jax"
-
-[sub_resource type="Resource" id="Resource_2v5xt"]
-script = ExtResource("2_uj0k5")
-text = "* Just another enemy to strike down...
-* Isn't that right, Susie?"
 flag_value = null
 metadata/_custom_type_script = "uid://m17i7j602jax"
 
 [resource]
 script = ExtResource("1_jv6cp")
-text = Array[ExtResource("2_uj0k5")]([SubResource("Resource_jv6cp"), SubResource("Resource_uj0k5"), SubResource("Resource_lqvot"), SubResource("Resource_2v5xt")])
+text = Array[ExtResource("2_uj0k5")]([SubResource("Resource_jv6cp"), SubResource("Resource_uj0k5"), SubResource("Resource_lqvot")])
 metadata/_custom_type_script = "uid://bq7mxvnbwq8of"

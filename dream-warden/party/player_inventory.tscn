@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://br10nbojxuoc5"]
+
+[ext_resource type="Script" uid="uid://db6ldefdjht3x" path="res://party/inventory.gd" id="1_6ajgd"]
+[ext_resource type="Script" uid="uid://ja135b46ug1h" path="res://shared/usables/items/item.gd" id="2_tg5i7"]
+[ext_resource type="Resource" uid="uid://dbl7xu8j2sse6" path="res://shared/usables/items/consumables/item_war_aged_scarlixir.tres" id="3_vdatl"]
+[ext_resource type="Resource" uid="uid://cw5w3q1ww0txx" path="res://shared/usables/items/consumables/item_war_flat_phanta.tres" id="4_60ijq"]
+[ext_resource type="Resource" uid="uid://4oj0clbwdl4e" path="res://shared/usables/items/consumables/item_war_prism_shard.tres" id="5_f4euk"]
+[ext_resource type="Resource" uid="uid://cilknrdus62he" path="res://shared/usables/items/consumables/item_war_sky_tea.tres" id="6_5sywa"]
+
+[node name="PlayerInventory" type="Node" unique_id=1419208885]
+script = ExtResource("1_6ajgd")
+items = Array[ExtResource("2_tg5i7")]([ExtResource("3_vdatl"), ExtResource("3_vdatl"), ExtResource("3_vdatl"), ExtResource("3_vdatl"), ExtResource("4_60ijq"), ExtResource("4_60ijq"), ExtResource("5_f4euk"), ExtResource("5_f4euk"), ExtResource("6_5sywa")])
+metadata/_custom_type_script = "uid://db6ldefdjht3x"

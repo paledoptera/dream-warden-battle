@@ -1,8 +1,8 @@
 [gd_resource type="Resource" script_class="FightData" format=3 uid="uid://blfmq23jgwm5h"]
 
-[ext_resource type="Script" uid="uid://doj56elw7dew4" path="res://resources/character_stats/character_stats.gd" id="1_c8bs0"]
+[ext_resource type="Script" uid="uid://doj56elw7dew4" path="res://party/character_stats/character_stats.gd" id="1_c8bs0"]
 [ext_resource type="Resource" uid="uid://dsnpoy8ro5it6" path="res://battle/enemies/warden/enemy_warden_0.tres" id="2_shi44"]
-[ext_resource type="Resource" uid="uid://b43pqrbag27nj" path="res://resources/character_stats/hero/hero_susie.tres" id="3_tu2oh"]
+[ext_resource type="Resource" uid="uid://b43pqrbag27nj" path="res://party/hero/hero_susie.tres" id="3_tu2oh"]
 [ext_resource type="Script" uid="uid://eu75wsnnxg4b" path="res://battle/fight_data/_fight_data.gd" id="4_5q31a"]
 [ext_resource type="PackedScene" uid="uid://c0r0lc0kwmgif" path="res://battle/stages/dream_scape/stage_dream_scape.tscn" id="5_2lcl2"]
 [ext_resource type="Script" uid="uid://bvnbeejqeicbi" path="res://battle/fight_data/story_boss_01_dream_warden.gd" id="6_g55vs"]

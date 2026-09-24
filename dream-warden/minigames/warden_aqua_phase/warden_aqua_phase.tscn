@@ -1,0 +1,225 @@
+[gd_scene format=3 uid="uid://c4x45003hs5wp"]
+
+[ext_resource type="Script" uid="uid://c64id8yupdkre" path="res://minigames/warden_aqua_phase/warden_aqua_phase.gd" id="1_ehlbo"]
+[ext_resource type="Script" uid="uid://bv7uj1vntr6a3" path="res://systems/state_machine/state_machine.gd" id="2_fy1dn"]
+[ext_resource type="Texture2D" uid="uid://ckbcskxqr2kn5" path="res://minigames/aqua/res/background_clouds/clouds1.png" id="2_h22cb"]
+[ext_resource type="Script" uid="uid://ghsf1gi1h2ug" path="res://systems/state_machine/state.gd" id="3_gauxr"]
+[ext_resource type="Texture2D" uid="uid://83voviduke7x" path="res://minigames/aqua/res/background_clouds/clouds2.png" id="3_tj8vx"]
+[ext_resource type="Texture2D" uid="uid://dtuq56o77spqu" path="res://minigames/aqua/res/background_clouds/clouds11.png" id="4_gg5og"]
+[ext_resource type="Texture2D" uid="uid://dpg2evgv6coae" path="res://minigames/aqua/res/background_clouds/clouds12.png" id="5_fy1dn"]
+[ext_resource type="Texture2D" uid="uid://d1j03cw5qr2jn" path="res://minigames/aqua/res/background_clouds/clouds13.png" id="6_gauxr"]
+[ext_resource type="Texture2D" uid="uid://if6pcq7yxcqt" path="res://minigames/aqua/res/background_clouds/clouds14.png" id="7_38oj1"]
+[ext_resource type="Texture2D" uid="uid://0kh2pcqnpdrn" path="res://minigames/aqua/res/background_clouds/clouds3.png" id="8_fboau"]
+[ext_resource type="Texture2D" uid="uid://b5ndeb6c8tki5" path="res://minigames/aqua/res/background_clouds/clouds4.png" id="9_eqs0d"]
+[ext_resource type="Texture2D" uid="uid://bewosnoey0s6n" path="res://minigames/aqua/res/background_clouds/clouds5.png" id="10_mlak5"]
+[ext_resource type="Texture2D" uid="uid://dji1g0x3pwfmb" path="res://minigames/aqua/res/background_clouds/clouds6.png" id="11_8do2b"]
+[ext_resource type="Texture2D" uid="uid://i3geq4mc5ofx" path="res://minigames/aqua/res/background_clouds/clouds7.png" id="12_6rau3"]
+[ext_resource type="Texture2D" uid="uid://dpbax22x8x8ck" path="res://minigames/aqua/res/background_clouds/clouds8.png" id="13_0qu60"]
+[ext_resource type="Texture2D" uid="uid://dxgit2nv00dnn" path="res://minigames/aqua/res/background_clouds/clouds9.png" id="14_qfby7"]
+[ext_resource type="Texture2D" uid="uid://4hmkngah6p22" path="res://minigames/aqua/res/background_clouds/clouds10.png" id="15_nhiix"]
+[ext_resource type="Texture2D" uid="uid://kim3uos6xorm" path="res://battle/stages/dream_scape/res/clock.png" id="16_8q6uj"]
+[ext_resource type="Script" uid="uid://cxottibl1kv8f" path="res://minigames/warden_aqua_phase/systems/carousel_animator/carousel_animator.gd" id="16_ehlbo"]
+[ext_resource type="PackedScene" uid="uid://bbip45pa5j07p" path="res://minigames/warden_aqua_phase/entities/player/player_3d.tscn" id="18_ehlbo"]
+[ext_resource type="PackedScene" uid="uid://b7gbyko8v8bql" path="res://minigames/warden_aqua_phase/entities/boss/boss.tscn" id="21_t6d2q"]
+[ext_resource type="PackedScene" uid="uid://ux4ri7rax77c" path="res://minigames/aqua/scenes/ui.tscn" id="22_ek7n0"]
+[ext_resource type="PackedScene" uid="uid://cwty8nuggskw3" path="res://minigames/aqua/scenes/healthbar.tscn" id="23_cek8k"]
+[ext_resource type="Texture2D" uid="uid://wy7dhu8gvr8c" path="res://battle/soul/soul/res/soul.png" id="24_h22cb"]
+[ext_resource type="Script" uid="uid://d126tu6ywvetb" path="res://systems/helper_components/start_music.gd" id="26_fy1dn"]
+[ext_resource type="Texture2D" uid="uid://ujiov6tf756j" path="res://minigames/aqua/res/susie_land.png" id="26_gg5og"]
+[ext_resource type="AudioStream" uid="uid://c7kshb1y1x6g3" path="res://shared/music/wip3_mix.ogg" id="27_gauxr"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_tj8vx"]
+top_radius = 1.0
+bottom_radius = 1.0
+height = 0.7
+cap_top = false
+cap_bottom = false
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_252hh"]
+frames = 14
+speed_scale = 20.0
+frame_0/texture = ExtResource("2_h22cb")
+frame_1/texture = ExtResource("3_tj8vx")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("8_fboau")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("9_eqs0d")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("10_mlak5")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("11_8do2b")
+frame_5/duration = 1.0
+frame_6/texture = ExtResource("12_6rau3")
+frame_6/duration = 1.0
+frame_7/texture = ExtResource("13_0qu60")
+frame_7/duration = 1.0
+frame_8/texture = ExtResource("14_qfby7")
+frame_8/duration = 1.0
+frame_9/texture = ExtResource("15_nhiix")
+frame_9/duration = 1.0
+frame_10/texture = ExtResource("4_gg5og")
+frame_10/duration = 1.0
+frame_11/texture = ExtResource("5_fy1dn")
+frame_11/duration = 1.0
+frame_12/texture = ExtResource("6_gauxr")
+frame_12/duration = 1.0
+frame_13/texture = ExtResource("7_38oj1")
+frame_13/duration = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gg5og"]
+cull_mode = 1
+shading_mode = 0
+albedo_color = Color(0.427493, 0.42749307, 0.42749295, 1)
+albedo_texture = SubResource("AnimatedTexture_252hh")
+uv1_scale = Vector3(2, 2.106, 1.058)
+texture_filter = 0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_fy1dn"]
+top_radius = 0.943
+height = 0.001
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gauxr"]
+render_priority = -128
+shading_mode = 0
+albedo_color = Color(0.17283267, 0.17283267, 0.17283261, 1)
+albedo_texture = ExtResource("16_8q6uj")
+uv1_scale = Vector3(1.5, 1.5, 1.5)
+uv1_offset = Vector3(0.129, -0.55, 0)
+texture_filter = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_mlat7"]
+cull_mode = 2
+shading_mode = 0
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_38oj1"]
+material = SubResource("StandardMaterial3D_mlat7")
+flip_faces = true
+top_radius = 0.9
+bottom_radius = 0.9
+height = 0.015
+cap_top = false
+cap_bottom = false
+
+[node name="WardenAquaPhase" type="Node" unique_id=577298101]
+script = ExtResource("1_ehlbo")
+
+[node name="StateMachine" type="Node" parent="." unique_id=1621442077]
+script = ExtResource("2_fy1dn")
+metadata/_custom_type_script = "uid://bv7uj1vntr6a3"
+
+[node name="Dodge" type="Node" parent="StateMachine" unique_id=136418708]
+script = ExtResource("3_gauxr")
+metadata/_custom_type_script = "uid://ghsf1gi1h2ug"
+
+[node name="Action" type="Node" parent="StateMachine" unique_id=1517040413]
+script = ExtResource("3_gauxr")
+metadata/_custom_type_script = "uid://ghsf1gi1h2ug"
+
+[node name="BossViewport" type="SubViewportContainer" parent="." unique_id=1807844297]
+top_level = true
+custom_minimum_size = Vector2(640, 480)
+offset_right = 640.0
+offset_bottom = 480.0
+offset_transform_enabled = true
+mouse_filter = 2
+stretch = true
+stretch_shrink = 2
+
+[node name="SubViewport" type="SubViewport" parent="BossViewport" unique_id=2102322235]
+transparent_bg = true
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+canvas_cull_mask = 4293918721
+oversampling = false
+size = Vector2i(320, 240)
+render_target_update_mode = 4
+
+[node name="Decor" type="Node3D" parent="BossViewport/SubViewport" unique_id=309340615]
+
+[node name="Background" type="MeshInstance3D" parent="BossViewport/SubViewport/Decor" unique_id=814678601]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.28930664, 0)
+visible = false
+mesh = SubResource("CylinderMesh_tj8vx")
+surface_material_override/0 = SubResource("StandardMaterial3D_gg5og")
+
+[node name="Floor" type="MeshInstance3D" parent="BossViewport/SubViewport/Decor" unique_id=1990221277]
+mesh = SubResource("CylinderMesh_fy1dn")
+surface_material_override/0 = SubResource("StandardMaterial3D_gauxr")
+
+[node name="Outline" type="MeshInstance3D" parent="BossViewport/SubViewport/Decor/Floor" unique_id=751108136]
+mesh = SubResource("CylinderMesh_38oj1")
+
+[node name="CarouselAnimator" type="Node3D" parent="BossViewport/SubViewport" unique_id=1887625123]
+unique_name_in_owner = true
+script = ExtResource("16_ehlbo")
+
+[node name="Attacks" type="Node3D" parent="BossViewport/SubViewport" unique_id=1417666881]
+
+[node name="CameraArm" type="Node3D" parent="BossViewport/SubViewport" unique_id=1973629248]
+unique_name_in_owner = true
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="BossViewport/SubViewport/CameraArm" unique_id=1939191320]
+transform = Transform3D(-0.7071068, 0.24184473, -0.664463, 0, 0.9396926, 0.34202012, 0.7071067, 0.24184476, -0.66446304, -1.8, 1.055, -2)
+cull_mask = 1
+projection = 1
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="BossViewport/SubViewport/CameraArm/Camera3D" unique_id=469541889]
+remote_path = NodePath("../../../../../PlayerViewport/SubViewport/Camera3D")
+
+[node name="Boss" parent="BossViewport/SubViewport" unique_id=1593148642 instance=ExtResource("21_t6d2q")]
+
+[node name="Node2D" type="Node2D" parent="BossViewport" unique_id=349809151]
+
+[node name="PlayerViewport" type="SubViewportContainer" parent="." unique_id=1590743030]
+top_level = true
+custom_minimum_size = Vector2(640, 480)
+offset_right = 640.0
+offset_bottom = 480.0
+offset_transform_enabled = true
+mouse_filter = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="PlayerViewport" unique_id=1795450449]
+transparent_bg = true
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+canvas_cull_mask = 4293918720
+oversampling = false
+size = Vector2i(640, 480)
+render_target_update_mode = 4
+
+[node name="Player3D" parent="PlayerViewport/SubViewport" unique_id=1237159460 instance=ExtResource("18_ehlbo")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.6702541)
+
+[node name="Camera3D" type="Camera3D" parent="PlayerViewport/SubViewport" unique_id=1493834127]
+transform = Transform3D(0.7071068, -0.24184474, 0.664463, 0, 0.9396926, 0.34202012, -0.7071068, -0.24184474, 0.66446304, 1.8000001, 1.055, 1.9999999)
+cull_mask = 2
+projection = 1
+
+[node name="AquaUI" parent="." unique_id=1986677491 instance=ExtResource("22_ek7n0")]
+position = Vector2(320, 461)
+
+[node name="Healthbar" parent="." unique_id=1233966322 instance=ExtResource("23_cek8k")]
+visible = false
+modulate = Color(1, 1, 1, 0)
+position = Vector2(169, 254)
+
+[node name="Soul" type="Sprite2D" parent="." unique_id=416509455]
+unique_name_in_owner = true
+visible = false
+modulate = Color(0, 1, 1, 1)
+texture = ExtResource("24_h22cb")
+offset = Vector2(5, -40)
+
+[node name="AnimatedSprite2D" type="Sprite2D" parent="Soul" unique_id=115077652]
+position = Vector2(195, 328)
+scale = Vector2(2, 2)
+texture = ExtResource("26_gg5og")
+
+[node name="StartMusic" type="Node" parent="." unique_id=544947314]
+script = ExtResource("26_fy1dn")
+song = ExtResource("27_gauxr")
+metadata/_custom_type_script = "uid://d126tu6ywvetb"

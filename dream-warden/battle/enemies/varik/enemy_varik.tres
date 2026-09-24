@@ -3,13 +3,13 @@
 [ext_resource type="Script" uid="uid://caqnjjh4u2r54" path="res://battle/system/resources/attack.gd" id="1_uwjcw"]
 [ext_resource type="PackedScene" uid="uid://cuwui318cvb75" path="res://battle/enemies/warden/attacks/normal/0_wings/wings_attack.tscn" id="2_yy0jl"]
 [ext_resource type="Script" uid="uid://emdpqbj1xvm7" path="res://battle/system/resources/attack_block.gd" id="3_jty3r"]
-[ext_resource type="Script" uid="uid://bq7mxvnbwq8of" path="res://resources/dialogue_components/dialogue_block.gd" id="4_vx40t"]
-[ext_resource type="Script" uid="uid://m17i7j602jax" path="res://resources/dialogue_components/dialogue_string.gd" id="5_g5uuc"]
-[ext_resource type="Script" uid="uid://cci227fj67d4u" path="res://resources/dialogue_components/markers/_dialogue_marker.gd" id="6_b6uyu"]
+[ext_resource type="Script" uid="uid://bq7mxvnbwq8of" path="res://dialogue/components/dialogue_block.gd" id="4_vx40t"]
+[ext_resource type="Script" uid="uid://m17i7j602jax" path="res://dialogue/components/dialogue_string.gd" id="5_g5uuc"]
+[ext_resource type="Script" uid="uid://cci227fj67d4u" path="res://dialogue/components/markers/_dialogue_marker.gd" id="6_b6uyu"]
 [ext_resource type="AudioStream" uid="uid://c3m6sxg7kebei" path="res://shared/sound_effects/snd_text.wav" id="10_owf48"]
 [ext_resource type="Resource" uid="uid://dyv0nkkdce1ge" path="res://battle/fight_data/new_resource.tres" id="11_v7oew"]
 [ext_resource type="Script" uid="uid://bpvsxd6yo0sl4" path="res://battle/enemies/character_stats_enemy.gd" id="12_cqraj"]
-[ext_resource type="Script" uid="uid://j420j57sl5b5" path="res://resources/effects/status_effects/_status_effect.gd" id="13_2cgdy"]
+[ext_resource type="Script" uid="uid://j420j57sl5b5" path="res://shared/effects/status_effects/_status_effect.gd" id="13_2cgdy"]
 
 [sub_resource type="Resource" id="Resource_37nmq"]
 script = ExtResource("1_uwjcw")

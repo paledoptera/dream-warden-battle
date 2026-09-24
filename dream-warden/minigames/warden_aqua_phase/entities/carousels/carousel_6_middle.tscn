@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://do3e5hqcv670r"]
+
+[ext_resource type="PackedScene" uid="uid://02hog1jfmg7b" path="res://minigames/warden_aqua_phase/entities/carousels/system/carousel.tscn" id="1_wn7dr"]
+[ext_resource type="Script" uid="uid://dtaturmq4cp0s" path="res://minigames/warden_aqua_phase/entities/carousels/system/lilypad_layer.gd" id="2_0ohg4"]
+[ext_resource type="Texture2D" uid="uid://bk7dgtgpwuwxv" path="res://minigames/aqua/res/circle_outline.png" id="3_2rcis"]
+[ext_resource type="Script" uid="uid://nrrjm53fpcdl" path="res://minigames/warden_aqua_phase/entities/carousels/system/lilypad.gd" id="4_3o0ah"]
+
+[node name="Carousel6Middle" unique_id=1942144569 instance=ExtResource("1_wn7dr")]
+
+[node name="LilypadLayer1" type="Node2D" parent="." index="1" unique_id=1277585484 node_paths=PackedStringArray("up_layer")]
+modulate = Color(0, 1, 1, 1)
+script = ExtResource("2_0ohg4")
+travel_time = 0.3
+up_layer = NodePath("../LilypadLayer2")
+
+[node name="1" type="Sprite2D" parent="LilypadLayer1" index="0" unique_id=597085304 groups=["aqua_lilypad"]]
+position = Vector2(-4.371139e-06, 100)
+rotation = 1.5707964
+texture = ExtResource("3_2rcis")
+script = ExtResource("4_3o0ah")
+
+[node name="2" type="Sprite2D" parent="LilypadLayer1" index="1" unique_id=2052782801 groups=["aqua_lilypad"]]
+position = Vector2(-86.60255, 49.999992)
+rotation = 2.617994
+texture = ExtResource("3_2rcis")
+script = ExtResource("4_3o0ah")
+
+[node name="3" type="Sprite2D" parent="LilypadLayer1" index="2" unique_id=2079670847 groups=["aqua_lilypad"]]
+position = Vector2(-86.60254, -50.00001)
+rotation = -2.6179938
+texture = ExtResource("3_2rcis")
+script = ExtResource("4_3o0ah")
+
+[node name="4" type="Sprite2D" parent="LilypadLayer1" index="3" unique_id=1133982498 groups=["aqua_lilypad"]]
+position = Vector2(1.3113417e-05, -100)
+rotation = -1.5707963
+texture = ExtResource("3_2rcis")
+script = ExtResource("4_3o0ah")
+
+[node name="5" type="Sprite2D" parent="LilypadLayer1" index="4" unique_id=934352263 groups=["aqua_lilypad"]]
+position = Vector2(86.60255, -49.99999)
+rotation = -0.5235987
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("3_2rcis")
+script = ExtResource("4_3o0ah")
+
+[node name="6" type="Sprite2D" parent="LilypadLayer1" index="5" unique_id=1171863679 groups=["aqua_lilypad"]]
+position = Vector2(86.60255, 49.999996)
+rotation = 0.52359873
+texture = ExtResource("3_2rcis")
+script = ExtResource("4_3o0ah")
+
+[node name="LilypadLayer2" type="Node2D" parent="." index="2" unique_id=1539505725 node_paths=PackedStringArray("down_layer")]
+modulate = Color(0, 1, 1, 1)
+script = ExtResource("2_0ohg4")
+travel_time = 0.3
+down_layer = NodePath("../LilypadLayer1")
+
+[node name="1" type="Sprite2D" parent="LilypadLayer2" index="0" unique_id=1396605150 groups=["aqua_lilypad"]]
+rotation = 1.5707964
+scale = Vector2(2, 2)
+texture = ExtResource("3_2rcis")
+script = ExtResource("4_3o0ah")
+edge_only = true
+no_horizontal_movement = true

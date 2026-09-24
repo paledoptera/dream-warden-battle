@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://02hog1jfmg7b"]
+
+[ext_resource type="Texture2D" uid="uid://dabm6es6bvp7u" path="res://minigames/aqua/res/circle_outline_large.png" id="1_ihw71"]
+[ext_resource type="Script" uid="uid://cl3m6owim0jui" path="res://minigames/warden_aqua_phase/entities/carousels/system/carousel.gd" id="2_s05h1"]
+[ext_resource type="Texture2D" uid="uid://wy7dhu8gvr8c" path="res://battle/soul/soul/res/soul.png" id="3_7n0dd"]
+
+[node name="Carousel" type="Sprite2D" unique_id=1942144569]
+self_modulate = Color(0, 1, 0, 0.18039216)
+texture = ExtResource("1_ihw71")
+script = ExtResource("2_s05h1")
+
+[node name="Player" type="Sprite2D" parent="." unique_id=208417902]
+unique_name_in_owner = true
+position = Vector2(0, 100)
+texture = ExtResource("3_7n0dd")

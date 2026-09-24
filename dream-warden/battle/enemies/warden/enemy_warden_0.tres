@@ -2,12 +2,12 @@
 
 [ext_resource type="Resource" uid="uid://counr7nqw075t" path="res://battle/enemies/warden/data/att_list_warden.tres" id="1_ls6l3"]
 [ext_resource type="Resource" uid="uid://dgabaq3y26n6k" path="res://battle/enemies/warden/data/check_warden.tres" id="2_lyorr"]
-[ext_resource type="Script" uid="uid://bq7mxvnbwq8of" path="res://resources/dialogue_components/dialogue_block.gd" id="3_6d4yv"]
+[ext_resource type="Script" uid="uid://bq7mxvnbwq8of" path="res://dialogue/components/dialogue_block.gd" id="3_6d4yv"]
 [ext_resource type="Resource" uid="uid://cld6dkn35vrx6" path="res://battle/enemies/warden/data/flavor_opening_warden.tres" id="4_6d4yv"]
 [ext_resource type="Resource" uid="uid://c4be7nfmiusm8" path="res://battle/enemies/warden/data/flavor_warden.tres" id="4_c3qyi"]
 [ext_resource type="Script" uid="uid://bpvsxd6yo0sl4" path="res://battle/enemies/character_stats_enemy.gd" id="4_dbtjp"]
 [ext_resource type="Resource" uid="uid://dxq13dosllqvn" path="res://battle/enemies/warden/data/mercy_fail_warden.tres" id="5_ysdyg"]
-[ext_resource type="Script" uid="uid://j420j57sl5b5" path="res://resources/effects/status_effects/_status_effect.gd" id="8_c3qyi"]
+[ext_resource type="Script" uid="uid://j420j57sl5b5" path="res://shared/effects/status_effects/_status_effect.gd" id="8_c3qyi"]
 [ext_resource type="AudioStream" uid="uid://bgh3gudh630m1" path="res://shared/sound_effects/snd_ward_deflect.wav" id="11_et424"]
 
 [resource]

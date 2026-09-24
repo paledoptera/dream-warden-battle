@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://b7gbyko8v8bql"]
+
+[ext_resource type="Script" uid="uid://csgvuo8wv34sh" path="res://minigames/warden_aqua_phase/entities/boss/boss.gd" id="1_dw1wy"]
+[ext_resource type="PackedScene" uid="uid://daeern1c5gfgq" path="res://battle/enemies/warden/new_actor/warden_model.tscn" id="2_outsc"]
+[ext_resource type="Script" uid="uid://16h0y50oyjvy" path="res://battle/bullets/bullet_spawner_3d.gd" id="3_gdsn1"]
+[ext_resource type="PackedScene" uid="uid://ds4vcmkvdeqkj" path="res://minigames/aqua/bullets/diamond_bullet_3d.tscn" id="4_h0007"]
+[ext_resource type="PackedScene" uid="uid://ckvgqgq0rec3h" path="res://minigames/aqua/bullets/diamond_bullet_parryable_3d.tscn" id="5_pdmyr"]
+
+[sub_resource type="Animation" id="Animation_yptke"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_8yviw"]
+resource_name = "new_animation"
+length = 3.0
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xpa20"]
+_data = {
+&"RESET": SubResource("Animation_yptke"),
+&"hover": SubResource("Animation_8yviw")
+}
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_sb71w"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_1g367"]
+viewport_path = NodePath("SubViewport")
+
+[node name="Boss" type="Node3D" unique_id=1593148642]
+script = ExtResource("1_dw1wy")
+
+[node name="LookatBase" type="Node3D" parent="." unique_id=748067545]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.19, 0)
+
+[node name="Targeter" type="Node3D" parent="." unique_id=1179034929]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.11935425, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1258161766]
+libraries/ = SubResource("AnimationLibrary_xpa20")
+autoplay = &"hover"
+
+[node name="warden" parent="." unique_id=1864175887 instance=ExtResource("2_outsc")]
+position = Vector2(0, 0.071)
+rotation = 0.015735656
+scale = Vector2(0.12478004, 0.12499994)
+skew = -5.543232e-05
+
+[node name="warden" parent="warden/SubViewport" parent_id_path=PackedInt32Array(1864175887, 2077071428) index="0" unique_id=760203765]
+transform = Transform3D(0.125, 0, 0, 0, 0.125, 0, 0, 0, 0.125, 0, 0.11379872, 0)
+
+[node name="ghost_sprite_shadow" parent="warden" index="2" unique_id=1034544421]
+texture = SubResource("ViewportTexture_sb71w")
+
+[node name="ghost_sprite" parent="warden" index="3" unique_id=1506854121]
+texture = SubResource("ViewportTexture_sb71w")
+
+[node name="primary_sprite" parent="warden" index="4" unique_id=1491531621]
+texture = SubResource("ViewportTexture_1g367")
+
+[node name="AttackTimer" type="Timer" parent="." unique_id=1109622163]
+wait_time = 2.0
+
+[node name="BulletTimer" type="Timer" parent="." unique_id=1984181938]
+one_shot = true
+autostart = true
+
+[node name="BulletSpawner3D" type="Node3D" parent="." unique_id=1180798683]
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0.071, 0)
+script = ExtResource("3_gdsn1")
+bullet = Array[PackedScene]([ExtResource("4_h0007"), ExtResource("5_pdmyr")])
+metadata/_custom_type_script = "uid://16h0y50oyjvy"
+
+[connection signal="timeout" from="BulletTimer" to="." method="_on_bullet_timer_timeout"]
+
+[editable path="warden"]
+[editable path="warden/SubViewport/warden"]

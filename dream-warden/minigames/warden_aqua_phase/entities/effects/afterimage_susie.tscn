@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://c17qdpeqluwmg"]
+
+[ext_resource type="SpriteFrames" uid="uid://t7ebbmwqtgo" path="res://minigames/warden_aqua_phase/entities/player/res/aqua_susie_frames.tres" id="1_tphrv"]
+
+[sub_resource type="GDScript" id="GDScript_eyarr"]
+resource_name = "afterimage"
+script/source = "extends AnimatedSprite3D
+
+func _ready() -> void:
+	var tween = create_tween()
+	tween.set_parallel(true)
+	tween.tween_property(self,\"modulate\",Color(\"00254700\"),0.7).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	await tween.finished
+	queue_free()
+"
+
+[node name="Susie" type="AnimatedSprite3D" unique_id=1192500085]
+visible = false
+offset = Vector2(8, 36)
+modulate = Color(0, 9.061582, 9.061582, 0.23921569)
+pixel_size = 0.00416
+billboard = 1
+texture_filter = 0
+sprite_frames = ExtResource("1_tphrv")
+animation = &"idle"
+autoplay = "idle"
+speed_scale = 0.0
+script = SubResource("GDScript_eyarr")

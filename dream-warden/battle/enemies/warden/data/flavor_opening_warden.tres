@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="DialogueString" format=3 uid="uid://cld6dkn35vrx6"]
 
-[ext_resource type="Script" uid="uid://cci227fj67d4u" path="res://resources/dialogue_components/markers/_dialogue_marker.gd" id="1_virlh"]
-[ext_resource type="Script" uid="uid://b8tmchw2csyvn" path="res://resources/dialogue_components/markers/gradient_marker.gd" id="2_s15c7"]
-[ext_resource type="Texture2D" uid="uid://cjff5uju5g06g" path="res://resources/dialogue_components/text_effects/res/yellow_gradient.tres" id="3_t01w4"]
-[ext_resource type="Texture2D" uid="uid://bhdwk28mf7hoe" path="res://resources/dialogue_components/text_effects/res/green_gradient.tres" id="4_2bevr"]
-[ext_resource type="Script" uid="uid://m17i7j602jax" path="res://resources/dialogue_components/dialogue_string.gd" id="5_i5dq6"]
+[ext_resource type="Script" uid="uid://cci227fj67d4u" path="res://dialogue/components/markers/_dialogue_marker.gd" id="1_virlh"]
+[ext_resource type="Script" uid="uid://b8tmchw2csyvn" path="res://dialogue/components/markers/gradient_marker.gd" id="2_s15c7"]
+[ext_resource type="Texture2D" uid="uid://cjff5uju5g06g" path="res://dialogue/components/text_effects/res/yellow_gradient.tres" id="3_t01w4"]
+[ext_resource type="Texture2D" uid="uid://bhdwk28mf7hoe" path="res://dialogue/components/text_effects/res/green_gradient.tres" id="4_2bevr"]
+[ext_resource type="Script" uid="uid://m17i7j602jax" path="res://dialogue/components/dialogue_string.gd" id="5_i5dq6"]
 [ext_resource type="AudioStream" uid="uid://c3m6sxg7kebei" path="res://shared/sound_effects/snd_text.wav" id="6_qviam"]
 
 [sub_resource type="Resource" id="Resource_k4cw7"]

@@ -1,0 +1,411 @@
+[gd_scene format=3 uid="uid://byl3bkak2eqx5"]
+
+[ext_resource type="Script" uid="uid://b4x8chidjotvc" path="res://screens/credits/credits.gd" id="1_53a3d"]
+[ext_resource type="AudioStream" uid="uid://iwf11tbxrl3i" path="res://shared/music/mus_express_myself.mp3" id="2_1h4sr"]
+[ext_resource type="Texture2D" uid="uid://b1qfx8r40cpwg" path="res://battle/enemies/warden/actor/res/model/assets/IMAGE_DEPTHS_blue.png" id="2_d1b17"]
+[ext_resource type="PackedScene" uid="uid://bbb0yt2rjiel5" path="res://battle/stages/dream_scape/scenes/background_gonermaker.tscn" id="2_t8423"]
+
+[sub_resource type="Animation" id="Animation_1h4sr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Title:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Text1:theme_override_colors/default_color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Text1:text")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["
+
+
+
+
+
+
+
+By Paledoptera & Angelvision"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Text2:text")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["
+
+
+
+
+
+
+
+By Paledoptera & Angelvision"]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Text2:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Title:text")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["
+
+
+VS. Dream Warden"]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Title/Sprite2D:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(339, 385)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Gonermaker:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.8509804, 0.8509804, 0.8509804, 0.4117647)]
+}
+
+[sub_resource type="Animation" id="Animation_d1b17"]
+resource_name = "credits"
+length = 45.0
+tracks/0/type = "audio"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("2_1h4sr")
+}],
+"times": PackedFloat32Array(0.16666667)
+}
+tracks/0/use_blend = true
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Title:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.5000002, 9.1, 9.966666, 34.933334, 36.300003),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Text1:theme_override_colors/default_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3.553682, 5.373251, 9.1, 9.966666, 11.566533, 13.386102, 19.400002, 20.6, 21.400002, 22.566668, 31.900002, 33.6, 37, 38.533333, 43.61144),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Text1:text")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 11.066667, 21.367949, 35.333332),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": ["
+
+
+
+
+
+
+
+By Angelvision & Paledoptera", "
+Thank you to our contributors,
+who helped make this happen.
+
+Dummy
+Sprite art & animations
+
+NausetJF
+3D modelling & animation
+
+Airplane
+Background art", "
+
+Special thanks to:
+
+Visioncord
+(insert
+list
+of
+speciaal
+thanks
+here)
+
+", "
+
+
+
+
+
+for watching our dream."]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Text2:text")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 24.533335, 39.666668),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": ["", "
+
+
+
+
+
+
+
+
+
+
+
+and Toby Fox, for creating
+a game that we adore.", "
+
+
+
+
+
+
+
+
+Back to title"]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Text2:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(24.7, 26.233335, 31.96667, 33.36667, 41.533337, 42.133335),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 0.40784314, 0.34509805, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Title:text")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 34.300003),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["
+
+
+VS. Dream Warden", "
+
+Thank you,"]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Title/Sprite2D:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 45),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(339, 385), Vector2(339, 649.98)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Gonermaker:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 9.233334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.8509804, 0.8509804, 0.8509804, 0), Color(0.8509804, 0.8509804, 0.8509804, 0.4117647)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t8423"]
+_data = {
+&"RESET": SubResource("Animation_1h4sr"),
+&"credits": SubResource("Animation_d1b17")
+}
+
+[node name="Credits" type="Node" unique_id=1034015464]
+script = ExtResource("1_53a3d")
+
+[node name="Gonermaker" parent="." unique_id=721451656 instance=ExtResource("2_t8423")]
+modulate = Color(0.8509804, 0.8509804, 0.8509804, 0.4117647)
+use_parent_material = true
+
+[node name="Title" type="RichTextLabel" parent="." unique_id=1866067839]
+modulate = Color(1, 1, 1, 0)
+clip_children = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 64
+text = "
+
+
+VS. Dream Warden"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Title" unique_id=1934478226]
+modulate = Color(2.8157141, 2.8157141, 2.8157141, 1)
+position = Vector2(339, 385)
+scale = Vector2(4, 4)
+texture = ExtResource("2_d1b17")
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Title/Sprite2D" unique_id=1836953435]
+remote_path = NodePath("../../../Text1/Sprite2D")
+
+[node name="RemoteTransform2D2" type="RemoteTransform2D" parent="Title/Sprite2D" unique_id=692232339]
+remote_path = NodePath("../../../Text2/Sprite2D")
+
+[node name="Text1" type="RichTextLabel" parent="." unique_id=1514680285]
+clip_children = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(1, 1, 1, 0)
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "
+
+
+
+
+
+
+
+By Paledoptera & Angelvision"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Text1" unique_id=920885495]
+modulate = Color(2.8157141, 2.8157141, 2.8157141, 1)
+position = Vector2(339, 537.707)
+scale = Vector2(4, 4)
+texture = ExtResource("2_d1b17")
+
+[node name="Text2" type="RichTextLabel" parent="." unique_id=1915644512]
+modulate = Color(1, 1, 1, 0)
+clip_children = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 32
+text = "
+
+
+
+
+
+
+
+By Paledoptera & Angelvision"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="Text2" unique_id=2027044715]
+modulate = Color(2.8157141, 2.8157141, 2.8157141, 1)
+position = Vector2(339, 537.707)
+scale = Vector2(4, 4)
+texture = ExtResource("2_d1b17")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1737175502]
+libraries/ = SubResource("AnimationLibrary_t8423")
+autoplay = &"credits"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1246253023]

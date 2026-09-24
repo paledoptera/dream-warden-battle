@@ -1,0 +1,242 @@
+[gd_scene format=3 uid="uid://dxrrej4kwvhng"]
+
+[ext_resource type="Script" uid="uid://26k7xoabynsc" path="res://minigames/aqua/aqua_circle.gd" id="1_8e0hu"]
+
+[sub_resource type="Gradient" id="Gradient_q255v"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.5322034, 0.56271183, 0.6, 0.6576271)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_g4v7s"]
+gradient = SubResource("Gradient_q255v")
+width = 100
+height = 100
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_kl7u5"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_yf5fn"]
+resource_local_to_scene = true
+transparency = 1
+shading_mode = 0
+albedo_texture = SubResource("ViewportTexture_kl7u5")
+texture_filter = 0
+
+[sub_resource type="QuadMesh" id="QuadMesh_yf5fn"]
+size = Vector2(0.35, 0.35)
+orientation = 1
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_g4v7s"]
+top_radius = 0.153
+bottom_radius = 0.16259766
+height = 0.001
+cap_bottom = false
+
+[sub_resource type="Animation" id="Animation_8e0hu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubViewport/Ring:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_4nc66"]
+resource_name = "circle"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubViewport/Ring:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_rmhdy"]
+resource_name = "circle"
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubViewport/Ring:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0.45, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_q255v"]
+resource_name = "circle"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubViewport/Ring:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0.3666668, 1, 1), Color(0, 0, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8e0hu"]
+_data = {
+&"RESET": SubResource("Animation_8e0hu"),
+&"current": SubResource("Animation_4nc66"),
+&"idle": SubResource("Animation_rmhdy"),
+&"next": SubResource("Animation_q255v")
+}
+
+[sub_resource type="Animation" id="Animation_kl7u5"]
+resource_name = "circle"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SubViewport/Ring/Ring2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("SubViewport/Ring/Ring2:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SubViewport/Ring/Ring3:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.19999999, 0.23333335, 0.5),
+"transitions": PackedFloat32Array(1, 0, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.5294118), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0.5294118)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SubViewport/Ring/Ring3:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.19999999, 0.23333335, 0.5),
+"transitions": PackedFloat32Array(1, 0, 1, 1),
+"update": 0,
+"values": [Vector2(0.39999992, 0.39999992), Vector2(0, 0), Vector2(1, 1), Vector2(0.46666652, 0.46666652)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kstwy"]
+_data = {
+&"circle": SubResource("Animation_kl7u5")
+}
+
+[node name="Lilypad3D" type="Node3D" unique_id=1125195471]
+script = ExtResource("1_8e0hu")
+
+[node name="SubViewport" type="SubViewport" parent="." unique_id=960181945]
+disable_3d = true
+transparent_bg = true
+canvas_item_default_texture_filter = 0
+sdf_oversize = 0
+oversampling = false
+size = Vector2i(100, 100)
+
+[node name="Ring" type="TextureRect" parent="SubViewport" unique_id=306499203]
+modulate = Color(0, 0, 1, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(-0.5, -0.5)
+texture = SubResource("GradientTexture2D_g4v7s")
+
+[node name="Ring2" type="TextureRect" parent="SubViewport/Ring" unique_id=573294375]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(-0.5, -0.5)
+texture = SubResource("GradientTexture2D_g4v7s")
+
+[node name="Ring3" type="TextureRect" parent="SubViewport/Ring" unique_id=855794059]
+modulate = Color(1, 1, 1, 0.19921565)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 50.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.39999992, 0.39999992)
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(-0.5, -0.5)
+texture = SubResource("GradientTexture2D_g4v7s")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1552867358]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.005, 0)
+material_override = SubResource("StandardMaterial3D_yf5fn")
+mesh = SubResource("QuadMesh_yf5fn")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D2" unique_id=1500897804]
+visible = false
+material_override = SubResource("StandardMaterial3D_yf5fn")
+mesh = SubResource("CylinderMesh_g4v7s")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1579331495]
+libraries/ = SubResource("AnimationLibrary_8e0hu")
+autoplay = &"idle"
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="." unique_id=811569563]
+libraries/ = SubResource("AnimationLibrary_kstwy")
+autoplay = &"circle"
+speed_scale = 0.5

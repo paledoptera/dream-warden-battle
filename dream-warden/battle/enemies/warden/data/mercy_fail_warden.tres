@@ -1,17 +1,19 @@
 [gd_resource type="Resource" script_class="DialogueBlock" format=3 uid="uid://dxq13dosllqvn"]
 
-[ext_resource type="Script" uid="uid://bq7mxvnbwq8of" path="res://resources/dialogue_components/dialogue_block.gd" id="1_sgt5o"]
-[ext_resource type="Script" uid="uid://m17i7j602jax" path="res://resources/dialogue_components/dialogue_string.gd" id="2_oxnnc"]
-[ext_resource type="Script" uid="uid://cci227fj67d4u" path="res://resources/dialogue_components/markers/_dialogue_marker.gd" id="3_qxfpb"]
-[ext_resource type="Texture2D" uid="uid://dgvrdljc3pllm" path="res://entities/dialogue/portraits/susie/susie_goofy_threat.png" id="4_t60ow"]
+[ext_resource type="Script" uid="uid://bq7mxvnbwq8of" path="res://dialogue/components/dialogue_block.gd" id="1_sgt5o"]
+[ext_resource type="Script" uid="uid://m17i7j602jax" path="res://dialogue/components/dialogue_string.gd" id="2_oxnnc"]
+[ext_resource type="Script" uid="uid://cci227fj67d4u" path="res://dialogue/components/markers/_dialogue_marker.gd" id="3_qxfpb"]
+[ext_resource type="Texture2D" uid="uid://dgvrdljc3pllm" path="res://dialogue/entities/portraits/susie/susie_goofy_threat.png" id="4_t60ow"]
 [ext_resource type="AudioStream" uid="uid://q2o6ubr8kajn" path="res://shared/sound_effects/snd_txt_susie.wav" id="5_jfdu4"]
-[ext_resource type="Texture2D" uid="uid://cerarap2ghpsc" path="res://entities/dialogue/portraits/susie/susie_mad.png" id="6_hs7ke"]
-[ext_resource type="Texture2D" uid="uid://dpebc8cywm13k" path="res://entities/dialogue/portraits/susie/susie_sad.png" id="7_8o7ec"]
+[ext_resource type="Texture2D" uid="uid://cerarap2ghpsc" path="res://dialogue/entities/portraits/susie/susie_mad.png" id="6_hs7ke"]
+[ext_resource type="Texture2D" uid="uid://dpebc8cywm13k" path="res://dialogue/entities/portraits/susie/susie_sad.png" id="7_8o7ec"]
 [ext_resource type="AudioStream" uid="uid://c3m6sxg7kebei" path="res://shared/sound_effects/snd_text.wav" id="8_skbtm"]
 
 [sub_resource type="Resource" id="Resource_7rs3p"]
 script = ExtResource("2_oxnnc")
-text = "* Hey! Focus, dumbass!"
+text = "* HEY!
+* Are you seriously trying
+	to SPARE this guy?!"
 talksound = ExtResource("5_jfdu4")
 portrait = ExtResource("4_t60ow")
 flag = &"mercy_disabled"
@@ -21,8 +23,8 @@ metadata/_custom_type_script = "uid://m17i7j602jax"
 
 [sub_resource type="Resource" id="Resource_x5fh1"]
 script = ExtResource("2_oxnnc")
-text = "* There's no WAY we're gonna
-	spare this thing."
+text = "* I know that's supposed to be,
+	like, our thing, but..."
 talksound = ExtResource("5_jfdu4")
 portrait = ExtResource("6_hs7ke")
 flag_value = null
@@ -30,8 +32,8 @@ metadata/_custom_type_script = "uid://m17i7j602jax"
 
 [sub_resource type="Resource" id="Resource_fnljv"]
 script = ExtResource("2_oxnnc")
-text = "* If it's even... alive...
-* You know what it wants."
+text = "* You can feel it too, right?
+* We can't."
 talksound = ExtResource("5_jfdu4")
 portrait = ExtResource("7_8o7ec")
 flag_value = null

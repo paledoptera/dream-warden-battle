@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://d07lohom2esaq"]
+
+[node name="Extras" type="Node" unique_id=25031840]
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1023861480]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 64
+text = "EXTRAS
+
+
+"
+horizontal_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=1538773478]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -22.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 32
+text = "
+
+
+	Challenges
+
+	Concept Art
+
+	Replay Intro
+
+	Replay Credits
+
+	Other
+
+
+	Back to Title Screen"

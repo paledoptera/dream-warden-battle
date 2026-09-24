@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c0oopy8rd7aua" path="res://battle/system/ui/action_panel/action_panel.tscn" id="4_k6ceo"]
 [ext_resource type="Script" uid="uid://cqgqqn8on2o56" path="res://battle/system/components/event_queue.gd" id="4_t33rp"]
 [ext_resource type="Script" uid="uid://cq8b2sfdp7v82" path="res://battle/system/components/battle_data_manager.gd" id="5_uhooo"]
-[ext_resource type="PackedScene" uid="uid://ca3d2dgphgx5j" path="res://entities/dialogue/dialogue_box.tscn" id="6_gq06c"]
+[ext_resource type="PackedScene" uid="uid://ca3d2dgphgx5j" path="res://dialogue/entities/box/dialogue_box.tscn" id="6_gq06c"]
 [ext_resource type="PackedScene" uid="uid://jhaejpx46ycp" path="res://battle/system/ui/tp_bar/tp_bar.tscn" id="10_d1p73"]
 [ext_resource type="PackedScene" uid="uid://evdoduytwa6e" path="res://battle/system/scenes/stats_tab.tscn" id="15_obv46"]
 [ext_resource type="Script" uid="uid://cyrn1w378lyp6" path="res://battle/system/components/character_status_manager.gd" id="15_r6df0"]

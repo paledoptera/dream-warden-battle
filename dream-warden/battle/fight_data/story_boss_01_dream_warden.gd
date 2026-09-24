@@ -18,7 +18,7 @@ func player_turn_end() -> void:
 		EventBus.battle_event.emit("slide_out",null)
 		Actors.do_action("susie", "jump_attack")
 		await Global.get_tree().create_timer(3.0).timeout
-		SceneLoader.change_scene(preload("uid://dbi6lj71m2qh8"))
+		SceneLoader.change_scene(preload("uid://c4x45003hs5wp"))
 		return
 		
 	

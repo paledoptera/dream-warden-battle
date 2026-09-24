@@ -19,11 +19,6 @@ func _ready() -> void:
 func _enter_tree() -> void:
 	Actors.add_actor(id,self)
 
-
-func _exit_tree() -> void:
-	Actors.remove_actor(id)
-
-
 func do_action(action: StringName):
 	if animated_element:
 		animated_element.play(action)
