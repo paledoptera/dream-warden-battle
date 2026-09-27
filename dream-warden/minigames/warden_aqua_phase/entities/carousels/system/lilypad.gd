@@ -7,3 +7,4 @@ var right: AquaLilypad
 var up: AquaLilypad
 var down: AquaLilypad
 var node_3d: Node3D
+var active: bool = true

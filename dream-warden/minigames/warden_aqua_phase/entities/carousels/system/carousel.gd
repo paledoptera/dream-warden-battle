@@ -2,8 +2,10 @@ class_name AquaCarousel extends Sprite2D
 
 
 @export var lilypad_layers: Array[AquaLilypadLayer]
+@export var boss_layer: AquaLilypadLayer
 
 signal current_lilypad_changed(lilypad: Node2D, last_lilypad: Node2D)
+signal lilypad_layer_changed_state(lilypad_layer: AquaLilypadLayer, state: bool)
 
 var current_lilypad: Node2D:
 	set(value):
@@ -28,6 +30,16 @@ func _ready() -> void:
 	last_player_position = player_position
 
 func _process(delta: float) -> void:
+	if not current_layer.enabled:
+		var new_layer = check_for_valid_layer()
+		current_layer = new_layer
+		current_lilypad = current_layer.get_child(current_layer.current)
+		var tween = create_tween()
+		tween.tween_property(%Player,"global_position",current_lilypad.global_position,0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+		return
+		
+	
+	
 	var horizontal_input = Input.get_axis("left","right")
 	var vertical_input = Input.get_axis("up","down")
 	
@@ -62,10 +74,25 @@ func goto_horizontal_lilypad(val: int):
 
 func goto_vertical_lilypad(val: int):
 	if current_layer.down_layer and val == 1:
+		if not current_layer.down_layer.enabled:
+			return
 		current_layer = current_layer.down_layer
 		current_lilypad = current_layer.get_child(current_layer.current)
 		return
 	elif current_layer.up_layer and val == -1:
+		if not current_layer.up_layer.enabled:
+			return
 		current_layer = current_layer.up_layer
 		current_lilypad = current_layer.get_child(current_layer.current)
 		return
+
+func boss_layer_change_state(enabled: bool):
+	boss_layer.enabled = enabled
+
+func check_for_valid_layer() -> AquaLilypadLayer:
+	if current_layer.down_layer:
+		return current_layer.down_layer
+	if current_layer.up_layer:
+		return current_layer.up_layer
+	
+	return lilypad_layers[0]

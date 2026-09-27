@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://xc1ottvwbeog"
+path="res://.godot/imported/lilypad_1.obj-bbfd4d229d3f9f17d4fa8766739af199.mesh"
+
+[deps]
+
+files=["res://.godot/imported/lilypad_1.obj-bbfd4d229d3f9f17d4fa8766739af199.mesh"]
+
+source_file="res://minigames/warden_aqua_phase/systems/carousel_animator/res/lilypad_1.obj"
+dest_files=["res://.godot/imported/lilypad_1.obj-bbfd4d229d3f9f17d4fa8766739af199.mesh", "res://.godot/imported/lilypad_1.obj-bbfd4d229d3f9f17d4fa8766739af199.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

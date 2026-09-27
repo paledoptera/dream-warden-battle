@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://dmlaifxf3g148"]
 
-[ext_resource type="Script" uid="uid://c22p8j5iuqiot" path="res://minigames/warden_aqua_phase/entities/bullets/bullet3d.gd" id="1_nkj7g"]
-[ext_resource type="AudioStream" uid="uid://cmh148tm0uus4" path="res://shared/sound_effects/snd_ward_lazer.wav" id="2_yec63"]
-[ext_resource type="AudioStream" uid="uid://b70kayoafopci" path="res://shared/sound_effects/snd_ward_target.wav" id="3_pwirg"]
-[ext_resource type="Texture2D" uid="uid://b4hf6puuqnkqd" path="res://minigames/aqua/res/sigil1.png" id="4_jr8jo"]
-[ext_resource type="Texture2D" uid="uid://6o8v8y75sm1j" path="res://minigames/aqua/res/sigil2.png" id="5_sf8hh"]
+[ext_resource type="Script" uid="uid://c22p8j5iuqiot" path="res://minigames/warden_aqua_phase/entities/bullets/bullet3d.gd" id="1_qpkm3"]
+[ext_resource type="AudioStream" uid="uid://cmh148tm0uus4" path="res://shared/sound_effects/snd_ward_lazer.wav" id="2_5x4j1"]
+[ext_resource type="AudioStream" uid="uid://b70kayoafopci" path="res://shared/sound_effects/snd_ward_target.wav" id="3_8k5cm"]
+[ext_resource type="Texture2D" uid="uid://b4hf6puuqnkqd" path="res://minigames/aqua/res/sigil1.png" id="4_j6fdy"]
+[ext_resource type="Texture2D" uid="uid://6o8v8y75sm1j" path="res://minigames/aqua/res/sigil2.png" id="5_dijrg"]
 
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_awkxf"]
 radius = 0.098
@@ -157,7 +157,7 @@ tracks/5/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("2_yec63")
+"stream": ExtResource("2_5x4j1")
 }],
 "times": PackedFloat32Array(0.53333336)
 }
@@ -172,7 +172,7 @@ tracks/6/keys = {
 "clips": [{
 "end_offset": 0.210705,
 "start_offset": 0.0,
-"stream": ExtResource("3_pwirg")
+"stream": ExtResource("3_8k5cm")
 }],
 "times": PackedFloat32Array(0)
 }
@@ -213,7 +213,7 @@ albedo_color = Color(1, 1, 1, 0.40392157)
 
 [node name="Bullet3D" type="Area3D" parent="." unique_id=1639480364]
 collision_layer = 2
-script = ExtResource("1_nkj7g")
+script = ExtResource("1_qpkm3")
 life_time = -1.0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Bullet3D" unique_id=614602147]
@@ -231,14 +231,14 @@ offset = Vector2(1, -2)
 pixel_size = 0.004
 axis = 1
 texture_filter = 0
-texture = ExtResource("4_jr8jo")
+texture = ExtResource("4_j6fdy")
 
 [node name="Sprite3D3" type="Sprite3D" parent="Sigil" unique_id=2045101924]
 offset = Vector2(1, -2)
 pixel_size = 0.003
 axis = 1
 texture_filter = 0
-texture = ExtResource("5_sf8hh")
+texture = ExtResource("5_dijrg")
 
 [node name="PillarofLight" type="MeshInstance3D" parent="." unique_id=1320454522]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.001, 0)

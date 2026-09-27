@@ -10,16 +10,15 @@ radius = 0.06
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gbod2"]
 shading_mode = 0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_63xd1"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ftsy2"]
 shading_mode = 0
-albedo_color = Color(0, 0, 0, 1)
 
 [node name="Bullet3D" type="Area3D" unique_id=1373998874]
 collision_layer = 2
 script = ExtResource("1_io0ng")
+damage = 10
 destructible = true
-velocity = Vector3(0, 0, -0.25)
-life_time = 1.0
+velocity = Vector3(0, 0, -0.22)
 linear_acceleration = 2.0
 metadata/_custom_type_script = "uid://c22p8j5iuqiot"
 
@@ -31,7 +30,7 @@ debug_color = Color(0.9098039, 0.3019608, 0, 1)
 transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, 0, 0)
 mesh = ExtResource("3_63xd1")
 surface_material_override/0 = SubResource("StandardMaterial3D_gbod2")
-surface_material_override/1 = SubResource("StandardMaterial3D_63xd1")
+surface_material_override/1 = SubResource("StandardMaterial3D_ftsy2")
 
 [node name="Sprite3D" type="Sprite3D" parent="." unique_id=683741585]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.070979714, 7.275958e-12)

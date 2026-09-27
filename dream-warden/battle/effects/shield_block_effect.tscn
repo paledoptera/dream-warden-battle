@@ -174,23 +174,23 @@ libraries/ = SubResource("AnimationLibrary_v7v0u")
 autoplay = &"block"
 
 [node name="AttackBlockerContainer" type="Node2D" parent="." unique_id=541133819]
-modulate = Color(1, 1, 1, 0)
-position = Vector2(19, 0)
+modulate = Color(1, 1, 1, 0.88288885)
+position = Vector2(-10, 10)
 
 [node name="AttackBlocker" type="Node2D" parent="AttackBlockerContainer" unique_id=752194910]
 modulate = Color(0.45767742, 0.77602017, 0.81970006, 1)
 position = Vector2(-23, 0)
 rotation = 1.5707964
-skew = 0.26179945
+skew = 0.34906584
 
 [node name="BlockSprite" type="Sprite2D" parent="AttackBlockerContainer/AttackBlocker" unique_id=1780297835]
-modulate = Color(1, 1, 1, 0)
+modulate = Color(1, 1, 1, 0.72)
 rotation = 1.5707964
-scale = Vector2(4, 4)
+scale = Vector2(3.1644297, 3.1644297)
 texture = ExtResource("7_0qlik")
 
 [node name="Sprite2D" type="Sprite2D" parent="AttackBlockerContainer/AttackBlocker/BlockSprite" unique_id=1917340442]
-modulate = Color(1, 1, 1, 0)
+modulate = Color(1, 1, 1, 0.9999999)
 scale = Vector2(0.6666667, 0.6666666)
 texture = ExtResource("7_0qlik")
 
@@ -211,19 +211,19 @@ scale = Vector2(0.375, 0.37500006)
 texture = ExtResource("7_0qlik")
 
 [node name="CounterBlock" type="Sprite2D" parent="AttackBlockerContainer/AttackBlocker" unique_id=1246836097]
-modulate = Color(1, 1, 1, 0)
+modulate = Color(1, 1, 1, 0.2318083)
 rotation = 1.5707964
 scale = Vector2(4, 4)
 texture = ExtResource("7_0qlik")
 
 [node name="Sprite2D" type="Sprite2D" parent="AttackBlockerContainer/AttackBlocker/CounterBlock" unique_id=2143012712]
-scale = Vector2(0.75, 0.75)
+scale = Vector2(0.8333333, 0.8333333)
 texture = ExtResource("7_0qlik")
 
 [node name="BlockBlast" type="Sprite2D" parent="AttackBlockerContainer/AttackBlocker" unique_id=1912180483]
-modulate = Color(1, 1, 1, 0)
+modulate = Color(1, 1, 1, 0.19944)
 rotation = 1.5707964
-scale = Vector2(7, 7)
+scale = Vector2(4.4489794, 4.4489794)
 texture = ExtResource("7_0qlik")
 
 [node name="CounterBlock2" type="Sprite2D" parent="AttackBlockerContainer/AttackBlocker/BlockBlast" unique_id=1854554004]

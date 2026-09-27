@@ -45,9 +45,9 @@ func _physics_process(delta: float) -> void:
 	global_position += final_velocity * delta
 
 func _on_area_entered(area: Area3D) -> void:
-	if area is AquaPlayer:
+	if area is AquaPlayer3D:
 		print("PLAYER HIT")
-		area.hurt(damage,ignore_iframes)
+		EventBus.damage_player.emit(damage)
 		if destructible:
 			destroy()
 

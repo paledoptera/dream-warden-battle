@@ -35,7 +35,6 @@ var story_battle_controller: StoryBattleController
 
 static func start(fight_data: FightData) -> Node:
 	var stage = SceneLoader.change_scene(fight_data.stage)
-
 	
 	var scene = SCENE.instantiate()
 	stage.add_child(scene)

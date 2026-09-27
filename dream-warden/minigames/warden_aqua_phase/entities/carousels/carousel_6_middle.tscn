@@ -5,13 +5,15 @@
 [ext_resource type="Texture2D" uid="uid://bk7dgtgpwuwxv" path="res://minigames/aqua/res/circle_outline.png" id="3_2rcis"]
 [ext_resource type="Script" uid="uid://nrrjm53fpcdl" path="res://minigames/warden_aqua_phase/entities/carousels/system/lilypad.gd" id="4_3o0ah"]
 
-[node name="Carousel6Middle" unique_id=1942144569 instance=ExtResource("1_wn7dr")]
+[node name="Carousel6Middle" unique_id=1942144569 node_paths=PackedStringArray("boss_layer") instance=ExtResource("1_wn7dr")]
+boss_layer = NodePath("LilypadLayer2")
 
 [node name="LilypadLayer1" type="Node2D" parent="." index="1" unique_id=1277585484 node_paths=PackedStringArray("up_layer")]
 modulate = Color(0, 1, 1, 1)
 script = ExtResource("2_0ohg4")
 travel_time = 0.3
 up_layer = NodePath("../LilypadLayer2")
+enabled = true
 
 [node name="1" type="Sprite2D" parent="LilypadLayer1" index="0" unique_id=597085304 groups=["aqua_lilypad"]]
 position = Vector2(-4.371139e-06, 100)

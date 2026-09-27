@@ -10,6 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://kjq0i33x1bdi" path="res://minigames/aqua/res/tp_icon_bar_full.png" id="8_4285s"]
 [ext_resource type="Texture2D" uid="uid://tq7a8ytjmfsm" path="res://minigames/aqua/res/action_commands.png" id="9_4285s"]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_12mqw"]
+blend_mode = 4
+
 [sub_resource type="Gradient" id="Gradient_5t0qo"]
 offsets = PackedFloat32Array(0.32244897, 0.43265307, 0.46530613, 0.53061223, 1)
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 1, 0, 0.071053095, 0.5012965, 0.5446729, 0.09411765, 0, 0, 0, 1, 0, 0, 0, 1)
@@ -28,6 +31,8 @@ script = ExtResource("2_gsile")
 scale = Vector2(2, 2)
 
 [node name="Sprite2D" type="Sprite2D" parent="Normal" unique_id=1682812931]
+modulate = Color(1, 1, 1, 0.31764707)
+material = SubResource("CanvasItemMaterial_12mqw")
 texture = ExtResource("1_cmydt")
 
 [node name="ProgressWhite" type="TextureProgressBar" parent="Normal" unique_id=662918798]

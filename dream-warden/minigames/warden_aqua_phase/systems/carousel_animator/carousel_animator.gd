@@ -2,13 +2,15 @@ class_name AquaCarouselAnimator extends Node3D
 
 var lilypads: Array[AquaLilypad]
 var display_lilypads: Array[Node3D]
-
 var current_lilypad: AquaLilypad
+var carousel: AquaCarousel
 
 const LILYPAD_3D = preload("uid://dxrrej4kwvhng")
 
 
-func update_carousel(new_lilypads: Array[AquaLilypad]):
+func update_carousel(new_carousel: AquaCarousel, new_lilypads: Array[AquaLilypad]):
+	carousel = new_carousel
+	
 	if display_lilypads:
 		for i in display_lilypads:
 			i.queue_free()
@@ -25,14 +27,17 @@ func update_carousel(new_lilypads: Array[AquaLilypad]):
 		display_lilypads.append(new_lilypad)
 		i.node_3d = new_lilypad
 	
-	update_current_lilypad(lilypads[0])
+	update_current_lilypad(lilypads[0], new_carousel.current_layer)
 
-func update_current_lilypad(new_lilypad: AquaLilypad):
+func update_current_lilypad(new_lilypad: AquaLilypad, layer: AquaLilypadLayer):
 	for i in display_lilypads:
 		i.animate("idle")
 	
+	if current_lilypad:
+		current_lilypad.node_3d.hopped_off()
+	
 	current_lilypad = new_lilypad
 	current_lilypad.node_3d.animate("current")
-	
+	current_lilypad.node_3d.hopped_onto()
 	current_lilypad.left.node_3d.animate("next")
 	current_lilypad.right.node_3d.animate("next")

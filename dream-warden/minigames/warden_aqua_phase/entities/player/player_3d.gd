@@ -1,4 +1,4 @@
-extends Area3D
+class_name AquaPlayer3D extends Area3D
 
 const JUMP_SPEED: float = 2.0
 const GRAV_SPEED: float = 1.8
@@ -21,12 +21,15 @@ var jump
 var jump_held
 var jump_release
 var crouch
+var in_danger: bool = false
+var danger_alpha: float = 0.0
 
 func _ready() -> void:
 	internal_position = global_position
 
 func _physics_process(delta: float) -> void:
 	handle_gravity(delta)
+	check_for_danger()
 	
 	get_input()
 	handle_jump(delta)
@@ -169,3 +172,33 @@ func animate_soul_afterimage() -> void:
 	
 	afterimage_anim += 1
 	afterimage_anim = wrap(afterimage_anim,0,2)
+
+
+func _on_attack_area_entered(area: Area3D) -> void:
+	if area.get_owner() is AquaBoss:
+		area.get_owner().hit()
+	pass # Replace with function body.
+
+func check_for_danger() -> void:
+	if $DangerDetector.has_overlapping_areas():
+		in_danger = true
+	else:
+		in_danger = false
+	
+	var soul = $Pivot/Susie/Soul
+	
+	if in_danger:
+		danger_alpha = lerp(danger_alpha, 1.0, 0.2)
+	else:
+		danger_alpha = lerp(danger_alpha, 0.0, 0.2)
+	
+	soul.modulate = lerp(Color("0000ff00"),Color("00ffff"),danger_alpha)
+	%Silhouette.modulate = Color("ffffff00").lerp(Color("ffffff81"),danger_alpha)
+	%Outline.modulate = Color("ffffff00").lerp(Color.WHITE,danger_alpha)
+
+func trigger_damage_number(damage_number: FloatingText) -> void:
+	var screen_pos = self.get_viewport().get_camera_3d().unproject_position(self.global_position)
+	screen_pos += Vector2(0.0,-50)
+	get_owner().add_child(damage_number)
+	damage_number.global_position = screen_pos
+	print("DAMAGED")

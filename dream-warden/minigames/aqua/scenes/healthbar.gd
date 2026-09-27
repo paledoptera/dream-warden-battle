@@ -1,5 +1,6 @@
 extends Node2D
 @export var health_bar: ProgressBar
+var player_3d: AquaPlayer3D
 var hero
 var fade_out = 0.0
 var fade_out_internal = 0.0
@@ -12,20 +13,7 @@ func _ready() -> void:
 	hero.hp_changed.connect(_on_hp_changed)
 
 func _process(delta: float) -> void:
-	if fade_out_internal == 0.0:
-		if not fading_in:
-			transitioning += delta
-			if transitioning > 0.3:
-				transitioning -= 0.3
-				if fade_out_internal != 1.0:
-					fading_in = true
-		else:
-			fade_out = lerp(fade_out,fade_out_internal,0.5)
-	elif fade_out_internal == 1.0:
-		fading_in = false
-		fade_out = lerp(fade_out,fade_out_internal,0.5)
-
-	modulate = Color.WHITE.lerp(Color("ffffff00"),fade_out)
+	modulate =Color("ffffff00").lerp(Color.WHITE,player_3d.danger_alpha)
 
 func update_hp_values() -> void:
 	health_bar.min_value = 0
@@ -38,5 +26,3 @@ func _on_hp_changed(new_hp: int) -> void:
 func _on_rolling_changed(new_val: bool) -> void:
 	if new_val:
 		fade_out_internal = 1.0
-	else:
-		fade_out_internal = 0.0

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cbombr5evs34s" path="res://minigames/warden_aqua_phase/entities/attacks/att3d_heavy_lasers_1/att_3d_heavy_lasers_1.gd" id="1_i58nf"]
 [ext_resource type="Script" uid="uid://16h0y50oyjvy" path="res://minigames/warden_aqua_phase/entities/bullets/scripts/bullet_spawner_3d.gd" id="2_rrm3l"]
-[ext_resource type="PackedScene" uid="uid://dmlaifxf3g148" path="res://minigames/warden_aqua_phase/entities/bullets/laser.tscn" id="3_k8sh7"]
+[ext_resource type="PackedScene" uid="uid://dmlaifxf3g148" path="res://minigames/warden_aqua_phase/entities/bullets/laser_3d.tscn" id="3_k8sh7"]
 
 [node name="Attack3DLasers" type="Node3D" unique_id=273713936]
 script = ExtResource("1_i58nf")

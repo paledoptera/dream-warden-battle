@@ -8,6 +8,9 @@ class_name RemoteTransform3D2D
 @export var offset:= Vector2.ZERO
 @export var res_scale: float = 1.0
 
+func _physics_process(delta: float) -> void:
+	update_position()
+
 func update_position() -> void:
 	var new_pos = source.get_viewport().get_camera_3d().unproject_position(source.global_position)
 	new_pos *= res_scale

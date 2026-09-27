@@ -11,13 +11,16 @@ var carousel: AquaCarousel
 
 func _ready() -> void:
 	Fader.fade_out(0.5,Color.WHITE,Tween.EaseType.EASE_OUT,Tween.TransitionType.TRANS_CUBIC)
-	change_carousel(CAROUSEL_6)
+	change_carousel(CAROUSEL_6_MIDDLE)
 	%Boss.player = %Player3D
 	%Boss.look_target = %Player3D
+	$Healthbar.player_3d = %Player3D
+	EventBus.damage_player.connect(_damage_player)
 
 func _process(delta: float) -> void:
 	var player_xz_position = Vector3(%Player3D.global_position.x,0.0,%Player3D.global_position.z)
 	%CameraArm.look_at(player_xz_position)
+	$AttackOverlay.modulate = Color("ffffff00").lerp(Color("ffffff84"),%Player3D.danger_alpha)
 	
 
 func change_carousel(new_carousel: PackedScene):
@@ -32,6 +35,8 @@ func change_carousel(new_carousel: PackedScene):
 	add_child(carousel)
 	carousel.position = Vector2(320.0,240.0)
 	carousel.current_lilypad_changed.connect(_on_current_lilypad_changed)
+	carousel.lilypad_layer_changed_state.connect(_on_lilypad_layer_changed_state)
+	
 	if not debug:
 		carousel.visible = false
 
@@ -40,6 +45,7 @@ func change_carousel(new_carousel: PackedScene):
 	
 	if layers:
 		layers.clear()
+	
 	
 	for layer in carousel.lilypad_layers:
 		var layer_child_count = layer.get_child_count()
@@ -52,7 +58,11 @@ func change_carousel(new_carousel: PackedScene):
 			lilypads.append(lilypad)
 		layers.append(layer)
 	
-	%CarouselAnimator.update_carousel(lilypads)
+	%CarouselAnimator.update_carousel(carousel, lilypads)
+
+	if carousel.boss_layer:
+		_on_lilypad_layer_changed_state(carousel.boss_layer,false)
+	
 	%Player3D.update_position(%CarouselAnimator.get_child(0),0.3)
 	
 
@@ -70,8 +80,20 @@ func _on_current_lilypad_changed(lilypad: AquaLilypad, last_lilypad: AquaLilypad
 	
 	var lilypad_ind = lilypads.find(lilypad)
 	%Player3D.update_position(%CarouselAnimator.display_lilypads[lilypad_ind],carousel.current_layer.travel_time, lilypad.edge_only)
-	%CarouselAnimator.update_current_lilypad(lilypad)
-	
+	%CarouselAnimator.update_current_lilypad(lilypad,carousel.current_layer)
+
+
+func _on_lilypad_layer_changed_state(lilypad_layer: AquaLilypadLayer, state: bool):
+	match state:
+		true:
+			for i in lilypad_layer.get_children():
+				i.modulate = Color.WHITE
+				i.node_3d.set_active()
+		false:
+			for i in lilypad_layer.get_children():
+				i.modulate = Color("976f306c")
+				i.node_3d.set_inactive()
+				
 
 
 func _on_boss_attack_started(attackdata3d: AttackData3D) -> void:
@@ -87,3 +109,18 @@ func _on_boss_attack_started(attackdata3d: AttackData3D) -> void:
 	attack_scene.carousel_animator = %CarouselAnimator
 	attack_scene.carousel = carousel
 	attack_scene.start(attackdata3d.length)
+
+
+func _on_boss_vulnerability_state_changed(vulnerable: bool) -> void:
+	carousel.boss_layer_change_state(vulnerable)
+	pass # Replace with function body.
+
+func _damage_player(value: int) -> void:
+	Sound.play(preload("uid://cpo81emadro0k"))
+	var target = Party.hero.pick_random()
+	var damage = EnemyBulletFormula.calculate(value,Party.enemy[0],target)
+	
+	target.hp -= damage
+	
+	var damage_number = FloatingText.initialize_text(str(damage),Color.WHITE)
+	%Player3D.trigger_damage_number(damage_number)

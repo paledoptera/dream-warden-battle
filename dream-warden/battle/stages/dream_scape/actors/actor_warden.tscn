@@ -93,10 +93,10 @@ _data = {
 &"idle": SubResource("Animation_njm8p")
 }
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_njm8p"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_kwrkg"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_swf16"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_c6ugx"]
 viewport_path = NodePath("SubViewport")
 
 [node name="ActorWarden" type="Node2D" unique_id=1608169694 groups=["actors"]]
@@ -173,14 +173,19 @@ bones/188/rotation = Quaternion(-0.004502014, -0.029393062, 0.041854158, 0.99868
 bones/193/position = Vector3(0.520731, -0.09141305, 0.15815288)
 bones/193/rotation = Quaternion(-0.004502009, 0.02939307, -0.041854158, 0.9986811)
 
+[node name="DEPTHS" parent="warden" index="1" unique_id=1435392674]
+modulate = Color(1, 1, 1, 0.078431375)
+position = Vector2(71, -64.5)
+scale = Vector2(1, 1.414)
+
 [node name="ghost_sprite_shadow" parent="warden" index="2" unique_id=1034544421]
-texture = SubResource("ViewportTexture_njm8p")
+texture = SubResource("ViewportTexture_kwrkg")
 
 [node name="ghost_sprite" parent="warden" index="3" unique_id=1506854121]
-texture = SubResource("ViewportTexture_njm8p")
+texture = SubResource("ViewportTexture_kwrkg")
 
 [node name="primary_sprite" parent="warden" index="4" unique_id=1491531621]
-texture = SubResource("ViewportTexture_swf16")
+texture = SubResource("ViewportTexture_c6ugx")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1106995519]
 

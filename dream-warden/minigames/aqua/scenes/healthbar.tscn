@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cwty8nuggskw3"]
 
 [ext_resource type="Script" uid="uid://mvsmc80wuwos" path="res://minigames/aqua/scenes/healthbar.gd" id="1_4hfnv"]
+[ext_resource type="FontFile" uid="uid://b25q3wkn04r5i" path="res://shared/theme/fonts/battle_dialogue.ttf" id="2_e0s8g"]
 [ext_resource type="Texture2D" uid="uid://drpiotfiw68u2" path="res://minigames/aqua/res/sheild_icon.png" id="2_la1cu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g4v7s"]
@@ -19,12 +20,20 @@ expand_margin_top = 2.0
 expand_margin_right = 2.0
 expand_margin_bottom = 2.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yf5fn"]
-bg_color = Color(1, 0, 1, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q0eqs"]
+bg_color = Color(0, 1, 1, 1)
 
 [node name="Healthbar" type="Node2D" unique_id=1233966322 node_paths=PackedStringArray("health_bar")]
 script = ExtResource("1_4hfnv")
 health_bar = NodePath("ColorRect/ProgressBar")
+
+[node name="Background" type="ColorRect" parent="." unique_id=1925504710]
+offset_right = 68.0
+offset_bottom = 16.0
+offset_transform_enabled = true
+offset_transform_position_ratio = Vector2(-0.5, -0.5)
+offset_transform_visual_only = false
+color = Color(0, 0, 0, 1)
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=2130109431]
 offset_right = 64.0
@@ -32,7 +41,7 @@ offset_bottom = 12.0
 offset_transform_enabled = true
 offset_transform_position_ratio = Vector2(-0.5, -0.5)
 offset_transform_visual_only = false
-color = Color(1, 0, 1, 1)
+color = Color(0, 1, 1, 1)
 
 [node name="ProgressBar" type="ProgressBar" parent="ColorRect" unique_id=781297744]
 layout_mode = 1
@@ -46,7 +55,7 @@ offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_g4v7s")
-theme_override_styles/fill = SubResource("StyleBoxFlat_yf5fn")
+theme_override_styles/fill = SubResource("StyleBoxFlat_q0eqs")
 value = 100.0
 show_percentage = false
 
@@ -55,11 +64,16 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -16.0
-offset_top = -3.0
+offset_left = -25.0
+offset_top = -7.0
+offset_right = -9.0
+offset_bottom = 2.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/default_color = Color(1, 0, 1, 1)
+theme_override_colors/default_color = Color(0, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/normal_font = ExtResource("2_e0s8g")
 text = "HP"
 scroll_active = false
 

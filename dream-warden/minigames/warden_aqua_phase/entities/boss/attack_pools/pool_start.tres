@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="AttackPool3D" format=3 uid="uid://c4hsbw7elydr4"]
+
+[ext_resource type="Script" uid="uid://cwippqy5qorfo" path="res://minigames/warden_aqua_phase/systems/attack_data_3d.gd" id="1_107rm"]
+[ext_resource type="Script" uid="uid://dim341q48bw11" path="res://minigames/warden_aqua_phase/systems/attack_pool_3d.gd" id="2_bo4w5"]
+[ext_resource type="PackedScene" uid="uid://bjdeg25p7roje" path="res://minigames/warden_aqua_phase/entities/bullets/electrisurge_3d.tscn" id="2_um84o"]
+[ext_resource type="PackedScene" uid="uid://gdyqtg1saae8" path="res://minigames/warden_aqua_phase/entities/attacks/att3d_light_diamonds_1/att3d_light_diamonds_1.tscn" id="3_dtcd8"]
+
+[sub_resource type="Resource" id="Resource_70l3x"]
+resource_name = "Electrisurge"
+script = ExtResource("1_107rm")
+scene = ExtResource("2_um84o")
+length = 2.0
+metadata/_custom_type_script = "uid://cwippqy5qorfo"
+
+[sub_resource type="Resource" id="Resource_5fu8i"]
+resource_name = "Diamonds1"
+script = ExtResource("1_107rm")
+scene = ExtResource("3_dtcd8")
+length = 1.5
+metadata/_custom_type_script = "uid://cwippqy5qorfo"
+
+[resource]
+script = ExtResource("2_bo4w5")
+light = Array[ExtResource("1_107rm")]([SubResource("Resource_5fu8i")])
+heavy = Array[ExtResource("1_107rm")]([SubResource("Resource_70l3x")])
+metadata/_custom_type_script = "uid://dim341q48bw11"
