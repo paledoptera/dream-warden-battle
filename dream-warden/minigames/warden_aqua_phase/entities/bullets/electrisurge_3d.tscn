@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://b4hf6puuqnkqd" path="res://minigames/aqua/res/sigil1.png" id="4_70l3x"]
 [ext_resource type="AudioStream" uid="uid://cwfb0wnwi4cix" path="res://shared/sound_effects/snd_thunder_instant.wav" id="4_yllt4"]
 [ext_resource type="Texture2D" uid="uid://6o8v8y75sm1j" path="res://minigames/aqua/res/sigil2.png" id="5_yllt4"]
+[ext_resource type="ArrayMesh" uid="uid://daj6uyouw23tx" path="res://minigames/warden_aqua_phase/entities/bullets/res/electrisurge_hitbox.obj" id="9_yllt4"]
 
 [sub_resource type="Curve" id="Curve_4ko3t"]
 _limits = [0.0, 5.0, 0.0, 1.0]
@@ -42,9 +43,8 @@ material = SubResource("StandardMaterial3D_fcnqv")
 radial_segments = 4
 rings = 0
 
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_pagfn"]
-height = 0.08666992
-radius = 0.30810547
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ena7c"]
+data = PackedVector3Array(0.92389995, 0, -0.3827, 0.8314, 0, -0.5556, 0.8742, 0, -0.3621, 0.8742, 0, -0.3621, 0.8314, 0, -0.5556, 0.78679997, 0, -0.5257, 0.9281, 0, -0.1846, 0.92389995, 0, -0.3827, 0.8742, 0, -0.3621, 0.8314, 0, -0.5556, 0.7071, 0, -0.7071, 0.78679997, 0, -0.5257, 0.9808, 0, -0.1951, 0.92389995, 0, -0.3827, 0.9281, 0, -0.1846, 0.78679997, 0, -0.5257, 0.7071, 0, -0.7071, 0.6691, 0, -0.6692, 0.94629997, 0, 0, 0.9808, 0, -0.1951, 0.9281, 0, -0.1846, 0.7071, 0, -0.7071, 0.5556, 0, -0.8315, 0.6691, 0, -0.6692, 1, 0, 0, 0.9808, 0, -0.1951, 0.94629997, 0, 0, 0.6691, 0, -0.6692, 0.5556, 0, -0.8315, 0.5257, 0, -0.78679997, 0.9281, 0, 0.1846, 1, 0, 0, 0.94629997, 0, 0, 0.5556, 0, -0.8315, 0.3827, 0, -0.92389995, 0.5257, 0, -0.78679997, 0.9808, 0, 0.1951, 1, 0, 0, 0.9281, 0, 0.1846, 0.5257, 0, -0.78679997, 0.3827, 0, -0.92389995, 0.3621, 0, -0.8743, 0.8742, 0, 0.3621, 0.9808, 0, 0.1951, 0.9281, 0, 0.1846, 0.3827, 0, -0.92389995, 0.1951, 0, -0.9808, 0.3621, 0, -0.8743, 0.92389995, 0, 0.3827, 0.9808, 0, 0.1951, 0.8742, 0, 0.3621, 0.3621, 0, -0.8743, 0.1951, 0, -0.9808, 0.1846, 0, -0.9281, 0.78679997, 0, 0.5257, 0.92389995, 0, 0.3827, 0.8742, 0, 0.3621, 0.1951, 0, -0.9808, 0, 0, -1, 0.1846, 0, -0.9281, 0.8314, 0, 0.5556, 0.92389995, 0, 0.3827, 0.78679997, 0, 0.5257, 0.1846, 0, -0.9281, 0, 0, -1, 0, 0, -0.94629997, 0.6691, 0, 0.6691, 0.8314, 0, 0.5556, 0.78679997, 0, 0.5257, 0, 0, -1, -0.1951, 0, -0.9808, 0, 0, -0.94629997, 0.7071, 0, 0.7071, 0.8314, 0, 0.5556, 0.6691, 0, 0.6691, 0, 0, -0.94629997, -0.1951, 0, -0.9808, -0.1846, 0, -0.9281, 0.5257, 0, 0.78679997, 0.7071, 0, 0.7071, 0.6691, 0, 0.6691, -0.1951, 0, -0.9808, -0.3827, 0, -0.92389995, -0.1846, 0, -0.9281, 0.5556, 0, 0.8314, 0.7071, 0, 0.7071, 0.5257, 0, 0.78679997, -0.1846, 0, -0.9281, -0.3827, 0, -0.92389995, -0.3621, 0, -0.8743, 0.3621, 0, 0.8742, 0.5556, 0, 0.8314, 0.5257, 0, 0.78679997, -0.3827, 0, -0.92389995, -0.5556, 0, -0.8315, -0.3621, 0, -0.8743, 0.3827, 0, 0.92389995, 0.5556, 0, 0.8314, 0.3621, 0, 0.8742, -0.3621, 0, -0.8743, -0.5556, 0, -0.8315, -0.5257, 0, -0.78679997, 0.1846, 0, 0.9281, 0.3827, 0, 0.92389995, 0.3621, 0, 0.8742, -0.5556, 0, -0.8315, -0.7071, 0, -0.7071, -0.5257, 0, -0.78679997, 0.1951, 0, 0.9808, 0.3827, 0, 0.92389995, 0.1846, 0, 0.9281, -0.5257, 0, -0.78679997, -0.7071, 0, -0.7071, -0.6692, 0, -0.6692, 0, 0, 0.94629997, 0.1951, 0, 0.9808, 0.1846, 0, 0.9281, -0.7071, 0, -0.7071, -0.8315, 0, -0.5556, -0.6692, 0, -0.6692, 0, 0, 1, 0.1951, 0, 0.9808, 0, 0, 0.94629997, -0.6692, 0, -0.6692, -0.8315, 0, -0.5556, -0.78679997, 0, -0.5257, -0.1846, 0, 0.9281, 0, 0, 1, 0, 0, 0.94629997, -0.8315, 0, -0.5556, -0.92389995, 0, -0.3827, -0.78679997, 0, -0.5257, -0.1951, 0, 0.9808, 0, 0, 1, -0.1846, 0, 0.9281, -0.78679997, 0, -0.5257, -0.92389995, 0, -0.3827, -0.8743, 0, -0.3621, -0.3621, 0, 0.8742, -0.1951, 0, 0.9808, -0.1846, 0, 0.9281, -0.92389995, 0, -0.3827, -0.9808, 0, -0.1951, -0.8743, 0, -0.3621, -0.3827, 0, 0.92389995, -0.1951, 0, 0.9808, -0.3621, 0, 0.8742, -0.8743, 0, -0.3621, -0.9808, 0, -0.1951, -0.9281, 0, -0.1846, -0.5257, 0, 0.78679997, -0.3827, 0, 0.92389995, -0.3621, 0, 0.8742, -0.9808, 0, -0.1951, -1, 0, 0, -0.9281, 0, -0.1846, -0.5556, 0, 0.8314, -0.3827, 0, 0.92389995, -0.5257, 0, 0.78679997, -0.9281, 0, -0.1846, -1, 0, 0, -0.94629997, 0, 0, -0.6692, 0, 0.6691, -0.5556, 0, 0.8314, -0.5257, 0, 0.78679997, -1, 0, 0, -0.9808, 0, 0.1951, -0.94629997, 0, 0, -0.7071, 0, 0.7071, -0.5556, 0, 0.8314, -0.6692, 0, 0.6691, -0.94629997, 0, 0, -0.9808, 0, 0.1951, -0.9281, 0, 0.1846, -0.78679997, 0, 0.5257, -0.7071, 0, 0.7071, -0.6692, 0, 0.6691, -0.9808, 0, 0.1951, -0.92389995, 0, 0.3827, -0.9281, 0, 0.1846, -0.8315, 0, 0.5556, -0.7071, 0, 0.7071, -0.78679997, 0, 0.5257, -0.9281, 0, 0.1846, -0.92389995, 0, 0.3827, -0.8743, 0, 0.3621, -0.92389995, 0, 0.3827, -0.8315, 0, 0.5556, -0.8743, 0, 0.3621, -0.8743, 0, 0.3621, -0.8315, 0, 0.5556, -0.78679997, 0, 0.5257)
 
 [sub_resource type="Animation" id="Animation_15p0j"]
 length = 0.001
@@ -75,7 +75,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Bullet3D/CollisionShape3D:disabled")
+tracks/2/path = NodePath("CPUParticles2D:emitting")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -87,70 +87,46 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CPUParticles2D:emitting")
+tracks/3/path = NodePath("Bullet3D/Sprite3D:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Bullet3D/Sprite3D:modulate")
+tracks/4/path = NodePath("Bullet3D/Sprite3D:frame")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
+"update": 1,
+"values": [0]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Bullet3D/Sprite3D:frame")
+tracks/5/path = NodePath("Bullet3D:scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
+"update": 0,
+"values": [Vector3(0.1, 0.1, 0.1)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Bullet3D:scale")
+tracks/6/path = NodePath("Bullet3D/Sprite3D/Afterimage:frame")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0.1, 0.1, 0.1)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Bullet3D/CollisionShape3D:shape:height")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.08666992]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Bullet3D/Sprite3D/Afterimage:frame")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -221,82 +197,58 @@ tracks/3/use_blend = true
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Bullet3D/CollisionShape3D:disabled")
+tracks/4/path = NodePath("CPUParticles2D:emitting")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 1.2333333, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, false, true]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("CPUParticles2D:emitting")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
 }
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Bullet3D/Sprite3D:modulate")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Bullet3D/Sprite3D:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
 "times": PackedFloat32Array(0.73333335, 0.8333334, 2),
 "transitions": PackedFloat32Array(1, 2.8284266, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Bullet3D/Sprite3D:frame")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Bullet3D/Sprite3D:frame")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
 "times": PackedFloat32Array(0.73333335, 0.8000001, 0.86666673, 0.9333334, 1, 1.0666667, 1.1333334, 1.2, 1.2666668, 1.3333335, 1.4000001, 1.4666668, 1.5333334, 1.6000001, 1.6666669, 1.7333335, 1.8000001, 1.8666668, 1.9333334, 2, 2.0666666, 2.1333334, 2.2000003, 2.266667),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3]
 }
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Bullet3D:scale")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Bullet3D:scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
 "times": PackedFloat32Array(0.73333335, 2),
 "transitions": PackedFloat32Array(0.7, 1),
 "update": 0,
 "values": [Vector3(0.1, 0.1, 0.1), Vector3(4, 4, 4)]
 }
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Bullet3D/CollisionShape3D:shape:height")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0.73333335, 2),
-"transitions": PackedFloat32Array(0.5, 1),
-"update": 0,
-"values": [0.08666992, 0.004]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("Bullet3D/Sprite3D/Afterimage:frame")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Bullet3D/Sprite3D/Afterimage:frame")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
 "times": PackedFloat32Array(0.8, 0.86666673, 0.9333334, 1, 1.0666666, 1.1333334, 1.2, 1.2666667, 1.3333335, 1.4000001, 1.4666667, 1.5333335, 1.6000001, 1.6666667, 1.7333336, 1.8000002, 1.8666668, 1.9333334, 2, 2.0666666, 2.1333332, 2.2, 2.266667, 2.3333335),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
@@ -346,11 +298,9 @@ script = ExtResource("1_4ko3t")
 damage = 20
 life_time = -1.0
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Bullet3D" unique_id=614602147]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.008667063, 0)
-shape = SubResource("CylinderShape3D_pagfn")
-disabled = true
-debug_color = Color(0.76536953, 0.5665295, 0, 1)
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Bullet3D" unique_id=43631670]
+transform = Transform3D(0.294, 0, 0, 0, 0.294, 0, 0, 0, 0.294, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_ena7c")
 
 [node name="Sprite3D" type="Sprite3D" parent="Bullet3D" unique_id=1750399383]
 modulate = Color(1, 1, 1, 0)
@@ -406,3 +356,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_py4dm")
 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="." unique_id=525616342]
 pitch_scale = 1.5
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1697234169]
+mesh = ExtResource("9_yllt4")

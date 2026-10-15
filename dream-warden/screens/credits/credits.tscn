@@ -371,7 +371,7 @@ horizontal_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Text1" unique_id=920885495]
 modulate = Color(2.8157141, 2.8157141, 2.8157141, 1)
-position = Vector2(339, 537.707)
+position = Vector2(339, 385)
 scale = Vector2(4, 4)
 texture = ExtResource("2_d1b17")
 
@@ -400,7 +400,7 @@ horizontal_alignment = 1
 
 [node name="Sprite2D" type="Sprite2D" parent="Text2" unique_id=2027044715]
 modulate = Color(2.8157141, 2.8157141, 2.8157141, 1)
-position = Vector2(339, 537.707)
+position = Vector2(339, 385)
 scale = Vector2(4, 4)
 texture = ExtResource("2_d1b17")
 

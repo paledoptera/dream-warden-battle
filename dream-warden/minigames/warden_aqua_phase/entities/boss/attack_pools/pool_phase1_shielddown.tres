@@ -1,0 +1,363 @@
+[gd_resource type="Resource" script_class="AttackPool3D" format=3 uid="uid://cav4vi3medhed"]
+
+[ext_resource type="Script" uid="uid://cwippqy5qorfo" path="res://minigames/warden_aqua_phase/systems/attack_data_3d.gd" id="1_o8511"]
+[ext_resource type="Script" uid="uid://ufbnkf8s7gw3" path="res://minigames/warden_aqua_phase/entities/attacks/attack_3d.gd" id="2_35r43"]
+[ext_resource type="Script" uid="uid://c22p8j5iuqiot" path="res://minigames/warden_aqua_phase/entities/bullets/bullet3d.gd" id="3_svxi1"]
+[ext_resource type="Texture2D" uid="uid://cvvhlqt78bur3" path="res://minigames/warden_aqua_phase/entities/bullets/res/electrisurge.png" id="4_thsok"]
+[ext_resource type="AudioStream" uid="uid://b1s3p8d6nyfuf" path="res://shared/sound_effects/snd_ward_hiss.wav" id="5_v5fka"]
+[ext_resource type="AudioStream" uid="uid://vhlqvipo4ll6" path="res://shared/sound_effects/snd_titan_absorb.wav" id="6_ms7av"]
+[ext_resource type="AudioStream" uid="uid://cwfb0wnwi4cix" path="res://shared/sound_effects/snd_thunder_instant.wav" id="7_ntulb"]
+[ext_resource type="Texture2D" uid="uid://b4hf6puuqnkqd" path="res://minigames/aqua/res/sigil1.png" id="8_3s55o"]
+[ext_resource type="Texture2D" uid="uid://6o8v8y75sm1j" path="res://minigames/aqua/res/sigil2.png" id="9_wy4th"]
+[ext_resource type="PackedScene" uid="uid://bfvcov74o2a8f" path="res://minigames/warden_aqua_phase/entities/attacks/att3d_heavy_lasers/att3d_heavy_lasers_1.tscn" id="10_y1m8w"]
+[ext_resource type="Script" uid="uid://dim341q48bw11" path="res://minigames/warden_aqua_phase/systems/attack_pool_3d.gd" id="13_vhryj"]
+
+[sub_resource type="Curve" id="Curve_4ko3t"]
+_limits = [0.0, 5.0, 0.0, 1.0]
+_data = [Vector2(1e-05, 0), 0.0, 0.0, 0, 0, Vector2(0.45891473, 3.5897436), 3.0290236, 3.0290236, 0, 0, Vector2(0.62945735, 0.29304028), 0.0, 0.0, 0, 0, Vector2(1, 0), 1.5180498, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_57qmd"]
+curve = SubResource("Curve_4ko3t")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_0c212"]
+particle_flag_align_y = true
+particle_flag_inherit_emitter_scale = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 75.0
+emission_ring_radius = 86.55
+emission_ring_inner_radius = 17.35
+emission_ring_cone_angle = 90.0
+gravity = Vector3(0, 0, 0)
+damping_min = 1.0
+damping_max = 1.0
+use_scale_3d = true
+scale_3d_min = Vector3(1, 0.1, 1)
+scale_3d_max = Vector3(1, 5, 1)
+scale_curve = SubResource("CurveTexture_57qmd")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fcnqv"]
+shading_mode = 0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_pagfn"]
+material = SubResource("StandardMaterial3D_fcnqv")
+radial_segments = 4
+rings = 0
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_pagfn"]
+height = 0.08666992
+radius = 0.30810547
+
+[sub_resource type="Animation" id="Animation_15p0j"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PillarofLight:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PillarofLight:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Bullet3D/CollisionShape3D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CPUParticles2D:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Bullet3D/Sprite3D:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Bullet3D/Sprite3D:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Bullet3D:scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.1, 0.1, 0.1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Bullet3D/CollisionShape3D:shape:height")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.08666992]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Bullet3D/Sprite3D/Afterimage:frame")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_py4dm"]
+resource_name = "4"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PillarofLight:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.73333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("PillarofLight:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.73333335, 0.8333333, 1.5),
+"transitions": PackedFloat32Array(0.1593201, -2, 1),
+"update": 0,
+"values": [Vector3(0, 1, 0), Vector3(1, 1, 1), Vector3(0, 1, 0)]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("5_v5fka")
+}],
+"times": PackedFloat32Array(0.26666668)
+}
+tracks/2/use_blend = true
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AudioStreamPlayer2")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 1.5936282,
+"start_offset": 0.0,
+"stream": ExtResource("6_ms7av")
+}, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("7_ntulb")
+}],
+"times": PackedFloat32Array(0, 0.73333335)
+}
+tracks/3/use_blend = true
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Bullet3D/CollisionShape3D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.2333333, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CPUParticles2D:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Bullet3D/Sprite3D:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.73333335, 0.8333334, 2),
+"transitions": PackedFloat32Array(1, 2.8284266, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Bullet3D/Sprite3D:frame")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.73333335, 0.8000001, 0.86666673, 0.9333334, 1, 1.0666667, 1.1333334, 1.2, 1.2666668, 1.3333335, 1.4000001, 1.4666668, 1.5333334, 1.6000001, 1.6666669, 1.7333335, 1.8000001, 1.8666668, 1.9333334, 2, 2.0666666, 2.1333334, 2.2000003, 2.266667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Bullet3D:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.73333335, 2),
+"transitions": PackedFloat32Array(0.7, 1),
+"update": 0,
+"values": [Vector3(0.1, 0.1, 0.1), Vector3(4, 4, 4)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Bullet3D/CollisionShape3D:shape:height")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.73333335, 2),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [0.08666992, 0.004]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Bullet3D/Sprite3D/Afterimage:frame")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.8, 0.86666673, 0.9333334, 1, 1.0666666, 1.1333334, 1.2, 1.2666667, 1.3333335, 1.4000001, 1.4666667, 1.5333335, 1.6000001, 1.6666667, 1.7333336, 1.8000002, 1.8666668, 1.9333334, 2, 2.0666666, 2.1333332, 2.2, 2.266667, 2.3333335),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3, 0, 1, 2, 3]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nbrov"]
+_data = {
+&"RESET": SubResource("Animation_15p0j"),
+&"surge": SubResource("Animation_py4dm")
+}
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_y04b2"]
+top_radius = 0.1
+bottom_radius = 0.1
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_15p0j"]
+transparency = 1
+shading_mode = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_py4dm"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 1, 1, 0.40392157)
+
+[sub_resource type="PackedScene" id="PackedScene_r6p03"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"id_paths": [PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array(), PackedInt32Array()],
+"names": PackedStringArray("Electrisurge", "Node3D", "script", "CPUParticles2D", "GPUParticles3D", "transform", "amount", "lifetime", "speed_scale", "local_coords", "process_material", "draw_pass_1", "GPUParticlesAttractorSphere3D", "GPUParticlesAttractorSphere3D", "strength", "attenuation", "radius", "Bullet3D", "Area3D", "transform", "collision_layer", "script", "damage", "life_time", "CollisionShape3D", "CollisionShape3D", "transform", "shape", "disabled", "debug_color", "Sprite3D", "Sprite3D", "modulate", "axis", "texture_filter", "texture", "hframes", "Afterimage", "Sprite3D", "transform", "modulate", "axis", "texture_filter", "texture", "hframes", "AnimationPlayer", "AnimationPlayer", "libraries/", "autoplay", "Sigil", "Sprite3D", "transform", "offset", "pixel_size", "axis", "texture_filter", "texture", "Sprite3D3", "Sprite3D", "offset", "pixel_size", "axis", "texture_filter", "texture", "PillarofLight", "MeshInstance3D", "transform", "visible", "mesh", "surface_material_override/0", "PillarofLight2", "MeshInstance3D", "transform", "mesh", "surface_material_override/0", "PillarofLight3", "MeshInstance3D", "transform", "mesh", "surface_material_override/0", "AudioStreamPlayer", "AudioStreamPlayer", "AudioStreamPlayer2", "AudioStreamPlayer", "pitch_scale"),
+"node_count": 15,
+"node_ids": PackedInt32Array(1939746889, 427668382, 1454355216, 1639480364, 614602147, 1750399383, 916650214, 1166592238, 805832418, 2045101924, 1320454522, 809073893, 1797646541, 133678099, 525616342),
+"node_paths": [NodePath("."), NodePath("./CPUParticles2D"), NodePath("."), NodePath("./Bullet3D"), NodePath("./Bullet3D"), NodePath("./Bullet3D/Sprite3D"), NodePath("."), NodePath("."), NodePath("./Sigil"), NodePath("."), NodePath("./PillarofLight"), NodePath("./PillarofLight"), NodePath("."), NodePath(".")],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 1, 2, 0, 0, 1073741824, 0, 4, 3, -1, 7, 5, 1, 6, 2, 7, 3, 8, 4, 9, 5, 10, 6, 11, 7, 0, 1073741825, 0, 13, 12, -1, 3, 14, 8, 15, 9, 16, 10, 0, 1073741826, 0, 18, 17, -1, 5, 19, 11, 20, 12, 21, 13, 22, 14, 23, 15, 0, 1073741827, 0, 25, 24, -1, 4, 26, 16, 27, 17, 28, 18, 29, 19, 0, 1073741828, 0, 31, 30, -1, 5, 32, 20, 33, 21, 34, 22, 35, 23, 36, 24, 0, 1073741829, 0, 38, 37, -1, 6, 39, 25, 40, 26, 41, 27, 42, 28, 43, 29, 44, 30, 0, 1073741830, 0, 46, 45, -1, 2, 47, 31, 48, 32, 0, 1073741831, 0, 50, 49, -1, 6, 51, 33, 52, 34, 53, 35, 54, 36, 55, 37, 56, 38, 0, 1073741832, 0, 58, 57, -1, 5, 59, 39, 60, 40, 61, 41, 62, 42, 63, 43, 0, 1073741833, 0, 65, 64, -1, 4, 66, 44, 67, 45, 68, 46, 69, 47, 0, 1073741834, 0, 71, 70, -1, 3, 72, 48, 73, 49, 74, 50, 0, 1073741835, 0, 76, 75, -1, 3, 77, 51, 78, 52, 79, 53, 0, 1073741836, 0, 81, 80, -1, 0, 0, 1073741837, 0, 83, 82, -1, 1, 84, 54, 0),
+"variants": [ExtResource("2_35r43"), Transform3D(0.005, 0, 0, 0, 0.001, 0, 0, 0, 0.005, 0, 0, 0), 64, 1.5, 2.5, true, SubResource("ParticleProcessMaterial_0c212"), SubResource("CylinderMesh_pagfn"), 128.0, 0.16961814, 100.0, Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.10942209, 0), 2, ExtResource("3_svxi1"), 20, -1.0, Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.008667063, 0), SubResource("CylinderShape3D_pagfn"), true, Color(0.76536953, 0.5665295, 0, 1), Color(1, 1, 1, 0), 1, 0, ExtResource("4_thsok"), 4, Transform3D(0.866, 0, 0, 0, 0.866, 0, 0, 0, 0.866, 0, 0, 0), Color(1, 1, 1, 0.6901961), 1, 0, ExtResource("4_thsok"), 4, SubResource("AnimationLibrary_nbrov"), &"surge", Transform3D(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0.01, 0), Vector2(1, -2), 0.004, 1, 0, ExtResource("8_3s55o"), Vector2(1, -2), 0.003, 1, 0, ExtResource("9_wy4th"), Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.001, 0), false, SubResource("CylinderMesh_y04b2"), SubResource("StandardMaterial3D_15p0j"), Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 1.5, 0, 0, 0), SubResource("CylinderMesh_y04b2"), SubResource("StandardMaterial3D_py4dm"), Transform3D(1.25, 0, 0, 0, 1, 0, 0, 0, 1.25, 0, 0, 0), SubResource("CylinderMesh_y04b2"), SubResource("StandardMaterial3D_py4dm"), 1.5],
+"version": 3
+}
+
+[sub_resource type="Resource" id="Resource_hjyb1"]
+resource_name = "Electrisurge"
+script = ExtResource("1_o8511")
+scene = SubResource("PackedScene_r6p03")
+length = 2.0
+metadata/_custom_type_script = "uid://cwippqy5qorfo"
+
+[sub_resource type="Resource" id="Resource_qi4kw"]
+resource_name = "Lasers1"
+script = ExtResource("1_o8511")
+scene = ExtResource("10_y1m8w")
+length = 2.5
+metadata/_custom_type_script = "uid://cwippqy5qorfo"
+
+[resource]
+script = ExtResource("13_vhryj")
+light = Array[ExtResource("1_o8511")]([SubResource("Resource_qi4kw")])
+light_count_min = 0
+light_count_max = 0
+heavy = Array[ExtResource("1_o8511")]([SubResource("Resource_hjyb1")])
+metadata/_custom_type_script = "uid://dim341q48bw11"

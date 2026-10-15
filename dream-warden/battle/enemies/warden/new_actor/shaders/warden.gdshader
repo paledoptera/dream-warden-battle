@@ -2,7 +2,7 @@ shader_type spatial;
 
 render_mode cull_disabled;
 
-uniform sampler2D depths;
+uniform sampler2D depths: filter_nearest;
 uniform sampler2D warden_color;
 
 uniform vec4 depth_layer_1_primary : source_color = vec4(0.1,0.1,0.1,1.0);

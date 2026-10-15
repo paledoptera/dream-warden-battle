@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://digc433ptje8b"]
+
+[ext_resource type="Script" uid="uid://c22p8j5iuqiot" path="res://minigames/warden_aqua_phase/entities/bullets/bullet3d.gd" id="1_ro2ir"]
+[ext_resource type="ArrayMesh" uid="uid://ddcpe8eo1o3we" path="res://minigames/aqua/scenes/rude_buster.obj" id="2_ro2ir"]
+[ext_resource type="PackedScene" uid="uid://ctvkbyb3udv4u" path="res://minigames/warden_aqua_phase/entities/effects/shadow/shadow.tscn" id="3_g8u2f"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_g4v7s"]
+radius = 0.06
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ro2ir"]
+shading_mode = 0
+albedo_color = Color(0, 1, 1, 1)
+
+[node name="Bullet3D" type="Area3D" unique_id=1373998874]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_ro2ir")
+damage = 10
+destructible = true
+parryable = true
+parry_points = 15
+velocity = Vector3(0, 0, -0.4)
+linear_acceleration = 1.5
+homing = true
+metadata/_custom_type_script = "uid://c22p8j5iuqiot"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2111607229]
+shape = SubResource("SphereShape3D_g4v7s")
+debug_color = Color(0.9098039, 0.3019608, 0, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=938831391]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+layers = 2
+mesh = ExtResource("2_ro2ir")
+surface_material_override/0 = SubResource("StandardMaterial3D_ro2ir")
+
+[node name="Shadow" parent="." unique_id=1844670972 instance=ExtResource("3_g8u2f")]
+
+[editable path="Shadow"]

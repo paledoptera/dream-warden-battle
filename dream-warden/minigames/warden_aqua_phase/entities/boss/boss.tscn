@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://b7gbyko8v8bql"]
 
 [ext_resource type="Script" uid="uid://csgvuo8wv34sh" path="res://minigames/warden_aqua_phase/entities/boss/boss.gd" id="1_dw1wy"]
-[ext_resource type="Resource" uid="uid://c4hsbw7elydr4" path="res://minigames/warden_aqua_phase/entities/boss/attack_pools/pool_start.tres" id="2_5fu8i"]
+[ext_resource type="Resource" uid="uid://c4hsbw7elydr4" path="res://minigames/warden_aqua_phase/entities/boss/attack_pools/pool_phase1.tres" id="2_5fu8i"]
 [ext_resource type="Script" uid="uid://16h0y50oyjvy" path="res://minigames/warden_aqua_phase/entities/bullets/scripts/bullet_spawner_3d.gd" id="3_gdsn1"]
 [ext_resource type="PackedScene" uid="uid://ds4vcmkvdeqkj" path="res://minigames/warden_aqua_phase/entities/bullets/diamond_bullet_3d.tscn" id="4_h0007"]
 [ext_resource type="Script" uid="uid://bv7uj1vntr6a3" path="res://common/state_machine/state_machine.gd" id="4_y04ph"]
@@ -7448,5 +7448,8 @@ unique_name_in_owner = true
 transform = Transform3D(8, 0, 0, 0, 8, 0, 0, 0, 8, 0, 1.0750288, -0.71177197)
 mesh = SubResource("QuadMesh_yf5fn")
 surface_material_override/0 = SubResource("StandardMaterial3D_57qmd")
+
+[node name="Timer" type="Timer" parent="." unique_id=1250250867]
+one_shot = true
 
 [connection signal="state_entered" from="StateMachine" to="." method="_on_state_entered"]

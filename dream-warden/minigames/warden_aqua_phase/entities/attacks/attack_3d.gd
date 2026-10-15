@@ -8,6 +8,9 @@ var carousel_animator: Node3D
 var time: float = 1.0
 
 func _process(delta: float) -> void:
+	if not carousel:
+		queue_free()
+	
 	time -= delta
 	if time <= 0.0:
 		if get_child_count() == 0:
@@ -24,6 +27,7 @@ func aim(node: Node3D, target: Node3D):
 
 func get_player_lilypad() -> Node3D:
 	var lilypad = carousel.current_lilypad.node_3d
+	print("TEST")
 	return lilypad
 
 func get_left_lilypad() -> Node3D:

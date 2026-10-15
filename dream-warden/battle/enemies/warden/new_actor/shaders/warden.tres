@@ -1,8 +1,8 @@
 [gd_resource type="ShaderMaterial" format=3 uid="uid://bx564va2cpvrk"]
 
-[ext_resource type="Shader" uid="uid://b1k2fsc6b0xsi" path="res://warden/shaders/warden.gdshader" id="1_l1w65"]
-[ext_resource type="Texture2D" uid="uid://bhqfkyyjdhfip" path="res://warden/assets/IMAGE_DEPTHS.png" id="2_as6m3"]
-[ext_resource type="Texture2D" uid="uid://clvcdx5vu1arc" path="res://warden/assets/warden_warden_color_1.png" id="2_v04vl"]
+[ext_resource type="Shader" uid="uid://b1k2fsc6b0xsi" path="res://battle/enemies/warden/new_actor/shaders/warden.gdshader" id="1_l1w65"]
+[ext_resource type="Texture2D" uid="uid://bhqfkyyjdhfip" path="res://battle/enemies/warden/actor/res/model/assets/IMAGE_DEPTHS.png" id="2_as6m3"]
+[ext_resource type="Texture2D" uid="uid://clvcdx5vu1arc" path="res://battle/enemies/warden/new_actor/assets/warden_warden_color_1.png" id="2_v04vl"]
 
 [resource]
 render_priority = 0

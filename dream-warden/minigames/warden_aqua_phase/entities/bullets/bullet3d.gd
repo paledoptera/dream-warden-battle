@@ -22,6 +22,7 @@ class_name Bullet3D
 @export var speed_multiplier := 1.0
 @export var life_time := 2.0
 @export var linear_acceleration := 0.0
+@export var homing: bool = false
 
 var grazed := false
 var time := 0.0
@@ -32,6 +33,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
+	
 	time += delta
 	velocity += velocity * linear_acceleration * delta * speed_multiplier
 	
@@ -42,6 +44,13 @@ func _physics_process(delta: float) -> void:
 	var rot = global_rotation.y
 	var final_velocity = velocity.rotated(Vector3.UP,rot)
 	
+	if homing:
+		var player = get_tree().get_first_node_in_group("player")
+		var dir = global_position.direction_to(player.global_position)
+		var speed = final_velocity.length()
+		final_velocity = dir * speed
+		look_at(player.global_position)
+		
 	global_position += final_velocity * delta
 
 func _on_area_entered(area: Area3D) -> void:
@@ -60,3 +69,8 @@ func destroy() -> void:
 		get_parent().add_child(particle)
 		particle.global_position = global_position
 	queue_free()
+
+func hit() -> void:
+	if parryable:
+		Party.tp += parry_points
+		destroy()

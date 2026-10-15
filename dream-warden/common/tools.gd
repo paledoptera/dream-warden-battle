@@ -23,3 +23,18 @@ static func find_children_in_group(parent: Node, group: String, recursive: bool 
 			for recursive_child in recursive_output :
 				output.append(recursive_child)
 	return output
+
+static func find_nearest_child_to_node(parent: Node, node: Node2D) -> Node2D:
+	var closest: Node2D = null
+	var closest_distance : float = INF
+	var to_position: Vector2 = node.global_position
+	
+	for child: Node2D in parent.get_children():
+		if child == node:
+			continue
+		var distance: float = to_position.distance_squared_to(child.global_position)
+		if distance < closest_distance:
+			closest = child
+			closest_distance = distance
+	
+	return closest

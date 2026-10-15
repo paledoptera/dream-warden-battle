@@ -1,0 +1,37 @@
+[gd_resource type="Resource" script_class="AttackPool3D" format=3 uid="uid://dnox8odyohfkr"]
+
+[ext_resource type="Script" uid="uid://cwippqy5qorfo" path="res://minigames/warden_aqua_phase/systems/attack_data_3d.gd" id="1_6hn3j"]
+[ext_resource type="PackedScene" uid="uid://b86uqvmhcobf2" path="res://minigames/warden_aqua_phase/entities/attacks/att3d_heavy_slash/att3d_heavy_slash_1.tscn" id="2_4f7yq"]
+[ext_resource type="PackedScene" uid="uid://cvegnjya4imoi" path="res://minigames/warden_aqua_phase/entities/attacks/att3d_heavy_lasers/att3d_heavy_lasers_2.tscn" id="3_cus57"]
+[ext_resource type="PackedScene" uid="uid://ca153g70oeq0g" path="res://minigames/warden_aqua_phase/entities/attacks/att3d_light_diamonds/att3d_light_diamonds_2.tscn" id="4_cn0v8"]
+[ext_resource type="Script" uid="uid://dim341q48bw11" path="res://minigames/warden_aqua_phase/systems/attack_pool_3d.gd" id="4_vxvdl"]
+
+[sub_resource type="Resource" id="Resource_cus57"]
+resource_name = "Slash"
+script = ExtResource("1_6hn3j")
+scene = ExtResource("2_4f7yq")
+length = 1.0
+metadata/_custom_type_script = "uid://cwippqy5qorfo"
+
+[sub_resource type="Resource" id="Resource_q8bbt"]
+resource_name = "Lasers2"
+script = ExtResource("1_6hn3j")
+scene = ExtResource("3_cus57")
+length = 2.0
+boss_stops_following = true
+metadata/_custom_type_script = "uid://cwippqy5qorfo"
+
+[sub_resource type="Resource" id="Resource_4f7yq"]
+resource_name = "Diamonds2"
+script = ExtResource("1_6hn3j")
+scene = ExtResource("4_cn0v8")
+length = 1.5
+metadata/_custom_type_script = "uid://cwippqy5qorfo"
+
+[resource]
+script = ExtResource("4_vxvdl")
+light = Array[ExtResource("1_6hn3j")]([SubResource("Resource_4f7yq")])
+light_count_min = 0
+light_count_max = 0
+heavy = Array[ExtResource("1_6hn3j")]([SubResource("Resource_cus57"), SubResource("Resource_q8bbt")])
+metadata/_custom_type_script = "uid://dim341q48bw11"

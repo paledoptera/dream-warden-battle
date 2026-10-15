@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c22p8j5iuqiot" path="res://minigames/warden_aqua_phase/entities/bullets/bullet3d.gd" id="1_io0ng"]
 [ext_resource type="ArrayMesh" uid="uid://cibj4dobxoyna" path="res://minigames/warden_aqua_phase/entities/bullets/res/diamond_bullet_3d.obj" id="3_63xd1"]
-[ext_resource type="Texture2D" uid="uid://cx63rcsaytrqg" path="res://battle/enemies/warden/attacks/normal/2_revolve/res/circle.png" id="3_pcwl8"]
+[ext_resource type="PackedScene" uid="uid://ctvkbyb3udv4u" path="res://minigames/warden_aqua_phase/entities/effects/shadow/shadow.tscn" id="3_ftsy2"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_g4v7s"]
 radius = 0.06
@@ -12,6 +12,7 @@ shading_mode = 0
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ftsy2"]
 shading_mode = 0
+albedo_color = Color(0, 0, 0, 1)
 
 [node name="Bullet3D" type="Area3D" unique_id=1373998874]
 collision_layer = 2
@@ -28,14 +29,11 @@ debug_color = Color(0.9098039, 0.3019608, 0, 1)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=938831391]
 transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, 0, 0)
+layers = 2
 mesh = ExtResource("3_63xd1")
 surface_material_override/0 = SubResource("StandardMaterial3D_gbod2")
 surface_material_override/1 = SubResource("StandardMaterial3D_ftsy2")
 
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=683741585]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.070979714, 7.275958e-12)
-modulate = Color(0.1420123, 1.155138e-05, 0.5934209, 1)
-pixel_size = 0.003
-axis = 1
-texture_filter = 0
-texture = ExtResource("3_pcwl8")
+[node name="Shadow" parent="." unique_id=1844670972 instance=ExtResource("3_ftsy2")]
+
+[editable path="Shadow"]

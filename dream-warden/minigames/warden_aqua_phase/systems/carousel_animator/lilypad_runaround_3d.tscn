@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://b04510e6sryw"]
+
+[ext_resource type="Script" uid="uid://dv8q4e0xa7ehm" path="res://minigames/warden_aqua_phase/systems/carousel_animator/lilypad_runaround_3d.gd" id="1_xpx30"]
+[ext_resource type="Texture2D" uid="uid://c4ikhyexhqs04" path="res://shared/sprites/down_arrow.png" id="2_0uwjb"]
+
+[node name="LilypadRunaround3D" type="Node3D" unique_id=412851057]
+script = ExtResource("1_xpx30")
+
+[node name="Turner" type="Node3D" parent="." unique_id=2064399896]
+visible = false
+
+[node name="Sprite3D" type="Sprite3D" parent="Turner" unique_id=1433019985]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.01, 0)
+offset = Vector2(0, 8)
+flip_v = true
+pixel_size = 0.006
+axis = 1
+texture_filter = 0
+texture = ExtResource("2_0uwjb")
+
+[node name="OffsetPos" type="Node3D" parent="Turner" unique_id=250138297]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.1)
+
+[node name="Sprite3D2" type="Sprite3D" parent="Turner/OffsetPos" unique_id=1486900494]
+offset = Vector2(0, 8)
+flip_v = true
+pixel_size = 0.0041
+no_depth_test = true
+texture_filter = 0
+texture = ExtResource("2_0uwjb")

@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dudvs5splg43r" path="res://battle/effects/rude_buster_animation/rude_buster_explosion_arm.tscn" id="2_1ff0r"]
 
 [sub_resource type="Curve2D" id="Curve2D_1ff0r"]
+resource_local_to_scene = true
 _data = {
 "points": PackedVector2Array(0, 0, 100, 50, 0, 0)
 }
@@ -241,9 +242,6 @@ rotation = -0.7853982
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=849919959]
 libraries/ = SubResource("AnimationLibrary_rx1fe")
 autoplay = &"rude_buster"
-
-[node name="Camera2D" type="Camera2D" parent="." unique_id=220460057]
-position = Vector2(156, 17)
 
 [editable path="Path2D/PathFollow2D/Explosion/Arm1"]
 [editable path="Path2D/PathFollow2D/Explosion/Arm2"]

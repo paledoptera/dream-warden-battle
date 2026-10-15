@@ -7,6 +7,7 @@ class_name AquaCircle
 @export var left_dist: float = 60.0
 @export var up: AquaCircle
 @export var down: AquaCircle
+var lilypad: AquaLilypad
 
 static var default_color = Color("000073")
 static var unselected_color = Color("006dff")

@@ -4,7 +4,7 @@
 [ext_resource type="ArrayMesh" uid="uid://cibj4dobxoyna" path="res://minigames/warden_aqua_phase/entities/bullets/res/diamond_bullet_3d.obj" id="2_jtsu2"]
 [ext_resource type="PackedScene" uid="uid://c0xwsompqseq2" path="res://minigames/aqua/effects/strike_particle.tscn" id="2_t6s22"]
 [ext_resource type="AudioStream" uid="uid://b2asscyml5jh5" path="res://shared/sound_effects/snd_break1.wav" id="3_jsu2h"]
-[ext_resource type="Texture2D" uid="uid://cx63rcsaytrqg" path="res://battle/enemies/warden/attacks/normal/2_revolve/res/circle.png" id="3_t6s22"]
+[ext_resource type="PackedScene" uid="uid://ctvkbyb3udv4u" path="res://minigames/warden_aqua_phase/entities/effects/shadow/shadow.tscn" id="5_t8o5b"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_g4v7s"]
 radius = 0.06
@@ -18,16 +18,15 @@ shading_mode = 0
 albedo_color = Color(0, 0, 0, 1)
 
 [node name="Bullet3D" type="Area3D" unique_id=1373998874]
-collision_layer = 2
+collision_layer = 6
 script = ExtResource("1_mjgeh")
 destructible = true
 parryable = true
-parry_points = 12
+parry_points = 5
 destroy_effect = ExtResource("2_t6s22")
 parry_break_sfx = ExtResource("3_jsu2h")
-velocity = Vector3(0, 0, 0.25)
-life_time = 1.0
-linear_acceleration = 3.0
+velocity = Vector3(0, 0, -0.22)
+linear_acceleration = 2.0
 metadata/_custom_type_script = "uid://c22p8j5iuqiot"
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2111607229]
@@ -36,14 +35,11 @@ debug_color = Color(0.9098039, 0.3019608, 0, 1)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=938831391]
 transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, 0, 0)
+layers = 2
 mesh = ExtResource("2_jtsu2")
 surface_material_override/0 = SubResource("StandardMaterial3D_mjgeh")
 surface_material_override/1 = SubResource("StandardMaterial3D_63xd1")
 
-[node name="Sprite3D" type="Sprite3D" parent="." unique_id=683741585]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.070979714, 7.275958e-12)
-modulate = Color(0, 0.2844277, 0.28442773, 1)
-pixel_size = 0.003
-axis = 1
-texture_filter = 0
-texture = ExtResource("3_t6s22")
+[node name="Shadow" parent="." unique_id=1844670972 instance=ExtResource("5_t8o5b")]
+
+[editable path="Shadow"]

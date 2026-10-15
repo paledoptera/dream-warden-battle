@@ -299,34 +299,6 @@ text = "Bonus 2 - Brother Varik"
 scroll_active = false
 autowrap_mode = 0
 
-[node name="Bonus3HereComeTheCats" type="Control" parent="Options" unique_id=178200329 groups=["menu_option"]]
-modulate = Color(1, 1, 0.73, 1)
-custom_minimum_size = Vector2(228, 28)
-layout_mode = 2
-focus_mode = 2
-script = ExtResource("3_8eykq")
-offset = Vector2(16, 33)
-metadata/_custom_type_script = "uid://cc5k140pvhkn2"
-
-[node name="Label" type="RichTextLabel" parent="Options/Bonus3HereComeTheCats" unique_id=1137781369]
-custom_minimum_size = Vector2(228, 28)
-clip_contents = false
-layout_mode = 0
-offset_right = 228.0
-offset_bottom = 28.0
-theme = SubResource("Theme_7rakj")
-theme_override_fonts/normal_font = ExtResource("4_bgok2")
-theme_override_font_sizes/normal_font_size = 32
-theme_override_font_sizes/bold_font_size = 32
-theme_override_font_sizes/bold_italics_font_size = 32
-theme_override_font_sizes/italics_font_size = 32
-theme_override_font_sizes/mono_font_size = 32
-theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
-bbcode_enabled = true
-text = "Bonus 3 - Here Come The Cats"
-scroll_active = false
-autowrap_mode = 0
-
 [node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1820192820]
 visible = false
 offset_left = 49.0
@@ -361,10 +333,72 @@ modulate = Color(1, 0, 0, 1)
 position = Vector2(64, 65)
 texture = ExtResource("8_v01p7")
 
+[node name="Bonus3HereComeTheCats" type="Control" parent="." unique_id=178200329]
+custom_minimum_size = Vector2(228, 28)
+layout_mode = 3
+anchors_preset = 0
+offset_left = 19.0
+offset_top = 288.0
+offset_right = 640.0
+offset_bottom = 316.0
+focus_mode = 2
+script = ExtResource("3_8eykq")
+offset = Vector2(16, 33)
+metadata/_custom_type_script = "uid://cc5k140pvhkn2"
+
+[node name="Label" type="RichTextLabel" parent="Bonus3HereComeTheCats" unique_id=1137781369]
+modulate = Color(0.2520276, 0.25202766, 0.25202763, 1)
+custom_minimum_size = Vector2(228, 28)
+clip_contents = false
+layout_mode = 0
+offset_right = 228.0
+offset_bottom = 28.0
+theme = SubResource("Theme_7rakj")
+theme_override_fonts/normal_font = ExtResource("4_bgok2")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
+bbcode_enabled = true
+text = "Bonus 3 - Here Come The Cats"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ColorRect" type="ColorRect" parent="Bonus3HereComeTheCats" unique_id=44762330]
+layout_mode = 0
+offset_left = 28.520346
+offset_top = 16.272326
+offset_right = 474.97018
+offset_bottom = 18.39699
+rotation = 0.08238218
+color = Color(0.6627451, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="Bonus3HereComeTheCats" unique_id=1876898573]
+layout_mode = 0
+offset_left = 27.999996
+offset_top = 38.999992
+offset_right = 483.90057
+offset_bottom = 41.63076
+rotation = -0.029073033
+color = Color(0.6627451, 0, 0, 1)
+
+[node name="Label2" type="RichTextLabel" parent="Bonus3HereComeTheCats" unique_id=774501296]
+modulate = Color(0.7861388, 0.3719678, 0.5559557, 1)
+layout_mode = 0
+offset_left = 224.0
+offset_top = 21.0
+offset_right = 315.0
+offset_bottom = 37.0
+scale = Vector2(2, 2)
+bbcode_enabled = true
+text = "[shake]KILLED"
+scroll_active = false
+
 [connection signal="selected" from="Options/DreamWarden" to="." method="_on_option_selected"]
 [connection signal="selected" from="Options/DreamWardenParry" to="." method="_on_option_selected"]
 [connection signal="selected" from="Options/DreamWardenAqua" to="." method="_on_option_selected"]
 [connection signal="selected" from="Options/DreamWardenFinal" to="." method="_on_option_selected"]
 [connection signal="selected" from="Options/Bonus1IcePalaceBoss" to="." method="_on_option_selected"]
 [connection signal="selected" from="Options/Bonus2BrotherVarik" to="." method="_on_option_selected"]
-[connection signal="selected" from="Options/Bonus3HereComeTheCats" to="." method="_on_option_selected"]

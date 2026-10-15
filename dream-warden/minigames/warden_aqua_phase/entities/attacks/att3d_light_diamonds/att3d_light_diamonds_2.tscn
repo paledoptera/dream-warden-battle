@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://ca153g70oeq0g"]
+
+[ext_resource type="Script" uid="uid://b1lp2o1bdpga5" path="res://minigames/warden_aqua_phase/entities/attacks/att3d_light_diamonds/att_3d_light_diamonds_2.gd" id="1_jv4f6"]
+[ext_resource type="PackedScene" uid="uid://ds4vcmkvdeqkj" path="res://minigames/warden_aqua_phase/entities/bullets/diamond_bullet_3d.tscn" id="3_bcpu1"]
+[ext_resource type="Script" uid="uid://csrqpxluk4q1c" path="res://minigames/warden_aqua_phase/entities/attacks/att3d_light_diamonds/bullet_spawner_3d_mega.gd" id="4_jv4f6"]
+[ext_resource type="PackedScene" uid="uid://ckvgqgq0rec3h" path="res://minigames/warden_aqua_phase/entities/bullets/diamond_bullet_parryable_3d.tscn" id="5_bcpu1"]
+
+[node name="Attack3DDiamonds2" type="Node3D" unique_id=273713936]
+script = ExtResource("1_jv4f6")
+
+[node name="Timer" type="Timer" parent="." unique_id=1692637535]
+wait_time = 0.7
+autostart = true
+
+[node name="BulletSpawner3DMega" type="Node3D" parent="." unique_id=302666481 node_paths=PackedStringArray("spawnpoints")]
+script = ExtResource("4_jv4f6")
+bullet = Array[PackedScene]([ExtResource("3_bcpu1"), ExtResource("3_bcpu1"), ExtResource("5_bcpu1")])
+spawnpoints = [NodePath("Marker3D"), NodePath("Marker3D5"), NodePath("Marker3D6"), NodePath("Marker3D9"), NodePath("Marker3D10")]
+speed_mult_min = 0.2
+speed_mult_max = 1.5
+amount_min = 3
+amount_max = 5
+
+[node name="Marker3D" type="Marker3D" parent="BulletSpawner3DMega" unique_id=1610751248]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08959919, 0)
+
+[node name="Marker3D5" type="Marker3D" parent="BulletSpawner3DMega" unique_id=1304024840]
+transform = Transform3D(0.34202015, 0, 0.9396926, 0, 1, 0, -0.9396926, 0, 0.34202015, 0, 0.08959919, 0)
+
+[node name="Marker3D9" type="Marker3D" parent="BulletSpawner3DMega" unique_id=1005966264]
+transform = Transform3D(0.81915206, 0, 0.57357645, 0, 1, 0, -0.57357645, 0, 0.81915206, 0, 0.08959919, 0)
+
+[node name="Marker3D10" type="Marker3D" parent="BulletSpawner3DMega" unique_id=569213793]
+transform = Transform3D(0.81915206, 0, -0.57357645, 0, 1, 0, 0.57357645, 0, 0.81915206, 0, 0.08959919, 0)
+
+[node name="Marker3D6" type="Marker3D" parent="BulletSpawner3DMega" unique_id=467333132]
+transform = Transform3D(0.34202015, 0, -0.9396926, 0, 1, 0, 0.9396926, 0, 0.34202015, 0, 0.08959919, 0)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

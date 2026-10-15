@@ -1,5 +1,6 @@
 class_name AquaLilypad extends Node2D
 
+@export var targetable: bool = true
 @export var edge_only: bool = false
 @export var no_horizontal_movement: bool = false
 var left: AquaLilypad

@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://bnt1otq3uwm3j"]
 
-[ext_resource type="Script" uid="uid://d3l2uiddgos5w" path="res://warden/background.gd" id="1_djrh6"]
-[ext_resource type="Texture2D" uid="uid://dtpupihy55u0e" path="res://warden/assets/back_buldings_032021.png" id="2_3ljtq"]
-[ext_resource type="Shader" uid="uid://q4ctqj424uqs" path="res://warden/shaders/background_warp.gdshader" id="2_srtji"]
-[ext_resource type="Texture2D" uid="uid://bgx4e1265uhoh" path="res://warden/assets/warden_background_grit.png" id="3_djrh6"]
+[ext_resource type="Script" uid="uid://d3l2uiddgos5w" path="res://battle/enemies/warden/new_actor/background.gd" id="1_djrh6"]
+[ext_resource type="Texture2D" uid="uid://dtpupihy55u0e" path="res://battle/enemies/warden/new_actor/assets/back_buldings_032021.png" id="2_3ljtq"]
+[ext_resource type="Shader" uid="uid://q4ctqj424uqs" path="res://battle/enemies/warden/new_actor/shaders/background_warp.gdshader" id="2_srtji"]
+[ext_resource type="Texture2D" uid="uid://bgx4e1265uhoh" path="res://battle/enemies/warden/new_actor/assets/warden_background_grit.png" id="3_djrh6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_iy3d5"]
 shader = ExtResource("2_srtji")

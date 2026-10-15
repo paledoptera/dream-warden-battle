@@ -9,6 +9,7 @@ var y_position: float = 0.0
 var y_velocity: float = 0.0
 var is_grounded: bool = false
 var is_jumping: bool = false
+var running_direction: float = 0.0
 var is_rolling: bool = false
 var is_attacking: bool = false
 var midair_roll_used: bool = false
@@ -112,14 +113,13 @@ func update_position(new_lilypad: Node3D, time: float, edge_only: bool = false):
 		print("EDGING")
 	var tween = create_tween()
 	tween.set_parallel(true)
-	tween.tween_property(self,"global_position",new_pos,time).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(self,"global_position",new_pos,time).set_ease(Tween.EASE_IN_OUT).set_trans(Tween.TRANS_QUAD)
 	internal_position = new_lilypad.global_position
 	
 	is_rolling = true
 	await get_tree().create_timer(time).timeout
 	is_rolling = false
 	current_lilypad = new_lilypad
-	
 
 func animate(anim_name: StringName, speed_scale: float = 1.0,restart_anim: bool = false):
 	if $AnimationPlayer.current_animation == anim_name:
@@ -130,6 +130,8 @@ func animate(anim_name: StringName, speed_scale: float = 1.0,restart_anim: bool 
 	$AnimationPlayer.play(anim_name)
 
 func do_animations():
+	
+
 	
 	if is_rolling:
 		animate("roll",roll_animation_speed)
@@ -147,6 +149,14 @@ func do_animations():
 			$AnimationPlayer.play("jump")
 		else:
 			$AnimationPlayer.play("fall")
+		return
+	
+	if running_direction != 0.0:
+		if running_direction == 1.0:
+			$AnimationPlayer.play("run_right")
+		elif running_direction == -1.0:
+			
+			$AnimationPlayer.play("run_left")
 		return
 	
 	animate("idle")
@@ -177,6 +187,8 @@ func animate_soul_afterimage() -> void:
 func _on_attack_area_entered(area: Area3D) -> void:
 	if area.get_owner() is AquaBoss:
 		area.get_owner().hit()
+	if area is Bullet3D:
+		area.hit()
 	pass # Replace with function body.
 
 func check_for_danger() -> void:
@@ -202,3 +214,7 @@ func trigger_damage_number(damage_number: FloatingText) -> void:
 	get_owner().add_child(damage_number)
 	damage_number.global_position = screen_pos
 	print("DAMAGED")
+
+func set_xz_position(new_pos: Vector3):
+	global_position = Vector3(new_pos.x,global_position.y,new_pos.z)
+	internal_position = global_position

@@ -2,26 +2,32 @@ extends Node
 
 const CAROUSEL_6 = preload("uid://cw522dwinyrlv")
 const CAROUSEL_6_MIDDLE = preload("uid://do3e5hqcv670r")
+const CAROUSEL_4_RUNAROUND = preload("uid://bhvvfwpjguxgx")
 
 @export var debug: bool = false
 var layers: Array[AquaLilypadLayer]
 var lilypads: Array[AquaLilypad]
 
+var stage: int = 0: set = _stage_changed
 var carousel: AquaCarousel
 
 func _ready() -> void:
 	Fader.fade_out(0.5,Color.WHITE,Tween.EaseType.EASE_OUT,Tween.TransitionType.TRANS_CUBIC)
+	%CarouselAnimator.player_3d = %Player3D
 	change_carousel(CAROUSEL_6_MIDDLE)
 	%Boss.player = %Player3D
 	%Boss.look_target = %Player3D
 	$Healthbar.player_3d = %Player3D
 	EventBus.damage_player.connect(_damage_player)
+	_stage_changed(stage)
+	Party.enemy[0].hp = 3000.0
 
 func _process(delta: float) -> void:
 	var player_xz_position = Vector3(%Player3D.global_position.x,0.0,%Player3D.global_position.z)
 	%CameraArm.look_at(player_xz_position)
 	$AttackOverlay.modulate = Color("ffffff00").lerp(Color("ffffff84"),%Player3D.danger_alpha)
-	
+	$ShadowFloor.get_surface_override_material(0).albedo_color = Color("00000000").lerp(Color("000000"),%Player3D.danger_alpha)
+	%Player3D.running_direction = carousel.running_direction
 
 func change_carousel(new_carousel: PackedScene):
 	var inst = new_carousel.instantiate()
@@ -36,6 +42,7 @@ func change_carousel(new_carousel: PackedScene):
 	carousel.position = Vector2(320.0,240.0)
 	carousel.current_lilypad_changed.connect(_on_current_lilypad_changed)
 	carousel.lilypad_layer_changed_state.connect(_on_lilypad_layer_changed_state)
+	carousel.update_runaround_position.connect(_on_update_runaround_position)
 	
 	if not debug:
 		carousel.visible = false
@@ -79,7 +86,12 @@ func _on_current_lilypad_changed(lilypad: AquaLilypad, last_lilypad: AquaLilypad
 	
 	
 	var lilypad_ind = lilypads.find(lilypad)
-	%Player3D.update_position(%CarouselAnimator.display_lilypads[lilypad_ind],carousel.current_layer.travel_time, lilypad.edge_only)
+	var edge_only = lilypad.edge_only
+	if lilypad is AquaLilypadRunaround:
+		edge_only = true
+	
+	%Player3D.update_position(%CarouselAnimator.display_lilypads[lilypad_ind],carousel.current_layer.travel_time, edge_only)
+	
 	%CarouselAnimator.update_current_lilypad(lilypad,carousel.current_layer)
 
 
@@ -95,6 +107,10 @@ func _on_lilypad_layer_changed_state(lilypad_layer: AquaLilypadLayer, state: boo
 				i.node_3d.set_inactive()
 				
 
+func _on_update_runaround_position(runaround_position: float):
+	%CarouselAnimator.update_runaround_position(runaround_position)
+	#%Player3D.rotation.y = runaround_position
+
 
 func _on_boss_attack_started(attackdata3d: AttackData3D) -> void:
 	var attack_scene = attackdata3d.scene.instantiate()
@@ -105,6 +121,7 @@ func _on_boss_attack_started(attackdata3d: AttackData3D) -> void:
 		AttackData3D.Layer.BOSS:
 			$BossViewport/SubViewport.add_child(attack_scene)
 	
+	attackdata3d.instance = attack_scene
 	attack_scene.boss = %Boss
 	attack_scene.carousel_animator = %CarouselAnimator
 	attack_scene.carousel = carousel
@@ -124,3 +141,14 @@ func _damage_player(value: int) -> void:
 	
 	var damage_number = FloatingText.initialize_text(str(damage),Color.WHITE)
 	%Player3D.trigger_damage_number(damage_number)
+
+func _stage_changed(value: int) -> void:
+	stage = value
+	
+	%Boss.stage = value
+	
+	match stage:
+		0:
+			pass
+		1:
+			change_carousel(CAROUSEL_4_RUNAROUND)

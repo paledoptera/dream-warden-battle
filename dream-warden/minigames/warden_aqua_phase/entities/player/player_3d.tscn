@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://m46g7y4hbl3p" path="res://minigames/warden_aqua_phase/entities/player/res/aqua_susie_organized_sheet_outline.png" id="8_7nav6"]
 [ext_resource type="Script" uid="uid://b3agl0p865wti" path="res://minigames/warden_aqua_phase/entities/player/susie_effect.gd" id="9_kopxl"]
 [ext_resource type="Texture2D" uid="uid://chce0qpthdrec" path="res://minigames/warden_aqua_phase/entities/player/res/aqua_susie_organized_sheet_silhouette.png" id="10_cqt2b"]
+[ext_resource type="PackedScene" uid="uid://ctvkbyb3udv4u" path="res://minigames/warden_aqua_phase/entities/effects/shadow/shadow.tscn" id="11_ubura"]
 [ext_resource type="Texture2D" uid="uid://wy7dhu8gvr8c" path="res://battle/soul/soul/res/soul.png" id="12_ygbu2"]
 [ext_resource type="Texture2D" uid="uid://btwlxu6pvi12o" path="res://battle/soul/soul/res/graze.png" id="13_gjcui"]
 [ext_resource type="ArrayMesh" uid="uid://ddcpe8eo1o3we" path="res://minigames/aqua/scenes/rude_buster.obj" id="14_qsabh"]
@@ -12,8 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://blm5e0cq0sp6i" path="res://minigames/aqua/res/susie_roll_slash.png" id="16_kjpuu"]
 [ext_resource type="Script" uid="uid://pavqft048bhw" path="res://minigames/aqua/debug_var_list.gd" id="17_n7hoa"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_g4v7s"]
-size = Vector3(0.5, 0.3, 0.5024873)
+[sub_resource type="SphereShape3D" id="SphereShape3D_ubura"]
+radius = 0.3
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_g4v7s"]
 shading_mode = 0
@@ -105,6 +106,18 @@ tracks/6/keys = {
 "update": 1,
 "values": [Vector2i(0, 0)]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Pivot/Susie:flip_h")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_xpa20"]
 resource_name = "slash"
@@ -116,7 +129,7 @@ tracks/0/path = NodePath("Pivot/Susie/Attack/CollisionShape3D:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.033333335, 0.1, 0.2),
+"times": PackedFloat32Array(0, 0.033333335, 0.13333334, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [true, false, true, true]
@@ -144,7 +157,7 @@ tracks/0/path = NodePath("Pivot/Susie/Attack/CollisionShape3D:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.033333335, 0.1, 0.2),
+"times": PackedFloat32Array(0, 0.033333335, 0.13333334, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [true, false, true, true]
@@ -204,6 +217,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
 "values": [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0), Vector2i(3, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot/Susie:flip_h")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="Animation" id="Animation_cqm2y"]
@@ -275,6 +300,52 @@ tracks/3/keys = {
 "values": [Vector2i(0, 6), Vector2i(1, 6), Vector2i(2, 6), Vector2i(3, 6), Vector2i(4, 6), Vector2i(1, 6), Vector2i(2, 6), Vector2i(3, 6), Vector2i(5, 6)]
 }
 
+[sub_resource type="Animation" id="Animation_ubura"]
+resource_name = "run_left"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Susie:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666666, 0.13333333, 0.2, 0.2666667, 0.33333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 7), Vector2i(1, 7), Vector2i(2, 7), Vector2i(3, 7), Vector2i(4, 7), Vector2i(5, 7)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/Susie:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_cqt2b"]
+resource_name = "run_left"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Susie:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.06666666, 0.13333333, 0.2, 0.2666667, 0.33333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 7), Vector2i(1, 7), Vector2i(2, 7), Vector2i(3, 7), Vector2i(4, 7), Vector2i(5, 7)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o0dci"]
 _data = {
 &"RESET": SubResource("Animation_o0dci"),
@@ -283,7 +354,9 @@ _data = {
 &"fall": SubResource("Animation_dl2jl"),
 &"idle": SubResource("Animation_mw6fy"),
 &"jump": SubResource("Animation_cqm2y"),
-&"roll": SubResource("Animation_mlat7")
+&"roll": SubResource("Animation_mlat7"),
+&"run_left": SubResource("Animation_ubura"),
+&"run_right": SubResource("Animation_cqt2b")
 }
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_s74s4"]
@@ -293,6 +366,8 @@ height = 0.067
 [sub_resource type="SphereShape3D" id="SphereShape3D_g4v7s"]
 radius = 0.8
 
+[sub_resource type="BoxMesh" id="BoxMesh_g4v7s"]
+
 [node name="Player3D" type="Area3D" unique_id=1237159460 groups=["player"]]
 script = ExtResource("1_nepnj")
 
@@ -300,19 +375,19 @@ script = ExtResource("1_nepnj")
 
 [node name="Susie" type="Sprite3D" parent="Pivot" unique_id=1170237708]
 layers = 2
-offset = Vector2(8, 36)
+offset = Vector2(7, 36)
 pixel_size = 0.00416
 billboard = 1
 alpha_cut = 1
 texture_filter = 0
 texture = ExtResource("2_7nav6")
 hframes = 6
-vframes = 7
+vframes = 8
 
 [node name="Outline" type="Sprite3D" parent="Pivot/Susie" unique_id=1343798834]
 unique_name_in_owner = true
 layers = 2
-offset = Vector2(8, 36)
+offset = Vector2(7, 36)
 modulate = Color(1, 1, 1, 0)
 pixel_size = 0.00416
 billboard = 1
@@ -321,13 +396,13 @@ texture_filter = 0
 render_priority = -1
 texture = ExtResource("8_7nav6")
 hframes = 6
-vframes = 7
+vframes = 8
 script = ExtResource("9_kopxl")
 
 [node name="Silhouette" type="Sprite3D" parent="Pivot/Susie" unique_id=1257566328]
 unique_name_in_owner = true
 layers = 2
-offset = Vector2(8, 36)
+offset = Vector2(7, 36)
 modulate = Color(1, 1, 1, 0.5058824)
 pixel_size = 0.00416
 billboard = 1
@@ -336,13 +411,12 @@ texture_filter = 0
 render_priority = -1
 texture = ExtResource("10_cqt2b")
 hframes = 6
-vframes = 7
+vframes = 8
 script = ExtResource("9_kopxl")
 
 [node name="Soul" type="Sprite3D" parent="Pivot/Susie" unique_id=47748734]
 layers = 2
-offset = Vector2(6, 40)
-modulate = Color(0, 0, 1, 0)
+offset = Vector2(0, 40)
 pixel_size = 0.00208
 billboard = 1
 no_depth_test = true
@@ -353,7 +427,7 @@ texture = ExtResource("12_ygbu2")
 [node name="Soul2" type="Sprite3D" parent="Pivot/Susie" unique_id=1648415483]
 visible = false
 layers = 2
-offset = Vector2(3, 25)
+offset = Vector2(-8, 25)
 modulate = Color(0, 1, 1, 1)
 pixel_size = 0.00416
 billboard = 1
@@ -372,8 +446,8 @@ collision_layer = 0
 collision_mask = 6
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Pivot/Susie/Attack" unique_id=746646306]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.03842163, 0.6404221)
-shape = SubResource("BoxShape3D_g4v7s")
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 0, 0.03842163, 0.6404221)
+shape = SubResource("SphereShape3D_ubura")
 disabled = true
 debug_color = Color(0.7882353, 0.43137255, 0.06666667, 1)
 
@@ -400,6 +474,9 @@ billboard = 1
 texture_filter = 0
 texture = ExtResource("16_kjpuu")
 hframes = 3
+
+[node name="Shadow" parent="Pivot" unique_id=1844670972 instance=ExtResource("11_ubura")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.084, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=840865491]
 libraries/ = SubResource("AnimationLibrary_o0dci")
@@ -431,6 +508,11 @@ collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="DangerDetector" unique_id=290267462]
 shape = SubResource("SphereShape3D_g4v7s")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=969035279]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5046009, 0)
+visible = false
+mesh = SubResource("BoxMesh_g4v7s")
 
 [connection signal="area_entered" from="Pivot/Susie/Attack" to="." method="_on_attack_area_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

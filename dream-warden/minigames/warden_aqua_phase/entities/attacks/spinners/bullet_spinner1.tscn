@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://cw8i0is0ikkxq"]
+
+[ext_resource type="Script" uid="uid://doymi7hbn15h6" path="res://minigames/warden_aqua_phase/entities/attacks/spinners/bullet_spinner.gd" id="1_rp4ja"]
+[ext_resource type="Script" uid="uid://c22p8j5iuqiot" path="res://minigames/warden_aqua_phase/entities/bullets/bullet3d.gd" id="2_and0k"]
+[ext_resource type="ArrayMesh" uid="uid://cibj4dobxoyna" path="res://minigames/warden_aqua_phase/entities/bullets/res/diamond_bullet_3d.obj" id="3_epbqb"]
+[ext_resource type="Texture2D" uid="uid://cx63rcsaytrqg" path="res://battle/enemies/warden/attacks/normal/2_revolve/res/circle.png" id="4_5hqo8"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_g4v7s"]
+radius = 0.06
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gbod2"]
+shading_mode = 0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ftsy2"]
+shading_mode = 0
+
+[node name="BulletSpinner" type="Node3D" unique_id=1004680369]
+script = ExtResource("1_rp4ja")
+speed = 2.0
+
+[node name="Node3D" type="Node3D" parent="." unique_id=1891616683]
+
+[node name="Bullet3D" type="Area3D" parent="Node3D" unique_id=1373998874]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0.235)
+collision_layer = 2
+script = ExtResource("2_and0k")
+damage = 10
+life_time = -1.0
+linear_acceleration = 2.0
+metadata/_custom_type_script = "uid://c22p8j5iuqiot"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Bullet3D" unique_id=2111607229]
+shape = SubResource("SphereShape3D_g4v7s")
+debug_color = Color(0.9098039, 0.3019608, 0, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/Bullet3D" unique_id=938831391]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, 0, 0)
+mesh = ExtResource("3_epbqb")
+surface_material_override/0 = SubResource("StandardMaterial3D_gbod2")
+surface_material_override/1 = SubResource("StandardMaterial3D_ftsy2")
+
+[node name="Sprite3D" type="Sprite3D" parent="Node3D/Bullet3D" unique_id=683741585]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.070979714, 7.275958e-12)
+modulate = Color(0.1420123, 1.155138e-05, 0.5934209, 1)
+pixel_size = 0.003
+axis = 1
+texture_filter = 0
+texture = ExtResource("4_5hqo8")
+
+[node name="Bullet3D2" type="Area3D" parent="Node3D" unique_id=636167453]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0.275, -0.235)
+collision_layer = 2
+script = ExtResource("2_and0k")
+damage = 10
+life_time = -1.0
+linear_acceleration = 2.0
+metadata/_custom_type_script = "uid://c22p8j5iuqiot"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Node3D/Bullet3D2" unique_id=1016940484]
+shape = SubResource("SphereShape3D_g4v7s")
+debug_color = Color(0.9098039, 0.3019608, 0, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Node3D/Bullet3D2" unique_id=910673450]
+transform = Transform3D(0.03, 0, 0, 0, 0.03, 0, 0, 0, 0.03, 0, 0, 0)
+mesh = ExtResource("3_epbqb")
+surface_material_override/0 = SubResource("StandardMaterial3D_gbod2")
+surface_material_override/1 = SubResource("StandardMaterial3D_ftsy2")
+
+[node name="Sprite3D" type="Sprite3D" parent="Node3D/Bullet3D2" unique_id=1472460925]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.070979714, 7.275958e-12)
+modulate = Color(0.1420123, 1.155138e-05, 0.5934209, 1)
+pixel_size = 0.003
+axis = 1
+texture_filter = 0
+texture = ExtResource("4_5hqo8")

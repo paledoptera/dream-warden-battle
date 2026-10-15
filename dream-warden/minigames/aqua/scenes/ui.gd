@@ -1,5 +1,7 @@
 extends Node2D
 
+const RUDEBUSTER_ANIM = preload("uid://bfjxi8xfe8wxu")
+
 signal active_changed(value: bool)
 signal action_done(value: int)
 
@@ -96,19 +98,35 @@ func action() -> void:
 			Party.tp = 0.0
 			active = false
 		1:
-			Sound.play(preload("uid://b1b6o1bp1u6f1"))
+			
+			var hero = Party.hero[0]
+			var enemy = Party.enemy[0]
+			var damage = RudeBusterFormula.calculate(1,hero,enemy)
+			
+			var anim = RUDEBUSTER_ANIM.instantiate()
+			add_child(anim)
+			anim.global_position = %Player2DPosition.global_position
+			anim.set_target(%Boss2DActor)
 			Party.tp = 0.0
+			
+			await Global.get_tree().create_timer(0.62).timeout
+			
+			%Boss.trigger_damage_number(damage)
+			
+			Actors.do_action(enemy.character_id, "hurt_hard")
+
+			
+			
 			active = false
 			await get_tree().create_timer(0.3).timeout
 			Party.enemy[0].hp -= 150.0
-			Sound.play(preload("uid://dvuvxfskkh7fn"))
+			%Boss.mega_hit()
 			
 			
 		2:
 			pass
 	scale_effect = 1.0
 	pass
-
 
 func inactive_anim() -> void:
 	scale_effect = lerpf(scale_effect,1.0,0.4)

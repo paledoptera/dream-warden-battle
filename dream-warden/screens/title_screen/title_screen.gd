@@ -24,6 +24,4 @@ func _on_option_selected(index: int) -> void:
 			Battle.start(
 				preload("uid://cq5a5r316rwbs") #fight_boss_08j_varik
 			)
-		6: # Here come the cats
-			SceneLoader.change_scene(preload("uid://ddmjcvocbt7r1"))
 	pass # Replace with function body.

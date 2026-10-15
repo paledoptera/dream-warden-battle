@@ -3,9 +3,12 @@ class_name AquaCarousel extends Sprite2D
 
 @export var lilypad_layers: Array[AquaLilypadLayer]
 @export var boss_layer: AquaLilypadLayer
+var running_direction:= 0.0
+var runaround_position: float = 0.0
 
 signal current_lilypad_changed(lilypad: Node2D, last_lilypad: Node2D)
 signal lilypad_layer_changed_state(lilypad_layer: AquaLilypadLayer, state: bool)
+signal update_runaround_position(runaround_position: float)
 
 var current_lilypad: Node2D:
 	set(value):
@@ -48,14 +51,23 @@ func _process(delta: float) -> void:
 	if not hop_cooldown == 0.0:
 		return
 	
+	if not horizontal_input:
+		running_direction = 0.0
+	
 	
 	if horizontal_input or vertical_input:
 		hop_cooldown = current_layer.travel_time
 		
 		if vertical_input: 
 			goto_vertical_lilypad(vertical_input)
-		elif horizontal_input: 
-			goto_horizontal_lilypad(horizontal_input)
+		elif horizontal_input:
+			if current_lilypad is AquaLilypadRunaround:
+				runaround_horizontal(horizontal_input)
+				running_direction = horizontal_input
+				hop_cooldown = 0.0
+				return
+			else:
+				goto_horizontal_lilypad(horizontal_input)
 		
 		last_player_position = player_position
 		var tween = create_tween()
@@ -77,6 +89,13 @@ func goto_vertical_lilypad(val: int):
 		if not current_layer.down_layer.enabled:
 			return
 		current_layer = current_layer.down_layer
+		
+		if current_lilypad is AquaLilypadRunaround:
+			var marker = current_lilypad.player_marker
+			current_lilypad = Tools.find_nearest_child_to_node(current_layer,marker)
+			
+			return
+		
 		current_lilypad = current_layer.get_child(current_layer.current)
 		return
 	elif current_layer.up_layer and val == -1:
@@ -84,9 +103,14 @@ func goto_vertical_lilypad(val: int):
 			return
 		current_layer = current_layer.up_layer
 		current_lilypad = current_layer.get_child(current_layer.current)
+		
+		if current_lilypad is AquaLilypadRunaround:
+			runaround_position = current_lilypad.player_angle
 		return
 
 func boss_layer_change_state(enabled: bool):
+	if not boss_layer:
+		return
 	boss_layer.enabled = enabled
 
 func check_for_valid_layer() -> AquaLilypadLayer:
@@ -96,3 +120,8 @@ func check_for_valid_layer() -> AquaLilypadLayer:
 		return current_layer.up_layer
 	
 	return lilypad_layers[0]
+
+func runaround_horizontal(input: float) -> void:
+	current_lilypad.pointer.rotate(-input * get_process_delta_time() * current_lilypad.speed)
+	runaround_position = current_lilypad.player_angle
+	update_runaround_position.emit(runaround_position)

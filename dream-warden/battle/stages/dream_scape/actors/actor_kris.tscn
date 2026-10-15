@@ -191,8 +191,9 @@ shader = ExtResource("2_g28l5")
 shader_parameter/original_palette = ExtResource("4_he8gx")
 shader_parameter/new_palette = ExtResource("3_8a46t")
 shader_parameter/color_count = 13
+shader_parameter/white_flash = 0.0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_d7hko"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_63dkk"]
 viewport_path = NodePath("SubViewport")
 
 [node name="ActorSusie" type="Node2D" unique_id=2112924183 groups=["actors"]]
@@ -228,6 +229,6 @@ layout_mode = 1
 z_index = -1
 
 [node name="TextureRect" parent="Effects/BlackHoleEffect" index="1" unique_id=829109461]
-texture = SubResource("ViewportTexture_d7hko")
+texture = SubResource("ViewportTexture_63dkk")
 
 [editable path="Effects/BlackHoleEffect"]

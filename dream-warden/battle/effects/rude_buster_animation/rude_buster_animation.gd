@@ -4,7 +4,6 @@ const AFTERIMAGE = preload("uid://bxr0vym0d4gf")
 var time: float = 0.0
 
 func set_target(node2d: Node2D) -> void:
-	
 	$Path2D.curve.add_point($Path2D.to_local(node2d.global_position))
 
 func _physics_process(delta: float) -> void:
@@ -18,3 +17,10 @@ func _physics_process(delta: float) -> void:
 	afterimage.global_rotation = %Buster.global_rotation
 	
 	time += delta
+
+
+func play_rudebuster_sound() -> void:
+	Sound.play(preload("uid://b1b6o1bp1u6f1"))
+	
+func play_rudebuster_hit_sound() -> void:
+	Sound.play(preload("uid://dvuvxfskkh7fn"))

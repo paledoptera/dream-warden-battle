@@ -38,7 +38,7 @@ size = Vector2i(900, 450)
 
 [node name="warden" parent="SubViewport" unique_id=760203765 instance=ExtResource("2_30ukv")]
 
-[node name="Skeleton3D" parent="SubViewport/warden/rig" parent_id_path=PackedInt32Array(760203765, 74339841) index="0" unique_id=496043877]
+[node name="Skeleton3D" parent="SubViewport/warden/rig" parent_id_path=PackedInt32Array(760203765, 204022747) index="0" unique_id=1971815845]
 bones/0/position = Vector3(-0.015471799, -1.3393955, 0.013582822)
 bones/1/position = Vector3(-0.15179245, -1.2038, 2.9302096)
 bones/1/rotation = Quaternion(0.00086809776, 0.0016734452, -0.00038056553, 0.99999815)
@@ -170,39 +170,39 @@ bones/195/rotation = Quaternion(5.157409e-08, 0.7071068, 0.7071068, 5.5525355e-0
 bones/196/rotation = Quaternion(5.157409e-08, 0.7071068, 0.7071068, 5.5525355e-08)
 bones/197/rotation = Quaternion(5.157409e-08, 0.7071068, 0.7071068, 5.5525355e-08)
 
-[node name="DeltaRune" parent="SubViewport/warden/rig/Skeleton3D" index="1" unique_id=557251478]
+[node name="DeltaRune" parent="SubViewport/warden/rig/Skeleton3D" index="1" unique_id=1143412043]
 material_override = ExtResource("3_cujqf")
 
-[node name="Face_Bottom" parent="SubViewport/warden/rig/Skeleton3D" index="2" unique_id=1295147389]
+[node name="Face_Bottom" parent="SubViewport/warden/rig/Skeleton3D" index="2" unique_id=2045033554]
 material_override = ExtResource("3_cujqf")
 
-[node name="Face_Top" parent="SubViewport/warden/rig/Skeleton3D" index="3" unique_id=1554182451]
+[node name="Face_Top" parent="SubViewport/warden/rig/Skeleton3D" index="3" unique_id=1350144051]
 material_override = ExtResource("3_cujqf")
 
-[node name="LesserWing" parent="SubViewport/warden/rig/Skeleton3D" index="4" unique_id=371965231]
+[node name="LesserWing" parent="SubViewport/warden/rig/Skeleton3D" index="4" unique_id=1452565721]
 material_override = ExtResource("3_cujqf")
 
-[node name="MainDeltaRune" parent="SubViewport/warden/rig/Skeleton3D" index="5" unique_id=1734719809]
+[node name="MainDeltaRune" parent="SubViewport/warden/rig/Skeleton3D" index="5" unique_id=1288579522]
 material_override = ExtResource("3_cujqf")
 
-[node name="PrimaryWing" parent="SubViewport/warden/rig/Skeleton3D" index="6" unique_id=302528389]
+[node name="PrimaryWing" parent="SubViewport/warden/rig/Skeleton3D" index="6" unique_id=1128553320]
 material_override = ExtResource("3_cujqf")
 material_overlay = ExtResource("3_cujqf")
 
-[node name="PrimaryWing_001" parent="SubViewport/warden/rig/Skeleton3D" index="7" unique_id=1117692560]
+[node name="PrimaryWing_001" parent="SubViewport/warden/rig/Skeleton3D" index="7" unique_id=737660586]
 material_override = ExtResource("3_cujqf")
 
-[node name="PrimaryWing_002" parent="SubViewport/warden/rig/Skeleton3D" index="8" unique_id=2075808897]
+[node name="PrimaryWing_002" parent="SubViewport/warden/rig/Skeleton3D" index="8" unique_id=134982670]
 material_override = SubResource("ShaderMaterial_22l4l")
 
-[node name="UpperArm" parent="SubViewport/warden/rig/Skeleton3D" index="9" unique_id=483611192]
+[node name="UpperArm" parent="SubViewport/warden/rig/Skeleton3D" index="9" unique_id=488741961]
 material_override = ExtResource("3_cujqf")
 
-[node name="Camera" parent="SubViewport/warden/Empty_002" parent_id_path=PackedInt32Array(760203765, 228012468) index="0" unique_id=504556859]
+[node name="Camera" parent="SubViewport/warden/Empty_002" parent_id_path=PackedInt32Array(760203765, 1829533776) index="0" unique_id=328493105]
 transform = Transform3D(0.19373992, -0.0041228603, 1.4937417e-08, 0.0041228607, 0.19373989, -1.5451931e-09, -1.4901161e-08, 1.8626454e-09, 0.19378377, 0, 0, 6)
 current = true
 
-[node name="AnimationPlayer" parent="SubViewport/warden" index="4" unique_id=810555081]
+[node name="AnimationPlayer" parent="SubViewport/warden" index="4" unique_id=224597096]
 autoplay = &"warden_idle"
 
 [node name="DEPTHS" type="Sprite2D" parent="." unique_id=1435392674]

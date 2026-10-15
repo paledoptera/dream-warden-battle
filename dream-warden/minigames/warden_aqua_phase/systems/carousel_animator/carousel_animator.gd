@@ -4,8 +4,10 @@ var lilypads: Array[AquaLilypad]
 var display_lilypads: Array[Node3D]
 var current_lilypad: AquaLilypad
 var carousel: AquaCarousel
+var player_3d: AquaPlayer3D
 
 const LILYPAD_3D = preload("uid://dxrrej4kwvhng")
+const LILYPAD_RUNAROUND_3D = preload("uid://b04510e6sryw")
 
 
 func update_carousel(new_carousel: AquaCarousel, new_lilypads: Array[AquaLilypad]):
@@ -23,9 +25,17 @@ func update_carousel(new_carousel: AquaCarousel, new_lilypads: Array[AquaLilypad
 		var new_pos = (i.position/150.0)
 		new_lilypad.position = Vector3(new_pos.x,0.0,new_pos.y)
 		new_lilypad.scale = Vector3(i.scale.x,i.scale.y,i.scale.y)
+		new_lilypad.lilypad = i
 		add_child(new_lilypad)
 		display_lilypads.append(new_lilypad)
 		i.node_3d = new_lilypad
+		
+		if i is AquaLilypadRunaround:
+			var new_runaround = LILYPAD_RUNAROUND_3D.instantiate()
+			new_lilypad.add_child(new_runaround)
+			new_runaround.lilypad = i
+			new_runaround.player_3d = player_3d
+			
 	
 	update_current_lilypad(lilypads[0], new_carousel.current_layer)
 
@@ -41,3 +51,9 @@ func update_current_lilypad(new_lilypad: AquaLilypad, layer: AquaLilypadLayer):
 	current_lilypad.node_3d.hopped_onto()
 	current_lilypad.left.node_3d.animate("next")
 	current_lilypad.right.node_3d.animate("next")
+
+func update_runaround_position(runaround_position: float):
+	if current_lilypad is not AquaLilypadRunaround:
+		return
+	var runaround = current_lilypad.node_3d.get_node("LilypadRunaround3D")
+	runaround.turner.rotation.y = (-runaround_position)-deg_to_rad(90.0)
