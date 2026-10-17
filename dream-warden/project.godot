@@ -59,6 +59,7 @@ options_parent=""
 actors=""
 aqua_lilypad=""
 player=""
+bullet=""
 
 [gui]
 

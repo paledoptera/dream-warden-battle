@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://cp0mexyia6fo7"]
+
+[ext_resource type="Script" uid="uid://de3iisjggiokm" path="res://screens/cutscenes/intro/cutscene_intro.gd" id="1_cqvun"]
+[ext_resource type="PackedScene" uid="uid://ca3d2dgphgx5j" path="res://dialogue/entities/box/dialogue_box.tscn" id="1_owoxc"]
+[ext_resource type="Texture2D" uid="uid://d2i1asm5k5bk5" path="res://shared/sprites/dialogue_box.png" id="2_ct82o"]
+[ext_resource type="Script" uid="uid://d126tu6ywvetb" path="res://shared/scripts/start_music.gd" id="4_hdyhf"]
+[ext_resource type="AudioStream" uid="uid://corpiwypiuyfy" path="res://shared/music/mus_enter.ogg" id="5_qqf6g"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cqvun"]
+resource_local_to_scene = true
+content_margin_left = 144.0
+texture = ExtResource("2_ct82o")
+texture_margin_left = 30.0
+texture_margin_top = 30.0
+
+[node name="CutsceneIntro" type="Node" unique_id=66741986]
+script = ExtResource("1_cqvun")
+
+[node name="DialogueBox" parent="." unique_id=151941393 instance=ExtResource("1_owoxc")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(593, 167)
+offset_top = -4.0
+offset_right = 640.0
+offset_bottom = 111.0
+offset_transform_position = Vector2(114, 0)
+theme_override_colors/font_shadow_color = Color(0.05490196, 0.07450981, 1, 0.49803922)
+theme_override_constants/shadow_outline_size = 0
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+theme_override_styles/normal = SubResource("StyleBoxTexture_cqvun")
+bbcode_enabled = true
+text = "* This is a sample texttt"
+tab_size = 2
+effect_offset = Vector2(30, 30)
+metadata/_edit_use_anchors_ = true
+
+[node name="StartMusic" type="Node" parent="." unique_id=709379938]
+script = ExtResource("4_hdyhf")
+song = ExtResource("5_qqf6g")
+metadata/_custom_type_script = "uid://d126tu6ywvetb"

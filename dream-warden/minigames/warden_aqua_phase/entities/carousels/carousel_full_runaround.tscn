@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://ev5j04jn2a6c"]
+
+[ext_resource type="PackedScene" uid="uid://02hog1jfmg7b" path="res://minigames/warden_aqua_phase/entities/carousels/system/carousel.tscn" id="1_qhkcr"]
+[ext_resource type="Script" uid="uid://dtaturmq4cp0s" path="res://minigames/warden_aqua_phase/entities/carousels/system/lilypad_layer.gd" id="2_ieguo"]
+[ext_resource type="Texture2D" uid="uid://bk7dgtgpwuwxv" path="res://minigames/aqua/res/circle_outline.png" id="3_l1ubv"]
+[ext_resource type="Script" uid="uid://nrrjm53fpcdl" path="res://minigames/warden_aqua_phase/entities/carousels/system/lilypad.gd" id="4_86ii8"]
+[ext_resource type="Script" uid="uid://dhp10ejw1ima3" path="res://minigames/warden_aqua_phase/entities/carousels/system/lilypad_runaround.gd" id="5_kyh4r"]
+[ext_resource type="Texture2D" uid="uid://b7utukbranw2b" path="res://shared/sprites/right_arrow.png" id="6_60x78"]
+[ext_resource type="Texture2D" uid="uid://wy7dhu8gvr8c" path="res://battle/soul/soul/res/soul.png" id="7_ai3gy"]
+
+[node name="CarouselFullRunaround" unique_id=1942144569 node_paths=PackedStringArray("boss_layer") instance=ExtResource("1_qhkcr")]
+boss_layer = NodePath("LilypadLayer2")
+
+[node name="LilypadLayer1" type="Node2D" parent="." index="1" unique_id=1277585484 node_paths=PackedStringArray("up_layer")]
+modulate = Color(0, 1, 1, 1)
+script = ExtResource("2_ieguo")
+travel_time = 0.3
+up_layer = NodePath("../LilypadLayer2")
+enabled = true
+
+[node name="1" type="Sprite2D" parent="LilypadLayer1" index="0" unique_id=372679747 node_paths=PackedStringArray("pointer", "player", "player_marker") groups=["aqua_lilypad"]]
+scale = Vector2(6, 6)
+texture = ExtResource("3_l1ubv")
+script = ExtResource("5_kyh4r")
+speed = 4.25
+pointer = NodePath("Pointer")
+player = NodePath("../../Player")
+player_marker = NodePath("Pointer/PlayerMarker")
+targetable = false
+edge_only = true
+no_horizontal_movement = true
+
+[node name="Pointer" type="Sprite2D" parent="LilypadLayer1/1" index="0" unique_id=1344119917]
+scale = Vector2(0.838, 0.838)
+texture = ExtResource("6_60x78")
+offset = Vector2(8, 0)
+
+[node name="PlayerMarker" type="Sprite2D" parent="LilypadLayer1/1/Pointer" index="0" unique_id=1997425903]
+position = Vector2(16, 0)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("7_ai3gy")
+
+[node name="LilypadLayer2" type="Node2D" parent="." index="2" unique_id=1539505725 node_paths=PackedStringArray("down_layer")]
+modulate = Color(0, 1, 1, 1)
+script = ExtResource("2_ieguo")
+travel_time = 0.3
+down_layer = NodePath("../LilypadLayer1")
+enabled = true
+
+[node name="1" type="Sprite2D" parent="LilypadLayer2" index="0" unique_id=394283685 groups=["aqua_lilypad"]]
+rotation = 1.5707964
+scale = Vector2(2, 2)
+texture = ExtResource("3_l1ubv")
+script = ExtResource("4_86ii8")
+targetable = false
+edge_only = true
+no_horizontal_movement = true
+
+[node name="Camera2D" type="Camera2D" parent="." index="3" unique_id=1540354573]

@@ -85,10 +85,14 @@ func start_dialogue() -> void:
 		portrait.scale = Dialogue.current.portrait_scale
 		portrait.z_index = 10
 		portrait.texture = Dialogue.current.portrait
-		offset_transform_enabled = true
-		offset_transform_position.x = 114.0
+		var stylebox = get_theme_stylebox("normal")
+		stylebox.content_margin_left = 144.0
+		#
+		#offset_transform_enabled = true
+		#offset_transform_position.x = 114.0
 	else:
-		offset_transform_position.x = 0.0
+		var stylebox = get_theme_stylebox("normal")
+		stylebox.content_margin_left = 0.0
 	
 	if Dialogue.current.talksound:
 		talksound = Dialogue.current.talksound

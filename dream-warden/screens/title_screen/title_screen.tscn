@@ -131,6 +131,33 @@ offset_bottom = 36.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="CutsceneIntro" type="Control" parent="Options" unique_id=1003917199 groups=["menu_option"]]
+custom_minimum_size = Vector2(228, 28)
+layout_mode = 2
+focus_mode = 2
+script = ExtResource("3_8eykq")
+offset = Vector2(16, 33)
+metadata/_custom_type_script = "uid://cc5k140pvhkn2"
+
+[node name="Label" type="RichTextLabel" parent="Options/CutsceneIntro" unique_id=724274085]
+custom_minimum_size = Vector2(228, 28)
+clip_contents = false
+layout_mode = 0
+offset_right = 228.0
+offset_bottom = 28.0
+theme = SubResource("Theme_7rakj")
+theme_override_fonts/normal_font = ExtResource("4_bgok2")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
+bbcode_enabled = true
+text = "Cutscene: Intro"
+scroll_active = false
+autowrap_mode = 0
+
 [node name="DreamWarden" type="Control" parent="Options" unique_id=947396992 groups=["menu_option"]]
 custom_minimum_size = Vector2(228, 28)
 layout_mode = 2
@@ -184,6 +211,35 @@ theme_override_font_sizes/mono_font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
 bbcode_enabled = true
 text = "Dream Warden (Parry phase)"
+scroll_active = false
+autowrap_mode = 0
+
+[node name="CutsceneAquaSoul" type="Control" parent="Options" unique_id=737797903 groups=["menu_option"]]
+modulate = Color(0.44291076, 0.44291076, 0.44291073, 1)
+custom_minimum_size = Vector2(228, 28)
+layout_mode = 2
+focus_mode = 2
+script = ExtResource("3_8eykq")
+offset = Vector2(16, 33)
+disabled = true
+metadata/_custom_type_script = "uid://cc5k140pvhkn2"
+
+[node name="Label" type="RichTextLabel" parent="Options/CutsceneAquaSoul" unique_id=602264978]
+custom_minimum_size = Vector2(228, 28)
+clip_contents = false
+layout_mode = 0
+offset_right = 228.0
+offset_bottom = 28.0
+theme = SubResource("Theme_7rakj")
+theme_override_fonts/normal_font = ExtResource("4_bgok2")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxEmpty_fe7gu")
+bbcode_enabled = true
+text = "Cutscene: Aqua Soul"
 scroll_active = false
 autowrap_mode = 0
 
@@ -396,8 +452,10 @@ bbcode_enabled = true
 text = "[shake]KILLED"
 scroll_active = false
 
+[connection signal="selected" from="Options/CutsceneIntro" to="." method="_on_option_selected"]
 [connection signal="selected" from="Options/DreamWarden" to="." method="_on_option_selected"]
 [connection signal="selected" from="Options/DreamWardenParry" to="." method="_on_option_selected"]
+[connection signal="selected" from="Options/CutsceneAquaSoul" to="." method="_on_option_selected"]
 [connection signal="selected" from="Options/DreamWardenAqua" to="." method="_on_option_selected"]
 [connection signal="selected" from="Options/DreamWardenFinal" to="." method="_on_option_selected"]
 [connection signal="selected" from="Options/Bonus1IcePalaceBoss" to="." method="_on_option_selected"]

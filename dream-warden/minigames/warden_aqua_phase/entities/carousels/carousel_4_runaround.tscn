@@ -65,6 +65,7 @@ pointer = NodePath("Pointer")
 player = NodePath("../../Player")
 player_marker = NodePath("Pointer/PlayerMarker")
 targetable = false
+edge_only = true
 no_horizontal_movement = true
 
 [node name="Pointer" type="Sprite2D" parent="LilypadLayer2/1" index="0" unique_id=1208289010]

@@ -6,6 +6,7 @@
 
 [node name="Attack3DDiamonds1" type="Node3D" unique_id=273713936]
 script = ExtResource("1_ajpsw")
+time = 10.0
 
 [node name="BulletSpawner3D" type="Node3D" parent="." unique_id=2123245893]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08013873, 0)

@@ -6,7 +6,7 @@ class_name RichTextPlacementEffect
 @export var element: Node
 @export var start_char: int = 0
 @export var end_char: int = -1
-var debug: bool = false ## Shows the outline of each individual glyph
+var debug: bool = true ## Shows the outline of each individual glyph
 var characters: Array[Rect2]
 var paragraph = TextParagraph.new()
 

@@ -3,6 +3,8 @@ extends Node
 const CAROUSEL_6 = preload("uid://cw522dwinyrlv")
 const CAROUSEL_6_MIDDLE = preload("uid://do3e5hqcv670r")
 const CAROUSEL_4_RUNAROUND = preload("uid://bhvvfwpjguxgx")
+const CAROUSEL_FULL_RUNAROUND = preload("uid://ev5j04jn2a6c")
+const CAROUSEL_FULL_4_RUNAROUND = preload("uid://jnexccu6q72g")
 
 @export var debug: bool = false
 var layers: Array[AquaLilypadLayer]
@@ -125,7 +127,6 @@ func _on_boss_attack_started(attackdata3d: AttackData3D) -> void:
 	attack_scene.boss = %Boss
 	attack_scene.carousel_animator = %CarouselAnimator
 	attack_scene.carousel = carousel
-	attack_scene.start(attackdata3d.length)
 
 
 func _on_boss_vulnerability_state_changed(vulnerable: bool) -> void:
@@ -148,7 +149,11 @@ func _stage_changed(value: int) -> void:
 	%Boss.stage = value
 	
 	match stage:
-		0:
-			pass
-		1:
+		0,2:
+			change_carousel(CAROUSEL_6_MIDDLE)
+		1,3:
 			change_carousel(CAROUSEL_4_RUNAROUND)
+		4:
+			change_carousel(CAROUSEL_FULL_RUNAROUND)
+		5:
+			change_carousel(CAROUSEL_FULL_4_RUNAROUND)

@@ -5,6 +5,9 @@ class_name AquaLilypadLayer extends Node2D
 @export var down_layer: AquaLilypadLayer
 @export var enabled: bool = false: set = _set_enabled
 
+var up_lilypad: AquaLilypad
+var down_lilypad: AquaLilypad
+
 var lilypads: Array[Node2D]
 var current: int = 0
 

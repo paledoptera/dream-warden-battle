@@ -1,20 +1,201 @@
 [gd_scene format=3 uid="uid://cdod5f5v4muf"]
 
-[ext_resource type="Script" uid="uid://cbombr5evs34s" path="res://minigames/warden_aqua_phase/entities/attacks/att3d_heavy_lasers/att_3d_heavy_lasers_1.gd" id="1_nco76"]
+[ext_resource type="Script" uid="uid://c1wxnw0brheck" path="res://minigames/warden_aqua_phase/entities/attacks/att3d_heavy_shocks/att_3d_heavy_shocks_1.gd" id="1_qa72u"]
 [ext_resource type="Script" uid="uid://16h0y50oyjvy" path="res://minigames/warden_aqua_phase/entities/bullets/scripts/bullet_spawner_3d.gd" id="2_k4m3c"]
-[ext_resource type="PackedScene" uid="uid://dmlaifxf3g148" path="res://minigames/warden_aqua_phase/entities/bullets/laser_3d.tscn" id="3_ioxq2"]
+[ext_resource type="PackedScene" uid="uid://e6ink243yvs6" path="res://minigames/warden_aqua_phase/entities/bullets/shock_3d.tscn" id="3_qa72u"]
+[ext_resource type="Texture2D" uid="uid://ffua0i5vrfin" path="res://battle/enemies/warden/attacks/normal/1_zaps/bullets/res/electroball.png" id="4_qa72u"]
 
-[node name="Attack3DLasers" type="Node3D" unique_id=273713936]
-script = ExtResource("1_nco76")
+[sub_resource type="GDScript" id="GDScript_54ggp"]
+resource_name = "carousel"
+script/source = "extends Node3D
+
+var speed: float = 1.0
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	rotate_y(speed*delta)
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rmhmx"]
+atlas = ExtResource("4_qa72u")
+region = Rect2(0, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5k7oq"]
+atlas = ExtResource("4_qa72u")
+region = Rect2(20, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfisr"]
+atlas = ExtResource("4_qa72u")
+region = Rect2(40, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_52msy"]
+atlas = ExtResource("4_qa72u")
+region = Rect2(60, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hmah8"]
+atlas = ExtResource("4_qa72u")
+region = Rect2(80, 0, 20, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rmhmx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5k7oq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfisr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_52msy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hmah8")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="Attack3DShocks" type="Node3D" unique_id=273713936]
+script = ExtResource("1_qa72u")
+time = 4.0
 
 [node name="BulletSpawner3D" type="Node3D" parent="." unique_id=700165433]
 script = ExtResource("2_k4m3c")
-bullet = Array[PackedScene]([ExtResource("3_ioxq2")])
+bullet = Array[PackedScene]([ExtResource("3_qa72u")])
 metadata/_custom_type_script = "uid://16h0y50oyjvy"
 
 [node name="Timer" type="Timer" parent="." unique_id=1183751331]
-wait_time = 0.1
+wait_time = 0.6
 one_shot = true
 autostart = true
+
+[node name="ElectroCarousel" type="Node3D" parent="." unique_id=1160632283]
+script = SubResource("GDScript_54ggp")
+
+[node name="Electrosphere1" type="Node3D" parent="ElectroCarousel" unique_id=634806553]
+
+[node name="Sprite3D" type="AnimatedSprite3D" parent="ElectroCarousel/Electrosphere1" unique_id=850688225]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+pixel_size = 0.005
+billboard = 1
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+autoplay = "default"
+frame_progress = 0.60785544
+
+[node name="Electrosphere2" type="Node3D" parent="ElectroCarousel" unique_id=1014700311]
+transform = Transform3D(0.30901697, 0, -0.95105654, 0, 1, 0, 0.95105654, 0, 0.30901697, 0, 0, 0)
+
+[node name="Sprite3D" type="AnimatedSprite3D" parent="ElectroCarousel/Electrosphere2" unique_id=1252872109]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+pixel_size = 0.005
+billboard = 1
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+autoplay = "default"
+frame_progress = 0.9306286
+
+[node name="Electrosphere3" type="Node3D" parent="ElectroCarousel" unique_id=49426264]
+transform = Transform3D(-0.80901706, 0, -0.5877852, 0, 1, 0, 0.5877852, 0, -0.80901706, 0, 0, 0)
+
+[node name="Sprite3D" type="AnimatedSprite3D" parent="ElectroCarousel/Electrosphere3" unique_id=2042526343]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+pixel_size = 0.005
+billboard = 1
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+autoplay = "default"
+frame_progress = 0.9306286
+
+[node name="Electrosphere6" type="Node3D" parent="ElectroCarousel" unique_id=814184535]
+transform = Transform3D(0.809017, 0, -0.58778524, 0, 1, 0, 0.58778524, 0, 0.809017, 0, 0, 0)
+
+[node name="Sprite3D" type="AnimatedSprite3D" parent="ElectroCarousel/Electrosphere6" unique_id=1180635450]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+pixel_size = 0.005
+billboard = 1
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+autoplay = "default"
+frame_progress = 0.28776374
+
+[node name="Electrosphere7" type="Node3D" parent="ElectroCarousel" unique_id=744467605]
+transform = Transform3D(-0.30901703, 0, -0.9510565, 0, 1, 0, 0.9510565, 0, -0.30901703, 0, 0, 0)
+
+[node name="Sprite3D" type="AnimatedSprite3D" parent="ElectroCarousel/Electrosphere7" unique_id=1897778302]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+pixel_size = 0.005
+billboard = 1
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+autoplay = "default"
+frame_progress = 0.9306286
+
+[node name="ElectroCarousel2" type="Node3D" parent="." unique_id=1186972088]
+script = SubResource("GDScript_54ggp")
+
+[node name="Electrosphere4" type="Node3D" parent="ElectroCarousel2" unique_id=644693666]
+transform = Transform3D(-0.80901694, 0, 0.58778536, 0, 1, 0, -0.58778536, 0, -0.80901694, 0, 0, 0)
+
+[node name="Sprite3D" type="AnimatedSprite3D" parent="ElectroCarousel2/Electrosphere4" unique_id=1643219191]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+pixel_size = 0.005
+billboard = 1
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+autoplay = "default"
+frame_progress = 0.9306286
+
+[node name="Electrosphere5" type="Node3D" parent="ElectroCarousel2" unique_id=1466457459]
+transform = Transform3D(0.30901697, 0, 0.95105654, 0, 1, 0, -0.95105654, 0, 0.30901697, 0, 0, 0)
+
+[node name="Sprite3D" type="AnimatedSprite3D" parent="ElectroCarousel2/Electrosphere5" unique_id=91653973]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+pixel_size = 0.005
+billboard = 1
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+autoplay = "default"
+frame_progress = 0.9306286
+
+[node name="Electrosphere8" type="Node3D" parent="ElectroCarousel2" unique_id=66253418]
+transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="Sprite3D" type="AnimatedSprite3D" parent="ElectroCarousel2/Electrosphere8" unique_id=703336173]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+pixel_size = 0.005
+billboard = 1
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+autoplay = "default"
+frame_progress = 0.9306286
+
+[node name="Electrosphere9" type="Node3D" parent="ElectroCarousel2" unique_id=2037606179]
+transform = Transform3D(-0.30901703, 0, 0.9510565, 0, 1, 0, -0.9510565, 0, -0.30901703, 0, 0, 0)
+
+[node name="Sprite3D" type="AnimatedSprite3D" parent="ElectroCarousel2/Electrosphere9" unique_id=1086136139]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+pixel_size = 0.005
+billboard = 1
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+autoplay = "default"
+frame_progress = 0.9306286
+
+[node name="Electrosphere10" type="Node3D" parent="ElectroCarousel2" unique_id=1991728933]
+transform = Transform3D(0.809017, 0, 0.58778524, 0, 1, 0, -0.58778524, 0, 0.809017, 0, 0, 0)
+
+[node name="Sprite3D" type="AnimatedSprite3D" parent="ElectroCarousel2/Electrosphere10" unique_id=1709161857]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+pixel_size = 0.005
+billboard = 1
+texture_filter = 0
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+autoplay = "default"
+frame_progress = 0.9306286
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

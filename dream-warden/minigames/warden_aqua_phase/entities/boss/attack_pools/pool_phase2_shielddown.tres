@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="AttackPool3D" format=3 uid="uid://br761x4jj26aa"]
+
+[ext_resource type="Script" uid="uid://cwippqy5qorfo" path="res://minigames/warden_aqua_phase/systems/attack_data_3d.gd" id="1_4yesx"]
+[ext_resource type="PackedScene" uid="uid://cdod5f5v4muf" path="res://minigames/warden_aqua_phase/entities/attacks/att3d_heavy_shocks/att3d_heavy_shocks_1.tscn" id="2_wwt5w"]
+[ext_resource type="Script" uid="uid://dim341q48bw11" path="res://minigames/warden_aqua_phase/systems/attack_pool_3d.gd" id="3_fd3u5"]
+
+[sub_resource type="Resource" id="Resource_kfwir"]
+resource_name = "HeavyShocks"
+script = ExtResource("1_4yesx")
+scene = ExtResource("2_wwt5w")
+length = 4.0
+layer = 0
+metadata/_custom_type_script = "uid://cwippqy5qorfo"
+
+[sub_resource type="Resource" id="Resource_kfpeq"]
+resource_name = "HeavyShocks"
+script = ExtResource("1_4yesx")
+scene = ExtResource("2_wwt5w")
+length = 4.0
+layer = 0
+metadata/_custom_type_script = "uid://cwippqy5qorfo"
+
+[resource]
+script = ExtResource("3_fd3u5")
+light = Array[ExtResource("1_4yesx")]([SubResource("Resource_kfpeq")])
+heavy = Array[ExtResource("1_4yesx")]([SubResource("Resource_kfwir")])
+metadata/_custom_type_script = "uid://dim341q48bw11"

@@ -21,7 +21,7 @@ var player: Node3D
 var siner: float = 0.0
 var light_attack_count: int = 0
 var attacking: bool = false
-var stage: int = 1:
+var stage: int = 0:
 	set(value):
 		stage = value
 		stage_changed.emit(value)
@@ -131,6 +131,10 @@ func do_attack(type: String) -> AttackData3D:
 	return attack
 
 func hit():
+	if stage == 1 and Party.enemy[0].hp <= 2500:
+		mega_hit()
+		return
+	
 	if invincibility_frames > 0.0 or not vulnerable:
 		return
 	
@@ -149,15 +153,15 @@ func hit():
 			Party.enemy[0].hp -= 56.0
 			vulnerable = false
 			
-			if Party.enemy[0].hp <= 2500:
-				mega_hit()
-				
-			else:
-				await get_tree().create_timer(1.0).timeout
-				vulnerable = true
+			await get_tree().create_timer(1.0).timeout
+			vulnerable = true
 		
 		2:
 			block(10)
+			
+		3:
+			
+			vulnerable = false
 		
 			
 	
@@ -167,7 +171,6 @@ func hit():
 func mega_hit():
 	get_owner().stage += 1
 	$StateMachine.change_state(%Idle)
-	shield_up = false
 	vulnerable = false
 	attacking = false
 	if attacks:
@@ -175,8 +178,9 @@ func mega_hit():
 			if i.instance:
 				i.instance.queue_free()
 		attacks.clear()
-	Sound.play(preload("res://shared/sound_effects/snd_prophecy_break.wav"))
+	Sound.play(preload("res://shared/sound_effects/snd_prophecy_break.wav"),2.0)
 	Sound.play(preload("res://shared/sound_effects/snd_ward_hardhit.wav"))
+
 func trigger_damage_number(damage: float = 0.0) -> void:
 	var damage_number: FloatingText
 	if damage == 0.0:
@@ -195,10 +199,15 @@ func trigger_damage_number(damage: float = 0.0) -> void:
 func _on_stage_changed(value: int):
 	match stage:
 		0:
-			pass
+			shield_up = true
 		1:
+			shield_up = false
 			spinner = SPINNER.instantiate()
 			add_child(spinner)
+		2:
+			shield_up = true
+			spinner.queue_free()
+			spinner = null
 
 func block(tp_amount: int) -> void:
 	invincibility_frames = 0.5
@@ -218,6 +227,6 @@ func refresh_attack_pool() -> void:
 			attack_pool = preload("uid://cav4vi3medhed")
 		
 		2:
-			attack_pool = preload("uid://dnox8odyohfkr")
+			attack_pool = preload("uid://dnox8odyohfkr")  #
 	
 	light_attack_count = randi_range(attack_pool.light_count_min,attack_pool.light_count_max)

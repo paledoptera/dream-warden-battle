@@ -192,7 +192,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_lrihj")
 bbcode_enabled = true
 text = "* This is a sample texttt"
 tab_size = 2
-effect_offset = Vector2(30, 15)
+effect_offset = Vector2(0, 15)
 metadata/_edit_use_anchors_ = true
 
 [node name="TPBarPivot" type="Node2D" parent="." unique_id=168803083]

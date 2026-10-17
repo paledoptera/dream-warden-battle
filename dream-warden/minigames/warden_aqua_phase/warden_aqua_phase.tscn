@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://c4wgmproivg7r" path="res://battle/stages/dream_scape/res/background seamless.png" id="5_54ggp"]
 [ext_resource type="Texture2D" uid="uid://caini7ywdi8h7" path="res://battle/stages/dream_scape/res/background seamless test2.png" id="6_5fe11"]
 [ext_resource type="Texture2D" uid="uid://4ae0c881e7sr" path="res://battle/enemies/warden/actor/res/model/assets/IMAGE_DEPTHS_tiled.png" id="6_6jdf2"]
-[ext_resource type="Shader" uid="uid://dqujwsyrxi2l0" path="res://battle/enemies/warden/actor/res/model/outline2d.gdshader" id="6_hdtg5"]
 [ext_resource type="Script" uid="uid://bsfkfphvdwhhn" path="res://minigames/aqua/remote_transform_3d_2d.gd" id="10_12mqw"]
 [ext_resource type="Script" uid="uid://c0eum5nfaksrs" path="res://shared/actors/actor.gd" id="13_5fe11"]
 [ext_resource type="Texture2D" uid="uid://cmg2825l7r7m5" path="res://battle/system/ui/action_panel/enemy_selection/no_mercy.png" id="13_54ggp"]
@@ -423,20 +422,17 @@ fill_to = Vector2(0, 1)
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_57qmd"]
 blend_mode = 2
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_12mqw"]
-shader = ExtResource("6_hdtg5")
-shader_parameter/clr = Color(0.097582705, 0.07795637, 0.21730766, 1)
-shader_parameter/type = 1
-shader_parameter/thickness = 1.0
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ej7q8"]
+blend_mode = 4
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_5fe11"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_enhy7"]
 viewport_path = NodePath("BlockEffect")
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vbktf"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ehlbo"]
 resource_local_to_scene = true
 transparency = 1
 shading_mode = 0
-albedo_texture = SubResource("ViewportTexture_5fe11")
+albedo_texture = SubResource("ViewportTexture_enhy7")
 texture_filter = 0
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_5fe11"]
@@ -468,7 +464,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_vbktf"]
 resource_name = "attack_fade_in"
-length = 0.19999999999999998
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -484,7 +480,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_enhy7"]
 resource_name = "attack_fade_in"
-length = 0.19999999999999998
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -814,7 +810,7 @@ color = Color(0.3741394, 0.37413922, 0.37413922, 1)
 
 [node name="BossViewport" type="SubViewportContainer" parent="." unique_id=1807844297]
 top_level = true
-material = SubResource("ShaderMaterial_12mqw")
+material = SubResource("CanvasItemMaterial_ej7q8")
 custom_minimum_size = Vector2(640, 480)
 offset_right = 640.0
 offset_bottom = 480.0
@@ -855,7 +851,7 @@ remote_path = NodePath("../../../../../PlayerViewport/SubViewport/Camera3D")
 unique_name_in_owner = true
 
 [node name="BlockEffect3D" parent="BossViewport/SubViewport/Boss/Warden" parent_id_path=PackedInt32Array(1567413262, 760203765) index="4" unique_id=931942235]
-surface_material_override/0 = SubResource("StandardMaterial3D_vbktf")
+surface_material_override/0 = SubResource("StandardMaterial3D_ehlbo")
 
 [node name="Spinners" type="Node3D" parent="BossViewport/SubViewport" unique_id=1856576093]
 

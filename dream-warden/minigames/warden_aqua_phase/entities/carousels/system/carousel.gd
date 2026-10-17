@@ -35,12 +35,23 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if not current_layer.enabled:
 		var new_layer = check_for_valid_layer()
-		current_layer = new_layer
-		current_lilypad = current_layer.get_child(current_layer.current)
+		if current_layer.down_lilypad:
+			current_lilypad = current_layer.down_lilypad
+			current_layer = new_layer
+		else:
+			current_layer = new_layer
+			current_lilypad = current_layer.get_child(current_layer.current)
+		
 		var tween = create_tween()
 		tween.tween_property(%Player,"global_position",current_lilypad.global_position,0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 		return
-		
+	
+	if current_lilypad is AquaLilypadRunaround:
+			var marker = current_lilypad.player_marker
+			if current_layer.down_layer:
+				current_layer.down_lilypad = Tools.find_nearest_child_to_node(current_layer.down_layer,marker)
+			elif current_layer.up_layer:
+				current_layer.up_lilypad = Tools.find_nearest_child_to_node(current_layer.up_layer,marker)
 	
 	
 	var horizontal_input = Input.get_axis("left","right")
@@ -88,20 +99,27 @@ func goto_vertical_lilypad(val: int):
 	if current_layer.down_layer and val == 1:
 		if not current_layer.down_layer.enabled:
 			return
-		current_layer = current_layer.down_layer
 		
-		if current_lilypad is AquaLilypadRunaround:
-			var marker = current_lilypad.player_marker
-			current_lilypad = Tools.find_nearest_child_to_node(current_layer,marker)
-			
+		if current_layer.down_lilypad:
+			current_lilypad = current_layer.down_lilypad
+			current_layer = current_layer.down_layer
 			return
+		else:
+			current_layer = current_layer.down_layer
 		
 		current_lilypad = current_layer.get_child(current_layer.current)
 		return
 	elif current_layer.up_layer and val == -1:
 		if not current_layer.up_layer.enabled:
 			return
-		current_layer = current_layer.up_layer
+		
+		if current_layer.up_lilypad:
+			current_lilypad = current_layer.up_lilypad
+			current_layer = current_layer.up_layer
+			return
+		else:
+			current_layer = current_layer.up_layer
+		
 		current_lilypad = current_layer.get_child(current_layer.current)
 		
 		if current_lilypad is AquaLilypadRunaround:

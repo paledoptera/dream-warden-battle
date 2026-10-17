@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://jnexccu6q72g"]
+
+[ext_resource type="PackedScene" uid="uid://02hog1jfmg7b" path="res://minigames/warden_aqua_phase/entities/carousels/system/carousel.tscn" id="1_fpfnr"]
+[ext_resource type="Script" uid="uid://dtaturmq4cp0s" path="res://minigames/warden_aqua_phase/entities/carousels/system/lilypad_layer.gd" id="2_vwlqq"]
+[ext_resource type="Texture2D" uid="uid://bk7dgtgpwuwxv" path="res://minigames/aqua/res/circle_outline.png" id="3_7xgvq"]
+[ext_resource type="Script" uid="uid://dhp10ejw1ima3" path="res://minigames/warden_aqua_phase/entities/carousels/system/lilypad_runaround.gd" id="4_2y1tm"]
+[ext_resource type="Texture2D" uid="uid://b7utukbranw2b" path="res://shared/sprites/right_arrow.png" id="5_thrdx"]
+[ext_resource type="Texture2D" uid="uid://wy7dhu8gvr8c" path="res://battle/soul/soul/res/soul.png" id="6_ddx4f"]
+[ext_resource type="Script" uid="uid://nrrjm53fpcdl" path="res://minigames/warden_aqua_phase/entities/carousels/system/lilypad.gd" id="7_dg1y8"]
+
+[node name="CarouselFullRunaround" unique_id=1942144569 instance=ExtResource("1_fpfnr")]
+
+[node name="LilypadLayer1" type="Node2D" parent="." index="1" unique_id=1277585484 node_paths=PackedStringArray("up_layer")]
+modulate = Color(0, 1, 1, 1)
+script = ExtResource("2_vwlqq")
+travel_time = 0.3
+up_layer = NodePath("../LilypadLayer2")
+enabled = true
+
+[node name="1" type="Sprite2D" parent="LilypadLayer1" index="0" unique_id=372679747 node_paths=PackedStringArray("pointer", "player", "player_marker") groups=["aqua_lilypad"]]
+scale = Vector2(6, 6)
+texture = ExtResource("3_7xgvq")
+script = ExtResource("4_2y1tm")
+speed = 4.25
+pointer = NodePath("Pointer")
+player = NodePath("../../Player")
+player_marker = NodePath("Pointer/PlayerMarker")
+targetable = false
+no_horizontal_movement = true
+
+[node name="Pointer" type="Sprite2D" parent="LilypadLayer1/1" index="0" unique_id=1344119917]
+scale = Vector2(0.838, 0.838)
+texture = ExtResource("5_thrdx")
+offset = Vector2(8, 0)
+
+[node name="PlayerMarker" type="Sprite2D" parent="LilypadLayer1/1/Pointer" index="0" unique_id=1997425903]
+position = Vector2(16, 0)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("6_ddx4f")
+
+[node name="LilypadLayer2" type="Node2D" parent="." index="2" unique_id=1539505725 node_paths=PackedStringArray("down_layer")]
+modulate = Color(0, 1, 1, 1)
+script = ExtResource("2_vwlqq")
+travel_time = 0.3
+down_layer = NodePath("../LilypadLayer1")
+enabled = true
+
+[node name="1" type="Sprite2D" parent="LilypadLayer2" index="0" unique_id=394283685 groups=["aqua_lilypad"]]
+position = Vector2(0, 50)
+rotation = 1.5707964
+texture = ExtResource("3_7xgvq")
+script = ExtResource("7_dg1y8")
+
+[node name="2" type="Sprite2D" parent="LilypadLayer2" index="1" unique_id=1188164211 groups=["aqua_lilypad"]]
+position = Vector2(-47.552826, 15.450849)
+rotation = 2.8274333
+texture = ExtResource("3_7xgvq")
+script = ExtResource("7_dg1y8")
+
+[node name="3" type="Sprite2D" parent="LilypadLayer2" index="2" unique_id=1054224273 groups=["aqua_lilypad"]]
+position = Vector2(-29.38926, -40.45085)
+rotation = -2.1991148
+scale = Vector2(0.99999994, 0.99999994)
+texture = ExtResource("3_7xgvq")
+script = ExtResource("7_dg1y8")
+
+[node name="4" type="Sprite2D" parent="LilypadLayer2" index="3" unique_id=1138181315 groups=["aqua_lilypad"]]
+position = Vector2(29.389269, -40.450848)
+rotation = -0.94247764
+texture = ExtResource("3_7xgvq")
+script = ExtResource("7_dg1y8")
+
+[node name="5" type="Sprite2D" parent="LilypadLayer2" index="4" unique_id=1665060390 groups=["aqua_lilypad"]]
+position = Vector2(47.552826, 15.450856)
+rotation = 0.31415942
+texture = ExtResource("3_7xgvq")
+script = ExtResource("7_dg1y8")
+
+[node name="Camera2D" type="Camera2D" parent="." index="3" unique_id=1540354573]

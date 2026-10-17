@@ -109,7 +109,7 @@ func action() -> void:
 			anim.set_target(%Boss2DActor)
 			Party.tp = 0.0
 			
-			await Global.get_tree().create_timer(0.62).timeout
+			await Global.get_tree().create_timer(0.5).timeout
 			
 			%Boss.trigger_damage_number(damage)
 			
@@ -118,7 +118,6 @@ func action() -> void:
 			
 			
 			active = false
-			await get_tree().create_timer(0.3).timeout
 			Party.enemy[0].hp -= 150.0
 			%Boss.mega_hit()
 			

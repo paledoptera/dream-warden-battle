@@ -1,9 +1,11 @@
 class_name AquaLilypadRunaround extends AquaLilypad
 @export var speed: float = 1.0
 
+
 @export var pointer: Node2D
 @export var player: Node2D
 @export var player_marker: Node2D
+
 var player_angle: float = 0.0
 var current: bool = false
 

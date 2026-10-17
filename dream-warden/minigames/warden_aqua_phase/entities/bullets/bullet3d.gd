@@ -1,6 +1,8 @@
 extends Area3D
 class_name Bullet3D
 
+signal deleted(bullet)
+
 @export_group("Stats")
 @export var damage := 1
 ## The amount of TP gained by grazing
@@ -74,3 +76,6 @@ func hit() -> void:
 	if parryable:
 		Party.tp += parry_points
 		destroy()
+
+func _exit_tree() -> void:
+	deleted.emit(self)
